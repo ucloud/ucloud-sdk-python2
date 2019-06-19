@@ -1,0 +1,42 @@
+# Config file for automatic testing at travis-ci.org
+
+language: python
+python:
+    - 2.7
+dist: xenial
+sudo: true
+
+# command to install dependencies, e.g. pip install -r requirements.txt --use-mirrors
+install: pip install -U tox-travis
+
+# command to run tests, e.g. python setup.py test
+script: tox
+
+before_deploy:
+    - pip install -e .[doc]
+    - make docs
+    - touch docs/build/html/.nojekyll
+
+# deploy new versions to PyPI / GithubIO
+deploy:
+  - provider: pages
+    skip_cleanup: true
+    github_token:
+      secure: "UUKdzn0gL5u4KCKgAYej+MjsfWua+lgKRE+e14YaWCnPwofw4+QJRdFgQ1UY1uRB/DgvX4xRVizilN/vlTzwRXQtsi/HDEtvQObajbHg8IklxXysC1HaXrNPOonpFLccy8AXx+NsiGBLUX4fMylWyQoAR+d1eDKiucQgoRCo698yYjL8NiRXQQ/1p8KKB2Gl3oP205bySjUfGlcUOjEv5SWdEtHwGl9jItjgF+izgsS6Kp4gbwSTLrf919BOhpda0ZeF8zwrM9jdhGw/6mqad6QIfsarz12rC7ULbHIeULpEH32zkCEYKNa+Pzz3Ext+A9FX1wv4i47g+3ki1OfkcurDDzDD3h3JLK2Ckx899x0F7FUyp9P+MPu65eum7KoQBRiiUc8IBCWxAZprk4cZFvWOKGSih5EteT65hwJi0/IGL7X1oy6rR5pvVMmKfDqigwfMLH7EBIU/sohijwA/BFHB4Tl1mEHCpxCtTq8sWnx9LKEMq83x8r1U8QIrzfMwlX9B8Izcl6VtNTHiJm4/flDGxGYsyIEbOqQAPzNjX84DckWjyrrGlLddPUkRclrSQtMvVAMtGn1xBzlFOcVRGPOKUZHYTktX1M/3tYFRHPynhqn/W9YNafWRN3VVkpVF4b1mlWYhOqir6tHBXFDtKRgMpxDXq/V8X8ixYQtmQjQ="
+    local_dir: docs/build/html
+    on:
+      branch: master
+      tags: true
+      repo: ucloud/ucloud-sdk-python2
+      python: 2.7
+  - provider: pypi
+    distributions: sdist bdist_wheel
+    skip_existing: true
+    user: ucloud
+    password:
+      secure: "BX3EQaYe4Rw8C6wja0W3BNXBHCEqeTA4qFaGDyKoXdvlr4NAxFla+HtCBRs3qqhVmUoyfZTjKBgNUiCUSZDnJAD+a3l1wHFvHMvPQYPq/talux+j1Hiwu/u0Uq4ic3oKtpxefB93rTkMR7HgQioUQX3NToWoRNHrPgnSPdG175zdfU+O2QjlXEjv9rsxLrqPILnKvgnb4oEwbOgBhCrOwKP2XAzJup7W2DHWuPRBmBuARAvVdSps4o4pDJn6MJ58ZKyZp4D3YNDP8rv2rH2oGep3aNOhJf5O02NQWPZP5/qSErhVuXUmqkcq5+vHlNIb7Xc5mU3PiNQXaE9Ep4sYBo8s5u/Juv+9Rz9W/iegEb8WlVFAEW71F/CwBm7W/z+IXXUMkEOEs423XF1BQq/eEb3uzAulwLSC3lHrn/OOCcciJLWjDML83r4mDYzo9ij7lkxBA1a6kDSP+smPMpFJN8N8lCC2/3RtXhj7XUjX+DoftJ0gatJI100rzATkQ43BdA+rExXQUl5BQaRZDz3Jq0/HztnTh7vFu/CEPr2mBqOuvyFLoQp6hUeHldZykMr90YfIPxIKfHItsx5cBtPIrz50y/jj+LCetF6SO+oztSmjJj0ET2yUalomK6ITvGh0T7eme4Z80A7Ylw9PhM2eJd9GLjCtA8kjx9sIWN7yQPc="
+    on:
+      branch: master
+      tags: true
+      repo: ucloud/ucloud-sdk-python2
+      python: 2.7
