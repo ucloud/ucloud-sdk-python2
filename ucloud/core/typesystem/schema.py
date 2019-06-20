@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-import collections
 from ucloud.core.typesystem import abstract, fields
 from ucloud.core.exc import ValidationException
+from ucloud.core.utils import compact
 
 
 class Schema(abstract.Schema):
@@ -21,7 +21,7 @@ class Schema(abstract.Schema):
                     continue
                 if field.default is None:
                     continue
-                if isinstance(field.default, collections.Callable):
+                if isinstance(field.default, compact.Callable):
                     v = field.default()
                 else:
                     v = field.default
@@ -67,7 +67,7 @@ class RequestSchema(Schema):
                     continue
                 if field.default is None:
                     continue
-                if isinstance(field.default, collections.Callable):
+                if isinstance(field.default, compact.Callable):
                     v = field.default()
                 else:
                     v = field.default
