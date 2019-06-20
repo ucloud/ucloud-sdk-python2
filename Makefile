@@ -79,9 +79,7 @@ clean-test:
 	rm -fr htmlcov/
 
 migrate:
-	git clone https://github.com/yufeiminds/ucloud-sdk-python3.git .migrate
-	cd .migrate && git checkout feature/compitable-for-python2-migration
-	cd ..
+	git clone https://github.com/ucloud/ucloud-sdk-python3.git .migrate
 	python scripts/migrate.py --source .migrate/ucloud --output ucloud
 	python scripts/migrate.py --source .migrate/tests --output tests
 	rm -rf .migrate
