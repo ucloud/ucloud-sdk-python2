@@ -1,14 +1,12 @@
 # -*- coding: utf-8 -*-
 
-from __future__ import unicode_literals
-
 from ucloud.core.client import Client
 from ucloud.services.pathx.schemas import apis
 
 
 class PathXClient(Client):
-    def __init__(self, config, transport=None, middleware=None):
-        super(PathXClient, self).__init__(config, transport, middleware)
+    def __init__(self, config, transport=None, middleware=None, logger=None):
+        super(PathXClient, self).__init__(config, transport, middleware, logger)
 
     def create_global_ssh_instance(self, req=None, **kwargs):
         """ CreateGlobalSSHInstance - 创建GlobalSSH实例

@@ -1,7 +1,5 @@
 # -*- coding: utf-8 -*-
 
-from __future__ import unicode_literals
-
 from ucloud.core.exc._exc import (
     UCloudException,
     ValidationException,

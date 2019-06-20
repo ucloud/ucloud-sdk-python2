@@ -1,7 +1,5 @@
 # -*- coding: utf-8 -*-
 
-from __future__ import unicode_literals
-
 import hashlib
 from collections import OrderedDict
 from ucloud.core.typesystem import schema, fields

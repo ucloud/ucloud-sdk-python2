@@ -1,12 +1,55 @@
 # -*- coding: utf-8 -*-
 
-from __future__ import unicode_literals
-
 from ucloud.core.typesystem import schema, fields
 from ucloud.services.uaccount.schemas import models
 
 """ UAccount API Schema
 """
+"""
+API: ModifyProject
+
+修改项目
+"""
+
+
+class ModifyProjectRequestSchema(schema.RequestSchema):
+    """ ModifyProject - 修改项目
+    """
+
+    fields = {
+        "ProjectId": fields.Str(required=True, dump_to="ProjectId"),
+        "ProjectName": fields.Str(required=True, dump_to="ProjectName"),
+    }
+
+
+class ModifyProjectResponseSchema(schema.ResponseSchema):
+    """ ModifyProject - 修改项目
+    """
+
+    fields = {}
+
+
+"""
+API: TerminateProject
+
+删除项目
+"""
+
+
+class TerminateProjectRequestSchema(schema.RequestSchema):
+    """ TerminateProject - 删除项目
+    """
+
+    fields = {"ProjectId": fields.Str(required=False, dump_to="ProjectId")}
+
+
+class TerminateProjectResponseSchema(schema.ResponseSchema):
+    """ TerminateProject - 删除项目
+    """
+
+    fields = {}
+
+
 """
 API: CreateProject
 
@@ -102,48 +145,3 @@ class GetUserInfoResponseSchema(schema.ResponseSchema):
             models.UserInfoSchema(), required=True, load_from="DataSet"
         )
     }
-
-
-"""
-API: ModifyProject
-
-修改项目
-"""
-
-
-class ModifyProjectRequestSchema(schema.RequestSchema):
-    """ ModifyProject - 修改项目
-    """
-
-    fields = {
-        "ProjectId": fields.Str(required=True, dump_to="ProjectId"),
-        "ProjectName": fields.Str(required=True, dump_to="ProjectName"),
-    }
-
-
-class ModifyProjectResponseSchema(schema.ResponseSchema):
-    """ ModifyProject - 修改项目
-    """
-
-    fields = {}
-
-
-"""
-API: TerminateProject
-
-删除项目
-"""
-
-
-class TerminateProjectRequestSchema(schema.RequestSchema):
-    """ TerminateProject - 删除项目
-    """
-
-    fields = {"ProjectId": fields.Str(required=False, dump_to="ProjectId")}
-
-
-class TerminateProjectResponseSchema(schema.ResponseSchema):
-    """ TerminateProject - 删除项目
-    """
-
-    fields = {}

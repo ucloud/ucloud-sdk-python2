@@ -71,7 +71,7 @@ class Migrate(object):
     def convert(self, source):
         ast_node = ast.parse(source)
         ast_node = self.transformer.visit(ast_node)
-        return UTF8_HEADER + UNICODE_HEADER + astor.to_source(ast_node)
+        return UTF8_HEADER + astor.to_source(ast_node)
 
     def find_python_files(self):
         for folder, _, files in list(os.walk(self.source)):

@@ -1,14 +1,12 @@
 # -*- coding: utf-8 -*-
 
-from __future__ import unicode_literals
-
 from ucloud.core.client import Client
 from ucloud.services.udpn.schemas import apis
 
 
 class UDPNClient(Client):
-    def __init__(self, config, transport=None, middleware=None):
-        super(UDPNClient, self).__init__(config, transport, middleware)
+    def __init__(self, config, transport=None, middleware=None, logger=None):
+        super(UDPNClient, self).__init__(config, transport, middleware, logger)
 
     def describe_udpn(self, req=None, **kwargs):
         """ DescribeUDPN - 描述 UDPN

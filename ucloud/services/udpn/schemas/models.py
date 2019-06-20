@@ -1,7 +1,5 @@
 # -*- coding: utf-8 -*-
 
-from __future__ import unicode_literals
-
 from ucloud.core.typesystem import schema, fields
 
 
@@ -10,13 +8,13 @@ class UDPNDataSchema(schema.ResponseSchema):
     """
 
     fields = {
-        "ChargeType": fields.Str(required=True, load_from="ChargeType"),
-        "Bandwidth": fields.Int(required=True, load_from="Bandwidth"),
-        "CreateTime": fields.Int(required=True, load_from="CreateTime"),
         "ExpireTime": fields.Int(required=True, load_from="ExpireTime"),
         "UDPNId": fields.Str(required=True, load_from="UDPNId"),
         "Peer1": fields.Str(required=True, load_from="Peer1"),
         "Peer2": fields.Str(required=True, load_from="Peer2"),
+        "ChargeType": fields.Str(required=True, load_from="ChargeType"),
+        "Bandwidth": fields.Int(required=True, load_from="Bandwidth"),
+        "CreateTime": fields.Int(required=True, load_from="CreateTime"),
     }
 
 

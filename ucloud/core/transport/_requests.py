@@ -1,7 +1,5 @@
 # -*- coding: utf-8 -*-
 
-from __future__ import unicode_literals
-
 import requests
 from urllib3.util.retry import Retry
 from requests.adapters import HTTPAdapter

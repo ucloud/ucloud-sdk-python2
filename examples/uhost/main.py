@@ -5,9 +5,7 @@ import random
 from ucloud.client import Client
 from ucloud.helpers import wait, utils
 
-logging.basicConfig()
 logger = logging.getLogger('ucloud')
-logger.setLevel(logging.DEBUG)
 
 
 def main():
@@ -19,7 +17,9 @@ def main():
     })
 
     logger.info("finding image, random choice one")
-    images = client.uhost().describe_image({'ImageType': 'Base'}).get('ImageSet', [])
+    images = client.uhost().describe_image({
+        'ImageType': 'Base', 'OsType': 'Linux'
+    }).get('ImageSet', [])
 
     assert len(images) > 0
 
@@ -35,7 +35,7 @@ def main():
         'CPU': 1,
         'Memory': 1024,
         'Disks': [{
-            'Size': 20,
+            'Size': image["ImageSize"],
             'Type': 'CLOUD_NORMAL',
             'IsBoot': 'True',
         }],
