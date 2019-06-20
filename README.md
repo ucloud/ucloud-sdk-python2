@@ -1,1 +1,0 @@
-# ucloud-sdk-python2
