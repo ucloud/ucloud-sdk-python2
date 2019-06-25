@@ -4,9 +4,9 @@ from ucloud.core import client
 
 
 class Client(client.Client):
-    def __init__(self, config, transport=None, middleware=None, logger=None):
+    def __init__(self, config, transport=None, middleware=None):
         self._config = config
-        super(Client, self).__init__(config, transport, middleware, logger)
+        super(Client, self).__init__(config, transport, middleware)
 
     def umem(self):
         from ucloud.services.umem.client import UMemClient
