@@ -4,7 +4,7 @@ import os
 import pytest
 import logging
 from ucloud.core.client import Client
-from ucloud.core.testing import env
+from ucloud.testing import env
 
 logger = logging.getLogger(__name__)
 

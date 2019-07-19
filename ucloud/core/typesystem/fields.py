@@ -2,7 +2,6 @@
 
 import base64
 import collections
-from ucloud.core.utils import compact
 from ucloud.core.typesystem import abstract
 from ucloud.core.exc import ValidationException
 
@@ -15,8 +14,8 @@ class List(abstract.Field):
     - NetInterface.N.EIP.Bandwidth
     """
 
-    def __init__(self, item, required=False, **kwargs):
-        super(List, self).__init__(required=required, **kwargs)
+    def __init__(self, item, default=list, **kwargs):
+        super(List, self).__init__(default=default, **kwargs)
         self.item = item
 
     def dumps(self, value, name=None, **kwargs):
@@ -58,18 +57,18 @@ class List(abstract.Field):
 
 class Str(abstract.Field):
     def dumps(self, value, name=None, **kwargs):
-        if not isinstance(value, compact.string_types):
-            raise ValidationException(
-                "invalid field {}, expect str, got {}".format(name, type(value))
-            )
-        return value
+        return self._convert(value, name)
 
     def loads(self, value, name=None, **kwargs):
-        if not isinstance(value, compact.string_types):
-            raise ValidationException(
-                "invalid field {}, expect str, got {}".format(name, type(value))
-            )
-        return value
+        return self._convert(value, name)
+
+    def _convert(self, value, name=None):
+        if self.strict and not isinstance(value, str):
+            self.fail(name, "str", type(value))
+        try:
+            return unicode(value)
+        except ValueError:
+            self.fail(name, "str", type(value))
 
 
 class Base64(Str):
@@ -84,47 +83,47 @@ class Base64(Str):
 
 class Int(abstract.Field):
     def dumps(self, value, name=None, **kwargs):
-        if not isinstance(value, int):
-            raise ValidationException(
-                "invalid field {}, expect int, got {}".format(name, type(value))
-            )
-        return int(value)
+        return self._convert(value, name)
 
     def loads(self, value, name=None, **kwargs):
-        if not isinstance(value, int):
-            raise ValidationException(
-                "invalid field {}, expect int, got {}".format(name, type(value))
-            )
-        return int(value)
+        return self._convert(value, name)
+
+    def _convert(self, value, name=None):
+        if self.strict and not isinstance(value, int):
+            self.fail(name, "int", type(value))
+        try:
+            return int(value)
+        except ValueError:
+            self.fail(name, "int", type(value))
 
 
 class Float(abstract.Field):
     def dumps(self, value, name=None, **kwargs):
-        if not isinstance(value, float):
-            raise ValidationException(
-                "invalid field {}, expect float, got {}".format(name, type(value))
-            )
-        return float(value)
+        return self._convert(value, name)
 
     def loads(self, value, name=None, **kwargs):
-        if not isinstance(value, float):
-            raise ValidationException(
-                "invalid field {}, expect float, got {}".format(name, type(value))
-            )
-        return float(value)
+        return self._convert(value, name)
+
+    def _convert(self, value, name=None):
+        if self.strict and not isinstance(value, float):
+            self.fail(name, "float", type(value))
+        try:
+            return float(value)
+        except ValueError:
+            self.fail(name, "float", type(value))
 
 
 class Bool(abstract.Field):
     def dumps(self, value, name=None, **kwargs):
-        if not isinstance(value, bool):
-            raise ValidationException(
-                "invalid field {}, expect bool, got {}".format(name, type(value))
-            )
-        return bool(value)
+        return self._convert(value, name)
 
     def loads(self, value, name=None, **kwargs):
-        if not isinstance(value, bool):
-            raise ValidationException(
-                "invalid field {}, expect bool, got {}".format(name, type(value))
-            )
-        return bool(value)
+        return self._convert(value, name)
+
+    def _convert(self, value, name=None):
+        if self.strict and not isinstance(value, bool):
+            self.fail(name, "bool", type(value))
+        try:
+            return bool(value)
+        except ValueError:
+            self.fail(name, "bool", type(value))
