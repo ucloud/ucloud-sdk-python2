@@ -1,0 +1,344 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Core &#8212; ucloud-sdk-python2  documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="core">
+<h1>Core<a class="headerlink" href="#core" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="config">
+<h2>Config<a class="headerlink" href="#config" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="ucloud.core.auth.Credential">
+<em class="property">class </em><code class="descclassname">ucloud.core.auth.</code><code class="descname">Credential</code><span class="sig-paren">(</span><em>public_key</em>, <em>private_key</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/core/auth/_cfg.html#Credential"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.core.auth.Credential" title="Permalink to this definition">¶</a></dt>
+<dd><p>credential is the object to store credential information</p>
+<p>the keys can be found on <a class="reference external" href="https://console.ucloud.cn/uapi/apikey">APIKey documentation</a></p>
+<p>it can calculate signature for OpenAPI:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">cred</span> <span class="o">=</span> <span class="n">Credential</span><span class="p">(</span><span class="s1">&#39;my_public_key&#39;</span><span class="p">,</span> <span class="s1">&#39;my_private_key&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cred</span><span class="o">.</span><span class="n">verify_ac</span><span class="p">({</span><span class="s2">&quot;foo&quot;</span><span class="p">:</span> <span class="s2">&quot;bar&quot;</span><span class="p">})</span>
+<span class="go">&#39;d4411ab30953fb0bbcb1e7313081f05e4e91a394&#39;</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>public_key</strong> – </li>
+<li><strong>private_key</strong> – </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="ucloud.core.client.Config">
+<em class="property">class </em><code class="descclassname">ucloud.core.client.</code><code class="descname">Config</code><span class="sig-paren">(</span><em>region</em>, <em>project_id=None</em>, <em>base_url='https://api.ucloud.cn'</em>, <em>user_agent=None</em>, <em>timeout=30</em>, <em>max_retries=3</em>, <em>log_level=20</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/core/client/_cfg.html#Config"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.core.client.Config" title="Permalink to this definition">¶</a></dt>
+<dd><p>Config is the config of ucloud sdk, use for setting up</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>region</strong> (<em>str</em>) – Region is the region of backend service,
+See also <a class="reference external" href="https://docs.ucloud.cn/api/summary/regionlist">Region list Documentation</a></li>
+<li><strong>project_id</strong> (<em>str</em>) – ProjectId is the unique identify of project, used for organize resources,
+Most of resources should belong to a project. Sub-Account must have an project id.
+See also <a class="reference external" href="https://docs.ucloud.cn/api/summary/get_project_list">Project list Documentation</a></li>
+<li><strong>base_url</strong> (<em>str</em>) – BaseUrl is the url of backend api</li>
+<li><strong>user_agent</strong> – UserAgent is an attribute for sdk client, used for distinguish who is using sdk.
+See also <a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/User-Agent">User Agent</a>
+It will be appended to the end of sdk user-agent.
+eg. “MyAPP/0.10.1” -&gt; “Python/3.7.0 Python-SDK/0.1.0 MyAPP/0.10.1”</li>
+<li><strong>timeout</strong> (<em>int</em>) – Timeout is timeout for every request.</li>
+<li><strong>max_retries</strong> (<em>int</em>) – MaxRetries is the number of max retry times.
+Set MaxRetries more than 0 to enable auto-retry for network and service availability problem
+if auto-retry is enabled, it will enable default retry policy using exponential backoff.</li>
+<li><strong>log_level</strong> (<em>int</em>) – LogLevel is equal to builtin logging level,
+if logLevel not be set, use INFO level as default.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="client">
+<h2>Client<a class="headerlink" href="#client" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="ucloud.core.client.Client">
+<em class="property">class </em><code class="descclassname">ucloud.core.client.</code><code class="descname">Client</code><span class="sig-paren">(</span><em>config</em>, <em>transport=None</em>, <em>middleware=None</em>, <em>logger=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/core/client/_client.html#Client"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.core.client.Client" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="ucloud.core.client.Client.invoke">
+<code class="descname">invoke</code><span class="sig-paren">(</span><em>action</em>, <em>args=None</em>, <em>**options</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/core/client/_client.html#Client.invoke"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.core.client.Client.invoke" title="Permalink to this definition">¶</a></dt>
+<dd><p>invoke will invoke the action with arguments data and options</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>action</strong> (<em>str</em>) – the api action, like <cite>CreateUHostInstance</cite></li>
+<li><strong>args</strong> (<em>dict</em>) – arguments of api(action), see doc: <a class="reference external" href="https://docs.ucloud.cn/api">UCloud API Documentation</a></li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="transport">
+<h2>Transport<a class="headerlink" href="#transport" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="ucloud.core.transport.RequestsTransport">
+<em class="property">class </em><code class="descclassname">ucloud.core.transport.</code><code class="descname">RequestsTransport</code><span class="sig-paren">(</span><em>max_retries=3</em>, <em>backoff_factor=0.3</em>, <em>status_forcelist=(500</em>, <em>502</em>, <em>504)</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/core/transport/_requests.html#RequestsTransport"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.core.transport.RequestsTransport" title="Permalink to this definition">¶</a></dt>
+<dd><p>transport is the implementation of http client, use for send a request and return a http response</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>max_retries</strong> (<em>int</em>) – max retries is the max number of transport request when occur http error</li>
+<li><strong>backoff_factor</strong> (<em>float</em>) – backoff factor will calculate the backoff delay during retrying,
+the backoff delay = {backoff factor} * (2 ^ ({number of total retries} - 1))</li>
+<li><strong>status_forcelist</strong> (<em>tuple</em>) – the status code list that could be retried</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="attribute">
+<dt id="ucloud.core.transport.RequestsTransport.middleware">
+<code class="descname">middleware</code><a class="headerlink" href="#ucloud.core.transport.RequestsTransport.middleware" title="Permalink to this definition">¶</a></dt>
+<dd><p>the middleware object, see :mod:</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the transport middleware</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.core.transport.RequestsTransport.send">
+<code class="descname">send</code><span class="sig-paren">(</span><em>req</em>, <em>**options</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/core/transport/_requests.html#RequestsTransport.send"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.core.transport.RequestsTransport.send" title="Permalink to this definition">¶</a></dt>
+<dd><p>send request and return the response</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>req</strong> – the full http request descriptor</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">the response of http request</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="middleware">
+<h2>Middleware<a class="headerlink" href="#middleware" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="ucloud.core.utils.middleware.Middleware">
+<em class="property">class </em><code class="descclassname">ucloud.core.utils.middleware.</code><code class="descname">Middleware</code><a class="reference internal" href="_modules/ucloud/core/utils/middleware.html#Middleware"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.core.utils.middleware.Middleware" title="Permalink to this definition">¶</a></dt>
+<dd><p>middleware is the object to store request/response handlers</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">middleware</span> <span class="o">=</span> <span class="n">Middleware</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Add a request handler to prepare the request</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nd">@middleware</span><span class="o">.</span><span class="n">request</span>
+<span class="gp">... </span><span class="k">def</span> <span class="nf">prepare</span><span class="p">(</span><span class="n">req</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="n">req</span><span class="p">[</span><span class="s1">&#39;Region&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;cn-bj2&#39;</span>
+<span class="gp">... </span>    <span class="k">return</span> <span class="n">req</span>
+</pre></div>
+</div>
+<p>Add a response handler to log the response detail</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nd">@middleware</span><span class="o">.</span><span class="n">response</span>
+<span class="gp">... </span><span class="k">def</span> <span class="nf">logged</span><span class="p">(</span><span class="n">resp</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">resp</span><span class="p">)</span>
+<span class="gp">... </span>    <span class="k">return</span> <span class="n">resp</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">middleware</span><span class="o">.</span><span class="n">request_handlers</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">middleware</span><span class="o">.</span><span class="n">response_handlers</span><span class="p">)</span>
+<span class="go">(1, 1)</span>
+</pre></div>
+</div>
+<dl class="method">
+<dt id="ucloud.core.utils.middleware.Middleware.request">
+<code class="descname">request</code><span class="sig-paren">(</span><em>handler</em>, <em>index=-1</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/core/utils/middleware.html#Middleware.request"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.core.utils.middleware.Middleware.request" title="Permalink to this definition">¶</a></dt>
+<dd><p>request is the request handler register to add request handler.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>handler</strong> – request handler function, receive request object
+and return a new request</li>
+<li><strong>index</strong> (<em>int</em>) – the position of request in the handler list,
+default is append it to end</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.core.utils.middleware.Middleware.response">
+<code class="descname">response</code><span class="sig-paren">(</span><em>handler</em>, <em>index=-1</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/core/utils/middleware.html#Middleware.response"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.core.utils.middleware.Middleware.response" title="Permalink to this definition">¶</a></dt>
+<dd><p>response is the response handler register to add response handler.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>handler</strong> – response handler function, receive response object
+and return a new response</li>
+<li><strong>index</strong> (<em>int</em>) – the position of response in the handler list,
+default is append it to end</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-ucloud.core.testing.env">
+<span id="testing"></span><h2>Testing<a class="headerlink" href="#module-ucloud.core.testing.env" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="ucloud.core.testing.env.is_acc">
+<code class="descclassname">ucloud.core.testing.env.</code><code class="descname">is_acc</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/core/testing/env.html#is_acc"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.core.testing.env.is_acc" title="Permalink to this definition">¶</a></dt>
+<dd><p>check test env is acceptance testing or not</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ucloud.core.testing.env.is_ut">
+<code class="descclassname">ucloud.core.testing.env.</code><code class="descname">is_ut</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/core/testing/env.html#is_ut"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.core.testing.env.is_ut" title="Permalink to this definition">¶</a></dt>
+<dd><p>check test env is unit testing or not</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ucloud.core.testing.env.pre_check_env">
+<code class="descclassname">ucloud.core.testing.env.</code><code class="descname">pre_check_env</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/core/testing/env.html#pre_check_env"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.core.testing.env.pre_check_env" title="Permalink to this definition">¶</a></dt>
+<dd><p>pre check environment for testing</p>
+<p>NOTE: system environment variables credential is required for test environment</p>
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="contents.html">ucloud-sdk-python2</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="contents.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, ucloud.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.4</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/core.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
