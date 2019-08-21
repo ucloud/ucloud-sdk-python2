@@ -13,8 +13,8 @@ endef
 export BROWSER_PYSCRIPT
 BROWSER := python -c "$$BROWSER_PYSCRIPT"
 
-# UCloud Tools
-GENERATE_TEMPLATE_PATH=../ucloud-api-model-v2/apisdk/lang/python/templates/bash.tpl
+# UCloud Tools Path
+UCLOUD_TEMPLATE_PATH=../ucloud-api-model-v2/apisdk/lang/python/templates
 
 help:
 	@echo "clean - remove all build, test, coverage and Python artifacts"
@@ -35,19 +35,19 @@ test: clean
 	pytest
 
 test-cov: clean
-	pytest --cov=ucloud
+	pytest --cov=ucloud/core tests/test_core
 
 test-acc: clean
-	USDK_ACC=1 pytest --cov=ucloud
+	USDKACC=1 pytest --cov=ucloud
 
 test-all: clean
 	tox
 
 lint:
-	black --check ucloud/
+	@flake8 --exclude=ucloud/services ucloud --ignore=E501,F401
 
 fmt:
-	@black ./ucloud
+	@black -l 80 ucloud tests examples
 
 dev:
 	@pip install -e .[dev]
@@ -80,11 +80,9 @@ clean-test:
 
 migrate:
 	git clone https://github.com/ucloud/ucloud-sdk-python3.git .migrate
-	python scripts/migrate.py --source .migrate/ucloud --output ucloud
-	python scripts/migrate.py --source .migrate/tests --output tests
+	PYTHONPATH=. python scripts/migrate --source .migrate/ucloud --output ucloud
+	PYTHONPATH=. python scripts/migrate --source .migrate/tests --output tests
+	PYTHONPATH=. python scripts/migrate --source .migrate/docs --output docs
+	PYTHONPATH=. python scripts/migrate --source .migrate/examples --output examples
+	PYTHONPATH=. python scripts/migrate --source .migrate/README.md --output README.md
 	rm -rf .migrate
-	black ucloud tests
-
-gen:
-	ucloud-model sdk apis --lang python2 --type=public --template
-	${GENERATE_TEMPLATE_PATH} --output ./gen.sh

@@ -1,0 +1,29 @@
+{
+  "plugins": [
+    {
+      "name": "py3to2",
+      "ext": [
+        ".py"
+      ]
+    },
+    {
+      "name": "doc",
+      "ext": [
+        ".md",
+        ".rst"
+      ],
+      "options": {
+        "replaces": [
+          {
+            "from": "ucloud-sdk-python3",
+            "to": "ucloud-sdk-python2"
+          },
+          {
+            "from": "UCloud SDK Python 3",
+            "to": "UCloud SDK Python 2"
+          }
+        ]
+      }
+    }
+  ]
+}

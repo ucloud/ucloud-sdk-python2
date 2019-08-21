@@ -4,6 +4,7 @@ import base64
 import collections
 from ucloud.core.typesystem import abstract
 from ucloud.core.exc import ValidationException
+from ucloud.core.utils.compat import str
 
 
 class List(abstract.Field):
@@ -21,7 +22,9 @@ class List(abstract.Field):
     def dumps(self, value, name=None, **kwargs):
         if not isinstance(value, collections.Iterable):
             raise ValidationException(
-                "invalid field {}, expect list, got {}".format(name, type(value))
+                "invalid field {}, expect list, got {}".format(
+                    name, type(value)
+                )
             )
         errors = []
         values = []
@@ -39,7 +42,9 @@ class List(abstract.Field):
     def loads(self, value, name=None, **kwargs):
         if not isinstance(value, collections.Iterable):
             raise ValidationException(
-                "invalid field {}, expect list, got {}".format(name, type(value))
+                "invalid field {}, expect list, got {}".format(
+                    name, type(value)
+                )
             )
         errors = []
         values = []
@@ -65,10 +70,7 @@ class Str(abstract.Field):
     def _convert(self, value, name=None):
         if self.strict and not isinstance(value, str):
             self.fail(name, "str", type(value))
-        try:
-            return unicode(value)
-        except ValueError:
-            self.fail(name, "str", type(value))
+        return str(value)
 
 
 class Base64(Str):
@@ -123,7 +125,8 @@ class Bool(abstract.Field):
     def _convert(self, value, name=None):
         if self.strict and not isinstance(value, bool):
             self.fail(name, "bool", type(value))
-        try:
-            return bool(value)
-        except ValueError:
-            self.fail(name, "bool", type(value))
+        if value == "true" or value is True:
+            return True
+        if value == "false" or value is False:
+            return False
+        self.fail(name, "bool", type(value))

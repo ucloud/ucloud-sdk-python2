@@ -7,7 +7,9 @@ from ucloud.services.stepflow.schemas import apis
 
 class StepFlowClient(Client):
     def __init__(self, config, transport=None, middleware=None, logger=None):
-        super(StepFlowClient, self).__init__(config, transport, middleware, logger)
+        super(StepFlowClient, self).__init__(
+            config, transport, middleware, logger
+        )
 
     def create_sf_workflow_from_template(self, req=None, **kwargs):
         """ CreateSFWorkflowFromTemplate - 导入工作流定义

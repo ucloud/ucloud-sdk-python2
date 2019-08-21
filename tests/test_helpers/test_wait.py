@@ -13,5 +13,8 @@ def test_wait():
             timeout=0.5,
         )
     wait.wait_for_state(
-        pending=["pending"], target=["running"], refresh=lambda: "running", timeout=0.5
+        pending=["pending"],
+        target=["running"],
+        refresh=lambda: "running",
+        timeout=0.5,
     )

@@ -4,7 +4,8 @@ import logging
 import sys
 from ucloud import version
 from ucloud.core.client._cfg import Config
-from ucloud.core.transport import Transport, RequestsTransport, Request, Response
+from ucloud.core.transport import Transport, RequestsTransport, Request
+from ucloud.core.typesystem import encoder
 from ucloud.core.utils import log
 from ucloud.core.utils.middleware import Middleware
 from ucloud.core import auth, exc
@@ -40,14 +41,15 @@ class Client(object):
             except exc.UCloudException as e:
                 if e.retryable and retries != max_retries:
                     logging.info(
-                        "Retrying {action}: {args}".format(action=action, args=args)
+                        "Retrying {action}: {args}".format(
+                            action=action, args=args
+                        )
                     )
                     retries += 1
                     continue
                 raise e
             except Exception as e:
                 raise e
-        raise exc.RetryTimeoutException("max retries is reached")
 
     @property
     def middleware(self):
@@ -58,11 +60,10 @@ class Client(object):
         return req
 
     def logged_response_handler(self, resp):
-        self.logger.info("[response] {} {}".format(resp.get("Action", ""), resp))
+        self.logger.info(
+            "[response] {} {}".format(resp.get("Action", ""), resp)
+        )
         return resp
-
-    def __enter__(self):
-        yield self
 
     @staticmethod
     def _parse_dict_config(config):
@@ -75,7 +76,9 @@ class Client(object):
         req = self._build_http_request(args)
         max_retries = options.get("max_retries") or self.config.max_retries
         timeout = options.get("timeout") or self.config.timeout
-        resp = self.transport.send(req, timeout=timeout, max_retries=max_retries).json()
+        resp = self.transport.send(
+            req, timeout=timeout, max_retries=max_retries
+        ).json()
         for handler in self.middleware.response_handlers:
             resp = handler(resp)
         if int(resp.get("RetCode", -1)) != 0:
@@ -87,8 +90,13 @@ class Client(object):
         return resp
 
     def _build_http_request(self, args):
-        payload = {"Region": self.config.region, "ProjectId": self.config.project_id}
+        config = {
+            "Region": self.config.region,
+            "ProjectId": self.config.project_id,
+        }
+        payload = {k: v for k, v in config.items() if v is not None}
         payload.update({k: v for k, v in args.items() if v is not None})
+        payload = encoder.encode(payload)
         payload["Signature"] = self.credential.verify_ac(payload)
         return Request(
             url=self.config.base_url,
@@ -108,4 +116,4 @@ class Client(object):
         return user_agent
 
     def __repr__(self):
-        return "<{}('{}')>".format(self.__class__.__name__, self.config.region)
+        return '<{}("{}")>'.format(self.__class__.__name__, self.config.region)

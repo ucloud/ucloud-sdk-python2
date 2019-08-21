@@ -2,7 +2,7 @@
 
 import hashlib
 from collections import OrderedDict
-from ucloud.core.typesystem import schema, fields
+from ucloud.core.typesystem import schema, fields, encoder
 
 
 class CredentialSchema(schema.Schema):
@@ -30,7 +30,7 @@ def verify_ac(private_key, params):
     params = OrderedDict(sorted(params.items(), key=lambda item: item[0]))
     simplified = ""
     for key, value in params.items():
-        simplified += str(key) + str(value)
+        simplified += str(key) + encoder.encode_value(value)
     simplified += private_key
     hash_new = hashlib.sha1()
     hash_new.update(simplified.encode("utf-8"))

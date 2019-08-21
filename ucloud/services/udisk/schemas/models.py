@@ -9,7 +9,9 @@ class UDiskDataSetSchema(schema.ResponseSchema):
     """
 
     fields = {
-        "ArkSwitchEnable": fields.Int(required=False, load_from="ArkSwitchEnable"),
+        "ArkSwitchEnable": fields.Int(
+            required=False, load_from="ArkSwitchEnable"
+        ),
         "ChargeType": fields.Str(required=False, load_from="ChargeType"),
         "CloneEnable": fields.Int(required=False, load_from="CloneEnable"),
         "CmkId": fields.Str(required=False, load_from="CmkId"),
@@ -20,6 +22,7 @@ class UDiskDataSetSchema(schema.ResponseSchema):
         "DeviceName": fields.Str(required=False, load_from="DeviceName"),
         "DiskType": fields.Str(required=False, load_from="DiskType"),
         "ExpiredTime": fields.Int(required=False, load_from="ExpiredTime"),
+        "IsBoot": fields.Str(required=False, load_from="IsBoot"),
         "IsExpire": fields.Str(required=False, load_from="IsExpire"),
         "Name": fields.Str(required=False, load_from="Name"),
         "Size": fields.Int(required=False, load_from="Size"),
@@ -46,7 +49,8 @@ class UDiskPriceDataSetSchema(schema.ResponseSchema):
     fields = {
         "ChargeName": fields.Str(required=False, load_from="ChargeName"),
         "ChargeType": fields.Str(required=False, load_from="ChargeType"),
-        "Price": fields.Float(required=False, load_from="Price"),
+        "OriginalPrice": fields.Int(required=False, load_from="OriginalPrice"),
+        "Price": fields.Int(required=False, load_from="Price"),
     }
 
 
@@ -63,7 +67,9 @@ class UDiskSnapshotSetSchema(schema.ResponseSchema):
         "DataKey": fields.Str(required=False, load_from="DataKey"),
         "DiskType": fields.Int(required=True, load_from="DiskType"),
         "ExpiredTime": fields.Int(required=False, load_from="ExpiredTime"),
-        "IsUDiskAvailable": fields.Bool(required=False, load_from="IsUDiskAvailable"),
+        "IsUDiskAvailable": fields.Bool(
+            required=False, load_from="IsUDiskAvailable"
+        ),
         "Name": fields.Str(required=True, load_from="Name"),
         "Size": fields.Int(required=True, load_from="Size"),
         "SnapshotId": fields.Str(required=True, load_from="SnapshotId"),

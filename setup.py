@@ -44,7 +44,7 @@ def load_version():
 
 def load_long_description():
     try:
-        with io.open("README.rst", encoding="utf-8") as f:
+        with io.open("README.md", encoding="utf-8") as f:
             return f.read()
     except IOError:
         return ""
@@ -62,16 +62,15 @@ dependencies = load_requirements("requirements.txt")
 
 dependencies_test = dependencies + [
     'flake8>=3.6.0',
-    'tox',
     'pytest',
     'pytest-cov',
 ]
 
-dependencies_doc = dependencies + ['sphinx==1.8.4']
+dependencies_doc = dependencies + ['sphinx']
 
-dependencies_dev = list(set(
-    dependencies_doc + dependencies_test
-))
+dependencies_ci = list(set(dependencies_test + dependencies_doc))
+
+dependencies_dev = list(set(dependencies_ci + ['black']))
 
 
 def do_setup():
@@ -79,6 +78,7 @@ def do_setup():
         name="ucloud-sdk-python2",
         description="UCloud Service Development Kit - Python",
         long_description=load_long_description(),
+        long_description_content_type='text/markdown',
         license="Apache License 2.0",
         version=load_version(),
         packages=find_packages(exclude=["tests*"]),
@@ -90,6 +90,7 @@ def do_setup():
             "test": dependencies_test,
             "doc": dependencies_doc,
             "dev": dependencies_dev,
+            "ci": dependencies_ci,
         },
         classifiers=[
             "Development Status :: 3 - Alpha",

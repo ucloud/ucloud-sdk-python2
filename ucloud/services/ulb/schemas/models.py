@@ -52,8 +52,12 @@ class ULBBackendSetSchema(schema.ResponseSchema):
         "ResourceType": fields.Str(required=False, load_from="ResourceType"),
         "Status": fields.Int(required=False, load_from="Status"),
         "SubResourceId": fields.Str(required=False, load_from="SubResourceId"),
-        "SubResourceName": fields.Str(required=False, load_from="SubResourceName"),
-        "SubResourceType": fields.Str(required=False, load_from="SubResourceType"),
+        "SubResourceName": fields.Str(
+            required=False, load_from="SubResourceName"
+        ),
+        "SubResourceType": fields.Str(
+            required=False, load_from="SubResourceType"
+        ),
         "SubnetId": fields.Str(required=False, load_from="SubnetId"),
         "Weight": fields.Int(required=False, load_from="Weight"),
     }
@@ -67,7 +71,9 @@ class ULBPolicySetSchema(schema.ResponseSchema):
         "BackendSet": fields.List(PolicyBackendSetSchema()),
         "Match": fields.Str(required=False, load_from="Match"),
         "PolicyId": fields.Str(required=False, load_from="PolicyId"),
-        "PolicyPriority": fields.Int(required=False, load_from="PolicyPriority"),
+        "PolicyPriority": fields.Int(
+            required=False, load_from="PolicyPriority"
+        ),
         "PolicyType": fields.Str(required=False, load_from="PolicyType"),
         "TotalCount": fields.Int(required=False, load_from="TotalCount"),
         "Type": fields.Str(required=False, load_from="Type"),
@@ -88,8 +94,12 @@ class ULBVServerSetSchema(schema.ResponseSchema):
         "Method": fields.Str(required=False, load_from="Method"),
         "MonitorType": fields.Str(required=True, load_from="MonitorType"),
         "Path": fields.Str(required=True, load_from="Path"),
-        "PersistenceInfo": fields.Str(required=False, load_from="PersistenceInfo"),
-        "PersistenceType": fields.Str(required=False, load_from="PersistenceType"),
+        "PersistenceInfo": fields.Str(
+            required=False, load_from="PersistenceInfo"
+        ),
+        "PersistenceType": fields.Str(
+            required=False, load_from="PersistenceType"
+        ),
         "PolicySet": fields.List(ULBPolicySetSchema()),
         "Protocol": fields.Str(required=False, load_from="Protocol"),
         "SSLSet": fields.List(ULBSSLSetSchema()),

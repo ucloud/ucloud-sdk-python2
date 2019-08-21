@@ -66,7 +66,11 @@ class CloneUDiskResponseSchema(schema.ResponseSchema):
     """ CloneUDisk - 从UDisk创建UDisk克隆
     """
 
-    fields = {"UDiskId": fields.List(fields.Str(), required=False, load_from="UDiskId")}
+    fields = {
+        "UDiskId": fields.List(
+            fields.Str(), required=False, load_from="UDiskId"
+        )
+    }
 
 
 """
@@ -99,7 +103,11 @@ class CloneUDiskSnapshotResponseSchema(schema.ResponseSchema):
     """ CloneUDiskSnapshot - 从快照创建UDisk克隆
     """
 
-    fields = {"UDiskId": fields.List(fields.Str(), required=False, load_from="UDiskId")}
+    fields = {
+        "UDiskId": fields.List(
+            fields.Str(), required=False, load_from="UDiskId"
+        )
+    }
 
 
 """
@@ -134,7 +142,11 @@ class CreateUDiskResponseSchema(schema.ResponseSchema):
     """ CreateUDisk - 创建UDisk磁盘
     """
 
-    fields = {"UDiskId": fields.List(fields.Str(), required=False, load_from="UDiskId")}
+    fields = {
+        "UDiskId": fields.List(
+            fields.Str(), required=False, load_from="UDiskId"
+        )
+    }
 
 
 """
@@ -165,7 +177,9 @@ class CreateUDiskSnapshotResponseSchema(schema.ResponseSchema):
     """
 
     fields = {
-        "SnapshotId": fields.List(fields.Str(), required=True, load_from="SnapshotId")
+        "SnapshotId": fields.List(
+            fields.Str(), required=True, load_from="SnapshotId"
+        )
     }
 
 
@@ -209,7 +223,7 @@ class DeleteUDiskSnapshotRequestSchema(schema.RequestSchema):
     fields = {
         "ProjectId": fields.Str(required=False, dump_to="ProjectId"),
         "Region": fields.Str(required=True, dump_to="Region"),
-        "SnapshotId": fields.Str(required=True, dump_to="SnapshotId"),
+        "SnapshotId": fields.Str(required=False, dump_to="SnapshotId"),
         "UDiskId": fields.Str(required=False, dump_to="UDiskId"),
         "Zone": fields.Str(required=True, dump_to="Zone"),
     }
@@ -235,9 +249,13 @@ class DescribeUDiskRequestSchema(schema.RequestSchema):
 
     fields = {
         "DiskType": fields.Str(required=False, dump_to="DiskType"),
+        "IsBoot": fields.Str(required=False, dump_to="IsBoot"),
         "Limit": fields.Int(required=False, dump_to="Limit"),
         "Offset": fields.Int(required=False, dump_to="Offset"),
         "ProjectId": fields.Str(required=False, dump_to="ProjectId"),
+        "ProtocolVersion": fields.Int(
+            required=False, dump_to="ProtocolVersion"
+        ),
         "Region": fields.Str(required=True, dump_to="Region"),
         "UDiskId": fields.Str(required=False, dump_to="UDiskId"),
         "Zone": fields.Str(required=False, dump_to="Zone"),
@@ -285,7 +303,9 @@ class DescribeUDiskPriceResponseSchema(schema.ResponseSchema):
 
     fields = {
         "DataSet": fields.List(
-            models.UDiskPriceDataSetSchema(), required=False, load_from="DataSet"
+            models.UDiskPriceDataSetSchema(),
+            required=False,
+            load_from="DataSet",
         )
     }
 
@@ -341,7 +361,7 @@ class DescribeUDiskUpgradePriceRequestSchema(schema.RequestSchema):
         "Region": fields.Str(required=True, dump_to="Region"),
         "Size": fields.Int(required=True, dump_to="Size"),
         "SourceId": fields.Str(required=True, dump_to="SourceId"),
-        "UDataArkMode": fields.Str(required=True, dump_to="UDataArkMode"),
+        "UDataArkMode": fields.Str(required=False, dump_to="UDataArkMode"),
         "Zone": fields.Str(required=True, dump_to="Zone"),
     }
 
@@ -350,7 +370,10 @@ class DescribeUDiskUpgradePriceResponseSchema(schema.ResponseSchema):
     """ DescribeUDiskUpgradePrice - 获取UDisk升级价格信息
     """
 
-    fields = {"Price": fields.Float(required=False, load_from="Price")}
+    fields = {
+        "OriginalPrice": fields.Int(required=False, load_from="OriginalPrice"),
+        "Price": fields.Int(required=False, load_from="Price"),
+    }
 
 
 """

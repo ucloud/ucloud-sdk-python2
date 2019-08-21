@@ -7,7 +7,9 @@ from ucloud.services.uphost.schemas import apis
 
 class UPHostClient(Client):
     def __init__(self, config, transport=None, middleware=None, logger=None):
-        super(UPHostClient, self).__init__(config, transport, middleware, logger)
+        super(UPHostClient, self).__init__(
+            config, transport, middleware, logger
+        )
 
     def create_phost(self, req=None, **kwargs):
         """ CreatePHost - 指定数据中心，根据资源使用量创建指定数量的UPHost物理云主机实例。

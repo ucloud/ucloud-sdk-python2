@@ -193,7 +193,8 @@ class UMemClient(Client):
         **UMemPriceSet** 
         
         - **ChargeType** (str) - Year， Month， Dynamic，Trial
-        - **Price** (float) - 价格，单位: 元，保留小数点后两位有效数字
+        - **OriginalPrice** (int) - 原价
+        - **Price** (int) - 现价，单位: 元，保留小数点后两位有效数字
 
         """
         d = {"ProjectId": self.config.project_id, "Region": self.config.region}
@@ -266,8 +267,17 @@ class UMemClient(Client):
         
         **Response**
 
-        - **Price** (float) - 价格
+        - **DataSet** (dict) - 见 **PriceDataSet** 模型定义
+        - **Price** (int) - 价格(兼容老版本)
         
+        **Response Model**
+        
+        **PriceDataSet** 
+        
+        - **CustomPrice** (int) - 用户折后价
+        - **PurchaseValue** (int) - 资源有效期
+        - **TotalPrice** (int) - 升降级资源的价格
+
         """
         d = {"ProjectId": self.config.project_id, "Region": self.config.region}
         req and d.update(req)
@@ -342,7 +352,8 @@ class UMemClient(Client):
         **UMemcachePriceSet** 
         
         - **ChargeType** (str) - 计费模式，Year, Month, Dynamic
-        - **Price** (float) - 价格，单位: 元，保留小数点后两位有效数字
+        - **OriginalPrice** (int) - 原价
+        - **Price** (int) - 总价格，单位: 元，保留小数点后两位有效数字
 
         """
         d = {"ProjectId": self.config.project_id, "Region": self.config.region}
@@ -364,8 +375,17 @@ class UMemClient(Client):
         
         **Response**
 
-        - **Price** (float) - 价格，单位：元
+        - **DataSet** (dict) - 见 **PriceDataSet** 模型定义
+        - **Price** (int) - 价格，单位：元
         
+        **Response Model**
+        
+        **PriceDataSet** 
+        
+        - **CustomPrice** (int) - 用户折后价
+        - **PurchaseValue** (int) - 资源有效期
+        - **TotalPrice** (int) - 升降级资源的价格
+
         """
         d = {"ProjectId": self.config.project_id, "Region": self.config.region}
         req and d.update(req)
@@ -418,7 +438,7 @@ class UMemClient(Client):
         - **ProjectId** (str) - (Config) 项目ID。不填写为默认项目，子帐号必须填写。 请参考 `GetProjectList接口 <https://docs.ucloud.cn/api/summary/get_project_list.html>`_ 
         - **Region** (str) - (Config) 地域。 参见  `地域和可用区列表 <https://docs.ucloud.cn/api/summary/regionlist.html>`_ 
         - **BackupId** (str) - (Required) 备份ID
-        - **GroupId** (str) - (Required) 
+        - **GroupId** (str) - 实例名称
         - **RegionFlag** (bool) - 是否是跨机房URedis(默认false)
         - **Zone** (str) - 可用区。参见  `可用区列表 <https://docs.ucloud.cn/api/summary/regionlist.html>`_ 
         
@@ -514,7 +534,8 @@ class UMemClient(Client):
         **URedisPriceSet** 
         
         - **ChargeType** (str) - Year， Month， Dynamic，Trial
-        - **Price** (float) - 价格，单位: 元，保留小数点后两位有效数字
+        - **OriginalPrice** (int) - 原价
+        - **Price** (int) - 总价格，单位: 元，保留小数点后两位有效数字
 
         """
         d = {"ProjectId": self.config.project_id, "Region": self.config.region}
@@ -537,8 +558,17 @@ class UMemClient(Client):
         
         **Response**
 
-        - **Price** (float) - 扩容差价，单位: 元，保留小数点后两位有效数字
+        - **DataSet** (dict) - 见 **PriceDataSet** 模型定义
+        - **Price** (int) - 扩容差价，单位: 元，保留小数点后两位有效数字(兼容老版本)
         
+        **Response Model**
+        
+        **PriceDataSet** 
+        
+        - **CustomPrice** (int) - 用户折后价
+        - **PurchaseValue** (int) - 资源有效期
+        - **TotalPrice** (int) - 升降级资源的价格
+
         """
         d = {"ProjectId": self.config.project_id, "Region": self.config.region}
         req and d.update(req)
