@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import collections
-from ucloud.core.utils import compact
+from ucloud.core.utils import compat
 
 
 class UCloudException(Exception):
@@ -27,7 +27,11 @@ class RetCodeException(UCloudException):
         return "{self.action} - {self.code}: {self.message}".format(self=self)
 
     def json(self):
-        return {"RetCode": self.code, "Message": self.message, "Action": self.action}
+        return {
+            "RetCode": self.code,
+            "Message": self.message or "",
+            "Action": self.action or "",
+        }
 
 
 class RetryTimeoutException(UCloudException):
@@ -36,7 +40,7 @@ class RetryTimeoutException(UCloudException):
 
 class ValidationException(UCloudException):
     def __init__(self, e=None):
-        if isinstance(e, compact.string_types):
+        if isinstance(e, compat.string_types):
             self.errors = [e]
         elif isinstance(e, collections.Iterable):
             self.errors = e or []

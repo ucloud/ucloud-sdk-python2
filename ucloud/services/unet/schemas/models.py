@@ -77,8 +77,12 @@ class ShareBandwidthSetSchema(schema.ResponseSchema):
     """
 
     fields = {
-        "ShareBandwidth": fields.Int(required=False, load_from="ShareBandwidth"),
-        "ShareBandwidthId": fields.Str(required=False, load_from="ShareBandwidthId"),
+        "ShareBandwidth": fields.Int(
+            required=False, load_from="ShareBandwidth"
+        ),
+        "ShareBandwidthId": fields.Str(
+            required=False, load_from="ShareBandwidthId"
+        ),
         "ShareBandwidthName": fields.Str(
             required=False, load_from="ShareBandwidthName"
         ),
@@ -95,8 +99,12 @@ class UnetEIPResourceSetSchema(schema.ResponseSchema):
         "ResourceName": fields.Str(required=False, load_from="ResourceName"),
         "ResourceType": fields.Str(required=False, load_from="ResourceType"),
         "SubResourceId": fields.Str(required=False, load_from="SubResourceId"),
-        "SubResourceName": fields.Str(required=False, load_from="SubResourceName"),
-        "SubResourceType": fields.Str(required=False, load_from="SubResourceType"),
+        "SubResourceName": fields.Str(
+            required=False, load_from="SubResourceName"
+        ),
+        "SubResourceType": fields.Str(
+            required=False, load_from="SubResourceType"
+        ),
     }
 
 
@@ -195,9 +203,15 @@ class UnetShareBandwidthSetSchema(schema.ResponseSchema):
         "EIPSet": fields.List(EIPSetDataSchema()),
         "ExpireTime": fields.Int(required=False, load_from="ExpireTime"),
         "Name": fields.Str(required=False, load_from="Name"),
-        "PostPayStartTime": fields.Int(required=False, load_from="PostPayStartTime"),
-        "ShareBandwidth": fields.Int(required=False, load_from="ShareBandwidth"),
-        "ShareBandwidthId": fields.Str(required=False, load_from="ShareBandwidthId"),
+        "PostPayStartTime": fields.Int(
+            required=False, load_from="PostPayStartTime"
+        ),
+        "ShareBandwidth": fields.Int(
+            required=False, load_from="ShareBandwidth"
+        ),
+        "ShareBandwidthId": fields.Str(
+            required=False, load_from="ShareBandwidthId"
+        ),
     }
 
 

@@ -7,7 +7,9 @@ from ucloud.services.uaccount.schemas import apis
 
 class UAccountClient(Client):
     def __init__(self, config, transport=None, middleware=None, logger=None):
-        super(UAccountClient, self).__init__(config, transport, middleware, logger)
+        super(UAccountClient, self).__init__(
+            config, transport, middleware, logger
+        )
 
     def create_project(self, req=None, **kwargs):
         """ CreateProject - 创建项目

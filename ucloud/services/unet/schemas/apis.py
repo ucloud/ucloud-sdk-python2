@@ -28,7 +28,9 @@ class AllocateEIPRequestSchema(schema.RequestSchema):
         "Quantity": fields.Int(required=False, dump_to="Quantity"),
         "Region": fields.Str(required=True, dump_to="Region"),
         "Remark": fields.Str(required=False, dump_to="Remark"),
-        "ShareBandwidthId": fields.Str(required=False, dump_to="ShareBandwidthId"),
+        "ShareBandwidthId": fields.Str(
+            required=False, dump_to="ShareBandwidthId"
+        ),
         "Tag": fields.Str(required=False, dump_to="Tag"),
     }
 
@@ -39,7 +41,9 @@ class AllocateEIPResponseSchema(schema.ResponseSchema):
 
     fields = {
         "EIPSet": fields.List(
-            models.UnetAllocateEIPSetSchema(), required=False, load_from="EIPSet"
+            models.UnetAllocateEIPSetSchema(),
+            required=False,
+            load_from="EIPSet",
         )
     }
 
@@ -74,7 +78,9 @@ class AllocateShareBandwidthResponseSchema(schema.ResponseSchema):
     """
 
     fields = {
-        "ShareBandwidthId": fields.Str(required=False, load_from="ShareBandwidthId")
+        "ShareBandwidthId": fields.Str(
+            required=False, load_from="ShareBandwidthId"
+        )
     }
 
 
@@ -109,7 +115,9 @@ class AllocateVIPResponseSchema(schema.ResponseSchema):
     """
 
     fields = {
-        "DataSet": fields.List(fields.Str(), required=False, load_from="DataSet"),
+        "DataSet": fields.List(
+            fields.Str(), required=False, load_from="DataSet"
+        ),
         "VIPSet": fields.List(
             models.VIPSetSchema(), required=False, load_from="VIPSet"
         ),
@@ -131,7 +139,9 @@ class AssociateEIPWithShareBandwidthRequestSchema(schema.RequestSchema):
         "EIPIds": fields.List(fields.Str()),
         "ProjectId": fields.Str(required=False, dump_to="ProjectId"),
         "Region": fields.Str(required=True, dump_to="Region"),
-        "ShareBandwidthId": fields.Str(required=True, dump_to="ShareBandwidthId"),
+        "ShareBandwidthId": fields.Str(
+            required=True, dump_to="ShareBandwidthId"
+        ),
     }
 
 
@@ -196,7 +206,9 @@ class CreateBandwidthPackageResponseSchema(schema.ResponseSchema):
     """
 
     fields = {
-        "BandwidthPackageId": fields.Str(required=False, load_from="BandwidthPackageId")
+        "BandwidthPackageId": fields.Str(
+            required=False, load_from="BandwidthPackageId"
+        )
     }
 
 
@@ -240,7 +252,9 @@ class DeleteBandwidthPackageRequestSchema(schema.RequestSchema):
     """
 
     fields = {
-        "BandwidthPackageId": fields.Str(required=True, dump_to="BandwidthPackageId"),
+        "BandwidthPackageId": fields.Str(
+            required=True, dump_to="BandwidthPackageId"
+        ),
         "ProjectId": fields.Str(required=False, dump_to="ProjectId"),
         "Region": fields.Str(required=True, dump_to="Region"),
     }
@@ -303,7 +317,9 @@ class DescribeBandwidthPackageResponseSchema(schema.ResponseSchema):
 
     fields = {
         "DataSets": fields.List(
-            models.UnetBandwidthPackageSetSchema(), required=False, load_from="DataSets"
+            models.UnetBandwidthPackageSetSchema(),
+            required=False,
+            load_from="DataSets",
         ),
         "TotalCount": fields.Int(required=False, load_from="TotalCount"),
     }
@@ -335,7 +351,9 @@ class DescribeBandwidthUsageResponseSchema(schema.ResponseSchema):
 
     fields = {
         "EIPSet": fields.List(
-            models.UnetBandwidthUsageEIPSetSchema(), required=False, load_from="EIPSet"
+            models.UnetBandwidthUsageEIPSetSchema(),
+            required=False,
+            load_from="EIPSet",
         ),
         "TotalCount": fields.Int(required=False, load_from="TotalCount"),
     }
@@ -369,7 +387,9 @@ class DescribeEIPResponseSchema(schema.ResponseSchema):
         "EIPSet": fields.List(
             models.UnetEIPSetSchema(), required=False, load_from="EIPSet"
         ),
-        "TotalBandwidth": fields.Int(required=False, load_from="TotalBandwidth"),
+        "TotalBandwidth": fields.Int(
+            required=False, load_from="TotalBandwidth"
+        ),
         "TotalCount": fields.Int(required=False, load_from="TotalCount"),
     }
 
@@ -464,7 +484,9 @@ class DescribeShareBandwidthResponseSchema(schema.ResponseSchema):
 
     fields = {
         "DataSet": fields.List(
-            models.UnetShareBandwidthSetSchema(), required=False, load_from="DataSet"
+            models.UnetShareBandwidthSetSchema(),
+            required=False,
+            load_from="DataSet",
         ),
         "TotalCount": fields.Int(required=False, load_from="TotalCount"),
     }
@@ -497,7 +519,9 @@ class DescribeVIPResponseSchema(schema.ResponseSchema):
     """
 
     fields = {
-        "DataSet": fields.List(fields.Str(), required=False, load_from="DataSet"),
+        "DataSet": fields.List(
+            fields.Str(), required=False, load_from="DataSet"
+        ),
         "TotalCount": fields.Int(required=False, load_from="TotalCount"),
         "VIPSet": fields.List(
             models.VIPDetailSetSchema(), required=False, load_from="VIPSet"
@@ -522,7 +546,9 @@ class DisassociateEIPWithShareBandwidthRequestSchema(schema.RequestSchema):
         "PayMode": fields.Str(required=False, dump_to="PayMode"),
         "ProjectId": fields.Str(required=False, dump_to="ProjectId"),
         "Region": fields.Str(required=True, dump_to="Region"),
-        "ShareBandwidthId": fields.Str(required=True, dump_to="ShareBandwidthId"),
+        "ShareBandwidthId": fields.Str(
+            required=True, dump_to="ShareBandwidthId"
+        ),
     }
 
 
@@ -590,7 +616,9 @@ class GetEIPPriceResponseSchema(schema.ResponseSchema):
 
     fields = {
         "PriceSet": fields.List(
-            models.EIPPriceDetailSetSchema(), required=False, load_from="PriceSet"
+            models.EIPPriceDetailSetSchema(),
+            required=False,
+            load_from="PriceSet",
         )
     }
 
@@ -741,7 +769,9 @@ class ReleaseShareBandwidthRequestSchema(schema.RequestSchema):
         "PayMode": fields.Str(required=False, dump_to="PayMode"),
         "ProjectId": fields.Str(required=False, dump_to="ProjectId"),
         "Region": fields.Str(required=True, dump_to="Region"),
-        "ShareBandwidthId": fields.Str(required=True, dump_to="ShareBandwidthId"),
+        "ShareBandwidthId": fields.Str(
+            required=True, dump_to="ShareBandwidthId"
+        ),
     }
 
 
@@ -793,7 +823,9 @@ class ResizeShareBandwidthRequestSchema(schema.RequestSchema):
         "ProjectId": fields.Str(required=False, dump_to="ProjectId"),
         "Region": fields.Str(required=True, dump_to="Region"),
         "ShareBandwidth": fields.Int(required=True, dump_to="ShareBandwidth"),
-        "ShareBandwidthId": fields.Str(required=True, dump_to="ShareBandwidthId"),
+        "ShareBandwidthId": fields.Str(
+            required=True, dump_to="ShareBandwidthId"
+        ),
     }
 
 

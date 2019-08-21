@@ -108,7 +108,9 @@ class CreateRouteTableResponseSchema(schema.ResponseSchema):
     """ CreateRouteTable - 创建路由表
     """
 
-    fields = {"RouteTableId": fields.Str(required=False, load_from="RouteTableId")}
+    fields = {
+        "RouteTableId": fields.Str(required=False, load_from="RouteTableId")
+    }
 
 
 """
@@ -329,7 +331,9 @@ class DescribeRouteTableResponseSchema(schema.ResponseSchema):
 
     fields = {
         "RouteTables": fields.List(
-            models.RouteTableInfoSchema(), required=False, load_from="RouteTables"
+            models.RouteTableInfoSchema(),
+            required=False,
+            load_from="RouteTables",
         ),
         "TotalCount": fields.Int(required=False, load_from="TotalCount"),
     }

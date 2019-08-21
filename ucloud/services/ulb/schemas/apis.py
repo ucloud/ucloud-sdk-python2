@@ -210,8 +210,12 @@ class CreateVServerRequestSchema(schema.RequestSchema):
         "Method": fields.Str(required=False, dump_to="Method"),
         "MonitorType": fields.Str(required=False, dump_to="MonitorType"),
         "Path": fields.Str(required=False, dump_to="Path"),
-        "PersistenceInfo": fields.Str(required=False, dump_to="PersistenceInfo"),
-        "PersistenceType": fields.Str(required=False, dump_to="PersistenceType"),
+        "PersistenceInfo": fields.Str(
+            required=False, dump_to="PersistenceInfo"
+        ),
+        "PersistenceType": fields.Str(
+            required=False, dump_to="PersistenceType"
+        ),
         "ProjectId": fields.Str(required=False, dump_to="ProjectId"),
         "Protocol": fields.Str(required=False, dump_to="Protocol"),
         "Region": fields.Str(required=True, dump_to="Region"),
@@ -588,8 +592,12 @@ class UpdateVServerAttributeRequestSchema(schema.RequestSchema):
         "Method": fields.Str(required=False, dump_to="Method"),
         "MonitorType": fields.Str(required=False, dump_to="MonitorType"),
         "Path": fields.Str(required=False, dump_to="Path"),
-        "PersistenceInfo": fields.Str(required=False, dump_to="PersistenceInfo"),
-        "PersistenceType": fields.Str(required=False, dump_to="PersistenceType"),
+        "PersistenceInfo": fields.Str(
+            required=False, dump_to="PersistenceInfo"
+        ),
+        "PersistenceType": fields.Str(
+            required=False, dump_to="PersistenceType"
+        ),
         "ProjectId": fields.Str(required=True, dump_to="ProjectId"),
         "Protocol": fields.Str(required=False, dump_to="Protocol"),
         "Region": fields.Str(required=True, dump_to="Region"),

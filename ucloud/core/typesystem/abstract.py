@@ -58,8 +58,3 @@ class Schema(object):
 
     def loads(self, d):
         raise NotImplementedError
-
-    @staticmethod
-    def fail(name, expected, got):
-        msg = "invalid schema {}, expect {}, got {}".format(name, expected, got)
-        raise exc.ValidationException(msg)

@@ -24,7 +24,9 @@ class CopyCustomImageRequestSchema(schema.RequestSchema):
         "TargetImageDescription": fields.Str(
             required=False, dump_to="TargetImageDescription"
         ),
-        "TargetImageName": fields.Str(required=False, dump_to="TargetImageName"),
+        "TargetImageName": fields.Str(
+            required=False, dump_to="TargetImageName"
+        ),
         "TargetProjectId": fields.Str(required=True, dump_to="TargetProjectId"),
         "TargetRegion": fields.Str(required=False, dump_to="TargetRegion"),
         "Zone": fields.Str(required=False, dump_to="Zone"),
@@ -35,7 +37,9 @@ class CopyCustomImageResponseSchema(schema.ResponseSchema):
     """ CopyCustomImage - 复制自制镜像
     """
 
-    fields = {"TargetImageId": fields.Str(required=False, load_from="TargetImageId")}
+    fields = {
+        "TargetImageId": fields.Str(required=False, load_from="TargetImageId")
+    }
 
 
 """
@@ -50,7 +54,9 @@ class CreateCustomImageRequestSchema(schema.RequestSchema):
     """
 
     fields = {
-        "ImageDescription": fields.Str(required=False, dump_to="ImageDescription"),
+        "ImageDescription": fields.Str(
+            required=False, dump_to="ImageDescription"
+        ),
         "ImageName": fields.Str(required=True, dump_to="ImageName"),
         "ProjectId": fields.Str(required=False, dump_to="ProjectId"),
         "Region": fields.Str(required=True, dump_to="Region"),
@@ -73,7 +79,9 @@ API: CreateUHostInstance
 """
 
 
-class CreateUHostInstanceParamNetworkInterfaceEIPGlobalSSHSchema(schema.RequestSchema):
+class CreateUHostInstanceParamNetworkInterfaceEIPGlobalSSHSchema(
+    schema.RequestSchema
+):
     """ CreateUHostInstanceParamNetworkInterfaceEIPGlobalSSH - 
     """
 
@@ -96,7 +104,9 @@ class CreateUHostInstanceParamNetworkInterfaceEIPSchema(schema.RequestSchema):
         ),
         "OperatorName": fields.Str(required=False, dump_to="OperatorName"),
         "PayMode": fields.Str(required=False, dump_to="PayMode"),
-        "ShareBandwidthId": fields.Str(required=False, dump_to="ShareBandwidthId"),
+        "ShareBandwidthId": fields.Str(
+            required=False, dump_to="ShareBandwidthId"
+        ),
     }
 
 
@@ -131,7 +141,9 @@ class CreateUHostInstanceRequestSchema(schema.RequestSchema):
     """
 
     fields = {
-        "AlarmTemplateId": fields.Int(required=False, dump_to="AlarmTemplateId"),
+        "AlarmTemplateId": fields.Int(
+            required=False, dump_to="AlarmTemplateId"
+        ),
         "BootDiskSpace": fields.Int(required=False, dump_to="BootDiskSpace"),
         "CPU": fields.Int(required=False, dump_to="CPU"),
         "ChargeType": fields.Str(required=False, dump_to="ChargeType"),
@@ -151,7 +163,9 @@ class CreateUHostInstanceRequestSchema(schema.RequestSchema):
         "MachineType": fields.Str(required=False, dump_to="MachineType"),
         "MaxCount": fields.Int(required=False, dump_to="MaxCount"),
         "Memory": fields.Int(required=False, dump_to="Memory"),
-        "MinimalCpuPlatform": fields.Str(required=False, dump_to="MinimalCpuPlatform"),
+        "MinimalCpuPlatform": fields.Str(
+            required=False, dump_to="MinimalCpuPlatform"
+        ),
         "Name": fields.Str(required=False, dump_to="Name"),
         "NetCapability": fields.Str(required=False, dump_to="NetCapability"),
         "NetworkId": fields.Str(required=False, dump_to="NetworkId"),
@@ -165,12 +179,16 @@ class CreateUHostInstanceRequestSchema(schema.RequestSchema):
         "Quantity": fields.Int(required=False, dump_to="Quantity"),
         "Region": fields.Str(required=True, dump_to="Region"),
         "ResourceType": fields.Int(required=False, dump_to="ResourceType"),
-        "SecurityGroupId": fields.Str(required=False, dump_to="SecurityGroupId"),
+        "SecurityGroupId": fields.Str(
+            required=False, dump_to="SecurityGroupId"
+        ),
         "SetId": fields.Int(required=False, dump_to="SetId"),
         "StorageType": fields.Str(required=False, dump_to="StorageType"),
         "SubnetId": fields.Str(required=False, dump_to="SubnetId"),
         "Tag": fields.Str(required=False, dump_to="Tag"),
-        "TimemachineFeature": fields.Str(required=False, dump_to="TimemachineFeature"),
+        "TimemachineFeature": fields.Str(
+            required=False, dump_to="TimemachineFeature"
+        ),
         "UHostType": fields.Str(required=False, dump_to="UHostType"),
         "UserDataScript": fields.Str(required=False, dump_to="UserDataScript"),
         "VPCId": fields.Str(required=False, dump_to="VPCId"),
@@ -184,7 +202,9 @@ class CreateUHostInstanceResponseSchema(schema.ResponseSchema):
 
     fields = {
         "IPs": fields.List(fields.Str(), required=False, load_from="IPs"),
-        "UHostIds": fields.List(fields.Str(), required=False, load_from="UHostIds"),
+        "UHostIds": fields.List(
+            fields.Str(), required=False, load_from="UHostIds"
+        ),
     }
 
 
@@ -257,7 +277,9 @@ class DescribeUHostInstanceResponseSchema(schema.ResponseSchema):
     fields = {
         "TotalCount": fields.Int(required=False, load_from="TotalCount"),
         "UHostSet": fields.List(
-            models.UHostInstanceSetSchema(), required=False, load_from="UHostSet"
+            models.UHostInstanceSetSchema(),
+            required=False,
+            load_from="UHostSet",
         ),
     }
 
@@ -332,7 +354,9 @@ class GetUHostInstancePriceRequestSchema(schema.RequestSchema):
         "Quantity": fields.Int(required=False, dump_to="Quantity"),
         "Region": fields.Str(required=True, dump_to="Region"),
         "StorageType": fields.Str(required=False, dump_to="StorageType"),
-        "TimemachineFeature": fields.Str(required=False, dump_to="TimemachineFeature"),
+        "TimemachineFeature": fields.Str(
+            required=False, dump_to="TimemachineFeature"
+        ),
         "UHostType": fields.Str(required=False, dump_to="UHostType"),
         "Zone": fields.Str(required=False, dump_to="Zone"),
     }
@@ -400,7 +424,9 @@ class GetUHostUpgradePriceRequestSchema(schema.RequestSchema):
         "NetCapValue": fields.Int(required=False, dump_to="NetCapValue"),
         "ProjectId": fields.Str(required=False, dump_to="ProjectId"),
         "Region": fields.Str(required=True, dump_to="Region"),
-        "TimemachineFeature": fields.Str(required=False, dump_to="TimemachineFeature"),
+        "TimemachineFeature": fields.Str(
+            required=False, dump_to="TimemachineFeature"
+        ),
         "UHostId": fields.Str(required=True, dump_to="UHostId"),
         "Zone": fields.Str(required=False, dump_to="Zone"),
     }
@@ -427,7 +453,9 @@ class ImportCustomImageRequestSchema(schema.RequestSchema):
     fields = {
         "Auth": fields.Bool(required=True, dump_to="Auth"),
         "Format": fields.Str(required=True, dump_to="Format"),
-        "ImageDescription": fields.Str(required=False, dump_to="ImageDescription"),
+        "ImageDescription": fields.Str(
+            required=False, dump_to="ImageDescription"
+        ),
         "ImageName": fields.Str(required=True, dump_to="ImageName"),
         "OsName": fields.Str(required=True, dump_to="OsName"),
         "OsType": fields.Str(required=True, dump_to="OsType"),
@@ -830,5 +858,7 @@ class UpgradeToArkUHostInstanceResponseSchema(schema.ResponseSchema):
     """
 
     fields = {
-        "UHostSet": fields.List(fields.Str(), required=False, load_from="UHostSet")
+        "UHostSet": fields.List(
+            fields.Str(), required=False, load_from="UHostSet"
+        )
     }

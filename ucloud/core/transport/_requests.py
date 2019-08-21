@@ -21,7 +21,10 @@ class RequestsTransport(http.Transport):
     """
 
     def __init__(
-        self, max_retries=3, backoff_factor=0.3, status_forcelist=(500, 502, 504)
+        self,
+        max_retries=3,
+        backoff_factor=0.3,
+        status_forcelist=(500, 502, 504),
     ):
         self.max_retries = max_retries
         self.backoff_factor = backoff_factor
@@ -90,4 +93,5 @@ class RequestsTransport(http.Transport):
             reason=r.reason,
             headers=r.headers,
             content=r.content,
+            encoding=r.encoding or r.apparent_encoding,
         )

@@ -27,7 +27,9 @@ class RouteTableInfoSchema(schema.ResponseSchema):
         "Remark": fields.Str(required=False, load_from="Remark"),
         "RouteRules": fields.List(RouteRuleInfoSchema()),
         "RouteTableId": fields.Str(required=False, load_from="RouteTableId"),
-        "RouteTableType": fields.Int(required=False, load_from="RouteTableType"),
+        "RouteTableType": fields.Int(
+            required=False, load_from="RouteTableType"
+        ),
         "SubnetCount": fields.Str(required=False, load_from="SubnetCount"),
         "Tag": fields.Str(required=False, load_from="Tag"),
         "VPCId": fields.Str(required=False, load_from="VPCId"),
@@ -70,8 +72,12 @@ class SubnetResourceSchema(schema.ResponseSchema):
         "ResourceId": fields.Str(required=False, load_from="ResourceId"),
         "ResourceType": fields.Str(required=False, load_from="ResourceType"),
         "SubResourceId": fields.Str(required=False, load_from="SubResourceId"),
-        "SubResourceName": fields.Str(required=False, load_from="SubResourceName"),
-        "SubResourceType": fields.Str(required=False, load_from="SubResourceType"),
+        "SubResourceName": fields.Str(
+            required=False, load_from="SubResourceName"
+        ),
+        "SubResourceType": fields.Str(
+            required=False, load_from="SubResourceType"
+        ),
     }
 
 

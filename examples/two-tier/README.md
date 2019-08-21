@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 # UCloud SDK Two-Tier Example
 
 ## What is the goal

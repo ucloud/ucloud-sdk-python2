@@ -567,7 +567,9 @@ class UNetClient(Client):
         req and d.update(req)
         d = apis.DisassociateEIPWithShareBandwidthRequestSchema().dumps(d)
         resp = self.invoke("DisassociateEIPWithShareBandwidth", d, **kwargs)
-        return apis.DisassociateEIPWithShareBandwidthResponseSchema().loads(resp)
+        return apis.DisassociateEIPWithShareBandwidthResponseSchema().loads(
+            resp
+        )
 
     def get_eip_pay_mode(self, req=None, **kwargs):
         """ GetEIPPayMode - 获取弹性IP计费模式
@@ -924,5 +926,7 @@ class UNetClient(Client):
             self.logger.warning(msg.format(item, instead_of))
             return getattr(self, self._deprecated[item])
         raise AttributeError(
-            "'{}' object has no attribute '{}'".format(self.__class__.__name__, item)
+            "'{}' object has no attribute '{}'".format(
+                self.__class__.__name__, item
+            )
         )

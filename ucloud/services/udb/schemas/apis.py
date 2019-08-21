@@ -143,7 +143,9 @@ class CheckRecoverUDBInstanceResponseSchema(schema.ResponseSchema):
     """ CheckRecoverUDBInstance - 核查db是否可以使用回档功能
     """
 
-    fields = {"LastestTime": fields.Int(required=False, load_from="LastestTime")}
+    fields = {
+        "LastestTime": fields.Int(required=False, load_from="LastestTime")
+    }
 
 
 """
@@ -223,7 +225,9 @@ class CreateUDBInstanceRequestSchema(schema.RequestSchema):
         "ClusterRole": fields.Str(required=False, dump_to="ClusterRole"),
         "CouponId": fields.Str(required=False, dump_to="CouponId"),
         "DBTypeId": fields.Str(required=True, dump_to="DBTypeId"),
-        "DisableSemisync": fields.Bool(required=False, dump_to="DisableSemisync"),
+        "DisableSemisync": fields.Bool(
+            required=False, dump_to="DisableSemisync"
+        ),
         "DiskSpace": fields.Int(required=True, dump_to="DiskSpace"),
         "HAArch": fields.Str(required=False, dump_to="HAArch"),
         "InstanceMode": fields.Str(required=False, dump_to="InstanceMode"),
@@ -617,7 +621,9 @@ class DescribeUDBBinlogBackupURLResponseSchema(schema.ResponseSchema):
 
     fields = {
         "BackupPath": fields.Str(required=False, load_from="BackupPath"),
-        "InnerBackupPath": fields.Str(required=False, load_from="InnerBackupPath"),
+        "InnerBackupPath": fields.Str(
+            required=False, load_from="InnerBackupPath"
+        ),
     }
 
 
@@ -633,12 +639,12 @@ class DescribeUDBInstanceRequestSchema(schema.RequestSchema):
     """
 
     fields = {
-        "ClassType": fields.Str(required=True, dump_to="ClassType"),
+        "ClassType": fields.Str(required=False, dump_to="ClassType"),
         "DBId": fields.Str(required=False, dump_to="DBId"),
         "IncludeSlaves": fields.Bool(required=False, dump_to="IncludeSlaves"),
         "IsInUDBC": fields.Bool(required=False, dump_to="IsInUDBC"),
-        "Limit": fields.Int(required=True, dump_to="Limit"),
-        "Offset": fields.Int(required=True, dump_to="Offset"),
+        "Limit": fields.Int(required=False, dump_to="Limit"),
+        "Offset": fields.Int(required=False, dump_to="Offset"),
         "ProjectId": fields.Str(required=False, dump_to="ProjectId"),
         "Region": fields.Str(required=True, dump_to="Region"),
         "UDBCId": fields.Str(required=False, dump_to="UDBCId"),
@@ -715,7 +721,9 @@ class DescribeUDBInstanceBackupURLResponseSchema(schema.ResponseSchema):
 
     fields = {
         "BackupPath": fields.Str(required=False, load_from="BackupPath"),
-        "InnerBackupPath": fields.Str(required=False, load_from="InnerBackupPath"),
+        "InnerBackupPath": fields.Str(
+            required=False, load_from="InnerBackupPath"
+        ),
     }
 
 
@@ -746,7 +754,9 @@ class DescribeUDBInstanceBinlogResponseSchema(schema.ResponseSchema):
 
     fields = {
         "DataSet": fields.List(
-            models.UDBInstanceBinlogSetSchema(), required=False, load_from="DataSet"
+            models.UDBInstanceBinlogSetSchema(),
+            required=False,
+            load_from="DataSet",
         )
     }
 
@@ -802,7 +812,7 @@ class DescribeUDBInstancePriceRequestSchema(schema.RequestSchema):
         "Quantity": fields.Int(required=False, dump_to="Quantity"),
         "Region": fields.Str(required=True, dump_to="Region"),
         "SSDType": fields.Str(required=False, dump_to="SSDType"),
-        "UseSSD": fields.Bool(required=False, dump_to="UseSSD"),
+        "UseSSD": fields.Str(required=False, dump_to="UseSSD"),
         "Zone": fields.Str(required=True, dump_to="Zone"),
     }
 
@@ -813,7 +823,9 @@ class DescribeUDBInstancePriceResponseSchema(schema.ResponseSchema):
 
     fields = {
         "DataSet": fields.List(
-            models.UDBInstancePriceSetSchema(), required=False, load_from="DataSet"
+            models.UDBInstancePriceSetSchema(),
+            required=False,
+            load_from="DataSet",
         )
     }
 
@@ -871,7 +883,7 @@ class DescribeUDBInstanceUpgradePriceResponseSchema(schema.ResponseSchema):
     """ DescribeUDBInstanceUpgradePrice - 获取UDB实例升降级价格信息
     """
 
-    fields = {"Price": fields.Float(required=False, load_from="Price")}
+    fields = {"Price": fields.Int(required=False, load_from="Price")}
 
 
 """
@@ -934,7 +946,9 @@ class DescribeUDBLogPackageResponseSchema(schema.ResponseSchema):
 
     fields = {
         "DataSet": fields.List(
-            models.LogPackageDataSetSchema(), required=False, load_from="DataSet"
+            models.LogPackageDataSetSchema(),
+            required=False,
+            load_from="DataSet",
         ),
         "TotalCount": fields.Int(required=False, load_from="TotalCount"),
     }
@@ -988,6 +1002,7 @@ class DescribeUDBTypeRequestSchema(schema.RequestSchema):
     """
 
     fields = {
+        "BackupZone": fields.Str(required=False, dump_to="BackupZone"),
         "DBClusterType": fields.Str(required=False, dump_to="DBClusterType"),
         "DiskType": fields.Str(required=False, dump_to="DiskType"),
         "InstanceMode": fields.Str(required=False, dump_to="InstanceMode"),
@@ -1001,9 +1016,11 @@ class DescribeUDBTypeResponseSchema(schema.ResponseSchema):
     """
 
     fields = {
+        "Action": fields.Str(required=True, load_from="Action"),
         "DataSet": fields.List(
             models.UDBTypeSetSchema(), required=False, load_from="DataSet"
-        )
+        ),
+        "RetCode": fields.Int(required=True, load_from="RetCode"),
     }
 
 
@@ -1057,7 +1074,9 @@ class FetchUDBInstanceEarliestRecoverTimeResponseSchema(schema.ResponseSchema):
     """ FetchUDBInstanceEarliestRecoverTime - 获取UDB最早可回档的时间点
     """
 
-    fields = {"EarliestTime": fields.Int(required=False, load_from="EarliestTime")}
+    fields = {
+        "EarliestTime": fields.Int(required=False, load_from="EarliestTime")
+    }
 
 
 """
@@ -1185,10 +1204,12 @@ class ResizeUDBInstanceRequestSchema(schema.RequestSchema):
         "InstanceMode": fields.Str(required=False, dump_to="InstanceMode"),
         "InstanceType": fields.Str(required=False, dump_to="InstanceType"),
         "MemoryLimit": fields.Int(required=True, dump_to="MemoryLimit"),
-        "ProjectId": fields.Int(required=False, dump_to="ProjectId"),
+        "ProjectId": fields.Str(required=False, dump_to="ProjectId"),
         "Region": fields.Str(required=True, dump_to="Region"),
         "SSDType": fields.Str(required=False, dump_to="SSDType"),
-        "StartAfterUpgrade": fields.Bool(required=False, dump_to="StartAfterUpgrade"),
+        "StartAfterUpgrade": fields.Bool(
+            required=False, dump_to="StartAfterUpgrade"
+        ),
         "UDBCId": fields.Str(required=False, dump_to="UDBCId"),
         "UseSSD": fields.Bool(required=False, dump_to="UseSSD"),
         "Zone": fields.Str(required=False, dump_to="Zone"),
@@ -1414,7 +1435,9 @@ class UploadUDBParamGroupRequestSchema(schema.RequestSchema):
         "DBTypeId": fields.Str(required=True, dump_to="DBTypeId"),
         "Description": fields.Str(required=True, dump_to="Description"),
         "GroupName": fields.Str(required=True, dump_to="GroupName"),
-        "ParamGroupTypeId": fields.Int(required=False, dump_to="ParamGroupTypeId"),
+        "ParamGroupTypeId": fields.Int(
+            required=False, dump_to="ParamGroupTypeId"
+        ),
         "ProjectId": fields.Str(required=False, dump_to="ProjectId"),
         "Region": fields.Str(required=True, dump_to="Region"),
         "RegionFlag": fields.Bool(required=False, dump_to="RegionFlag"),
