@@ -4,6 +4,8 @@ import astor
 
 
 class SDK3to2Transformer(ast.NodeTransformer):
+    UTF8_HEADER = '# -*- coding: utf-8 -*-\n\n'
+
     def visit_Import(self, node):
         is_typing = [alias for alias in node.names if alias.name == 'typing']
         return None if is_typing else node
@@ -56,4 +58,4 @@ class SDK3to2Transformer(ast.NodeTransformer):
     def convert(self, source: str) -> str:
         ast_node = ast.parse(source)
         ast_node = self.visit(ast_node)
-        return astor.to_source(ast_node)
+        return self.UTF8_HEADER + astor.to_source(ast_node)

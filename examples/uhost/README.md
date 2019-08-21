@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 # UCloud SDK UHost Example
 
 ## What is the goal

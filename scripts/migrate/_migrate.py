@@ -25,8 +25,6 @@ class Config:
 
 
 class Migrate(object):
-    UTF8_HEADER = '# -*- coding: utf-8 -*-\n\n'
-
     default_plugins_classes = {
         "py3to2": SDK3to2Transformer,
         "doc": DocTransformer,
@@ -79,7 +77,7 @@ class Migrate(object):
             # convert destination code
             output_code = source_code
             for plugin in plugins:
-                output_code = self.UTF8_HEADER + plugin.convert(source_code)
+                output_code = plugin.convert(source_code)
 
             # output to file
             os.makedirs(os.path.dirname(result_path), exist_ok=True)

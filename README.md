@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 <p align="center">
     <img src="https://ucloud-sdk.dl.ufileos.com/logos%2Flogo-mini.png" />
 </p>
