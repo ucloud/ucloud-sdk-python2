@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 UCloud SDK Python 2
 ===================
 
