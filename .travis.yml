@@ -2,40 +2,17 @@
 
 language: python
 python:
-    - 2.7
+  - 2.7
 dist: xenial
 sudo: true
 
 # command to install dependencies, e.g. pip install -r requirements.txt --use-mirrors
-install: pip install -U tox-travis
+install: pip install -e .[ci]
 
 # command to run tests, e.g. python setup.py test
-script: tox
+script:
+    - make lint
+    - make test-cov
 
-before_deploy:
-    - pip install -e .[doc]
-    - make docs
-    - touch docs/build/html/.nojekyll
-
-# deploy new versions to PyPI / GithubIO
-deploy:
-  - provider: pages
-    skip_cleanup: true
-    github_token:
-      secure: "hmzSJF/l5S0Wg5gne0EMg4949kCge+FsicBdpTrfARS22cWfhuoBw4U2/1g68vk3CrCDCWjY1MeS8KSnIL7/T1QEgXtiSj218sUmbJqQrw2zJwQ5D+PSih9YkefAH8Gxhnm0y5XNY7WdtxE243eDNBSahhYUvtb7rIH47nCvCP+Hfqwbe6Uh8sFhXyJoBIG48I66GHJ6ogQdSxbeVErGhyOjnhcgLbEDSj9c0CxkqGzaMjLr0eCJyGk11K8cFiJYlk4pL+rDYh6ySq+5gGIUlCPWwDc0eED2SYfPmuKUf36A8M+zOFXmB2MBu05EgVQy8B8pkuaEANOV8/fzRr4tEJkG6rrnfbECCMjMHb5kVzrPKhjJ+YXpoG4nO7uvILVB3F8H521BhDtEFA3bU2h7ptb5fUsGWovbLbA+Od8B5R2l63GrdGO1tp6rDYsOevrs4yt/nSQnY/3Arj558tVYy4nUCBPQu9ERPh1fqSPGGJ137fTPtaqSI2HNLWDMbXhuStda4Jst8NUtrF52lXiPQ1blFwQ6OTFKzF2lGLpAmYJ+IbbmcVZrif7hS163/h1vbthtdQ3DiAre0Zhy+iKLdVqvkO+FbRkY9UaYC94/xdYNOegzfTlrQbehxALbkAdLfIYfQN09Jqg41H1bGzIak9VWTHgPbrpzThVTrLIwCJg="
-    local_dir: docs/build/html
-    on:
-      branch: master
-      repo: ucloud/ucloud-sdk-python2
-      python: 2.7
-  - provider: pypi
-    distributions: sdist bdist_wheel
-    skip_existing: true
-    user: ucloud
-    password:
-      secure: "t0uGtmntLkofMOwPHvaxhDnIEOsA/wgLejbq2Vf8yDueDpJ7mOhHsFEt7vn+PTFeilRf6N58z9P4eixMMxl6oDktSS1WbL5chaUtRljDeTBN8rL10lbalsc7nUFZL8VGKtf2XljhaSra+jcCGvTPaqEOisDiGJoNm6GPbyR9s+P2mfL0XDTwgyUMHpaG5LcvMU+zpns+uXHurBoCnQrstIah9ylrGnmIhNbN6fU2HLlhVaX9VB7QGwSxQuin3YkTdi1tFN7AToi2oMcg46mXRRf/K4jNTwPOEr0MYZ334PhFB1odaWidOObbxMiRudyGk3pTzH6NFxtgg6PviH999qgWgTBFwBjHvq1DkJatRGH/vDHmgE3t2yS2c1xE8Wgl9ONhUj8MOlaStDn9H4lhbuiT7754yS22ko4mvcxCrqzGqZSp2/vh9UyJ72YcqsvsqUPv5paSmSebsEPxCw3z646CuqGk5cPz3XGj4pxJdhqlvOV3Zl35O3mSRLkCfyNLOTfYsheAaK2sxtbcbJ5fPfQRLsvPdVtInmDBEACdHdVYJJSFw4em+gwnnLDGj74/nHJUAX781XetmWoyP9t5IP+cEuzhYApo4rO8JgaG7v/IZoXcl/h4tHsSev8PD6cqWx2vYIJFtMKej87YjbkU/RJEjQz5NychqL0U3FminTw="
-    on:
-      branch: master
-      tags: true
-      repo: ucloud/ucloud-sdk-python2
-      python: 2.7
+after_success:
+    - bash <(curl -s https://codecov.io/bash)
