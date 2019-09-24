@@ -116,4 +116,6 @@ class Client(object):
         return user_agent
 
     def __repr__(self):
-        return '<{}("{}")>'.format(self.__class__.__name__, self.config.region)
+        return '<{}(region="{}")>'.format(
+            self.__class__.__name__, self.config.region
+        )
