@@ -6,7 +6,7 @@ from ucloud.core.typesystem import schema, fields
 
 class ConfigSchema(schema.Schema):
     fields = {
-        "region": fields.Str(required=True),
+        "region": fields.Str(),
         "project_id": fields.Str(),
         "base_url": fields.Str(default="https://api.ucloud.cn"),
         "user_agent": fields.Str(),
@@ -47,7 +47,7 @@ class Config(object):
 
     def __init__(
         self,
-        region,
+        region=None,
         project_id=None,
         base_url="https://api.ucloud.cn",
         user_agent=None,

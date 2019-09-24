@@ -65,6 +65,13 @@ class UPHostClient(Client):
         
         **Response Model**
         
+        **PHostCPUSet** 
+        
+        - **CoreCount** (int) - CPU核数
+        - **Count** (int) - CPU个数
+        - **Frequence** (float) - CPU主频
+        - **Model** (str) - CPU型号
+
         **PHostDiskSet** 
         
         - **Count** (int) - 磁盘数量
@@ -72,13 +79,6 @@ class UPHostClient(Client):
         - **Name** (str) - 磁盘名称，sys/data
         - **Space** (int) - 单盘大小，单位GB
         - **Type** (str) - 磁盘属性
-
-        **PHostCPUSet** 
-        
-        - **CoreCount** (int) - CPU核数
-        - **Count** (int) - CPU个数
-        - **Frequence** (float) - CPU主频
-        - **Model** (str) - CPU型号
 
         **PHostIPSet** 
         
@@ -93,7 +93,7 @@ class UPHostClient(Client):
         **PHostSet** 
         
         - **AutoRenew** (str) - 自动续费
-        - **CPUSet** (list) - 见 **PHostCPUSet** 模型定义
+        - **CPUSet** (dict) - 见 **PHostCPUSet** 模型定义
         - **ChargeType** (str) - 计费模式，枚举值为： Year，按年付费； Month，按月付费； Dynamic，按需付费（需开启权限）； Trial，试用（需开启权限）默认为月付
         - **Cluster** (str) - 网络环境。枚举值：千兆：1G ，万兆：10G
         - **Components** (str) - 组件信息（暂不支持）
