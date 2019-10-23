@@ -34,136 +34,6 @@
             
   <div class="section" id="ucloud-sdk-services">
 <h1>UCloud SDK Services<a class="headerlink" href="#ucloud-sdk-services" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="pathx">
-<h2>PathX<a class="headerlink" href="#pathx" title="Permalink to this headline">¶</a></h2>
-<dl class="class">
-<dt id="ucloud.services.pathx.client.PathXClient">
-<em class="property">class </em><code class="descclassname">ucloud.services.pathx.client.</code><code class="descname">PathXClient</code><span class="sig-paren">(</span><em>config</em>, <em>transport=None</em>, <em>middleware=None</em>, <em>logger=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/pathx/client.html#PathXClient"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.pathx.client.PathXClient" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="method">
-<dt id="ucloud.services.pathx.client.PathXClient.create_global_ssh_instance">
-<code class="descname">create_global_ssh_instance</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/pathx/client.html#PathXClient.create_global_ssh_instance"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.pathx.client.PathXClient.create_global_ssh_instance" title="Permalink to this definition">¶</a></dt>
-<dd><p>CreateGlobalSSHInstance - 创建GlobalSSH实例</p>
-<p><strong>Request</strong></p>
-<ul class="simple">
-<li><strong>ProjectId</strong> (str) - (Config) 项目ID,如org-xxxx。请参考 <a class="reference external" href="https://docs.ucloud.cn/api/summary/get_project_list.html">GetProjectList接口</a></li>
-<li><strong>Area</strong> (str) - (Required) 填写支持SSH访问IP的地区名称，如“洛杉矶”，“新加坡”，“香港”，“东京”，“华盛顿”，“法兰克福”。Area和AreaCode两者必填一个</li>
-<li><strong>AreaCode</strong> (str) - (Required) AreaCode, 区域航空港国际通用代码。Area和AreaCode两者必填一个</li>
-<li><strong>Port</strong> (int) - (Required) SSH端口，1-65535且不能使用80，443端口</li>
-<li><strong>TargetIP</strong> (str) - (Required) 被SSH访问的IP</li>
-<li><strong>ChargeType</strong> (str) - 支付方式，如按月、按年、按时</li>
-<li><strong>CouponId</strong> (str) - 使用代金券可冲抵部分费用</li>
-<li><strong>Quantity</strong> (int) - 购买数量</li>
-<li><strong>Remark</strong> (str) - 备注信息</li>
-</ul>
-<p><strong>Response</strong></p>
-<ul class="simple">
-<li><strong>AcceleratingDomain</strong> (str) - 加速域名，访问该域名可就近接入</li>
-<li><strong>InstanceId</strong> (str) - 实例ID，资源唯一标识</li>
-<li><strong>Message</strong> (str) - 提示信息</li>
-</ul>
-</dd></dl>
-
-<dl class="method">
-<dt id="ucloud.services.pathx.client.PathXClient.delete_global_ssh_instance">
-<code class="descname">delete_global_ssh_instance</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/pathx/client.html#PathXClient.delete_global_ssh_instance"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.pathx.client.PathXClient.delete_global_ssh_instance" title="Permalink to this definition">¶</a></dt>
-<dd><p>DeleteGlobalSSHInstance - 删除GlobalSSH实例</p>
-<p><strong>Request</strong></p>
-<ul class="simple">
-<li><strong>ProjectId</strong> (str) - (Config) 项目ID,如org-xxxx。请参考 <a class="reference external" href="https://docs.ucloud.cn/api/summary/get_project_list.html">GetProjectList接口</a></li>
-<li><strong>InstanceId</strong> (str) - (Required) 实例Id,资源的唯一标识</li>
-</ul>
-<p><strong>Response</strong></p>
-<ul class="simple">
-<li><strong>Message</strong> (str) - 提示信息</li>
-</ul>
-</dd></dl>
-
-<dl class="method">
-<dt id="ucloud.services.pathx.client.PathXClient.describe_global_ssh_area">
-<code class="descname">describe_global_ssh_area</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/pathx/client.html#PathXClient.describe_global_ssh_area"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.pathx.client.PathXClient.describe_global_ssh_area" title="Permalink to this definition">¶</a></dt>
-<dd><p>DescribeGlobalSSHArea - 获取GlobalSSH覆盖的地区列表 用于控制显示哪些机房地域可以使用SSH特性</p>
-<p><strong>Request</strong></p>
-<ul class="simple">
-<li><strong>ProjectId</strong> (str) - (Config) 项目ID,如org-xxxx。请参考 <a class="reference external" href="https://docs.ucloud.cn/api/summary/get_project_list.html">GetProjectList接口</a></li>
-<li><strong>Region</strong> (str) - (Config) 机房地域代号，如hk、 us-ca、 us-ws等。不填默认为空，返回所有支持地区。</li>
-</ul>
-<p><strong>Response</strong></p>
-<ul class="simple">
-<li><strong>AreaSet</strong> (list) - 见 <strong>GlobalSSHArea</strong> 模型定义</li>
-<li><strong>Message</strong> (str) - 提示信息</li>
-</ul>
-<p><strong>Response Model</strong></p>
-<p><strong>GlobalSSHArea</strong></p>
-<ul class="simple">
-<li><strong>Area</strong> (str) - GlobalSSH覆盖的地区,如香港、东京、洛杉矶等</li>
-<li><strong>AreaCode</strong> (str) - 地区代号,以地区AirPort Code</li>
-<li><strong>RegionSet</strong> (list) - ucloud机房代号构成的数组，如[“hk”,”us-ca”]</li>
-</ul>
-</dd></dl>
-
-<dl class="method">
-<dt id="ucloud.services.pathx.client.PathXClient.describe_global_ssh_instance">
-<code class="descname">describe_global_ssh_instance</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/pathx/client.html#PathXClient.describe_global_ssh_instance"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.pathx.client.PathXClient.describe_global_ssh_instance" title="Permalink to this definition">¶</a></dt>
-<dd><p>DescribeGlobalSSHInstance - 获取GlobalSSH实例列表（传实例ID获取单个实例信息，不传获取项目下全部实例）</p>
-<p><strong>Request</strong></p>
-<ul class="simple">
-<li><strong>ProjectId</strong> (str) - (Config) 项目ID，如org-xxxx。请参考 <a class="reference external" href="https://docs.ucloud.cn/api/summary/get_project_list.html">GetProjectList接口</a></li>
-<li><strong>InstanceId</strong> (str) - 实例ID，资源唯一标识</li>
-</ul>
-<p><strong>Response</strong></p>
-<ul class="simple">
-<li><strong>InstanceSet</strong> (list) - 见 <strong>GlobalSSHInfo</strong> 模型定义</li>
-</ul>
-<p><strong>Response Model</strong></p>
-<p><strong>GlobalSSHInfo</strong></p>
-<ul class="simple">
-<li><strong>AcceleratingDomain</strong> (str) - 加速域名</li>
-<li><strong>Area</strong> (str) - 被SSH访问的IP所在地区</li>
-<li><strong>ChargeType</strong> (str) - 支付周期，如Month,Year等</li>
-<li><strong>CreateTime</strong> (int) - 资源创建时间戳</li>
-<li><strong>ExpireTime</strong> (int) - 资源过期时间戳</li>
-<li><strong>InstanceId</strong> (str) - 实例ID，资源唯一标识</li>
-<li><strong>Port</strong> (int) - SSH登陆端口</li>
-<li><strong>Remark</strong> (str) - 备注信息</li>
-<li><strong>TargetIP</strong> (str) - 被SSH访问的EIP</li>
-</ul>
-</dd></dl>
-
-<dl class="method">
-<dt id="ucloud.services.pathx.client.PathXClient.modify_global_ssh_port">
-<code class="descname">modify_global_ssh_port</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/pathx/client.html#PathXClient.modify_global_ssh_port"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.pathx.client.PathXClient.modify_global_ssh_port" title="Permalink to this definition">¶</a></dt>
-<dd><p>ModifyGlobalSSHPort - 修改GlobalSSH端口</p>
-<p><strong>Request</strong></p>
-<ul class="simple">
-<li><strong>ProjectId</strong> (str) - (Config) 项目ID，如org-xxxx。请参考 <a class="reference external" href="https://docs.ucloud.cn/api/summary/get_project_list.html">GetProjectList接口</a></li>
-<li><strong>InstanceId</strong> (str) - (Required) 实例ID,资源唯一标识</li>
-<li><strong>Port</strong> (int) - (Required) 调整后的SSH登陆端口</li>
-</ul>
-<p><strong>Response</strong></p>
-<ul class="simple">
-<li><strong>Message</strong> (str) - 提示信息</li>
-</ul>
-</dd></dl>
-
-<dl class="method">
-<dt id="ucloud.services.pathx.client.PathXClient.modify_global_ssh_remark">
-<code class="descname">modify_global_ssh_remark</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/pathx/client.html#PathXClient.modify_global_ssh_remark"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.pathx.client.PathXClient.modify_global_ssh_remark" title="Permalink to this definition">¶</a></dt>
-<dd><p>ModifyGlobalSSHRemark - 修改GlobalSSH备注</p>
-<p><strong>Request</strong></p>
-<ul class="simple">
-<li><strong>ProjectId</strong> (str) - (Config) 项目ID，如org-xxxx。请参考 <a class="reference external" href="https://docs.ucloud.cn/api/summary/get_project_list.html">GetProjectList接口</a></li>
-<li><strong>InstanceId</strong> (str) - (Required) 实例ID,资源唯一标识</li>
-<li><strong>Remark</strong> (str) - 备注信息，不填默认为空字符串</li>
-</ul>
-<p><strong>Response</strong></p>
-<ul class="simple">
-<li><strong>Message</strong> (str) - 接口返回消息</li>
-</ul>
-</dd></dl>
-
-</dd></dl>
-
-</div>
 <div class="section" id="stepflow">
 <h2>StepFlow<a class="headerlink" href="#stepflow" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
@@ -351,6 +221,530 @@
 <p><strong>Request</strong></p>
 <ul class="simple">
 <li><strong>ProjectId</strong> (str) - (Config) 项目ID，不填写为默认项目，子帐号必须填写。</li>
+</ul>
+<p><strong>Response</strong></p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="ucdn">
+<h2>UCDN<a class="headerlink" href="#ucdn" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="ucloud.services.ucdn.client.UCDNClient">
+<em class="property">class </em><code class="descclassname">ucloud.services.ucdn.client.</code><code class="descname">UCDNClient</code><span class="sig-paren">(</span><em>config</em>, <em>transport=None</em>, <em>middleware=None</em>, <em>logger=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/ucdn/client.html#UCDNClient"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.ucdn.client.UCDNClient" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="ucloud.services.ucdn.client.UCDNClient.batch_describe_new_ucdn_domain">
+<code class="descname">batch_describe_new_ucdn_domain</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/ucdn/client.html#UCDNClient.batch_describe_new_ucdn_domain"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.ucdn.client.UCDNClient.batch_describe_new_ucdn_domain" title="Permalink to this definition">¶</a></dt>
+<dd><p>BatchDescribeNewUcdnDomain - 批量获取加速域名配置</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>ProjectId</strong> (str) - (Config) 项目ID。不填写为默认项目，子帐号必须填写。 请参考 <a class="reference external" href="https://docs.ucloud.cn/api/summary/get_project_list.html">GetProjectList接口</a></li>
+<li><strong>ChannelType</strong> (str) - 渠道ucdn、ufile、uvideo</li>
+<li><strong>DomainId</strong> (list) - 域名id，创建域名时生成的资源id，默认获取账号下的所有域名信息，n为自然数</li>
+<li><strong>Limit</strong> (int) - 返回数据长度，如果制定了Offset，则默认20，否则默认全部，非负整数</li>
+<li><strong>Offset</strong> (int) - 数据偏移量，默认0，非负整数</li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>Arrearage</strong> (list) - 标识欠费的数组，数组含有下列元素值， 1=国内流量有欠费 2=国外流量有欠费  3=国内带宽有欠费 4=国外带宽有欠费</li>
+<li><strong>ChargeType</strong> (int) - 当前计费方式，10=流量付费 20=带宽日峰值  30=按月后付费</li>
+<li><strong>DomainList</strong> (list) - 见 <strong>DomainInfo</strong> 模型定义</li>
+<li><strong>LastChargeType</strong> (int) - 表示最后一次切换的计费方式，10=流量付费 20=带宽日峰值  30=按月后付费  40=未选择计费方式</li>
+<li><strong>MaxDomainNum</strong> (int) - 最大域名数量，默认20</li>
+<li><strong>TotalCount</strong> (int) - 满足条件的域名个数</li>
+<li><strong>Vip</strong> (str) - vip标示，yes-是  no-否</li>
+</ul>
+<p><strong>Response Model</strong></p>
+<p><strong>AccessConf</strong></p>
+<ul class="simple">
+<li><strong>IpBlacklist</strong> (str) - 多个ip用逗号隔开</li>
+</ul>
+<p><strong>CacheConf</strong></p>
+<ul class="simple">
+<li><strong>CacheBehavior</strong> (bool) - 是否缓存，true为缓存，false为不缓存。为false的情况下，CacheTTL和CacheUnit强制不生效</li>
+<li><strong>CacheTTL</strong> (int) - 缓存时间</li>
+<li><strong>CacheUnit</strong> (str) - 缓存时间的单位。sec（秒），min（分钟），hour（小时），day（天）</li>
+<li><strong>Description</strong> (str) - 缓存规则描述</li>
+<li><strong>FollowOriginRule</strong> (bool) - 是否优先遵循源站头部缓存策略，false为不优先遵循源站，true为优先遵循源站缓存头部。默认为false</li>
+<li><strong>HttpCodePattern</strong> (str) - 状态码默认情况只缓存200类状态码，支持正则</li>
+<li><strong>IgnoreQueryString</strong> (bool) - 是否忽略参数缓存（false为不忽略，true为忽略，默认为false）</li>
+<li><strong>PathPattern</strong> (str) - 路径模式，支持正则</li>
+</ul>
+<p><strong>DomainInfo</strong></p>
+<ul class="simple">
+<li><strong>AccessConf</strong> (dict) - 见 <strong>AccessConf</strong> 模型定义</li>
+<li><strong>AreaCode</strong> (str) - 查询带宽区域 cn代表国内 abroad代表海外 不填默认为全部区域</li>
+<li><strong>CacheConf</strong> (list) - 见 <strong>CacheConf</strong> 模型定义</li>
+<li><strong>CacheHost</strong> (str) - 缓存Host，不同的域名可以配置为同一个CacheHost来实现缓存共享，默认为加速域名</li>
+<li><strong>CdnProtocol</strong> (str) - 加速类型http,http|https</li>
+<li><strong>CdnType</strong> (str) - 加速域名的业务类型，web代表网站，stream代表视频，download代表下载。</li>
+<li><strong>CertName</strong> (str) - 证书名称</li>
+<li><strong>Cname</strong> (str) - cdn域名。创建加速域名生成的cdn域名，用于设置CNAME记录</li>
+<li><strong>CreateTime</strong> (int) - 域名创建的时间。格式：时间戳</li>
+<li><strong>Domain</strong> (str) - 域名，用户创建加速的域名</li>
+<li><strong>DomainId</strong> (str) - 域名id，创建域名时生成的id</li>
+<li><strong>HttpsStatusAbroad</strong> (str) - 国外https状态 enableing-开启中  fail-开启失败 enable-启用 disable-未启用</li>
+<li><strong>HttpsStatusCn</strong> (str) - 国内https状态 enableing-开启中 fail-开启失败 enable-启用 disable-未启用</li>
+<li><strong>NullRefer</strong> (bool) - ReferType为白名单时，NullRefer为false代表不允许NULL refer访问，为true代表允许Null refer访问</li>
+<li><strong>OriginHost</strong> (str) - 回源Http请求头部Host，默认是加速域名</li>
+<li><strong>OriginIp</strong> (list) - 源站ip即cdn服务器回源访问的ip地址。支持多个源站ip，多个源站ip，可表述为如：[1.1.1.1,2.2.2.2]</li>
+<li><strong>OriginPort</strong> (int) - 回源端口</li>
+<li><strong>OriginProtocol</strong> (str) - 源站协议http，http|https   默认http</li>
+<li><strong>ReferList</strong> (list) - Refer列表，支持正则表达式</li>
+<li><strong>ReferStatus</strong> (bool) - refer配置开关，true打开，false关闭</li>
+<li><strong>ReferType</strong> (int) - 0白名单，1黑名单</li>
+<li><strong>Status</strong> (str) - 创建的加速域名的当前的状态。check代表审核中，checkSuccess代表审核通过，checkFail代表审核失败，enable代表加速中，disable代表停止加速，delete代表删除加速 enableing代表正在开启加速，disableing代表正在停止加速中，deleteing代表删除中</li>
+<li><strong>Tag</strong> (str) - 业务组，默认为Default</li>
+<li><strong>TestUrl</strong> (str) - 测试url，用于域名创建加速时的测试</li>
+<li><strong>ValidTime</strong> (int) - 开始分配Cname时间。格式：时间戳</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.ucdn.client.UCDNClient.describe_new_ucdn_prefetch_cache_task">
+<code class="descname">describe_new_ucdn_prefetch_cache_task</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/ucdn/client.html#UCDNClient.describe_new_ucdn_prefetch_cache_task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.ucdn.client.UCDNClient.describe_new_ucdn_prefetch_cache_task" title="Permalink to this definition">¶</a></dt>
+<dd><p>DescribeNewUcdnPrefetchCacheTask - 获取预取任务状态</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>ProjectId</strong> (str) - (Config) 项目ID。不填写为默认项目，子帐号必须填写。 请参考 <a class="reference external" href="https://docs.ucloud.cn/api/summary/get_project_list.html">GetProjectList接口</a></li>
+<li><strong>BeginTime</strong> (int) - 查询的起始时间，格式为Unix Timestamp。如果有EndTime，BeginTime必须赋值</li>
+<li><strong>EndTime</strong> (int) - 查询的结束时间，格式为Unix Timestamp。EndTime默认为当前时间，BeginTime默认为当前时间前一天时间。</li>
+<li><strong>Limit</strong> (int) - 返回数据长度,默认全部，自然数</li>
+<li><strong>Offset</strong> (int) - 数据偏移量，默认为0，自然数</li>
+<li><strong>Status</strong> (str) - 需要获取的内容预热的状态，枚举值：success：成功；wait：等待处理；process：正在处理；failure：失败； unknow：未知，默认选择所有状态</li>
+<li><strong>TaskId</strong> (list) - 提交任务时返回的任务ID</li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>TaskList</strong> (list) - 见 <strong>TaskInfo</strong> 模型定义</li>
+<li><strong>TotalCount</strong> (int) - 预热任务的总数</li>
+</ul>
+<p><strong>Response Model</strong></p>
+<p><strong>UrlProgressInfo</strong></p>
+<ul class="simple">
+<li><strong>CreateTime</strong> (int) - 刷新任务创建的时间。格式为Unix Timestamp</li>
+<li><strong>FinishTime</strong> (int) - 任务完成时间。格式为Unix Timestamp</li>
+<li><strong>Progress</strong> (int) - 刷新进度，单位%</li>
+<li><strong>Status</strong> (str) - 刷新任务的当前状态，枚举值：success：成功；wait：排队中；process：处理中；failure：失败； unknow：未知</li>
+<li><strong>Url</strong> (str) - 刷新的单条url</li>
+</ul>
+<p><strong>TaskInfo</strong></p>
+<ul class="simple">
+<li><strong>CreateTime</strong> (int) - 刷新任务创建的时间。格式为Unix Timestamp</li>
+<li><strong>Status</strong> (str) - 刷新任务的当前状态，枚举值：success：成功；wait：排队中；process：处理中；failure：失败； unknow：未知</li>
+<li><strong>TaskId</strong> (str) - 提交任务时返回的任务ID</li>
+<li><strong>Type</strong> (str) - file/dir  刷新任务会返回Type，预取任务没有</li>
+<li><strong>UrlLists</strong> (list) - 见 <strong>UrlProgressInfo</strong> 模型定义</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.ucdn.client.UCDNClient.describe_new_ucdn_refresh_cache_task">
+<code class="descname">describe_new_ucdn_refresh_cache_task</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/ucdn/client.html#UCDNClient.describe_new_ucdn_refresh_cache_task"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.ucdn.client.UCDNClient.describe_new_ucdn_refresh_cache_task" title="Permalink to this definition">¶</a></dt>
+<dd><p>DescribeNewUcdnRefreshCacheTask - 获取域名刷新任务状态</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>ProjectId</strong> (str) - (Config) 项目ID。不填写为默认项目，子帐号必须填写。 请参考 <a class="reference external" href="https://docs.ucloud.cn/api/summary/get_project_list.html">GetProjectList接口</a></li>
+<li><strong>BeginTime</strong> (int) - 查询的起始时间，格式为Unix Timestamp。如果有EndTime，BeginTime必须赋值</li>
+<li><strong>EndTime</strong> (int) - 查询的结束时间，格式为Unix Timestamp。EndTime默认为当前时间，BeginTime默认为当前时间前一天时间。</li>
+<li><strong>Limit</strong> (int) - 返回数据长度,默认全部，自然数</li>
+<li><strong>Offset</strong> (int) - 数据偏移量，默认为0，自然数</li>
+<li><strong>Status</strong> (str) - 需要获取的内容刷新的状态，枚举值：success：成功；wait：等待处理；process：正在处理；failure：失败； unknow：未知，默认选择所有状态</li>
+<li><strong>TaskId</strong> (list) - 提交任务时返回的任务ID</li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>TaskList</strong> (list) - 见 <strong>TaskInfo</strong> 模型定义</li>
+<li><strong>TotalCount</strong> (int) - 刷新任务的总数</li>
+</ul>
+<p><strong>Response Model</strong></p>
+<p><strong>UrlProgressInfo</strong></p>
+<ul class="simple">
+<li><strong>CreateTime</strong> (int) - 刷新任务创建的时间。格式为Unix Timestamp</li>
+<li><strong>FinishTime</strong> (int) - 任务完成时间。格式为Unix Timestamp</li>
+<li><strong>Progress</strong> (int) - 刷新进度，单位%</li>
+<li><strong>Status</strong> (str) - 刷新任务的当前状态，枚举值：success：成功；wait：排队中；process：处理中；failure：失败； unknow：未知</li>
+<li><strong>Url</strong> (str) - 刷新的单条url</li>
+</ul>
+<p><strong>TaskInfo</strong></p>
+<ul class="simple">
+<li><strong>CreateTime</strong> (int) - 刷新任务创建的时间。格式为Unix Timestamp</li>
+<li><strong>Status</strong> (str) - 刷新任务的当前状态，枚举值：success：成功；wait：排队中；process：处理中；failure：失败； unknow：未知</li>
+<li><strong>TaskId</strong> (str) - 提交任务时返回的任务ID</li>
+<li><strong>Type</strong> (str) - file/dir  刷新任务会返回Type，预取任务没有</li>
+<li><strong>UrlLists</strong> (list) - 见 <strong>UrlProgressInfo</strong> 模型定义</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.ucdn.client.UCDNClient.get_new_ucdn_domain_bandwidth">
+<code class="descname">get_new_ucdn_domain_bandwidth</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/ucdn/client.html#UCDNClient.get_new_ucdn_domain_bandwidth"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.ucdn.client.UCDNClient.get_new_ucdn_domain_bandwidth" title="Permalink to this definition">¶</a></dt>
+<dd><p>GetNewUcdnDomainBandwidth - 获取域名带宽数据</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>ProjectId</strong> (str) - (Config) 项目ID。不填写为默认项目，子帐号必须填写。 请参考 <a class="reference external" href="https://docs.ucloud.cn/api/summary/get_project_list.html">GetProjectList接口</a></li>
+<li><strong>Type</strong> (int) - (Required) 时间粒度（0表示按照5分钟粒度，1表示按照1小时粒度，2表示按照一天的粒度）</li>
+<li><strong>Areacode</strong> (str) - 查询带宽区域 cn代表国内 abroad代表海外 不填默认为全部区域</li>
+<li><strong>BeginTime</strong> (int) - 查询的起始时间，格式为Unix Timestamp。如果有EndTime，BeginTime必须赋值。如没有赋值，则返回缺少参 数错误，如果没有EndTime，BeginTime也可以不赋值，EndTime默认当前时间，BeginTime 默认前一天的当前时间。</li>
+<li><strong>DomainId</strong> (list) - 域名id，创建域名时生成的id。默认全部域名</li>
+<li><strong>EndTime</strong> (int) - 查询的结束时间，格式为Unix Timestamp。EndTime默认为当前时间，BeginTime默认为当前时间前一天时间。</li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>BandwidthList</strong> (list) - 见 <strong>BandwidthInfo</strong> 模型定义</li>
+<li><strong>Traffic</strong> (str) - 从起始时间到结束时间内的所使用的CDN总流量，单位GB</li>
+</ul>
+<p><strong>Response Model</strong></p>
+<p><strong>BandwidthInfo</strong></p>
+<ul class="simple">
+<li><strong>CdnBandwidth</strong> (str) - 返回值返回指定时间区间内CDN的带宽峰值，单位Mbps（如果请求参数Type为0，则Value是五分钟粒度的带宽值，如果Type为1，则Value是1小时的带宽峰值，如果Type为2，则Value是一天内的带宽峰值）</li>
+<li><strong>Time</strong> (int) - 带宽获取的时间点。格式：时间戳</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.ucdn.client.UCDNClient.get_new_ucdn_domain_hit_rate">
+<code class="descname">get_new_ucdn_domain_hit_rate</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/ucdn/client.html#UCDNClient.get_new_ucdn_domain_hit_rate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.ucdn.client.UCDNClient.get_new_ucdn_domain_hit_rate" title="Permalink to this definition">¶</a></dt>
+<dd><p>GetNewUcdnDomainHitRate - 获取域名命中率</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>ProjectId</strong> (str) - (Config) 项目ID。不填写为默认项目，子帐号必须填写。 请参考 <a class="reference external" href="https://docs.ucloud.cn/api/summary/get_project_list.html">GetProjectList接口</a></li>
+<li><strong>Type</strong> (int) - (Required) 时间粒度（0表示按照5分钟粒度，1表示按照1小时粒度，2表示按照一天的粒度）</li>
+<li><strong>Areacode</strong> (str) - 查询带宽区域 cn代表国内 abroad代表海外，只支持国内</li>
+<li><strong>BeginTime</strong> (int) - 查询的起始时间，格式为Unix Timestamp。如果有EndTime，BeginTime必须赋值。如没有赋值，则返回缺少参 数错误，如果没有EndTime，BeginTime也可以不赋值，EndTime默认当前时间，BeginTime 默认前一天的当前时间。</li>
+<li><strong>DomainId</strong> (list) - 域名id，创建域名时生成的id。默认全部域名</li>
+<li><strong>EndTime</strong> (int) - 查询的结束时间，格式为Unix Timestamp。EndTime默认为当前时间，BeginTime默认为当前时间前一天时间。</li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>HitRateList</strong> (list) - 见 <strong>HitRateInfo</strong> 模型定义</li>
+</ul>
+<p><strong>Response Model</strong></p>
+<p><strong>HitRateInfo</strong></p>
+<ul class="simple">
+<li><strong>FlowHitRate</strong> (float) - 流量命中率，单位%</li>
+<li><strong>RequestHitRate</strong> (float) - 请求数命中率，单位%</li>
+<li><strong>Time</strong> (int) - 带宽获取的时间点。格式：时间戳</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.ucdn.client.UCDNClient.get_new_ucdn_domain_http_code">
+<code class="descname">get_new_ucdn_domain_http_code</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/ucdn/client.html#UCDNClient.get_new_ucdn_domain_http_code"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.ucdn.client.UCDNClient.get_new_ucdn_domain_http_code" title="Permalink to this definition">¶</a></dt>
+<dd><p>GetNewUcdnDomainHttpCode - 获取域名状态码监控</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>ProjectId</strong> (str) - (Config) 项目ID。不填写为默认项目，子帐号必须填写。 请参考 <a class="reference external" href="https://docs.ucloud.cn/api/summary/get_project_list.html">GetProjectList接口</a></li>
+<li><strong>Type</strong> (int) - (Required) 时间粒度（0表示按照5分钟粒度，1表示按照1小时粒度，2表示按照一天的粒度）</li>
+<li><strong>Areacode</strong> (str) - 查询带宽区域 cn代表国内 abroad代表海外，只支持国内</li>
+<li><strong>BeginTime</strong> (int) - 查询的起始时间，格式为Unix Timestamp。如果有EndTime，BeginTime必须赋值。如没有赋值，则返回缺少参 数错误，如果没有EndTime，BeginTime也可以不赋值，EndTime默认当前时间，BeginTime 默认前一天的当前时间。</li>
+<li><strong>DomainId</strong> (list) - 域名id，创建域名时生成的id。默认全部域名</li>
+<li><strong>EndTime</strong> (int) - 查询的结束时间，格式为Unix Timestamp。EndTime默认为当前时间，BeginTime默认为当前时间前一天时间。</li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>HttpCodeDetail</strong> (list) - 见 <strong>HttpCodeInfo</strong> 模型定义</li>
+</ul>
+<p><strong>Response Model</strong></p>
+<p><strong>HttpCodeInfo</strong></p>
+<ul class="simple">
+<li><strong>HttpFiveXX</strong> (int) - 5xx数量</li>
+<li><strong>HttpFourXX</strong> (int) - 4xx数量</li>
+<li><strong>HttpOneXX</strong> (int) - 1xx数量</li>
+<li><strong>HttpThreeXX</strong> (int) - 3xx数量</li>
+<li><strong>HttpTwoXX</strong> (int) - 2xx数量</li>
+<li><strong>Time</strong> (int) - 带宽获取的时间点。格式：时间戳</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.ucdn.client.UCDNClient.get_new_ucdn_domain_http_code_v2">
+<code class="descname">get_new_ucdn_domain_http_code_v2</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/ucdn/client.html#UCDNClient.get_new_ucdn_domain_http_code_v2"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.ucdn.client.UCDNClient.get_new_ucdn_domain_http_code_v2" title="Permalink to this definition">¶</a></dt>
+<dd><p>GetNewUcdnDomainHttpCodeV2 - 获取域名详细状态码监控</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>ProjectId</strong> (str) - (Config) 项目ID。不填写为默认项目，子帐号必须填写。 请参考 <a class="reference external" href="https://docs.ucloud.cn/api/summary/get_project_list.html">GetProjectList接口</a></li>
+<li><strong>BeginTime</strong> (int) - (Required) 查询的起始时间，格式为Unix Timestamp。</li>
+<li><strong>EndTime</strong> (int) - (Required) 查询的结束时间，格式为Unix Timestamp。</li>
+<li><strong>Type</strong> (int) - (Required) 时间粒度（0表示按照5分钟粒度，1表示按照1小时粒度，2表示按照一天粒度，3表示按照一分钟粒度）</li>
+<li><strong>Areacode</strong> (str) - 查询带宽区域 cn代表国内 abroad代表海外，只支持国内</li>
+<li><strong>DomainId</strong> (list) - 域名id，创建域名时生成的id。默认全部域名</li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>HttpCodeV2Detail</strong> (list) - 见 <strong>HttpCodeV2Detail</strong> 模型定义</li>
+</ul>
+<p><strong>Response Model</strong></p>
+<p><strong>HttpCodeV2Detail</strong></p>
+<ul class="simple">
+<li><strong>Http100</strong> (int) - http100数量</li>
+<li><strong>Http101</strong> (int) - http101数量</li>
+<li><strong>Http102</strong> (int) - http102数量</li>
+<li><strong>Http200</strong> (int) - http200数量</li>
+<li><strong>Http201</strong> (int) - http201数量</li>
+<li><strong>Http202</strong> (int) - http202数量</li>
+<li><strong>Http203</strong> (int) - http203数量</li>
+<li><strong>Http204</strong> (int) - http204数量</li>
+<li><strong>Http205</strong> (int) - http205数量</li>
+<li><strong>Http206</strong> (int) - http206数量</li>
+<li><strong>Http207</strong> (int) - http207数量</li>
+<li><strong>Http300</strong> (int) - http300数量</li>
+<li><strong>Http301</strong> (int) - http301数量</li>
+<li><strong>Http302</strong> (int) - http302数量</li>
+<li><strong>Http303</strong> (int) - http303数量</li>
+<li><strong>Http304</strong> (int) - http304数量</li>
+<li><strong>Http305</strong> (int) - http305数量</li>
+<li><strong>Http306</strong> (int) - http306数量</li>
+<li><strong>Http307</strong> (int) - http307数量</li>
+<li><strong>Http400</strong> (int) - http400数量</li>
+<li><strong>Http401</strong> (int) - http401数量</li>
+<li><strong>Http402</strong> (int) - http402数量</li>
+<li><strong>Http403</strong> (int) - http403数量</li>
+<li><strong>Http404</strong> (int) - http404数量</li>
+<li><strong>Http405</strong> (int) - http405数量</li>
+<li><strong>Http406</strong> (int) - http406数量</li>
+<li><strong>Http407</strong> (int) - http407数量</li>
+<li><strong>Http408</strong> (int) - http408数量</li>
+<li><strong>Http409</strong> (int) - http409数量</li>
+<li><strong>Http410</strong> (int) - http410数量</li>
+<li><strong>Http411</strong> (int) - http411数量</li>
+<li><strong>Http412</strong> (int) - http412数量</li>
+<li><strong>Http413</strong> (int) - http413数量</li>
+<li><strong>Http414</strong> (int) - http414数量</li>
+<li><strong>Http415</strong> (int) - http415数量</li>
+<li><strong>Http416</strong> (int) - http416数量</li>
+<li><strong>Http417</strong> (int) - http417数量</li>
+<li><strong>Http418</strong> (int) - http418数量</li>
+<li><strong>Http421</strong> (int) - http421数量</li>
+<li><strong>Http422</strong> (int) - http422数量</li>
+<li><strong>Http423</strong> (int) - http423数量</li>
+<li><strong>Http424</strong> (int) - http424数量</li>
+<li><strong>Http425</strong> (int) - http425数量</li>
+<li><strong>Http426</strong> (int) - http426数量</li>
+<li><strong>Http449</strong> (int) - http449数量</li>
+<li><strong>Http451</strong> (int) - http451数量</li>
+<li><strong>Http500</strong> (int) - http500数量</li>
+<li><strong>Http501</strong> (int) - http501数量</li>
+<li><strong>Http502</strong> (int) - http502数量</li>
+<li><strong>Http503</strong> (int) - http503数量</li>
+<li><strong>Http504</strong> (int) - http504数量</li>
+<li><strong>Http505</strong> (int) - http505数量</li>
+<li><strong>Http506</strong> (int) - http506数量</li>
+<li><strong>Http507</strong> (int) - http507数量</li>
+<li><strong>Http509</strong> (int) - http509数量</li>
+<li><strong>Http510</strong> (int) - http510数量</li>
+<li><strong>Time</strong> (int) - 时间</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.ucdn.client.UCDNClient.get_new_ucdn_domain_request_num">
+<code class="descname">get_new_ucdn_domain_request_num</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/ucdn/client.html#UCDNClient.get_new_ucdn_domain_request_num"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.ucdn.client.UCDNClient.get_new_ucdn_domain_request_num" title="Permalink to this definition">¶</a></dt>
+<dd><p>GetNewUcdnDomainRequestNum - 获取域名请求数</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>ProjectId</strong> (str) - (Config) 项目ID。不填写为默认项目，子帐号必须填写。 请参考 <a class="reference external" href="https://docs.ucloud.cn/api/summary/get_project_list.html">GetProjectList接口</a></li>
+<li><strong>Type</strong> (int) - (Required) 时间粒度（0表示按照5分钟粒度，1表示按照1小时粒度，2表示按照一天的粒度）</li>
+<li><strong>Areacode</strong> (str) - 查询区域 cn代表国内 abroad代表海外，只支持国内</li>
+<li><strong>BeginTime</strong> (int) - 查询的起始时间，格式为Unix Timestamp。如果有EndTime，BeginTime必须赋值。如没有赋值，则返回缺少参 数错误，如果没有EndTime，BeginTime也可以不赋值，EndTime默认当前时间，BeginTime 默认前一天的当前时间。</li>
+<li><strong>DomainId</strong> (list) - 域名id，创建域名时生成的id。默认全部域名</li>
+<li><strong>EndTime</strong> (int) - 查询的结束时间，格式为Unix Timestamp。EndTime默认为当前时间，BeginTime默认为当前时间前一天时间。</li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>RequestList</strong> (list) - 见 <strong>RequestInfo</strong> 模型定义</li>
+</ul>
+<p><strong>Response Model</strong></p>
+<p><strong>RequestInfo</strong></p>
+<ul class="simple">
+<li><strong>CdnRequest</strong> (float) - 返回值返回指定时间区间内的cdn收到的请求次数之和</li>
+<li><strong>OriginRequest</strong> (float) - 返回值返回指定时间区间内的cdn回源的请求次数之和</li>
+<li><strong>Time</strong> (int) - 带宽获取的时间点。格式：时间戳</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.ucdn.client.UCDNClient.get_ucdn_domain_log">
+<code class="descname">get_ucdn_domain_log</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/ucdn/client.html#UCDNClient.get_ucdn_domain_log"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.ucdn.client.UCDNClient.get_ucdn_domain_log" title="Permalink to this definition">¶</a></dt>
+<dd><p>GetUcdnDomainLog - 获取加速域名原始日志</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>ProjectId</strong> (str) - (Config) 项目ID。不填写为默认项目，子帐号必须填写。 请参考 <a class="reference external" href="https://docs.ucloud.cn/api/summary/get_project_list.html">GetProjectList接口</a></li>
+<li><strong>BeginTime</strong> (int) - 查询的起始时间，格式为Unix Timestamp。如果有EndTime，BeginTime必须赋值。</li>
+<li><strong>DomainId</strong> (list) - 域名ID，创建加速域名时生成。默认全部域名</li>
+<li><strong>EndTime</strong> (int) - 查询的结束时间，格式为Unix Timestamp。EndTime默认为当前时间，BeginTime默认为当前时间前一天时间。</li>
+<li><strong>Type</strong> (int) - 查询粒度  0=default(没有粒度) 1=按小时  2=按天</li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>LogSet</strong> (list) - 见 <strong>LogSetList</strong> 模型定义</li>
+</ul>
+<p><strong>Response Model</strong></p>
+<p><strong>LogSetInfo</strong></p>
+<ul class="simple">
+<li><strong>AbroadLog</strong> (list) - 国外日志url列表</li>
+<li><strong>CnLog</strong> (list) - 国内日志url列表</li>
+<li><strong>Time</strong> (int) - 日志时间UnixTime</li>
+</ul>
+<p><strong>LogSetList</strong></p>
+<ul class="simple">
+<li><strong>Domain</strong> (str) - 域名</li>
+<li><strong>Logs</strong> (list) - 见 <strong>LogSetInfo</strong> 模型定义</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.ucdn.client.UCDNClient.get_ucdn_domain_prefetch_enable">
+<code class="descname">get_ucdn_domain_prefetch_enable</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/ucdn/client.html#UCDNClient.get_ucdn_domain_prefetch_enable"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.ucdn.client.UCDNClient.get_ucdn_domain_prefetch_enable" title="Permalink to this definition">¶</a></dt>
+<dd><p>GetUcdnDomainPrefetchEnable - 获取域名预取开启状态</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>ProjectId</strong> (str) - (Config) 项目ID。不填写为默认项目，子帐号必须填写。 请参考 <a class="reference external" href="https://docs.ucloud.cn/api/summary/get_project_list.html">GetProjectList接口</a></li>
+<li><strong>DomainId</strong> (str) - (Required) 域名ID，创建加速域名时生成。</li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>Enable</strong> (int) - 0表示该域名未开启预取，1表示该域名已开启预取</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.ucdn.client.UCDNClient.get_ucdn_domain_request_num_v2">
+<code class="descname">get_ucdn_domain_request_num_v2</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/ucdn/client.html#UCDNClient.get_ucdn_domain_request_num_v2"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.ucdn.client.UCDNClient.get_ucdn_domain_request_num_v2" title="Permalink to this definition">¶</a></dt>
+<dd><p>GetUcdnDomainRequestNumV2 - 获取域名请求数</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>ProjectId</strong> (str) - (Config) 项目ID。不填写为默认项目，子帐号必须填写。 请参考 <a class="reference external" href="https://docs.ucloud.cn/api/summary/get_project_list.html">GetProjectList接口</a></li>
+<li><strong>BeginTime</strong> (int) - (Required) 查询的起始时间，格式为Unix Timestamp</li>
+<li><strong>EndTime</strong> (int) - (Required) 查询的结束时间，格式为Unix Timestamp</li>
+<li><strong>Type</strong> (int) - (Required) 时间粒度（0表示按照5分钟粒度，1表示按照1小时粒度，2表示按照一天的粒度, 3=按1分钟）</li>
+<li><strong>Areacode</strong> (str) - 查询区域 cn代表国内 abroad代表海外，只支持国内</li>
+<li><strong>DomainId</strong> (list) - 域名id，创建域名时生成的id。默认全部域名</li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>RequestList</strong> (list) - 见 <strong>RequestInfo</strong> 模型定义</li>
+</ul>
+<p><strong>Response Model</strong></p>
+<p><strong>RequestInfo</strong></p>
+<ul class="simple">
+<li><strong>CdnRequest</strong> (float) - 返回值返回指定时间区间内的cdn收到的请求次数之和</li>
+<li><strong>OriginRequest</strong> (float) - 返回值返回指定时间区间内的cdn回源的请求次数之和</li>
+<li><strong>Time</strong> (int) - 带宽获取的时间点。格式：时间戳</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.ucdn.client.UCDNClient.get_ucdn_domain_traffic">
+<code class="descname">get_ucdn_domain_traffic</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/ucdn/client.html#UCDNClient.get_ucdn_domain_traffic"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.ucdn.client.UCDNClient.get_ucdn_domain_traffic" title="Permalink to this definition">¶</a></dt>
+<dd><p>GetUcdnDomainTraffic - 获取加速域名流量使用信息</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>ProjectId</strong> (str) - (Config) 项目ID。不填写为默认项目，子帐号必须填写。 请参考 <a class="reference external" href="https://docs.ucloud.cn/api/summary/get_project_list.html">GetProjectList接口</a></li>
+<li><strong>Areacode</strong> (str) - 查询流量区域 cn代表国内 abroad代表海外，默认全部区域。</li>
+<li><strong>BeginTime</strong> (int) - 查询的起始时间，格式为Unix Timestamp。如果有EndTime，BeginTime必须赋值。</li>
+<li><strong>DomainId</strong> (list) - 域名ID，创建加速域名时生成。默认全部域名</li>
+<li><strong>EndTime</strong> (int) - 查询的结束时间，格式为Unix Timestamp。EndTime默认为当前时间，BeginTime默认为当前时间前一天时间。</li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>TrafficSet</strong> (list) - 见 <strong>UcdnDomainTrafficSet</strong> 模型定义</li>
+</ul>
+<p><strong>Response Model</strong></p>
+<p><strong>UcdnDomainTrafficSet</strong></p>
+<ul class="simple">
+<li><strong>Time</strong> (int) - 流量获取的时间点，格式为Unix Timestamp</li>
+<li><strong>Value</strong> (float) - 查询每日流量总值，单位：GB</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.ucdn.client.UCDNClient.get_ucdn_pass_bandwidth">
+<code class="descname">get_ucdn_pass_bandwidth</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/ucdn/client.html#UCDNClient.get_ucdn_pass_bandwidth"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.ucdn.client.UCDNClient.get_ucdn_pass_bandwidth" title="Permalink to this definition">¶</a></dt>
+<dd><p>GetUcdnPassBandwidth - 获取回源带宽数据（cdn回客户源站部分）</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>ProjectId</strong> (str) - (Config) 项目ID。不填写为默认项目，子帐号必须填写。 请参考 <a class="reference external" href="https://docs.ucloud.cn/api/summary/get_project_list.html">GetProjectList接口</a></li>
+<li><strong>Type</strong> (int) - (Required) 时间粒度（0表示按照5分钟粒度，1表示按照1小时粒度，2表示按照一天的粒度）</li>
+<li><strong>Areacode</strong> (str) - 查询带宽区域 cn代表国内 abroad代表海外，只支持国内</li>
+<li><strong>BeginTime</strong> (int) - 查询的起始时间，格式为Unix Timestamp。如果有EndTime，BeginTime必须赋值。如没有赋值，则返回缺少参 数错误，如果没有EndTime，BeginTime也可以不赋值，EndTime默认当前时间，BeginTime 默认前一天的当前时间。</li>
+<li><strong>DomainId</strong> (list) - 域名id，创建域名时生成的id。默认全部域名</li>
+<li><strong>EndTime</strong> (int) - 查询的结束时间，格式为Unix Timestamp。EndTime默认为当前时间，BeginTime默认为当前时间前一天时间。</li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>BandwidthDetail</strong> (list) - 见 <strong>BandwidthInfoDetail</strong> 模型定义</li>
+</ul>
+<p><strong>Response Model</strong></p>
+<p><strong>BandwidthInfoDetail</strong></p>
+<ul class="simple">
+<li><strong>Bandwidth</strong> (float) - 返回值带宽值数据。</li>
+<li><strong>Time</strong> (int) - 宽获取的时间点。格式：时间戳</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.ucdn.client.UCDNClient.get_ucdn_traffic">
+<code class="descname">get_ucdn_traffic</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/ucdn/client.html#UCDNClient.get_ucdn_traffic"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.ucdn.client.UCDNClient.get_ucdn_traffic" title="Permalink to this definition">¶</a></dt>
+<dd><p>GetUcdnTraffic - 获取流量信息</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>ProjectId</strong> (str) - (Config) 项目ID。不填写为默认项目，子帐号必须填写。 请参考 <a class="reference external" href="https://docs.ucloud.cn/api/summary/get_project_list.html">GetProjectList接口</a></li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>TrafficSet</strong> (list) - 见 <strong>TrafficSet</strong> 模型定义</li>
+</ul>
+<p><strong>Response Model</strong></p>
+<p><strong>TrafficSet</strong></p>
+<ul class="simple">
+<li><strong>Areacode</strong> (str) - 购买流量的区域, cn: 国内; abroad: 国外</li>
+<li><strong>TrafficLeft</strong> (str) - Areacode区域内总剩余流量, 单位GB</li>
+<li><strong>TrafficTotal</strong> (str) - Areacode区域内总购买流量, 单位GB</li>
+<li><strong>TrafficUsed</strong> (str) - Areacode区域内总使用流量, 单位GB</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.ucdn.client.UCDNClient.prefetch_new_ucdn_domain_cache">
+<code class="descname">prefetch_new_ucdn_domain_cache</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/ucdn/client.html#UCDNClient.prefetch_new_ucdn_domain_cache"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.ucdn.client.UCDNClient.prefetch_new_ucdn_domain_cache" title="Permalink to this definition">¶</a></dt>
+<dd><p>PrefetchNewUcdnDomainCache - 提交预取任务</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>ProjectId</strong> (str) - (Config) 项目ID。不填写为默认项目，子帐号必须填写。 请参考 <a class="reference external" href="https://docs.ucloud.cn/api/summary/get_project_list.html">GetProjectList接口</a></li>
+<li><strong>UrlList</strong> (list) - (Required) 预热URL列表，n从自然数0开始。UrlList.n字段必须以”<a class="reference external" href="http:/">http:/</a>/域名/”开始。目录要以”/”结尾， 如刷新目录a下所有文件，格式为：<a class="reference external" href="http://abc.ucloud.cn/a/">http://abc.ucloud.cn/a/</a>；如刷新文件目录a下面img.png文件， 格式为http://abc.ucloud.cn/a/img.png。请正确提交需要刷新的域名</li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>TaskId</strong> (str) - 本次提交url对应的任务id</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.ucdn.client.UCDNClient.refresh_new_ucdn_domain_cache">
+<code class="descname">refresh_new_ucdn_domain_cache</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/ucdn/client.html#UCDNClient.refresh_new_ucdn_domain_cache"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.ucdn.client.UCDNClient.refresh_new_ucdn_domain_cache" title="Permalink to this definition">¶</a></dt>
+<dd><p>RefreshNewUcdnDomainCache - 刷新缓存</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>ProjectId</strong> (str) - (Config) 项目ID。不填写为默认项目，子帐号必须填写。 请参考 <a class="reference external" href="https://docs.ucloud.cn/api/summary/get_project_list.html">GetProjectList接口</a></li>
+<li><strong>Type</strong> (str) - (Required) 刷新类型，file代表文件刷新，dir 代表路径刷新</li>
+<li><strong>UrlList</strong> (list) - (Required) 刷新多个URL列表时，一次最多提交30个。必须以”<a class="reference external" href="http:/">http:/</a>/域名/”开始。目录要以”/”结尾， 如刷新目录a下所有文件，格式为：<a class="reference external" href="http://abc.ucloud.cn/a/">http://abc.ucloud.cn/a/</a>；如刷新文件目录a下面img.png文件， 格式为http://abc.ucloud.cn/a/img.png。请正确提交需要刷新的域名</li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>TaskId</strong> (str) - 本次提交url对应的任务id</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.ucdn.client.UCDNClient.switch_ucdn_charge_type">
+<code class="descname">switch_ucdn_charge_type</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/ucdn/client.html#UCDNClient.switch_ucdn_charge_type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.ucdn.client.UCDNClient.switch_ucdn_charge_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>SwitchUcdnChargeType - 切换账号计费方式</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>ProjectId</strong> (str) - (Config) 项目ID。不填写为默认项目，子帐号必须填写。 请参考 <a class="reference external" href="https://docs.ucloud.cn/api/summary/get_project_list.html">GetProjectList接口</a></li>
+<li><strong>ChargeType</strong> (str) - (Required) 计费方式。traffic代表按流量包计费，bandwidth按带宽付费</li>
 </ul>
 <p><strong>Response</strong></p>
 </dd></dl>
@@ -3217,7 +3611,7 @@
 <li><strong>ProjectId</strong> (str) - (Config) 项目ID。不填写为默认项目，子帐号必须填写。 请参考 <a class="reference external" href="https://docs.ucloud.cn/api/summary/get_project_list.html">GetProjectList接口</a></li>
 <li><strong>Region</strong> (str) - (Config) 地域。 参见  <a class="reference external" href="https://docs.ucloud.cn/api/summary/regionlist.html">地域和可用区列表</a></li>
 <li><strong>HighAvailability</strong> (str) - (Required) 是否开启高可用,enable或disable</li>
-<li><strong>Name</strong> (str) - (Required) 请求创建组的名称 (范围[6-63],只能包含英文、<a href="#id565"><span class="problematic" id="id566">数字以及符号-和_</span></a>)</li>
+<li><strong>Name</strong> (str) - (Required) 请求创建组的名称 (范围[6-63],只能包含英文、<a href="#id534"><span class="problematic" id="id535">数字以及符号-和_</span></a>)</li>
 <li><strong>Zone</strong> (str) - (Required) 可用区。参见  <a class="reference external" href="https://docs.ucloud.cn/api/summary/regionlist.html">可用区列表</a></li>
 <li><strong>AutoBackup</strong> (str) - 是否自动备份,enable或disable，默认disable</li>
 <li><strong>BackupId</strong> (str) - 有此项代表从备份中创建，无代表正常创建</li>
@@ -3675,7 +4069,7 @@
 <li><strong>ProjectId</strong> (str) - (Config) 项目ID。不填写为默认项目，子帐号必须填写。 请参考 <a class="reference external" href="https://docs.ucloud.cn/api/summary/get_project_list.html">GetProjectList接口</a></li>
 <li><strong>Region</strong> (str) - (Config) 地域。 参见  <a class="reference external" href="https://docs.ucloud.cn/api/summary/regionlist.html">地域和可用区列表</a></li>
 <li><strong>GroupId</strong> (str) - (Required) 组的ID</li>
-<li><strong>Name</strong> (str) - (Required) Redis组名称 (范围[6-63],只能包含英文、<a href="#id567"><span class="problematic" id="id568">数字以及符号-和_</span></a>)</li>
+<li><strong>Name</strong> (str) - (Required) Redis组名称 (范围[6-63],只能包含英文、<a href="#id536"><span class="problematic" id="id537">数字以及符号-和_</span></a>)</li>
 <li><strong>Zone</strong> (str) - 可用区。参见  <a class="reference external" href="https://docs.ucloud.cn/api/summary/regionlist.html">可用区列表</a></li>
 </ul>
 <p><strong>Response</strong></p>
@@ -5004,433 +5398,6 @@
 <p><strong>Response</strong></p>
 <ul class="simple">
 <li><strong>Message</strong> (str) - 发生错误时表示错误描述</li>
-</ul>
-</dd></dl>
-
-</dd></dl>
-
-</div>
-<div class="section" id="vpc">
-<h2>VPC<a class="headerlink" href="#vpc" title="Permalink to this headline">¶</a></h2>
-<dl class="class">
-<dt id="ucloud.services.vpc.client.VPCClient">
-<em class="property">class </em><code class="descclassname">ucloud.services.vpc.client.</code><code class="descname">VPCClient</code><span class="sig-paren">(</span><em>config</em>, <em>transport=None</em>, <em>middleware=None</em>, <em>logger=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/vpc/client.html#VPCClient"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.vpc.client.VPCClient" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="method">
-<dt id="ucloud.services.vpc.client.VPCClient.add_vpc_network">
-<code class="descname">add_vpc_network</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/vpc/client.html#VPCClient.add_vpc_network"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.vpc.client.VPCClient.add_vpc_network" title="Permalink to this definition">¶</a></dt>
-<dd><p>AddVPCNetwork - 添加VPC网段</p>
-<p><strong>Request</strong></p>
-<ul class="simple">
-<li><strong>ProjectId</strong> (str) - (Config) 项目ID。不填写为默认项目，子帐号必须填写。 请参考 <a class="reference external" href="https://docs.ucloud.cn/api/summary/get_project_list.html">GetProjectList接口</a></li>
-<li><strong>Region</strong> (str) - (Config) 地域。 参见  <a class="reference external" href="https://docs.ucloud.cn/api/summary/regionlist.html">地域和可用区列表</a></li>
-<li><strong>Network</strong> (list) - (Required) 增加网段</li>
-<li><strong>VPCId</strong> (str) - (Required) 源VPC短ID</li>
-</ul>
-<p><strong>Response</strong></p>
-</dd></dl>
-
-<dl class="method">
-<dt id="ucloud.services.vpc.client.VPCClient.associate_route_table">
-<code class="descname">associate_route_table</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/vpc/client.html#VPCClient.associate_route_table"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.vpc.client.VPCClient.associate_route_table" title="Permalink to this definition">¶</a></dt>
-<dd><p>AssociateRouteTable - 绑定子网的路由表</p>
-<p><strong>Request</strong></p>
-<ul class="simple">
-<li><strong>ProjectId</strong> (str) - (Config) 项目ID。不填写为默认项目，子帐号必须填写。 请参考 <a class="reference external" href="https://docs.ucloud.cn/api/summary/get_project_list.html">GetProjectList接口</a></li>
-<li><strong>Region</strong> (str) - (Config) 地域。 参见  <a class="reference external" href="https://docs.ucloud.cn/api/summary/regionlist.html">地域和可用区列表</a></li>
-<li><strong>RouteTableId</strong> (str) - (Required) 路由表ID，仅限自定义路由表</li>
-<li><strong>SubnetId</strong> (str) - (Required) 子网ID</li>
-</ul>
-<p><strong>Response</strong></p>
-</dd></dl>
-
-<dl class="method">
-<dt id="ucloud.services.vpc.client.VPCClient.clone_route_table">
-<code class="descname">clone_route_table</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/vpc/client.html#VPCClient.clone_route_table"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.vpc.client.VPCClient.clone_route_table" title="Permalink to this definition">¶</a></dt>
-<dd><p>CloneRouteTable - 根据一张现有路由表复制一张新的路由表</p>
-<p><strong>Request</strong></p>
-<ul class="simple">
-<li><strong>ProjectId</strong> (str) - (Config) 项目ID。不填写为默认项目，子帐号必须填写。 请参考 <a class="reference external" href="https://docs.ucloud.cn/api/summary/get_project_list.html">GetProjectList接口</a></li>
-<li><strong>Region</strong> (str) - (Config) 地域。 参见  <a class="reference external" href="https://docs.ucloud.cn/api/summary/regionlist.html">地域和可用区列表</a></li>
-<li><strong>RouteTableId</strong> (str) - (Required) 被克隆的路由表ID</li>
-</ul>
-<p><strong>Response</strong></p>
-</dd></dl>
-
-<dl class="method">
-<dt id="ucloud.services.vpc.client.VPCClient.create_route_table">
-<code class="descname">create_route_table</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/vpc/client.html#VPCClient.create_route_table"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.vpc.client.VPCClient.create_route_table" title="Permalink to this definition">¶</a></dt>
-<dd><p>CreateRouteTable - 创建路由表</p>
-<p><strong>Request</strong></p>
-<ul class="simple">
-<li><strong>ProjectId</strong> (str) - (Config) 项目ID。不填写为默认项目，子帐号必须填写。 请参考 <a class="reference external" href="https://docs.ucloud.cn/api/summary/get_project_list.html">GetProjectList接口</a></li>
-<li><strong>Region</strong> (str) - (Config) 地域。 参见  <a class="reference external" href="https://docs.ucloud.cn/api/summary/regionlist.html">地域和可用区列表</a></li>
-<li><strong>VPCId</strong> (str) - (Required) VPC ID</li>
-<li><strong>Name</strong> (str) - 路由表名称 Default RouteTable</li>
-<li><strong>Remark</strong> (str) - 备注</li>
-<li><strong>Tag</strong> (str) - 业务组</li>
-</ul>
-<p><strong>Response</strong></p>
-<ul class="simple">
-<li><strong>RouteTableId</strong> (str) - 路由表ID</li>
-</ul>
-</dd></dl>
-
-<dl class="method">
-<dt id="ucloud.services.vpc.client.VPCClient.create_subnet">
-<code class="descname">create_subnet</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/vpc/client.html#VPCClient.create_subnet"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.vpc.client.VPCClient.create_subnet" title="Permalink to this definition">¶</a></dt>
-<dd><p>CreateSubnet - 创建子网</p>
-<p><strong>Request</strong></p>
-<ul class="simple">
-<li><strong>ProjectId</strong> (str) - (Config) 项目ID。不填写为默认项目，子帐号必须填写。 请参考 <a class="reference external" href="https://docs.ucloud.cn/api/summary/get_project_list.html">GetProjectList接口</a></li>
-<li><strong>Region</strong> (str) - (Config) 地域。 参见  <a class="reference external" href="https://docs.ucloud.cn/api/summary/regionlist.html">地域和可用区列表</a></li>
-<li><strong>Subnet</strong> (str) - (Required) 子网网络地址，例如192.168.0.0</li>
-<li><strong>VPCId</strong> (str) - (Required) VPC资源ID</li>
-<li><strong>Netmask</strong> (int) - 子网网络号位数，默认为24</li>
-<li><strong>Remark</strong> (str) - 备注</li>
-<li><strong>SubnetName</strong> (str) - 子网名称，默认为Subnet</li>
-<li><strong>Tag</strong> (str) - 业务组名称，默认为Default</li>
-</ul>
-<p><strong>Response</strong></p>
-<ul class="simple">
-<li><strong>SubnetId</strong> (str) - 子网ID</li>
-</ul>
-</dd></dl>
-
-<dl class="method">
-<dt id="ucloud.services.vpc.client.VPCClient.create_vpc">
-<code class="descname">create_vpc</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/vpc/client.html#VPCClient.create_vpc"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.vpc.client.VPCClient.create_vpc" title="Permalink to this definition">¶</a></dt>
-<dd><p>CreateVPC - 创建VPC</p>
-<p><strong>Request</strong></p>
-<ul class="simple">
-<li><strong>ProjectId</strong> (str) - (Config) 项目ID。不填写为默认项目，子帐号必须填写。 请参考 <a class="reference external" href="https://docs.ucloud.cn/api/summary/get_project_list.html">GetProjectList接口</a></li>
-<li><strong>Region</strong> (str) - (Config) 地域。 参见  <a class="reference external" href="https://docs.ucloud.cn/api/summary/regionlist.html">地域和可用区列表</a></li>
-<li><strong>Name</strong> (str) - (Required) VPC名称</li>
-<li><strong>Network</strong> (list) - (Required) VPC网段</li>
-<li><strong>Remark</strong> (str) - 备注</li>
-<li><strong>Tag</strong> (str) - 业务组名称</li>
-<li><strong>Type</strong> (int) - VPC类型</li>
-</ul>
-<p><strong>Response</strong></p>
-<ul class="simple">
-<li><strong>VPCId</strong> (str) - VPC资源Id</li>
-</ul>
-</dd></dl>
-
-<dl class="method">
-<dt id="ucloud.services.vpc.client.VPCClient.create_vpc_intercom">
-<code class="descname">create_vpc_intercom</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/vpc/client.html#VPCClient.create_vpc_intercom"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.vpc.client.VPCClient.create_vpc_intercom" title="Permalink to this definition">¶</a></dt>
-<dd><p>CreateVPCIntercom - 新建VPC互通关系</p>
-<p><strong>Request</strong></p>
-<ul class="simple">
-<li><strong>ProjectId</strong> (str) - (Config) 源VPC所在项目ID。不填写为默认项目，子帐号必须填写。 请参考 <a class="reference external" href="https://docs.ucloud.cn/api/summary/get_project_list.html">GetProjectList接口</a></li>
-<li><strong>Region</strong> (str) - (Config) 源VPC所在地域。 参见  <a class="reference external" href="https://docs.ucloud.cn/api/summary/regionlist.html">地域和可用区列表</a></li>
-<li><strong>DstVPCId</strong> (str) - (Required) 目的VPC短ID</li>
-<li><strong>VPCId</strong> (str) - (Required) 源VPC短ID</li>
-<li><strong>DstProjectId</strong> (str) - 目的VPC项目ID。默认与源VPC同项目。</li>
-<li><strong>DstRegion</strong> (str) - 目的VPC所在地域，默认与源VPC同地域。</li>
-</ul>
-<p><strong>Response</strong></p>
-</dd></dl>
-
-<dl class="method">
-<dt id="ucloud.services.vpc.client.VPCClient.delete_route_table">
-<code class="descname">delete_route_table</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/vpc/client.html#VPCClient.delete_route_table"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.vpc.client.VPCClient.delete_route_table" title="Permalink to this definition">¶</a></dt>
-<dd><p>DeleteRouteTable - 删除自定义路由表</p>
-<p><strong>Request</strong></p>
-<ul class="simple">
-<li><strong>ProjectId</strong> (str) - (Config) 项目ID。不填写为默认项目，子帐号必须填写。 请参考 <a class="reference external" href="https://docs.ucloud.cn/api/summary/get_project_list.html">GetProjectList接口</a></li>
-<li><strong>Region</strong> (str) - (Config) 地域。 参见  <a class="reference external" href="https://docs.ucloud.cn/api/summary/regionlist.html">地域和可用区列表</a></li>
-<li><strong>RouteTableId</strong> (str) - (Required) 路由ID</li>
-</ul>
-<p><strong>Response</strong></p>
-</dd></dl>
-
-<dl class="method">
-<dt id="ucloud.services.vpc.client.VPCClient.delete_subnet">
-<code class="descname">delete_subnet</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/vpc/client.html#VPCClient.delete_subnet"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.vpc.client.VPCClient.delete_subnet" title="Permalink to this definition">¶</a></dt>
-<dd><p>DeleteSubnet - 删除子网</p>
-<p><strong>Request</strong></p>
-<ul class="simple">
-<li><strong>ProjectId</strong> (str) - (Config) 项目ID。不填写为默认项目，子帐号必须填写。 请参考 <a class="reference external" href="https://docs.ucloud.cn/api/summary/get_project_list.html">GetProjectList接口</a></li>
-<li><strong>Region</strong> (str) - (Config) 地域。 参见  <a class="reference external" href="https://docs.ucloud.cn/api/summary/regionlist.html">地域和可用区列表</a></li>
-<li><strong>SubnetId</strong> (str) - (Required) 子网ID</li>
-</ul>
-<p><strong>Response</strong></p>
-</dd></dl>
-
-<dl class="method">
-<dt id="ucloud.services.vpc.client.VPCClient.delete_vpc">
-<code class="descname">delete_vpc</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/vpc/client.html#VPCClient.delete_vpc"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.vpc.client.VPCClient.delete_vpc" title="Permalink to this definition">¶</a></dt>
-<dd><p>DeleteVPC - 删除VPC</p>
-<p><strong>Request</strong></p>
-<ul class="simple">
-<li><strong>ProjectId</strong> (str) - (Config) 项目ID。不填写为默认项目，子帐号必须填写。 请参考 <a class="reference external" href="https://docs.ucloud.cn/api/summary/get_project_list.html">GetProjectList接口</a></li>
-<li><strong>Region</strong> (str) - (Config) 地域。 参见  <a class="reference external" href="https://docs.ucloud.cn/api/summary/regionlist.html">地域和可用区列表</a></li>
-<li><strong>VPCId</strong> (str) - (Required) VPC资源Id</li>
-</ul>
-<p><strong>Response</strong></p>
-</dd></dl>
-
-<dl class="method">
-<dt id="ucloud.services.vpc.client.VPCClient.delete_vpc_intercom">
-<code class="descname">delete_vpc_intercom</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/vpc/client.html#VPCClient.delete_vpc_intercom"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.vpc.client.VPCClient.delete_vpc_intercom" title="Permalink to this definition">¶</a></dt>
-<dd><p>DeleteVPCIntercom - 删除VPC互通关系</p>
-<p><strong>Request</strong></p>
-<ul class="simple">
-<li><strong>ProjectId</strong> (str) - (Config) 源VPC所在项目ID。不填写为默认项目，子帐号必须填写。 请参考 <a class="reference external" href="https://docs.ucloud.cn/api/summary/get_project_list.html">GetProjectList接口</a></li>
-<li><strong>Region</strong> (str) - (Config) 源VPC所在地域。 参见  <a class="reference external" href="https://docs.ucloud.cn/api/summary/regionlist.html">地域和可用区列表</a></li>
-<li><strong>DstVPCId</strong> (str) - (Required) 目的VPC短ID</li>
-<li><strong>VPCId</strong> (str) - (Required) 源VPC短ID</li>
-<li><strong>DstProjectId</strong> (str) - 目的VPC所在项目ID，默认为源VPC所在项目ID</li>
-<li><strong>DstRegion</strong> (str) - 目的VPC所在地域，默认为源VPC所在地域</li>
-</ul>
-<p><strong>Response</strong></p>
-</dd></dl>
-
-<dl class="method">
-<dt id="ucloud.services.vpc.client.VPCClient.describe_route_table">
-<code class="descname">describe_route_table</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/vpc/client.html#VPCClient.describe_route_table"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.vpc.client.VPCClient.describe_route_table" title="Permalink to this definition">¶</a></dt>
-<dd><p>DescribeRouteTable - 获取路由表详细信息(包括路由策略)</p>
-<p><strong>Request</strong></p>
-<ul class="simple">
-<li><strong>ProjectId</strong> (str) - (Config) 项目ID。不填写为默认项目，子帐号必须填写。 请参考 <a class="reference external" href="https://docs.ucloud.cn/api/summary/get_project_list.html">GetProjectList接口</a></li>
-<li><strong>Region</strong> (str) - (Config) 地域。 参见  <a class="reference external" href="https://docs.ucloud.cn/api/summary/regionlist.html">地域和可用区列表</a></li>
-<li><strong>BusinessId</strong> (str) - 业务组ID</li>
-<li><strong>Limit</strong> (int) - Limit</li>
-<li><strong>OffSet</strong> (int) - OffSet</li>
-<li><strong>RouteTableId</strong> (str) - 路由表ID</li>
-<li><strong>VPCId</strong> (str) - VPC ID</li>
-</ul>
-<p><strong>Response</strong></p>
-<ul class="simple">
-<li><strong>RouteTables</strong> (list) - 见 <strong>RouteTableInfo</strong> 模型定义</li>
-<li><strong>TotalCount</strong> (int) - RouteTables字段的数量</li>
-</ul>
-<p><strong>Response Model</strong></p>
-<p><strong>RouteRuleInfo</strong></p>
-<ul class="simple">
-<li><strong>DstAddr</strong> (str) - 目的地址，比如10.10.8/24</li>
-<li><strong>NexthopId</strong> (str) - 路由下一跳ID，比如uvnet-3eljvj</li>
-<li><strong>NexthopType</strong> (str) - 下一跳类型，比如local、vnet</li>
-<li><strong>Remark</strong> (str) - 路由规则备注</li>
-<li><strong>RouteRuleId</strong> (str) - 规则ID</li>
-<li><strong>RuleType</strong> (int) - 路由规则类型（0表示系统路由，1表示自定义路由）</li>
-</ul>
-<p><strong>RouteTableInfo</strong></p>
-<ul class="simple">
-<li><strong>CreateTime</strong> (int) - 创建时间戳</li>
-<li><strong>Remark</strong> (str) - 路由表备注</li>
-<li><strong>RouteRules</strong> (list) - 见 <strong>RouteRuleInfo</strong> 模型定义</li>
-<li><strong>RouteTableId</strong> (str) - 路由表ID</li>
-<li><strong>RouteTableType</strong> (int) - 路由表类型，1为默认，0为自定义</li>
-<li><strong>SubnetCount</strong> (str) - 绑定了该路由表的子网数量</li>
-<li><strong>Tag</strong> (str) - 业务组</li>
-<li><strong>VPCId</strong> (str) - 路由表所属vpc</li>
-<li><strong>VPCName</strong> (str) - vpc名称</li>
-</ul>
-</dd></dl>
-
-<dl class="method">
-<dt id="ucloud.services.vpc.client.VPCClient.describe_subnet">
-<code class="descname">describe_subnet</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/vpc/client.html#VPCClient.describe_subnet"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.vpc.client.VPCClient.describe_subnet" title="Permalink to this definition">¶</a></dt>
-<dd><p>DescribeSubnet - 获取子网信息</p>
-<p><strong>Request</strong></p>
-<ul class="simple">
-<li><strong>ProjectId</strong> (str) - (Config) 项目ID。不填写为默认项目，子帐号必须填写。 请参考 <a class="reference external" href="https://docs.ucloud.cn/api/summary/get_project_list.html">GetProjectList接口</a></li>
-<li><strong>Region</strong> (str) - (Config) 地域。 参见  <a class="reference external" href="https://docs.ucloud.cn/api/summary/regionlist.html">地域和可用区列表</a></li>
-<li><strong>BusinessId</strong> (str) - 业务组</li>
-<li><strong>Limit</strong> (int) - 列表长度，默认为20</li>
-<li><strong>Offset</strong> (int) - 偏移量，默认为0</li>
-<li><strong>RouteTableId</strong> (str) - 路由表Id</li>
-<li><strong>SubnetId</strong> (str) - 子网id，适用于一次查询一个子网信息</li>
-<li><strong>SubnetIds</strong> (list) - 子网id数组，适用于一次查询多个子网信息</li>
-<li><strong>Tag</strong> (str) - 业务组名称，默认为Default</li>
-<li><strong>VPCId</strong> (str) - VPC资源id</li>
-</ul>
-<p><strong>Response</strong></p>
-<ul class="simple">
-<li><strong>DataSet</strong> (list) - 见 <strong>SubnetInfo</strong> 模型定义</li>
-<li><strong>TotalCount</strong> (int) - 子网总数量</li>
-</ul>
-<p><strong>Response Model</strong></p>
-<p><strong>SubnetInfo</strong></p>
-<ul class="simple">
-<li><strong>CreateTime</strong> (int) - 创建时间</li>
-<li><strong>Gateway</strong> (str) - 子网网关</li>
-<li><strong>HasNATGW</strong> (bool) - 是否有natgw</li>
-<li><strong>IPv6Network</strong> (str) - 子网关联的IPv6网段</li>
-<li><strong>Netmask</strong> (int) - 子网掩码</li>
-<li><strong>OperatorName</strong> (str) - 子网关联的IPv6网段所属运营商</li>
-<li><strong>Remark</strong> (str) - 备注</li>
-<li><strong>RouteTableId</strong> (str) - 路由表Id</li>
-<li><strong>Subnet</strong> (str) - 子网网段</li>
-<li><strong>SubnetId</strong> (str) - 子网Id</li>
-<li><strong>SubnetName</strong> (str) - 子网名称</li>
-<li><strong>SubnetType</strong> (int) - 子网类型</li>
-<li><strong>Tag</strong> (str) - 业务组</li>
-<li><strong>VPCId</strong> (str) - VPCId</li>
-<li><strong>VPCName</strong> (str) - VPC名称</li>
-<li><strong>Zone</strong> (str) - 可用区名称</li>
-</ul>
-</dd></dl>
-
-<dl class="method">
-<dt id="ucloud.services.vpc.client.VPCClient.describe_subnet_resource">
-<code class="descname">describe_subnet_resource</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/vpc/client.html#VPCClient.describe_subnet_resource"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.vpc.client.VPCClient.describe_subnet_resource" title="Permalink to this definition">¶</a></dt>
-<dd><p>DescribeSubnetResource - 展示子网资源</p>
-<p><strong>Request</strong></p>
-<ul class="simple">
-<li><strong>ProjectId</strong> (str) - (Config) 项目ID。不填写为默认项目，子帐号必须填写。 请参考 <a class="reference external" href="https://docs.ucloud.cn/api/summary/get_project_list.html">GetProjectList接口</a></li>
-<li><strong>Region</strong> (str) - (Config) 地域。 参见  <a class="reference external" href="https://docs.ucloud.cn/api/summary/regionlist.html">地域和可用区列表</a></li>
-<li><strong>SubnetId</strong> (str) - (Required) 子网id</li>
-<li><strong>Limit</strong> (int) - 单页返回数据长度，默认为20</li>
-<li><strong>Offset</strong> (int) - 列表起始位置偏移量，默认为0</li>
-<li><strong>ResourceType</strong> (str) - 资源类型，默认为全部资源类型。枚举值为：UHOST，云主机；PHOST，物理云主机；ULB，负载均衡；UHADOOP_HOST，hadoop节点；UFORTRESS_HOST，堡垒机；UNATGW，NAT网关；UKAFKA，Kafka消息队列；UMEM，内存存储；DOCKER，容器集群；UDB，数据库；UDW，数据仓库；VIP，内网VIP.</li>
-</ul>
-<p><strong>Response</strong></p>
-<ul class="simple">
-<li><strong>DataSet</strong> (list) - 见 <strong>SubnetResource</strong> 模型定义</li>
-<li><strong>TotalCount</strong> (int) - 总数</li>
-</ul>
-<p><strong>Response Model</strong></p>
-<p><strong>SubnetResource</strong></p>
-<ul class="simple">
-<li><strong>IP</strong> (str) - 资源ip</li>
-<li><strong>IPv6Address</strong> (str) - 资源的IPv6地址</li>
-<li><strong>Name</strong> (str) - 资源名称</li>
-<li><strong>ResourceId</strong> (str) - 资源Id</li>
-<li><strong>ResourceType</strong> (str) - 资源类型。对应的资源类型：UHOST，云主机；PHOST，物理云主机；ULB，负载均衡；UHADOOP_HOST，hadoop节点；UFORTRESS_HOST，堡垒机；UNATGW，NAT网关；UKAFKA，Kafka消息队列；UMEM，内存存储；DOCKER，容器集群；UDB，数据库；UDW，数据仓库；VIP，内网VIP.</li>
-<li><strong>SubResourceId</strong> (str) - 资源绑定的虚拟网卡的实例ID</li>
-<li><strong>SubResourceName</strong> (str) - 资源绑定的虚拟网卡的实例名称</li>
-<li><strong>SubResourceType</strong> (str) - 资源绑定的虚拟网卡的类型</li>
-</ul>
-</dd></dl>
-
-<dl class="method">
-<dt id="ucloud.services.vpc.client.VPCClient.describe_vpc">
-<code class="descname">describe_vpc</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/vpc/client.html#VPCClient.describe_vpc"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.vpc.client.VPCClient.describe_vpc" title="Permalink to this definition">¶</a></dt>
-<dd><p>DescribeVPC - 获取VPC信息</p>
-<p><strong>Request</strong></p>
-<ul class="simple">
-<li><strong>ProjectId</strong> (str) - (Config) 项目ID。不填写为默认项目，子帐号必须填写。 请参考 <a class="reference external" href="https://docs.ucloud.cn/api/summary/get_project_list.html">GetProjectList接口</a></li>
-<li><strong>Region</strong> (str) - (Config) 地域。 参见  <a class="reference external" href="https://docs.ucloud.cn/api/summary/regionlist.html">地域和可用区列表</a></li>
-<li><strong>Limit</strong> (int) -</li>
-<li><strong>Offset</strong> (int) -</li>
-<li><strong>Tag</strong> (str) - 业务组名称</li>
-<li><strong>VPCIds</strong> (list) - VPCId</li>
-</ul>
-<p><strong>Response</strong></p>
-<ul class="simple">
-<li><strong>DataSet</strong> (list) - 见 <strong>VPCInfo</strong> 模型定义</li>
-</ul>
-<p><strong>Response Model</strong></p>
-<p><strong>VPCNetworkInfo</strong></p>
-<ul class="simple">
-<li><strong>Network</strong> (str) - vpc地址空间</li>
-<li><strong>SubnetCount</strong> (int) - 地址空间中子网数量</li>
-</ul>
-<p><strong>VPCInfo</strong></p>
-<ul class="simple">
-<li><strong>CreateTime</strong> (int) -</li>
-<li><strong>IPv6Network</strong> (str) - VPC关联的IPv6网段</li>
-<li><strong>Name</strong> (str) -</li>
-<li><strong>Network</strong> (list) -</li>
-<li><strong>NetworkInfo</strong> (list) - 见 <strong>VPCNetworkInfo</strong> 模型定义</li>
-<li><strong>OperatorName</strong> (str) - VPC关联的IPv6网段所属运营商</li>
-<li><strong>SubnetCount</strong> (int) -</li>
-<li><strong>Tag</strong> (str) -</li>
-<li><strong>UpdateTime</strong> (int) -</li>
-<li><strong>VPCId</strong> (str) - VPCId</li>
-</ul>
-</dd></dl>
-
-<dl class="method">
-<dt id="ucloud.services.vpc.client.VPCClient.describe_vpc_intercom">
-<code class="descname">describe_vpc_intercom</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/vpc/client.html#VPCClient.describe_vpc_intercom"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.vpc.client.VPCClient.describe_vpc_intercom" title="Permalink to this definition">¶</a></dt>
-<dd><p>DescribeVPCIntercom - 获取VPC互通信息</p>
-<p><strong>Request</strong></p>
-<ul class="simple">
-<li><strong>ProjectId</strong> (str) - (Config) 源VPC所在项目ID。不填写为默认项目，子帐号必须填写。 请参考 <a class="reference external" href="https://docs.ucloud.cn/api/summary/get_project_list.html">GetProjectList接口</a></li>
-<li><strong>Region</strong> (str) - (Config) 源VPC所在地域。 参见  <a class="reference external" href="https://docs.ucloud.cn/api/summary/regionlist.html">地域和可用区列表</a></li>
-<li><strong>VPCId</strong> (str) - (Required) VPC短ID</li>
-<li><strong>DstProjectId</strong> (str) - 目的项目ID，默认为全部项目</li>
-<li><strong>DstRegion</strong> (str) - 目的VPC所在地域，默认为全部地域</li>
-</ul>
-<p><strong>Response</strong></p>
-<ul class="simple">
-<li><strong>DataSet</strong> (list) - 见 <strong>VPCIntercomInfo</strong> 模型定义</li>
-</ul>
-<p><strong>Response Model</strong></p>
-<p><strong>VPCIntercomInfo</strong></p>
-<ul class="simple">
-<li><strong>DstRegion</strong> (str) - 所属地域</li>
-<li><strong>Name</strong> (str) - VPC名字</li>
-<li><strong>Network</strong> (list) - VPC的地址空间</li>
-<li><strong>ProjectId</strong> (str) - 项目Id</li>
-<li><strong>Tag</strong> (str) - 业务组（未分组显示为 Default）</li>
-<li><strong>VPCId</strong> (str) - VPCId</li>
-</ul>
-</dd></dl>
-
-<dl class="method">
-<dt id="ucloud.services.vpc.client.VPCClient.modify_route_rule">
-<code class="descname">modify_route_rule</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/vpc/client.html#VPCClient.modify_route_rule"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.vpc.client.VPCClient.modify_route_rule" title="Permalink to this definition">¶</a></dt>
-<dd><p>ModifyRouteRule - 路由策略增、删、改</p>
-<p><strong>Request</strong></p>
-<ul class="simple">
-<li><strong>ProjectId</strong> (str) - (Config) 项目ID。不填写为默认项目，子帐号必须填写。 请参考 <a class="reference external" href="https://docs.ucloud.cn/api/summary/get_project_list.html">GetProjectList接口</a></li>
-<li><strong>Region</strong> (str) - (Config) 地域。 参见  <a class="reference external" href="https://docs.ucloud.cn/api/summary/regionlist.html">地域和可用区列表</a></li>
-<li><strong>RouteRule</strong> (list) - (Required) 格式: RouteRuleId | 目的网段 | 下一跳类型 | 下一跳 <a href="#id563"><span class="problematic" id="id564">|优先级|</span></a> 备注 | 增、删、改标志  (下一跳类型为instance或者vip，下一跳为云主机id或者vip的id，优先级使用0，动作标志为add/delete/update)   。”添加”示例: test_id | 10.8.0.0/16 | instance | uhost-xd8ja | 0 | Default Route Rule| add (添加的RouteRuleId填任意非空字符串)     。”删除”示例: routerule-xk3jxa | 10.8.0.0/16 | instance | uhost-xd8ja | 0 | Default Route Rule| delete (RouteRuleId来自DescribeRouteTable中)     。“修改”示例: routerule-xk3jxa | 10.8.0.0/16 | instance | uhost-cjksa2 | 0 | Default Route Rule| update (RouteRuleId来自DescribeRouteTable中)</li>
-<li><strong>RouteTableId</strong> (str) - (Required) 通过DescribeRouteTable拿到</li>
-</ul>
-<p><strong>Response</strong></p>
-</dd></dl>
-
-<dl class="method">
-<dt id="ucloud.services.vpc.client.VPCClient.update_route_table_attribute">
-<code class="descname">update_route_table_attribute</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/vpc/client.html#VPCClient.update_route_table_attribute"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.vpc.client.VPCClient.update_route_table_attribute" title="Permalink to this definition">¶</a></dt>
-<dd><p>UpdateRouteTableAttribute - 更新路由表基本信息</p>
-<p><strong>Request</strong></p>
-<ul class="simple">
-<li><strong>ProjectId</strong> (str) - (Config) 项目ID。不填写为默认项目，子帐号必须填写。 请参考 <a class="reference external" href="https://docs.ucloud.cn/api/summary/get_project_list.html">GetProjectList接口</a></li>
-<li><strong>Region</strong> (str) - (Config) 地域。 参见  <a class="reference external" href="https://docs.ucloud.cn/api/summary/regionlist.html">地域和可用区列表</a></li>
-<li><strong>RouteTableId</strong> (str) - (Required) 路由表ID</li>
-<li><strong>Name</strong> (str) - 名称</li>
-<li><strong>Remark</strong> (str) - 备注</li>
-<li><strong>Tag</strong> (str) - 业务组名称</li>
-</ul>
-<p><strong>Response</strong></p>
-</dd></dl>
-
-<dl class="method">
-<dt id="ucloud.services.vpc.client.VPCClient.update_subnet_attribute">
-<code class="descname">update_subnet_attribute</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/vpc/client.html#VPCClient.update_subnet_attribute"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.vpc.client.VPCClient.update_subnet_attribute" title="Permalink to this definition">¶</a></dt>
-<dd><p>UpdateSubnetAttribute - 更新子网信息</p>
-<p><strong>Request</strong></p>
-<ul class="simple">
-<li><strong>ProjectId</strong> (str) - (Config) 项目ID。不填写为默认项目，子帐号必须填写。 请参考 <a class="reference external" href="https://docs.ucloud.cn/api/summary/get_project_list.html">GetProjectList接口</a></li>
-<li><strong>Region</strong> (str) - (Config) 地域。 参见  <a class="reference external" href="https://docs.ucloud.cn/api/summary/regionlist.html">地域和可用区列表</a></li>
-<li><strong>SubnetId</strong> (str) - (Required) 子网ID</li>
-<li><strong>Name</strong> (str) - 子网名称(如果Name不填写，Tag必须填写)</li>
-<li><strong>Tag</strong> (str) - 业务组名称(如果Tag不填写，Name必须填写)</li>
-</ul>
-<p><strong>Response</strong></p>
-</dd></dl>
-
-<dl class="method">
-<dt id="ucloud.services.vpc.client.VPCClient.update_vpc_network">
-<code class="descname">update_vpc_network</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/vpc/client.html#VPCClient.update_vpc_network"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.vpc.client.VPCClient.update_vpc_network" title="Permalink to this definition">¶</a></dt>
-<dd><p>UpdateVPCNetwork - 更新VPC网段</p>
-<p><strong>Request</strong></p>
-<ul class="simple">
-<li><strong>ProjectId</strong> (str) - (Config) 项目ID。不填写为默认项目，子帐号必须填写。 请参考 <a class="reference external" href="https://docs.ucloud.cn/api/summary/get_project_list.html">GetProjectList接口</a></li>
-<li><strong>Region</strong> (str) - (Config) 地域。 参见  <a class="reference external" href="https://docs.ucloud.cn/api/summary/regionlist.html">地域和可用区列表</a></li>
-<li><strong>Network</strong> (list) - (Required) 需要保留的VPC网段。当前仅支持删除VPC网段，添加网段请参考 <a class="reference external" href="https://docs.ucloud.cn/api/vpc2.0-api/add_vpc_network">AddVPCNetwork</a></li>
-<li><strong>VPCId</strong> (str) - (Required) VPC的ID</li>
-</ul>
-<p><strong>Response</strong></p>
-<ul class="simple">
-<li><strong>Message</strong> (str) - 错误信息</li>
 </ul>
 </dd></dl>
 
