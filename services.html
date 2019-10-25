@@ -34,6 +34,136 @@
             
   <div class="section" id="ucloud-sdk-services">
 <h1>UCloud SDK Services<a class="headerlink" href="#ucloud-sdk-services" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="pathx">
+<h2>PathX<a class="headerlink" href="#pathx" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="ucloud.services.pathx.client.PathXClient">
+<em class="property">class </em><code class="descclassname">ucloud.services.pathx.client.</code><code class="descname">PathXClient</code><span class="sig-paren">(</span><em>config</em>, <em>transport=None</em>, <em>middleware=None</em>, <em>logger=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/pathx/client.html#PathXClient"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.pathx.client.PathXClient" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="ucloud.services.pathx.client.PathXClient.create_global_ssh_instance">
+<code class="descname">create_global_ssh_instance</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/pathx/client.html#PathXClient.create_global_ssh_instance"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.pathx.client.PathXClient.create_global_ssh_instance" title="Permalink to this definition">¶</a></dt>
+<dd><p>CreateGlobalSSHInstance - 创建GlobalSSH实例</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>ProjectId</strong> (str) - (Config) 项目ID,如org-xxxx。请参考 <a class="reference external" href="https://docs.ucloud.cn/api/summary/get_project_list.html">GetProjectList接口</a></li>
+<li><strong>Area</strong> (str) - (Required) 填写支持SSH访问IP的地区名称，如“洛杉矶”，“新加坡”，“香港”，“东京”，“华盛顿”，“法兰克福”。Area和AreaCode两者必填一个</li>
+<li><strong>AreaCode</strong> (str) - (Required) AreaCode, 区域航空港国际通用代码。Area和AreaCode两者必填一个</li>
+<li><strong>Port</strong> (int) - (Required) SSH端口，1-65535且不能使用80，443端口</li>
+<li><strong>TargetIP</strong> (str) - (Required) 被SSH访问的IP</li>
+<li><strong>ChargeType</strong> (str) - 支付方式，如按月、按年、按时</li>
+<li><strong>CouponId</strong> (str) - 使用代金券可冲抵部分费用</li>
+<li><strong>Quantity</strong> (int) - 购买数量</li>
+<li><strong>Remark</strong> (str) - 备注信息</li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>AcceleratingDomain</strong> (str) - 加速域名，访问该域名可就近接入</li>
+<li><strong>InstanceId</strong> (str) - 实例ID，资源唯一标识</li>
+<li><strong>Message</strong> (str) - 提示信息</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.pathx.client.PathXClient.delete_global_ssh_instance">
+<code class="descname">delete_global_ssh_instance</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/pathx/client.html#PathXClient.delete_global_ssh_instance"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.pathx.client.PathXClient.delete_global_ssh_instance" title="Permalink to this definition">¶</a></dt>
+<dd><p>DeleteGlobalSSHInstance - 删除GlobalSSH实例</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>ProjectId</strong> (str) - (Config) 项目ID,如org-xxxx。请参考 <a class="reference external" href="https://docs.ucloud.cn/api/summary/get_project_list.html">GetProjectList接口</a></li>
+<li><strong>InstanceId</strong> (str) - (Required) 实例Id,资源的唯一标识</li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>Message</strong> (str) - 提示信息</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.pathx.client.PathXClient.describe_global_ssh_area">
+<code class="descname">describe_global_ssh_area</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/pathx/client.html#PathXClient.describe_global_ssh_area"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.pathx.client.PathXClient.describe_global_ssh_area" title="Permalink to this definition">¶</a></dt>
+<dd><p>DescribeGlobalSSHArea - 获取GlobalSSH覆盖的地区列表 用于控制显示哪些机房地域可以使用SSH特性</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>ProjectId</strong> (str) - (Config) 项目ID,如org-xxxx。请参考 <a class="reference external" href="https://docs.ucloud.cn/api/summary/get_project_list.html">GetProjectList接口</a></li>
+<li><strong>Region</strong> (str) - (Config) 机房地域代号，如hk、 us-ca、 us-ws等。不填默认为空，返回所有支持地区。</li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>AreaSet</strong> (list) - 见 <strong>GlobalSSHArea</strong> 模型定义</li>
+<li><strong>Message</strong> (str) - 提示信息</li>
+</ul>
+<p><strong>Response Model</strong></p>
+<p><strong>GlobalSSHArea</strong></p>
+<ul class="simple">
+<li><strong>Area</strong> (str) - GlobalSSH覆盖的地区,如香港、东京、洛杉矶等</li>
+<li><strong>AreaCode</strong> (str) - 地区代号,以地区AirPort Code</li>
+<li><strong>RegionSet</strong> (list) - ucloud机房代号构成的数组，如[“hk”,”us-ca”]</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.pathx.client.PathXClient.describe_global_ssh_instance">
+<code class="descname">describe_global_ssh_instance</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/pathx/client.html#PathXClient.describe_global_ssh_instance"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.pathx.client.PathXClient.describe_global_ssh_instance" title="Permalink to this definition">¶</a></dt>
+<dd><p>DescribeGlobalSSHInstance - 获取GlobalSSH实例列表（传实例ID获取单个实例信息，不传获取项目下全部实例）</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>ProjectId</strong> (str) - (Config) 项目ID，如org-xxxx。请参考 <a class="reference external" href="https://docs.ucloud.cn/api/summary/get_project_list.html">GetProjectList接口</a></li>
+<li><strong>InstanceId</strong> (str) - 实例ID，资源唯一标识</li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>InstanceSet</strong> (list) - 见 <strong>GlobalSSHInfo</strong> 模型定义</li>
+</ul>
+<p><strong>Response Model</strong></p>
+<p><strong>GlobalSSHInfo</strong></p>
+<ul class="simple">
+<li><strong>AcceleratingDomain</strong> (str) - 加速域名</li>
+<li><strong>Area</strong> (str) - 被SSH访问的IP所在地区</li>
+<li><strong>ChargeType</strong> (str) - 支付周期，如Month,Year等</li>
+<li><strong>CreateTime</strong> (int) - 资源创建时间戳</li>
+<li><strong>ExpireTime</strong> (int) - 资源过期时间戳</li>
+<li><strong>InstanceId</strong> (str) - 实例ID，资源唯一标识</li>
+<li><strong>Port</strong> (int) - SSH登陆端口</li>
+<li><strong>Remark</strong> (str) - 备注信息</li>
+<li><strong>TargetIP</strong> (str) - 被SSH访问的EIP</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.pathx.client.PathXClient.modify_global_ssh_port">
+<code class="descname">modify_global_ssh_port</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/pathx/client.html#PathXClient.modify_global_ssh_port"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.pathx.client.PathXClient.modify_global_ssh_port" title="Permalink to this definition">¶</a></dt>
+<dd><p>ModifyGlobalSSHPort - 修改GlobalSSH端口</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>ProjectId</strong> (str) - (Config) 项目ID，如org-xxxx。请参考 <a class="reference external" href="https://docs.ucloud.cn/api/summary/get_project_list.html">GetProjectList接口</a></li>
+<li><strong>InstanceId</strong> (str) - (Required) 实例ID,资源唯一标识</li>
+<li><strong>Port</strong> (int) - (Required) 调整后的SSH登陆端口</li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>Message</strong> (str) - 提示信息</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.pathx.client.PathXClient.modify_global_ssh_remark">
+<code class="descname">modify_global_ssh_remark</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/pathx/client.html#PathXClient.modify_global_ssh_remark"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.pathx.client.PathXClient.modify_global_ssh_remark" title="Permalink to this definition">¶</a></dt>
+<dd><p>ModifyGlobalSSHRemark - 修改GlobalSSH备注</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>ProjectId</strong> (str) - (Config) 项目ID，如org-xxxx。请参考 <a class="reference external" href="https://docs.ucloud.cn/api/summary/get_project_list.html">GetProjectList接口</a></li>
+<li><strong>InstanceId</strong> (str) - (Required) 实例ID,资源唯一标识</li>
+<li><strong>Remark</strong> (str) - 备注信息，不填默认为空字符串</li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>Message</strong> (str) - 接口返回消息</li>
+</ul>
+</dd></dl>
+
+</dd></dl>
+
+</div>
 <div class="section" id="stepflow">
 <h2>StepFlow<a class="headerlink" href="#stepflow" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
@@ -249,27 +379,27 @@
 <ul class="simple">
 <li><strong>Arrearage</strong> (list) - 标识欠费的数组，数组含有下列元素值， 1=国内流量有欠费 2=国外流量有欠费  3=国内带宽有欠费 4=国外带宽有欠费</li>
 <li><strong>ChargeType</strong> (int) - 当前计费方式，10=流量付费 20=带宽日峰值  30=按月后付费</li>
-<li><strong>DomainList</strong> (list) - 见 <strong>DomainInfo</strong> 模型定义</li>
+<li><strong>DomainSet</strong> (list) - 见 <strong>DomainInfo</strong> 模型定义</li>
 <li><strong>LastChargeType</strong> (int) - 表示最后一次切换的计费方式，10=流量付费 20=带宽日峰值  30=按月后付费  40=未选择计费方式</li>
 <li><strong>MaxDomainNum</strong> (int) - 最大域名数量，默认20</li>
 <li><strong>TotalCount</strong> (int) - 满足条件的域名个数</li>
 <li><strong>Vip</strong> (str) - vip标示，yes-是  no-否</li>
 </ul>
 <p><strong>Response Model</strong></p>
-<p><strong>AccessConf</strong></p>
-<ul class="simple">
-<li><strong>IpBlacklist</strong> (str) - 多个ip用逗号隔开</li>
-</ul>
 <p><strong>CacheConf</strong></p>
 <ul class="simple">
-<li><strong>CacheBehavior</strong> (bool) - 是否缓存，true为缓存，false为不缓存。为false的情况下，CacheTTL和CacheUnit强制不生效</li>
+<li><strong>CacheBehavior</strong> (int) - 是否缓存，1为缓存，0为不缓存。为0的情况下，CacheTTL和CacheUnit强制不生效</li>
 <li><strong>CacheTTL</strong> (int) - 缓存时间</li>
 <li><strong>CacheUnit</strong> (str) - 缓存时间的单位。sec（秒），min（分钟），hour（小时），day（天）</li>
 <li><strong>Description</strong> (str) - 缓存规则描述</li>
-<li><strong>FollowOriginRule</strong> (bool) - 是否优先遵循源站头部缓存策略，false为不优先遵循源站，true为优先遵循源站缓存头部。默认为false</li>
+<li><strong>FollowOriginRule</strong> (int) - 是否优先遵循源站头部缓存策略，0为不优先遵循源站，1为优先遵循源站缓存头部。默认为0</li>
 <li><strong>HttpCodePattern</strong> (str) - 状态码默认情况只缓存200类状态码，支持正则</li>
-<li><strong>IgnoreQueryString</strong> (bool) - 是否忽略参数缓存（false为不忽略，true为忽略，默认为false）</li>
+<li><strong>IgnoreQueryString</strong> (int) - 是否忽略参数缓存（0为不忽略，1为忽略，默认为0）</li>
 <li><strong>PathPattern</strong> (str) - 路径模式，支持正则</li>
+</ul>
+<p><strong>AccessConf</strong></p>
+<ul class="simple">
+<li><strong>IpBlacklist</strong> (str) - 多个ip用逗号隔开</li>
 </ul>
 <p><strong>DomainInfo</strong></p>
 <ul class="simple">
@@ -2401,37 +2531,39 @@
 <li><strong>AlarmTemplateId</strong> (int) - 告警模板id，如果传了告警模板id，且告警模板id正确，则绑定告警模板。绑定告警模板失败只会在后台有日志，不会影响创建主机流程，也不会在前端报错。</li>
 <li><strong>BootDiskSpace</strong> (int) - 【待废弃，不建议调用】系统盘大小。 单位：GB， 范围[20,100]， 步长：10</li>
 <li><strong>CPU</strong> (int) - 虚拟CPU核数。可选参数：1-64（具体机型与CPU的对应关系参照控制台）。默认值: 4。</li>
-<li><strong>ChargeType</strong> (str) - 计费模式。枚举值为： &gt; Year，按年付费； &gt; Month，按月付费；&gt; Dynamic，按小时付费 默认为月付</li>
+<li><strong>ChargeType</strong> (str) - 计费模式。枚举值为： &gt; Year，按年付费； &gt; Month，按月付费；&gt; Dynamic，按小时预付费 &gt; Postpay，按小时后付费（支持关机不收费，目前仅部分可用区支持，请联系您的客户经理） 默认为月付</li>
 <li><strong>CouponId</strong> (str) - 主机代金券ID。请通过DescribeCoupon接口查询，或登录用户中心查看</li>
 <li><strong>DiskPassword</strong> (str) - 【待废弃，不建议调用】加密盘的密码。若输入此字段，自动选择加密盘。加密盘需要权限位。</li>
 <li><strong>DiskSpace</strong> (int) - 【待废弃，不建议调用】数据盘大小。 单位：GB， 范围[0,8000]， 步长：10， 默认值：20，云盘支持0-8000；本地普通盘支持0-2000；本地SSD盘（包括所有GPU机型）支持100-1000</li>
 <li><strong>Disks</strong> (list) - 见 <strong>CreateUHostInstanceParamDisks</strong> 模型定义</li>
-<li><strong>GPU</strong> (int) - GPU卡核心数。仅GPU机型支持此字段（可选范围与UHostType相关）</li>
-<li><strong>GpuType</strong> (str) - GPU类型，枚举值[“K80”, “P40”, “V100”]</li>
+<li><strong>GPU</strong> (int) - GPU卡核心数。仅GPU机型支持此字段（可选范围与MachineType+GpuType相关）</li>
+<li><strong>GpuType</strong> (str) - GPU类型，枚举值[“K80”, “P40”, “V100”]，MachineType为G时必填</li>
+<li><strong>HostIp</strong> (str) - 指定宿主机创建，此时SetId为必填</li>
 <li><strong>HostType</strong> (str) - 【已废弃】宿主机类型，N2，N1</li>
-<li><strong>HotplugFeature</strong> (bool) - 是否开启热升级特性。True为开启，False为未开启，默认False。</li>
+<li><strong>HotplugFeature</strong> (bool) - 热升级特性。True为开启，False为未开启，默认False。</li>
 <li><strong>InstallAgent</strong> (str) - 【暂不支持】是否安装UGA。’yes’: 安装；其他或者不填：不安装。</li>
 <li><strong>IsolationGroup</strong> (str) - 硬件隔离组id。可通过DescribeIsolationGroup获取。</li>
 <li><strong>KeyPair</strong> (str) - 【暂不支持】Keypair公钥，LoginMode为KeyPair时此项必须</li>
-<li><strong>MachineType</strong> (str) - 云主机机型（V2.0），枚举值[“N”, “C”, “G”, “O”]。参考 <a class="reference external" href="https://docs.ucloud.cn/api/uhost-api/uhost_type">云主机机型说明</a> 。</li>
-<li><strong>MaxCount</strong> (int) - 【批量创建主机时必填】最大创建主机数量，取值范围是[1,100];</li>
+<li><strong>MachineType</strong> (str) - 云主机机型（V2.0），在本字段和字段UHostType中，仅需要其中1个字段即可；当填写了MachineType时，必须填写MinimalCpuPlatform字段。枚举值[“N”, “C”, “G”, “O”]。参考 <a class="reference external" href="https://docs.ucloud.cn/api/uhost-api/uhost_type">云主机机型说明</a> 。</li>
+<li><strong>MaxCount</strong> (int) - 本次最大创建主机数量，取值范围是[1,100]，默认值为1。</li>
 <li><strong>Memory</strong> (int) - 内存大小。单位：MB。范围 ：[1024, 262144]，取值为1024的倍数（可选范围参考控制台）。默认值：8192</li>
 <li><strong>MinimalCpuPlatform</strong> (str) - 最低cpu平台，枚举值[“Intel/Auto”, “Intel/IvyBridge”, “Intel/Haswell”, “Intel/Broadwell”, “Intel/Skylake”, “Intel/Cascadelake”。</li>
 <li><strong>Name</strong> (str) - UHost实例名称。默认：UHost。请遵照 <a class="reference external" href="https://docs.ucloud.cn/api/uhost-api/specification">字段规范</a> 设定实例名称。</li>
-<li><strong>NetCapability</strong> (str) - 网络增强。枚举值：Normal（默认），不开启;  Super，开启网络增强1.0； Ultra，开启网络增强2.0（仅支持部分可用区，请参考控制台）</li>
+<li><strong>NetCapability</strong> (str) - 网络增强特性。枚举值：Normal（默认），不开启;  Super，开启网络增强1.0； Ultra，开启网络增强2.0（仅支持部分可用区，请参考控制台）</li>
 <li><strong>NetworkId</strong> (str) - 【已废弃】网络ID（VPC2.0情况下无需填写）。VPC1.0情况下，若不填写，代表优先选择基础网络； 若填写，代表选择子网。参见DescribeSubnet。</li>
 <li><strong>NetworkInterface</strong> (list) - 见 <strong>CreateUHostInstanceParamNetworkInterface</strong> 模型定义</li>
 <li><strong>PrivateIp</strong> (list) - 【数组】创建云主机时指定内网IP。若不传值，则随机分配当前子网下的IP。调用方式举例：PrivateIp.0=x.x.x.x。当前只支持一个内网IP。</li>
 <li><strong>PrivateMac</strong> (str) - 【批量创建该参数无效】【内部字段】创建云主机时指定Mac。调用方式举例：PrivateMac=”xx:xx:xx:xx:xx:xx”。</li>
-<li><strong>Quantity</strong> (int) - 购买时长。默认:值 1。按小时购买(Dynamic)时无需此参数。 月付时，此参数传0，代表购买至月末。</li>
+<li><strong>Quantity</strong> (int) - 购买时长。默认:值 1。按小时购买（Dynamic/Postpay）时无需此参数。 月付时，此参数传0，代表购买至月末。</li>
 <li><strong>ResourceType</strong> (int) - 【内部参数】资源类型</li>
-<li><strong>SecurityGroupId</strong> (str) - 防火墙Id，默认：Web推荐防火墙。如何查询SecurityGroupId请参见  <a class="reference external" href="https://docs.ucloud.cn/api/unet-api/describe_security_group.html">DescribeSecurityGroup</a> 。</li>
-<li><strong>SetId</strong> (int) -</li>
+<li><strong>SecurityGroupId</strong> (str) - 防火墙ID，默认：Web推荐防火墙。如何查询SecurityGroupId请参见  <a class="reference external" href="https://docs.ucloud.cn/api/unet-api/describe_firewall.html">DescribeFirewall</a> 。</li>
+<li><strong>SetId</strong> (int) - 指定set创建</li>
 <li><strong>StorageType</strong> (str) - 【待废弃，不建议调用】磁盘类型，同时设定系统盘和数据盘的磁盘类型。枚举值为：LocalDisk，本地磁盘; UDisk，云硬盘；默认为LocalDisk。仅部分可用区支持云硬盘方式的主机存储方式，具体请查询控制台。</li>
 <li><strong>SubnetId</strong> (str) - 子网 ID。默认为当前地域的默认子网。</li>
 <li><strong>Tag</strong> (str) - 业务组。默认：Default（Default即为未分组）。请遵照 <a class="reference external" href="https://docs.ucloud.cn/api/uhost-api/specification">字段规范</a> 设定业务组。</li>
 <li><strong>TimemachineFeature</strong> (str) - 【待废弃，不建议调用】是否开启方舟特性。Yes为开启方舟，No为关闭方舟。目前仅选择普通本地盘+普通本地盘 或 SSD云盘+普通云盘的组合支持开启方舟。</li>
-<li><strong>UHostType</strong> (str) - 【建议后续不再使用】云主机机型V1.0。参考 <a class="reference external" href="https://docs.ucloud.cn/api/uhost-api/uhost_type">云主机机型说明</a> 。</li>
+<li><strong>UHostType</strong> (str) - 【建议后续不再使用】云主机机型（V1.0），在本字段和字段MachineType中，仅需要其中1个字段即可。参考 <a class="reference external" href="https://docs.ucloud.cn/api/uhost-api/uhost_type">云主机机型说明</a> 。</li>
+<li><strong>UserData</strong> (str) - 【即将支持】用户自定义数据。当镜像支持Cloud-init Feature时可填写此字段。注意：1、总数据量大小不超多16K；2、使用base64编码</li>
 <li><strong>UserDataScript</strong> (str) - 【暂不支持】cloudinit方式下，用户初始化脚本</li>
 <li><strong>VPCId</strong> (str) - VPC ID。默认为当前地域的默认VPC。</li>
 </ul>
@@ -2443,18 +2575,23 @@
 <p><strong>Request Model</strong></p>
 <p><strong>CreateUHostInstanceParamNetworkInterfaceEIPGlobalSSH</strong></p>
 <ul class="simple">
-<li><strong>Area</strong> (str) - 填写支持SSH访问IP的地区名称，如“洛杉矶”，“新加坡”，“香港”，“东京”，“华盛顿”，“法兰克福”。Area和AreaCode两者必填一个</li>
-<li><strong>AreaCode</strong> (str) - GlobalSSH的。AreaCode, 区域航空港国际通用代码。Area和AreaCode两者必填一个</li>
+<li><strong>Area</strong> (str) - 填写支持SSH访问IP的地区名称，如“洛杉矶”，“新加坡”，“香港”，“东京”，“华盛顿”，“法兰克福”。Area和AreaCode两者必填其中之一。</li>
+<li><strong>AreaCode</strong> (str) - GlobalSSH的地区编码，格式为区域航空港国际通用代码。Area和AreaCode两者必填其中之一。</li>
 <li><strong>Port</strong> (int) - SSH端口，1-65535且不能使用80，443端口</li>
 </ul>
 <p><strong>CreateUHostInstanceParamNetworkInterfaceEIP</strong></p>
 <ul class="simple">
-<li><strong>Bandwidth</strong> (int) - 【如果绑定EIP这个参数必填】弹性IP的外网带宽, 单位为Mbps. 共享带宽模式必须指定0M带宽, 非共享带宽模式必须指定非0Mbps带宽. 各地域非共享带宽的带宽范围如下： 流量计费[1-300]，带宽计费[1-800]</li>
-<li><strong>CouponId</strong> (str) - 当前EIP代金券id。请通过DescribeCoupon接口查询，或登录用户中心查看</li>
+<li><strong>Bandwidth</strong> (int) - 【若绑定EIP，此参数必填】弹性IP的外网带宽, 单位为Mbps. 共享带宽模式必须指定0M带宽, 非共享带宽模式必须指定非0Mbps带宽. 各地域非共享带宽的带宽范围如下： 流量计费[1-300]，带宽计费[1-800]</li>
+<li><strong>CouponId</strong> (str) - 当前EIP代金券id。请通过DescribeCoupon接口查询，或登录用户中心查看。</li>
 <li><strong>GlobalSSH</strong> (dict) - 见 <strong>CreateUHostInstanceParamNetworkInterfaceEIPGlobalSSH</strong> 模型定义</li>
-<li><strong>OperatorName</strong> (str) - 【如果绑定EIP这个参数必填】弹性IP的线路如下: 国际: International BGP: Bgp 各地域允许的线路参数如下: cn-sh1: Bgp cn-sh2: Bgp cn-gd: Bgp cn-bj1: Bgp cn-bj2: Bgp hk: International us-ca: International th-bkk: International kr-seoul:International us-ws:International ge-fra:International sg:International tw-kh:International.其他海外线路均为 International</li>
+<li><strong>OperatorName</strong> (str) - 【若绑定EIP，此参数必填】弹性IP的线路。枚举值: 国际: International BGP: Bgp 各地域允许的线路参数如下: cn-sh1: Bgp cn-sh2: Bgp cn-gd: Bgp cn-bj1: Bgp cn-bj2: Bgp hk: International us-ca: International th-bkk: International kr-seoul:International us-ws:International ge-fra:International sg:International tw-kh:International.其他海外线路均为 International</li>
 <li><strong>PayMode</strong> (str) - 弹性IP的计费模式. 枚举值: “Traffic”, 流量计费; “Bandwidth”, 带宽计费; “ShareBandwidth”,共享带宽模式. “Free”:免费带宽模式.默认为 “Bandwidth”.</li>
 <li><strong>ShareBandwidthId</strong> (str) - 绑定的共享带宽Id，仅当PayMode为ShareBandwidth时有效</li>
+</ul>
+<p><strong>CreateUHostInstanceParamNetworkInterfaceIPv6</strong></p>
+<ul class="simple">
+<li><strong>Adress</strong> (str) - 第N个网卡对应的IPv6地址，默认不分配IPv6，“Auto”自动分配，不为空的其他字符串为实际要分配的IPv6地址</li>
+<li><strong>ShareBandwidthId</strong> (str) - 第N块网卡中IPv6对应的共享带宽id，默认不带外网</li>
 </ul>
 <p><strong>CreateUHostInstanceParamDisks</strong></p>
 <ul class="simple">
@@ -2463,12 +2600,13 @@
 <li><strong>Encrypted</strong> (bool) - 【功能仅部分可用区开放，详询技术支持】磁盘是否加密。加密：true, 不加密: false加密必须传入对应的的KmsKeyId</li>
 <li><strong>IsBoot</strong> (str) - 是否是系统盘。枚举值：&gt; True，是系统盘 &gt; False，是数据盘（默认）。Disks数组中有且只能有一块盘是系统盘。</li>
 <li><strong>KmsKeyId</strong> (str) - 【功能仅部分可用区开放，详询技术支持】kms key id。选择加密盘时必填。</li>
-<li><strong>Size</strong> (int) - 磁盘大小，单位GB。请参考 <a class="reference external" href="https://docs.ucloud.cn/api/uhost-api/disk_type">磁盘类型</a> 。</li>
+<li><strong>Size</strong> (int) - 磁盘大小，单位GB，必须是10GB的整数倍。请参考 <a class="reference external" href="https://docs.ucloud.cn/api/uhost-api/disk_type">磁盘类型</a> 。</li>
 <li><strong>Type</strong> (str) - 磁盘类型。请参考 <a class="reference external" href="https://docs.ucloud.cn/api/uhost-api/disk_type">磁盘类型</a> 。</li>
 </ul>
 <p><strong>CreateUHostInstanceParamNetworkInterface</strong></p>
 <ul class="simple">
 <li><strong>EIP</strong> (dict) - 见 <strong>CreateUHostInstanceParamNetworkInterfaceEIP</strong> 模型定义</li>
+<li><strong>IPv6</strong> (dict) - 见 <strong>CreateUHostInstanceParamNetworkInterfaceIPv6</strong> 模型定义</li>
 </ul>
 </dd></dl>
 
@@ -2497,7 +2635,7 @@
 <p><strong>UHostImageSet</strong></p>
 <ul class="simple">
 <li><strong>CreateTime</strong> (int) - 创建时间，格式为Unix时间戳</li>
-<li><strong>Features</strong> (list) - 特殊状态标识， 目前包含NetEnhnced（网络增强1.0）, NetEnhanced_Ultra]（网络增强2.0）</li>
+<li><strong>Features</strong> (list) - 特殊状态标识， 目前包含NetEnhnced（网络增强1.0）, NetEnhanced_Ultra]（网络增强2.0）,HotPlug(热升级),CloudInit</li>
 <li><strong>FuncType</strong> (str) - 行业镜像类型（仅行业镜像将返回这个值）</li>
 <li><strong>ImageDescription</strong> (str) - 镜像描述</li>
 <li><strong>ImageId</strong> (str) - 镜像ID</li>
@@ -2511,7 +2649,38 @@
 <li><strong>OsType</strong> (str) - 操作系统类型：Liunx，Windows</li>
 <li><strong>State</strong> (str) - 镜像状态， 可用：Available，制作中：Making， 不可用：Unavailable</li>
 <li><strong>Vendor</strong> (str) - 供应商（仅行业镜像将返回这个值）</li>
-<li><strong>Zone</strong> (str) - 可用区，参见  <a class="reference external" href="https://docs.ucloud.cn/api/summary/regionlist.html">可用区列表</a>  |</li>
+<li><strong>Zone</strong> (str) - 可用区，参见  <a class="reference external" href="https://docs.ucloud.cn/api/summary/regionlist.html">可用区列表</a></li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.uhost.client.UHostClient.describe_isolation_group">
+<code class="descname">describe_isolation_group</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/uhost/client.html#UHostClient.describe_isolation_group"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.uhost.client.UHostClient.describe_isolation_group" title="Permalink to this definition">¶</a></dt>
+<dd><p>DescribeIsolationGroup - 查询硬件隔离组列表。</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>ProjectId</strong> (str) - (Config) 项目id</li>
+<li><strong>Region</strong> (str) - (Config) 地域。 参见  <a class="reference external" href="https://docs.ucloud.cn/api/summary/regionlist.html">地域和可用区列表</a></li>
+<li><strong>GroupId</strong> (str) - 待查的硬件隔离组id</li>
+<li><strong>Limit</strong> (int) - 返回数据长度，默认为20，最大100</li>
+<li><strong>Offset</strong> (int) - 列表起始位置偏移量，默认为0</li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>IsolationGroupSet</strong> (list) - 见 <strong>IsolationGroup</strong> 模型定义</li>
+</ul>
+<p><strong>Response Model</strong></p>
+<p><strong>SpreadInfo</strong></p>
+<ul class="simple">
+<li><strong>UHostCount</strong> (int) - 可用区中硬件隔离组中云主机的数量，不超过7。</li>
+<li><strong>Zone</strong> (str) - 可用区信息</li>
+</ul>
+<p><strong>IsolationGroup</strong></p>
+<ul class="simple">
+<li><strong>GroupId</strong> (str) - 硬件隔离组id</li>
+<li><strong>GroupName</strong> (str) - 硬件隔离组名称</li>
+<li><strong>Remark</strong> (str) - 备注</li>
+<li><strong>SpreadInfoSet</strong> (list) - 见 <strong>SpreadInfo</strong> 模型定义</li>
 </ul>
 </dd></dl>
 
@@ -2535,6 +2704,8 @@
 </ul>
 <p><strong>Response</strong></p>
 <ul class="simple">
+<li><strong>Action</strong> (str) - 操作名称</li>
+<li><strong>RetCode</strong> (int) - 返回码</li>
 <li><strong>TotalCount</strong> (int) - UHostInstance总数</li>
 <li><strong>UHostSet</strong> (list) - 见 <strong>UHostInstanceSet</strong> 模型定义</li>
 </ul>
@@ -2553,13 +2724,15 @@
 </ul>
 <p><strong>UHostIPSet</strong></p>
 <ul class="simple">
-<li><strong>Bandwidth</strong> (int) - IP对应的带宽, 单位: Mb (内网IP不显示带宽信息)</li>
-<li><strong>Default</strong> (str) - 是否默认的弹性网卡的信息。true: 是默认弹性网卡；其他值：不是。</li>
+<li><strong>Bandwidth</strong> (int) - IP对应的带宽, 单位: Mb  (内网IP不显示带宽信息)</li>
+<li><strong>Default</strong> (str) - 【暂未支持】是否为默认网卡。True: 是默认网卡；其他值：不是。</li>
 <li><strong>IP</strong> (str) - IP地址</li>
-<li><strong>IPId</strong> (str) - IP资源ID (内网IP无对应的资源ID)</li>
-<li><strong>SubnetId</strong> (str) - IP地址对应的子网 ID（北京一当前字段为空）</li>
+<li><strong>IPId</strong> (str) - 外网IP资源ID 。(内网IP无对应的资源ID)</li>
+<li><strong>Mac</strong> (str) - 当前网卡的Mac。</li>
+<li><strong>SubnetId</strong> (str) - IP地址对应的子网 ID。（北京一不支持，字段返回为空）</li>
 <li><strong>Type</strong> (str) - 国际: Internation，BGP: Bgp，内网: Private</li>
-<li><strong>VPCId</strong> (str) - IP地址对应的VPC ID（北京一当前字段为空）</li>
+<li><strong>VPCId</strong> (str) - IP地址对应的VPC ID。（北京一不支持，字段返回为空）</li>
+<li><strong>Weight</strong> (int) - 当前EIP的权重。权重最大的为当前的出口IP。</li>
 </ul>
 <p><strong>UHostInstanceSet</strong></p>
 <ul class="simple">
@@ -2596,6 +2769,31 @@
 <li><strong>UHostId</strong> (str) - UHost实例ID</li>
 <li><strong>UHostType</strong> (str) - 【建议不再使用】云主机机型（旧）。参考 <a class="reference external" href="https://docs.ucloud.cn/api/uhost-api/uhost_type">云主机机型说明</a> 。</li>
 <li><strong>Zone</strong> (str) - 可用区。参见  <a class="reference external" href="https://docs.ucloud.cn/api/summary/regionlist.html">可用区列表</a></li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.uhost.client.UHostClient.describe_uhost_instance_snapshot">
+<code class="descname">describe_uhost_instance_snapshot</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/uhost/client.html#UHostClient.describe_uhost_instance_snapshot"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.uhost.client.UHostClient.describe_uhost_instance_snapshot" title="Permalink to this definition">¶</a></dt>
+<dd><p>DescribeUHostInstanceSnapshot - 获取已经存在的UHost实例的存储快照列表。</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>ProjectId</strong> (str) - (Config) 项目ID。不填写为默认项目，子帐号必须填写。 请参考 <a class="reference external" href="https://docs.ucloud.cn/api/summary/get_project_list.html">GetProjectList接口</a></li>
+<li><strong>Region</strong> (str) - (Config) 地域。 参见  <a class="reference external" href="https://docs.ucloud.cn/api/summary/regionlist.html">地域和可用区列表</a></li>
+<li><strong>UHostId</strong> (str) - (Required) UHost实例ID 参见  <a class="reference external" href="https://docs.ucloud.cn/api/uhost-api/describe_uhost_instance.html">DescribeUHostInstance</a></li>
+<li><strong>Zone</strong> (str) - 可用区。参见  <a class="reference external" href="https://docs.ucloud.cn/api/summary/regionlist.html">可用区列表</a></li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>SnapshotSet</strong> (list) - 见 <strong>UHostSnapshotSet</strong> 模型定义</li>
+<li><strong>UhostId</strong> (str) - UHost实例ID</li>
+</ul>
+<p><strong>Response Model</strong></p>
+<p><strong>UHostSnapshotSet</strong></p>
+<ul class="simple">
+<li><strong>SnapshotName</strong> (str) - 快照名称</li>
+<li><strong>SnapshotState</strong> (str) - 快照状态, 制作中:Capturing 制作成功:Success 制作失败:Fail</li>
+<li><strong>SnapshotTime</strong> (str) - 快照制作时间</li>
 </ul>
 </dd></dl>
 
@@ -2833,11 +3031,10 @@
 <li><strong>ProjectId</strong> (str) - (Config) 项目ID。不填写为默认项目，子帐号必须填写。 请参考 <a class="reference external" href="https://docs.ucloud.cn/api/summary/get_project_list.html">GetProjectList接口</a></li>
 <li><strong>Region</strong> (str) - (Config) 地域。 参见  <a class="reference external" href="https://docs.ucloud.cn/api/summary/regionlist.html">地域和可用区列表</a></li>
 <li><strong>UHostId</strong> (str) - (Required) UHost实例资源ID 参见  <a class="reference external" href="https://docs.ucloud.cn/api/uhost-api/describe_uhost_instance.html">DescribeUHostInstance</a></li>
-<li><strong>BootDiskSpace</strong> (int) - 系统盘大小。 单位：GB， 范围[20,100]， 步长：10</li>
 <li><strong>DNSServers</strong> (list) - 针对非私有子网主机，可自定义DNS。n可为0-2</li>
 <li><strong>ImageId</strong> (str) - 镜像Id，默认使用原镜像 参见  <a class="reference external" href="https://docs.ucloud.cn/api/uhost-api/describe_image.html">DescribeImage</a></li>
 <li><strong>Password</strong> (str) - 如果创建UHost实例时LoginMode为Password，则必须填写，如果LoginMode为KeyPair，不需要填写 （密码格式使用BASE64编码；LoginMode不可变更）</li>
-<li><strong>ReserveDisk</strong> (str) - 是否保留数据盘，保留：Yes，不报留：No， 默认：Yes；如果是从Windows重装为Linux或反之，则无法保留数据盘</li>
+<li><strong>ReserveDisk</strong> (str) - 是否保留数据盘，保留：Yes，不报留：No， 默认：Yes</li>
 <li><strong>ResourceType</strong> (int) - 云灾备指明191</li>
 <li><strong>Zone</strong> (str) - 可用区。参见  <a class="reference external" href="https://docs.ucloud.cn/api/summary/regionlist.html">可用区列表</a></li>
 </ul>
@@ -2887,16 +3084,16 @@
 <dl class="method">
 <dt id="ucloud.services.uhost.client.UHostClient.resize_uhost_instance">
 <code class="descname">resize_uhost_instance</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/uhost/client.html#UHostClient.resize_uhost_instance"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.uhost.client.UHostClient.resize_uhost_instance" title="Permalink to this definition">¶</a></dt>
-<dd><p>ResizeUHostInstance - 修改指定UHost实例的资源配置，如CPU核心数，内存容量大小，网络增强等。可选配置范围请参考 <a class="reference external" href="https://docs.ucloud.cn/api/uhost-api/uhost_type">云主机机型说明</a> 。</p>
+<dd><p>ResizeUHostInstance - 修改指定UHost实例的资源配置，如CPU核心数，内存容量大小，磁盘空间大小,网络增强等。</p>
 <p><strong>Request</strong></p>
 <ul class="simple">
 <li><strong>ProjectId</strong> (str) - (Config) 项目ID。不填写为默认项目，子帐号必须填写。 请参考 <a class="reference external" href="https://docs.ucloud.cn/api/summary/get_project_list.html">GetProjectList接口</a></li>
 <li><strong>Region</strong> (str) - (Config) 地域。 参见  <a class="reference external" href="https://docs.ucloud.cn/api/summary/regionlist.html">地域和可用区列表</a></li>
 <li><strong>UHostId</strong> (str) - (Required) UHost实例ID 参见  <a class="reference external" href="https://docs.ucloud.cn/api/uhost-api/describe_uhost_instance.html">DescribeUHostInstance</a></li>
-<li><strong>BootDiskSpace</strong> (int) - 【待废弃】系统盘大小，单位：GB，范围[20,100]，步长：10，系统盘不支持缩容，因此不允许输入比当前实例系统盘小的值</li>
-<li><strong>CPU</strong> (int) - 虚拟CPU核数。可选参数：1-32（可选范围与UHostType相关）。默认值为当前实例的CPU核数</li>
-<li><strong>DiskSpace</strong> (int) - 【待废弃】数据盘大小，单位：GB，范围[10,1000]； SSD机型，单位：GB，范围[100,500]；步长：10，默认值为当前实例的数据盘大小，数据盘不支持缩容，因此不允许输入比当前实例数据盘大小的值</li>
-<li><strong>Memory</strong> (int) - 内存大小。单位：MB。范围 ：[1024, 262144]，取值为1024的倍数（可选范围与UHostType相关）。默认值为当前实例的内存大小。</li>
+<li><strong>BootDiskSpace</strong> (int) - 系统盘大小，单位：GB，范围[20,100]，步长：10，系统盘不支持缩容，因此不允许输入比当前实例系统盘小的值</li>
+<li><strong>CPU</strong> (int) - 虚拟CPU核数，单位：个，范围：[1,16]，最小值为1，其他值是2的倍数，默认值为当前实例的CPU核数（<a href="#id316"><span class="problematic" id="id317">*</span></a>windows CPU&gt;=2）</li>
+<li><strong>DiskSpace</strong> (int) - 数据盘大小，单位：GB，范围[10,1000]； SSD机型，单位：GB，范围[100,500]；步长：10，默认值为当前实例的数据盘大小，数据盘不支持缩容，因此不允许输入比当前实例数据盘大小的值</li>
+<li><strong>Memory</strong> (int) - 内存大小，单位：MB，范围[2048,65536]，步长：2048，默认值为当前实例的内存大小（BGP-C数据中心最小支持1024，限Linux系统）</li>
 <li><strong>NetCapValue</strong> (int) - 网卡升降级（1，表示升级，2表示降级，0表示不变）</li>
 <li><strong>Zone</strong> (str) - 可用区。参见  <a class="reference external" href="https://docs.ucloud.cn/api/summary/regionlist.html">可用区列表</a></li>
 </ul>
@@ -2950,6 +3147,7 @@
 <li><strong>ProjectId</strong> (str) - (Config) 项目ID。不填写为默认项目，子帐号必须填写。 请参考 <a class="reference external" href="https://docs.ucloud.cn/api/summary/get_project_list.html">GetProjectList接口</a></li>
 <li><strong>Region</strong> (str) - (Config) 地域。 参见  <a class="reference external" href="https://docs.ucloud.cn/api/summary/regionlist.html">地域和可用区列表</a></li>
 <li><strong>ImageId</strong> (str) - (Required) 自制镜像ID 参见  <a class="reference external" href="https://docs.ucloud.cn/api/uhost-api/describe_image.html">DescribeImage</a></li>
+<li><strong>Zone</strong> (str) - 可用区。参见  <a class="reference external" href="https://docs.ucloud.cn/api/summary/regionlist.html">可用区列表</a></li>
 </ul>
 <p><strong>Response</strong></p>
 <ul class="simple">
@@ -3611,7 +3809,7 @@
 <li><strong>ProjectId</strong> (str) - (Config) 项目ID。不填写为默认项目，子帐号必须填写。 请参考 <a class="reference external" href="https://docs.ucloud.cn/api/summary/get_project_list.html">GetProjectList接口</a></li>
 <li><strong>Region</strong> (str) - (Config) 地域。 参见  <a class="reference external" href="https://docs.ucloud.cn/api/summary/regionlist.html">地域和可用区列表</a></li>
 <li><strong>HighAvailability</strong> (str) - (Required) 是否开启高可用,enable或disable</li>
-<li><strong>Name</strong> (str) - (Required) 请求创建组的名称 (范围[6-63],只能包含英文、<a href="#id534"><span class="problematic" id="id535">数字以及符号-和_</span></a>)</li>
+<li><strong>Name</strong> (str) - (Required) 请求创建组的名称 (范围[6-63],只能包含英文、<a href="#id546"><span class="problematic" id="id547">数字以及符号-和_</span></a>)</li>
 <li><strong>Zone</strong> (str) - (Required) 可用区。参见  <a class="reference external" href="https://docs.ucloud.cn/api/summary/regionlist.html">可用区列表</a></li>
 <li><strong>AutoBackup</strong> (str) - 是否自动备份,enable或disable，默认disable</li>
 <li><strong>BackupId</strong> (str) - 有此项代表从备份中创建，无代表正常创建</li>
@@ -4069,7 +4267,7 @@
 <li><strong>ProjectId</strong> (str) - (Config) 项目ID。不填写为默认项目，子帐号必须填写。 请参考 <a class="reference external" href="https://docs.ucloud.cn/api/summary/get_project_list.html">GetProjectList接口</a></li>
 <li><strong>Region</strong> (str) - (Config) 地域。 参见  <a class="reference external" href="https://docs.ucloud.cn/api/summary/regionlist.html">地域和可用区列表</a></li>
 <li><strong>GroupId</strong> (str) - (Required) 组的ID</li>
-<li><strong>Name</strong> (str) - (Required) Redis组名称 (范围[6-63],只能包含英文、<a href="#id536"><span class="problematic" id="id537">数字以及符号-和_</span></a>)</li>
+<li><strong>Name</strong> (str) - (Required) Redis组名称 (范围[6-63],只能包含英文、<a href="#id548"><span class="problematic" id="id549">数字以及符号-和_</span></a>)</li>
 <li><strong>Zone</strong> (str) - 可用区。参见  <a class="reference external" href="https://docs.ucloud.cn/api/summary/regionlist.html">可用区列表</a></li>
 </ul>
 <p><strong>Response</strong></p>
