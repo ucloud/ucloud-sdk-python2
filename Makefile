@@ -85,4 +85,5 @@ migrate:
 	PYTHONPATH=. python scripts/migrate --source .migrate/docs --output docs
 	PYTHONPATH=. python scripts/migrate --source .migrate/examples --output examples
 	PYTHONPATH=. python scripts/migrate --source .migrate/README.md --output README.md
+	sed -i 's/unicode/unicode  # noqa: F821/g' ucloud/core/utils/compat.py
 	rm -rf .migrate
