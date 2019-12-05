@@ -3809,7 +3809,7 @@
 <li><strong>ProjectId</strong> (str) - (Config) 项目ID。不填写为默认项目，子帐号必须填写。 请参考 <a class="reference external" href="https://docs.ucloud.cn/api/summary/get_project_list.html">GetProjectList接口</a></li>
 <li><strong>Region</strong> (str) - (Config) 地域。 参见  <a class="reference external" href="https://docs.ucloud.cn/api/summary/regionlist.html">地域和可用区列表</a></li>
 <li><strong>HighAvailability</strong> (str) - (Required) 是否开启高可用,enable或disable</li>
-<li><strong>Name</strong> (str) - (Required) 请求创建组的名称 (范围[6-63],只能包含英文、<a href="#id546"><span class="problematic" id="id547">数字以及符号-和_</span></a>)</li>
+<li><strong>Name</strong> (str) - (Required) 请求创建组的名称 (范围[6-63],只能包含英文、<a href="#id588"><span class="problematic" id="id589">数字以及符号-和_</span></a>)</li>
 <li><strong>Zone</strong> (str) - (Required) 可用区。参见  <a class="reference external" href="https://docs.ucloud.cn/api/summary/regionlist.html">可用区列表</a></li>
 <li><strong>AutoBackup</strong> (str) - 是否自动备份,enable或disable，默认disable</li>
 <li><strong>BackupId</strong> (str) - 有此项代表从备份中创建，无代表正常创建</li>
@@ -4267,7 +4267,7 @@
 <li><strong>ProjectId</strong> (str) - (Config) 项目ID。不填写为默认项目，子帐号必须填写。 请参考 <a class="reference external" href="https://docs.ucloud.cn/api/summary/get_project_list.html">GetProjectList接口</a></li>
 <li><strong>Region</strong> (str) - (Config) 地域。 参见  <a class="reference external" href="https://docs.ucloud.cn/api/summary/regionlist.html">地域和可用区列表</a></li>
 <li><strong>GroupId</strong> (str) - (Required) 组的ID</li>
-<li><strong>Name</strong> (str) - (Required) Redis组名称 (范围[6-63],只能包含英文、<a href="#id548"><span class="problematic" id="id549">数字以及符号-和_</span></a>)</li>
+<li><strong>Name</strong> (str) - (Required) Redis组名称 (范围[6-63],只能包含英文、<a href="#id590"><span class="problematic" id="id591">数字以及符号-和_</span></a>)</li>
 <li><strong>Zone</strong> (str) - 可用区。参见  <a class="reference external" href="https://docs.ucloud.cn/api/summary/regionlist.html">可用区列表</a></li>
 </ul>
 <p><strong>Response</strong></p>
@@ -5596,6 +5596,433 @@
 <p><strong>Response</strong></p>
 <ul class="simple">
 <li><strong>Message</strong> (str) - 发生错误时表示错误描述</li>
+</ul>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="vpc">
+<h2>VPC<a class="headerlink" href="#vpc" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="ucloud.services.vpc.client.VPCClient">
+<em class="property">class </em><code class="descclassname">ucloud.services.vpc.client.</code><code class="descname">VPCClient</code><span class="sig-paren">(</span><em>config</em>, <em>transport=None</em>, <em>middleware=None</em>, <em>logger=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/vpc/client.html#VPCClient"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.vpc.client.VPCClient" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="ucloud.services.vpc.client.VPCClient.add_vpc_network">
+<code class="descname">add_vpc_network</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/vpc/client.html#VPCClient.add_vpc_network"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.vpc.client.VPCClient.add_vpc_network" title="Permalink to this definition">¶</a></dt>
+<dd><p>AddVPCNetwork - 添加VPC网段</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>ProjectId</strong> (str) - (Config) 项目ID。不填写为默认项目，子帐号必须填写。 请参考 <a class="reference external" href="https://docs.ucloud.cn/api/summary/get_project_list.html">GetProjectList接口</a></li>
+<li><strong>Region</strong> (str) - (Config) 地域。 参见  <a class="reference external" href="https://docs.ucloud.cn/api/summary/regionlist.html">地域和可用区列表</a></li>
+<li><strong>Network</strong> (list) - (Required) 增加网段</li>
+<li><strong>VPCId</strong> (str) - (Required) 源VPC短ID</li>
+</ul>
+<p><strong>Response</strong></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.vpc.client.VPCClient.associate_route_table">
+<code class="descname">associate_route_table</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/vpc/client.html#VPCClient.associate_route_table"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.vpc.client.VPCClient.associate_route_table" title="Permalink to this definition">¶</a></dt>
+<dd><p>AssociateRouteTable - 绑定子网的路由表</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>ProjectId</strong> (str) - (Config) 项目ID。不填写为默认项目，子帐号必须填写。 请参考 <a class="reference external" href="https://docs.ucloud.cn/api/summary/get_project_list.html">GetProjectList接口</a></li>
+<li><strong>Region</strong> (str) - (Config) 地域。 参见  <a class="reference external" href="https://docs.ucloud.cn/api/summary/regionlist.html">地域和可用区列表</a></li>
+<li><strong>RouteTableId</strong> (str) - (Required) 路由表ID，仅限自定义路由表</li>
+<li><strong>SubnetId</strong> (str) - (Required) 子网ID</li>
+</ul>
+<p><strong>Response</strong></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.vpc.client.VPCClient.clone_route_table">
+<code class="descname">clone_route_table</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/vpc/client.html#VPCClient.clone_route_table"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.vpc.client.VPCClient.clone_route_table" title="Permalink to this definition">¶</a></dt>
+<dd><p>CloneRouteTable - 根据一张现有路由表复制一张新的路由表</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>ProjectId</strong> (str) - (Config) 项目ID。不填写为默认项目，子帐号必须填写。 请参考 <a class="reference external" href="https://docs.ucloud.cn/api/summary/get_project_list.html">GetProjectList接口</a></li>
+<li><strong>Region</strong> (str) - (Config) 地域。 参见  <a class="reference external" href="https://docs.ucloud.cn/api/summary/regionlist.html">地域和可用区列表</a></li>
+<li><strong>RouteTableId</strong> (str) - (Required) 被克隆的路由表ID</li>
+</ul>
+<p><strong>Response</strong></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.vpc.client.VPCClient.create_route_table">
+<code class="descname">create_route_table</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/vpc/client.html#VPCClient.create_route_table"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.vpc.client.VPCClient.create_route_table" title="Permalink to this definition">¶</a></dt>
+<dd><p>CreateRouteTable - 创建路由表</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>ProjectId</strong> (str) - (Config) 项目ID。不填写为默认项目，子帐号必须填写。 请参考 <a class="reference external" href="https://docs.ucloud.cn/api/summary/get_project_list.html">GetProjectList接口</a></li>
+<li><strong>Region</strong> (str) - (Config) 地域。 参见  <a class="reference external" href="https://docs.ucloud.cn/api/summary/regionlist.html">地域和可用区列表</a></li>
+<li><strong>VPCId</strong> (str) - (Required) VPC ID</li>
+<li><strong>Name</strong> (str) - 路由表名称 Default RouteTable</li>
+<li><strong>Remark</strong> (str) - 备注</li>
+<li><strong>Tag</strong> (str) - 业务组</li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>RouteTableId</strong> (str) - 路由表ID</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.vpc.client.VPCClient.create_subnet">
+<code class="descname">create_subnet</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/vpc/client.html#VPCClient.create_subnet"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.vpc.client.VPCClient.create_subnet" title="Permalink to this definition">¶</a></dt>
+<dd><p>CreateSubnet - 创建子网</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>ProjectId</strong> (str) - (Config) 项目ID。不填写为默认项目，子帐号必须填写。 请参考 <a class="reference external" href="https://docs.ucloud.cn/api/summary/get_project_list.html">GetProjectList接口</a></li>
+<li><strong>Region</strong> (str) - (Config) 地域。 参见  <a class="reference external" href="https://docs.ucloud.cn/api/summary/regionlist.html">地域和可用区列表</a></li>
+<li><strong>Subnet</strong> (str) - (Required) 子网网络地址，例如192.168.0.0</li>
+<li><strong>VPCId</strong> (str) - (Required) VPC资源ID</li>
+<li><strong>Netmask</strong> (int) - 子网网络号位数，默认为24</li>
+<li><strong>Remark</strong> (str) - 备注</li>
+<li><strong>SubnetName</strong> (str) - 子网名称，默认为Subnet</li>
+<li><strong>Tag</strong> (str) - 业务组名称，默认为Default</li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>SubnetId</strong> (str) - 子网ID</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.vpc.client.VPCClient.create_vpc">
+<code class="descname">create_vpc</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/vpc/client.html#VPCClient.create_vpc"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.vpc.client.VPCClient.create_vpc" title="Permalink to this definition">¶</a></dt>
+<dd><p>CreateVPC - 创建VPC</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>ProjectId</strong> (str) - (Config) 项目ID。不填写为默认项目，子帐号必须填写。 请参考 <a class="reference external" href="https://docs.ucloud.cn/api/summary/get_project_list.html">GetProjectList接口</a></li>
+<li><strong>Region</strong> (str) - (Config) 地域。 参见  <a class="reference external" href="https://docs.ucloud.cn/api/summary/regionlist.html">地域和可用区列表</a></li>
+<li><strong>Name</strong> (str) - (Required) VPC名称</li>
+<li><strong>Network</strong> (list) - (Required) VPC网段</li>
+<li><strong>Remark</strong> (str) - 备注</li>
+<li><strong>Tag</strong> (str) - 业务组名称</li>
+<li><strong>Type</strong> (int) - VPC类型</li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>VPCId</strong> (str) - VPC资源Id</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.vpc.client.VPCClient.create_vpc_intercom">
+<code class="descname">create_vpc_intercom</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/vpc/client.html#VPCClient.create_vpc_intercom"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.vpc.client.VPCClient.create_vpc_intercom" title="Permalink to this definition">¶</a></dt>
+<dd><p>CreateVPCIntercom - 新建VPC互通关系</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>ProjectId</strong> (str) - (Config) 源VPC所在项目ID。不填写为默认项目，子帐号必须填写。 请参考 <a class="reference external" href="https://docs.ucloud.cn/api/summary/get_project_list.html">GetProjectList接口</a></li>
+<li><strong>Region</strong> (str) - (Config) 源VPC所在地域。 参见  <a class="reference external" href="https://docs.ucloud.cn/api/summary/regionlist.html">地域和可用区列表</a></li>
+<li><strong>DstVPCId</strong> (str) - (Required) 目的VPC短ID</li>
+<li><strong>VPCId</strong> (str) - (Required) 源VPC短ID</li>
+<li><strong>DstProjectId</strong> (str) - 目的VPC项目ID。默认与源VPC同项目。</li>
+<li><strong>DstRegion</strong> (str) - 目的VPC所在地域，默认与源VPC同地域。</li>
+</ul>
+<p><strong>Response</strong></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.vpc.client.VPCClient.delete_route_table">
+<code class="descname">delete_route_table</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/vpc/client.html#VPCClient.delete_route_table"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.vpc.client.VPCClient.delete_route_table" title="Permalink to this definition">¶</a></dt>
+<dd><p>DeleteRouteTable - 删除自定义路由表</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>ProjectId</strong> (str) - (Config) 项目ID。不填写为默认项目，子帐号必须填写。 请参考 <a class="reference external" href="https://docs.ucloud.cn/api/summary/get_project_list.html">GetProjectList接口</a></li>
+<li><strong>Region</strong> (str) - (Config) 地域。 参见  <a class="reference external" href="https://docs.ucloud.cn/api/summary/regionlist.html">地域和可用区列表</a></li>
+<li><strong>RouteTableId</strong> (str) - (Required) 路由ID</li>
+</ul>
+<p><strong>Response</strong></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.vpc.client.VPCClient.delete_subnet">
+<code class="descname">delete_subnet</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/vpc/client.html#VPCClient.delete_subnet"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.vpc.client.VPCClient.delete_subnet" title="Permalink to this definition">¶</a></dt>
+<dd><p>DeleteSubnet - 删除子网</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>ProjectId</strong> (str) - (Config) 项目ID。不填写为默认项目，子帐号必须填写。 请参考 <a class="reference external" href="https://docs.ucloud.cn/api/summary/get_project_list.html">GetProjectList接口</a></li>
+<li><strong>Region</strong> (str) - (Config) 地域。 参见  <a class="reference external" href="https://docs.ucloud.cn/api/summary/regionlist.html">地域和可用区列表</a></li>
+<li><strong>SubnetId</strong> (str) - (Required) 子网ID</li>
+</ul>
+<p><strong>Response</strong></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.vpc.client.VPCClient.delete_vpc">
+<code class="descname">delete_vpc</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/vpc/client.html#VPCClient.delete_vpc"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.vpc.client.VPCClient.delete_vpc" title="Permalink to this definition">¶</a></dt>
+<dd><p>DeleteVPC - 删除VPC</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>ProjectId</strong> (str) - (Config) 项目ID。不填写为默认项目，子帐号必须填写。 请参考 <a class="reference external" href="https://docs.ucloud.cn/api/summary/get_project_list.html">GetProjectList接口</a></li>
+<li><strong>Region</strong> (str) - (Config) 地域。 参见  <a class="reference external" href="https://docs.ucloud.cn/api/summary/regionlist.html">地域和可用区列表</a></li>
+<li><strong>VPCId</strong> (str) - (Required) VPC资源Id</li>
+</ul>
+<p><strong>Response</strong></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.vpc.client.VPCClient.delete_vpc_intercom">
+<code class="descname">delete_vpc_intercom</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/vpc/client.html#VPCClient.delete_vpc_intercom"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.vpc.client.VPCClient.delete_vpc_intercom" title="Permalink to this definition">¶</a></dt>
+<dd><p>DeleteVPCIntercom - 删除VPC互通关系</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>ProjectId</strong> (str) - (Config) 源VPC所在项目ID。不填写为默认项目，子帐号必须填写。 请参考 <a class="reference external" href="https://docs.ucloud.cn/api/summary/get_project_list.html">GetProjectList接口</a></li>
+<li><strong>Region</strong> (str) - (Config) 源VPC所在地域。 参见  <a class="reference external" href="https://docs.ucloud.cn/api/summary/regionlist.html">地域和可用区列表</a></li>
+<li><strong>DstVPCId</strong> (str) - (Required) 目的VPC短ID</li>
+<li><strong>VPCId</strong> (str) - (Required) 源VPC短ID</li>
+<li><strong>DstProjectId</strong> (str) - 目的VPC所在项目ID，默认为源VPC所在项目ID</li>
+<li><strong>DstRegion</strong> (str) - 目的VPC所在地域，默认为源VPC所在地域</li>
+</ul>
+<p><strong>Response</strong></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.vpc.client.VPCClient.describe_route_table">
+<code class="descname">describe_route_table</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/vpc/client.html#VPCClient.describe_route_table"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.vpc.client.VPCClient.describe_route_table" title="Permalink to this definition">¶</a></dt>
+<dd><p>DescribeRouteTable - 获取路由表详细信息(包括路由策略)</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>ProjectId</strong> (str) - (Config) 项目ID。不填写为默认项目，子帐号必须填写。 请参考 <a class="reference external" href="https://docs.ucloud.cn/api/summary/get_project_list.html">GetProjectList接口</a></li>
+<li><strong>Region</strong> (str) - (Config) 地域。 参见  <a class="reference external" href="https://docs.ucloud.cn/api/summary/regionlist.html">地域和可用区列表</a></li>
+<li><strong>BusinessId</strong> (str) - 业务组ID</li>
+<li><strong>Limit</strong> (int) - Limit</li>
+<li><strong>OffSet</strong> (int) - OffSet</li>
+<li><strong>RouteTableId</strong> (str) - 路由表ID</li>
+<li><strong>VPCId</strong> (str) - VPC ID</li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>RouteTables</strong> (list) - 见 <strong>RouteTableInfo</strong> 模型定义</li>
+<li><strong>TotalCount</strong> (int) - RouteTables字段的数量</li>
+</ul>
+<p><strong>Response Model</strong></p>
+<p><strong>RouteRuleInfo</strong></p>
+<ul class="simple">
+<li><strong>DstAddr</strong> (str) - 目的地址，比如10.10.8/24</li>
+<li><strong>NexthopId</strong> (str) - 路由下一跳ID，比如uvnet-3eljvj</li>
+<li><strong>NexthopType</strong> (str) - 下一跳类型，比如local、vnet</li>
+<li><strong>Remark</strong> (str) - 路由规则备注</li>
+<li><strong>RouteRuleId</strong> (str) - 规则ID</li>
+<li><strong>RuleType</strong> (int) - 路由规则类型（0表示系统路由，1表示自定义路由）</li>
+</ul>
+<p><strong>RouteTableInfo</strong></p>
+<ul class="simple">
+<li><strong>CreateTime</strong> (int) - 创建时间戳</li>
+<li><strong>Remark</strong> (str) - 路由表备注</li>
+<li><strong>RouteRules</strong> (list) - 见 <strong>RouteRuleInfo</strong> 模型定义</li>
+<li><strong>RouteTableId</strong> (str) - 路由表ID</li>
+<li><strong>RouteTableType</strong> (int) - 路由表类型，1为默认，0为自定义</li>
+<li><strong>SubnetCount</strong> (str) - 绑定了该路由表的子网数量</li>
+<li><strong>Tag</strong> (str) - 业务组</li>
+<li><strong>VPCId</strong> (str) - 路由表所属vpc</li>
+<li><strong>VPCName</strong> (str) - vpc名称</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.vpc.client.VPCClient.describe_subnet">
+<code class="descname">describe_subnet</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/vpc/client.html#VPCClient.describe_subnet"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.vpc.client.VPCClient.describe_subnet" title="Permalink to this definition">¶</a></dt>
+<dd><p>DescribeSubnet - 获取子网信息</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>ProjectId</strong> (str) - (Config) 项目ID。不填写为默认项目，子帐号必须填写。 请参考 <a class="reference external" href="https://docs.ucloud.cn/api/summary/get_project_list.html">GetProjectList接口</a></li>
+<li><strong>Region</strong> (str) - (Config) 地域。 参见  <a class="reference external" href="https://docs.ucloud.cn/api/summary/regionlist.html">地域和可用区列表</a></li>
+<li><strong>BusinessId</strong> (str) - 业务组</li>
+<li><strong>Limit</strong> (int) - 列表长度，默认为20</li>
+<li><strong>Offset</strong> (int) - 偏移量，默认为0</li>
+<li><strong>RouteTableId</strong> (str) - 路由表Id</li>
+<li><strong>SubnetId</strong> (str) - 子网id，适用于一次查询一个子网信息</li>
+<li><strong>SubnetIds</strong> (list) - 子网id数组，适用于一次查询多个子网信息</li>
+<li><strong>Tag</strong> (str) - 业务组名称，默认为Default</li>
+<li><strong>VPCId</strong> (str) - VPC资源id</li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>DataSet</strong> (list) - 见 <strong>SubnetInfo</strong> 模型定义</li>
+<li><strong>TotalCount</strong> (int) - 子网总数量</li>
+</ul>
+<p><strong>Response Model</strong></p>
+<p><strong>SubnetInfo</strong></p>
+<ul class="simple">
+<li><strong>CreateTime</strong> (int) - 创建时间</li>
+<li><strong>Gateway</strong> (str) - 子网网关</li>
+<li><strong>HasNATGW</strong> (bool) - 是否有natgw</li>
+<li><strong>IPv6Network</strong> (str) - 子网关联的IPv6网段</li>
+<li><strong>Netmask</strong> (int) - 子网掩码</li>
+<li><strong>OperatorName</strong> (str) - 子网关联的IPv6网段所属运营商</li>
+<li><strong>Remark</strong> (str) - 备注</li>
+<li><strong>RouteTableId</strong> (str) - 路由表Id</li>
+<li><strong>Subnet</strong> (str) - 子网网段</li>
+<li><strong>SubnetId</strong> (str) - 子网Id</li>
+<li><strong>SubnetName</strong> (str) - 子网名称</li>
+<li><strong>SubnetType</strong> (int) - 子网类型</li>
+<li><strong>Tag</strong> (str) - 业务组</li>
+<li><strong>VPCId</strong> (str) - VPCId</li>
+<li><strong>VPCName</strong> (str) - VPC名称</li>
+<li><strong>Zone</strong> (str) - 可用区名称</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.vpc.client.VPCClient.describe_subnet_resource">
+<code class="descname">describe_subnet_resource</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/vpc/client.html#VPCClient.describe_subnet_resource"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.vpc.client.VPCClient.describe_subnet_resource" title="Permalink to this definition">¶</a></dt>
+<dd><p>DescribeSubnetResource - 展示子网资源</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>ProjectId</strong> (str) - (Config) 项目ID。不填写为默认项目，子帐号必须填写。 请参考 <a class="reference external" href="https://docs.ucloud.cn/api/summary/get_project_list.html">GetProjectList接口</a></li>
+<li><strong>Region</strong> (str) - (Config) 地域。 参见  <a class="reference external" href="https://docs.ucloud.cn/api/summary/regionlist.html">地域和可用区列表</a></li>
+<li><strong>SubnetId</strong> (str) - (Required) 子网id</li>
+<li><strong>Limit</strong> (int) - 单页返回数据长度，默认为20</li>
+<li><strong>Offset</strong> (int) - 列表起始位置偏移量，默认为0</li>
+<li><strong>ResourceType</strong> (str) - 资源类型，默认为全部资源类型。枚举值为：UHOST，云主机；PHOST，物理云主机；ULB，负载均衡；UHADOOP_HOST，hadoop节点；UFORTRESS_HOST，堡垒机；UNATGW，NAT网关；UKAFKA，Kafka消息队列；UMEM，内存存储；DOCKER，容器集群；UDB，数据库；UDW，数据仓库；VIP，内网VIP.</li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>DataSet</strong> (list) - 见 <strong>SubnetResource</strong> 模型定义</li>
+<li><strong>TotalCount</strong> (int) - 总数</li>
+</ul>
+<p><strong>Response Model</strong></p>
+<p><strong>SubnetResource</strong></p>
+<ul class="simple">
+<li><strong>IP</strong> (str) - 资源ip</li>
+<li><strong>IPv6Address</strong> (str) - 资源的IPv6地址</li>
+<li><strong>Name</strong> (str) - 资源名称</li>
+<li><strong>ResourceId</strong> (str) - 资源Id</li>
+<li><strong>ResourceType</strong> (str) - 资源类型。对应的资源类型：UHOST，云主机；PHOST，物理云主机；ULB，负载均衡；UHADOOP_HOST，hadoop节点；UFORTRESS_HOST，堡垒机；UNATGW，NAT网关；UKAFKA，Kafka消息队列；UMEM，内存存储；DOCKER，容器集群；UDB，数据库；UDW，数据仓库；VIP，内网VIP.</li>
+<li><strong>SubResourceId</strong> (str) - 资源绑定的虚拟网卡的实例ID</li>
+<li><strong>SubResourceName</strong> (str) - 资源绑定的虚拟网卡的实例名称</li>
+<li><strong>SubResourceType</strong> (str) - 资源绑定的虚拟网卡的类型</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.vpc.client.VPCClient.describe_vpc">
+<code class="descname">describe_vpc</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/vpc/client.html#VPCClient.describe_vpc"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.vpc.client.VPCClient.describe_vpc" title="Permalink to this definition">¶</a></dt>
+<dd><p>DescribeVPC - 获取VPC信息</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>ProjectId</strong> (str) - (Config) 项目ID。不填写为默认项目，子帐号必须填写。 请参考 <a class="reference external" href="https://docs.ucloud.cn/api/summary/get_project_list.html">GetProjectList接口</a></li>
+<li><strong>Region</strong> (str) - (Config) 地域。 参见  <a class="reference external" href="https://docs.ucloud.cn/api/summary/regionlist.html">地域和可用区列表</a></li>
+<li><strong>Limit</strong> (int) -</li>
+<li><strong>Offset</strong> (int) -</li>
+<li><strong>Tag</strong> (str) - 业务组名称</li>
+<li><strong>VPCIds</strong> (list) - VPCId</li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>DataSet</strong> (list) - 见 <strong>VPCInfo</strong> 模型定义</li>
+</ul>
+<p><strong>Response Model</strong></p>
+<p><strong>VPCNetworkInfo</strong></p>
+<ul class="simple">
+<li><strong>Network</strong> (str) - vpc地址空间</li>
+<li><strong>SubnetCount</strong> (int) - 地址空间中子网数量</li>
+</ul>
+<p><strong>VPCInfo</strong></p>
+<ul class="simple">
+<li><strong>CreateTime</strong> (int) -</li>
+<li><strong>IPv6Network</strong> (str) - VPC关联的IPv6网段</li>
+<li><strong>Name</strong> (str) -</li>
+<li><strong>Network</strong> (list) -</li>
+<li><strong>NetworkInfo</strong> (list) - 见 <strong>VPCNetworkInfo</strong> 模型定义</li>
+<li><strong>OperatorName</strong> (str) - VPC关联的IPv6网段所属运营商</li>
+<li><strong>SubnetCount</strong> (int) -</li>
+<li><strong>Tag</strong> (str) -</li>
+<li><strong>UpdateTime</strong> (int) -</li>
+<li><strong>VPCId</strong> (str) - VPCId</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.vpc.client.VPCClient.describe_vpc_intercom">
+<code class="descname">describe_vpc_intercom</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/vpc/client.html#VPCClient.describe_vpc_intercom"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.vpc.client.VPCClient.describe_vpc_intercom" title="Permalink to this definition">¶</a></dt>
+<dd><p>DescribeVPCIntercom - 获取VPC互通信息</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>ProjectId</strong> (str) - (Config) 源VPC所在项目ID。不填写为默认项目，子帐号必须填写。 请参考 <a class="reference external" href="https://docs.ucloud.cn/api/summary/get_project_list.html">GetProjectList接口</a></li>
+<li><strong>Region</strong> (str) - (Config) 源VPC所在地域。 参见  <a class="reference external" href="https://docs.ucloud.cn/api/summary/regionlist.html">地域和可用区列表</a></li>
+<li><strong>VPCId</strong> (str) - (Required) VPC短ID</li>
+<li><strong>DstProjectId</strong> (str) - 目的项目ID，默认为全部项目</li>
+<li><strong>DstRegion</strong> (str) - 目的VPC所在地域，默认为全部地域</li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>DataSet</strong> (list) - 见 <strong>VPCIntercomInfo</strong> 模型定义</li>
+</ul>
+<p><strong>Response Model</strong></p>
+<p><strong>VPCIntercomInfo</strong></p>
+<ul class="simple">
+<li><strong>DstRegion</strong> (str) - 所属地域</li>
+<li><strong>Name</strong> (str) - VPC名字</li>
+<li><strong>Network</strong> (list) - VPC的地址空间</li>
+<li><strong>ProjectId</strong> (str) - 项目Id</li>
+<li><strong>Tag</strong> (str) - 业务组（未分组显示为 Default）</li>
+<li><strong>VPCId</strong> (str) - VPCId</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.vpc.client.VPCClient.modify_route_rule">
+<code class="descname">modify_route_rule</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/vpc/client.html#VPCClient.modify_route_rule"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.vpc.client.VPCClient.modify_route_rule" title="Permalink to this definition">¶</a></dt>
+<dd><p>ModifyRouteRule - 路由策略增、删、改</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>ProjectId</strong> (str) - (Config) 项目ID。不填写为默认项目，子帐号必须填写。 请参考 <a class="reference external" href="https://docs.ucloud.cn/api/summary/get_project_list.html">GetProjectList接口</a></li>
+<li><strong>Region</strong> (str) - (Config) 地域。 参见  <a class="reference external" href="https://docs.ucloud.cn/api/summary/regionlist.html">地域和可用区列表</a></li>
+<li><strong>RouteRule</strong> (list) - (Required) 格式: RouteRuleId | 目的网段 | 下一跳类型 | 下一跳 <a href="#id586"><span class="problematic" id="id587">|优先级|</span></a> 备注 | 增、删、改标志  (下一跳类型为instance或者vip，下一跳为云主机id或者vip的id，优先级使用0，动作标志为add/delete/update)   。”添加”示例: test_id | 10.8.0.0/16 | instance | uhost-xd8ja | 0 | Default Route Rule| add (添加的RouteRuleId填任意非空字符串)     。”删除”示例: routerule-xk3jxa | 10.8.0.0/16 | instance | uhost-xd8ja | 0 | Default Route Rule| delete (RouteRuleId来自DescribeRouteTable中)     。“修改”示例: routerule-xk3jxa | 10.8.0.0/16 | instance | uhost-cjksa2 | 0 | Default Route Rule| update (RouteRuleId来自DescribeRouteTable中)</li>
+<li><strong>RouteTableId</strong> (str) - (Required) 通过DescribeRouteTable拿到</li>
+</ul>
+<p><strong>Response</strong></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.vpc.client.VPCClient.update_route_table_attribute">
+<code class="descname">update_route_table_attribute</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/vpc/client.html#VPCClient.update_route_table_attribute"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.vpc.client.VPCClient.update_route_table_attribute" title="Permalink to this definition">¶</a></dt>
+<dd><p>UpdateRouteTableAttribute - 更新路由表基本信息</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>ProjectId</strong> (str) - (Config) 项目ID。不填写为默认项目，子帐号必须填写。 请参考 <a class="reference external" href="https://docs.ucloud.cn/api/summary/get_project_list.html">GetProjectList接口</a></li>
+<li><strong>Region</strong> (str) - (Config) 地域。 参见  <a class="reference external" href="https://docs.ucloud.cn/api/summary/regionlist.html">地域和可用区列表</a></li>
+<li><strong>RouteTableId</strong> (str) - (Required) 路由表ID</li>
+<li><strong>Name</strong> (str) - 名称</li>
+<li><strong>Remark</strong> (str) - 备注</li>
+<li><strong>Tag</strong> (str) - 业务组名称</li>
+</ul>
+<p><strong>Response</strong></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.vpc.client.VPCClient.update_subnet_attribute">
+<code class="descname">update_subnet_attribute</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/vpc/client.html#VPCClient.update_subnet_attribute"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.vpc.client.VPCClient.update_subnet_attribute" title="Permalink to this definition">¶</a></dt>
+<dd><p>UpdateSubnetAttribute - 更新子网信息</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>ProjectId</strong> (str) - (Config) 项目ID。不填写为默认项目，子帐号必须填写。 请参考 <a class="reference external" href="https://docs.ucloud.cn/api/summary/get_project_list.html">GetProjectList接口</a></li>
+<li><strong>Region</strong> (str) - (Config) 地域。 参见  <a class="reference external" href="https://docs.ucloud.cn/api/summary/regionlist.html">地域和可用区列表</a></li>
+<li><strong>SubnetId</strong> (str) - (Required) 子网ID</li>
+<li><strong>Name</strong> (str) - 子网名称(如果Name不填写，Tag必须填写)</li>
+<li><strong>Tag</strong> (str) - 业务组名称(如果Tag不填写，Name必须填写)</li>
+</ul>
+<p><strong>Response</strong></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.vpc.client.VPCClient.update_vpc_network">
+<code class="descname">update_vpc_network</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/vpc/client.html#VPCClient.update_vpc_network"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.vpc.client.VPCClient.update_vpc_network" title="Permalink to this definition">¶</a></dt>
+<dd><p>UpdateVPCNetwork - 更新VPC网段</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>ProjectId</strong> (str) - (Config) 项目ID。不填写为默认项目，子帐号必须填写。 请参考 <a class="reference external" href="https://docs.ucloud.cn/api/summary/get_project_list.html">GetProjectList接口</a></li>
+<li><strong>Region</strong> (str) - (Config) 地域。 参见  <a class="reference external" href="https://docs.ucloud.cn/api/summary/regionlist.html">地域和可用区列表</a></li>
+<li><strong>Network</strong> (list) - (Required) 需要保留的VPC网段。当前仅支持删除VPC网段，添加网段请参考 <a class="reference external" href="https://docs.ucloud.cn/api/vpc2.0-api/add_vpc_network">AddVPCNetwork</a></li>
+<li><strong>VPCId</strong> (str) - (Required) VPC的ID</li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>Message</strong> (str) - 错误信息</li>
 </ul>
 </dd></dl>
 
