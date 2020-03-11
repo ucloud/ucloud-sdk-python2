@@ -99,3 +99,31 @@ class Client(CompactClient):
         return USMSClient(
             self._config, self.transport, self.middleware, self.logger
         )
+
+    def ipsecvpn(self):
+        from ucloud.services.ipsecvpn.client import IPSecVPNClient
+
+        return IPSecVPNClient(
+            self._config, self.transport, self.middleware, self.logger
+        )
+
+    def ufs(self):
+        from ucloud.services.ufs.client import UFSClient
+
+        return UFSClient(
+            self._config, self.transport, self.middleware, self.logger
+        )
+
+    def uhub(self):
+        from ucloud.services.uhub.client import UHubClient
+
+        return UHubClient(
+            self._config, self.transport, self.middleware, self.logger
+        )
+
+    def vpc(self):
+        from ucloud.services.vpc.client import VPCClient
+
+        return VPCClient(
+            self._config, self.transport, self.middleware, self.logger
+        )

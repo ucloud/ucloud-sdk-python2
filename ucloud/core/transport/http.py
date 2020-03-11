@@ -25,6 +25,7 @@ class Request(object):
         self.data = data
         self.json = json
         self.headers = headers
+        self.request_time = 0
 
     def payload(self):
         payload = (self.params or {}).copy()
@@ -54,6 +55,7 @@ class Response(object):
         self.headers = headers
         self.content = content
         self.encoding = encoding
+        self.response_time = 0
 
     def json(self, **kwargs):
         """ json will return the bytes of content
@@ -80,6 +82,16 @@ class Response(object):
         except (LookupError, TypeError):
             content = str(self.content, errors="replace")
         return content
+
+
+class SSLOption(object):
+    def __init__(
+        self, ssl_verify=True, ssl_cacert=None, ssl_cert=None, ssl_key=None
+    ):
+        self.ssl_verify = ssl_verify
+        self.ssl_cacert = ssl_cacert
+        self.ssl_cert = ssl_cert
+        self.ssl_key = ssl_key
 
 
 class Transport(object):
