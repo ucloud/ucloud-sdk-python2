@@ -80,10 +80,10 @@ clean-test:
 
 migrate:
 	git clone https://github.com/ucloud/ucloud-sdk-python3.git .migrate
-	PYTHONPATH=. python scripts/migrate --source .migrate/ucloud --output ucloud
-	PYTHONPATH=. python scripts/migrate --source .migrate/tests --output tests
-	PYTHONPATH=. python scripts/migrate --source .migrate/docs --output docs
-	PYTHONPATH=. python scripts/migrate --source .migrate/examples --output examples
-	PYTHONPATH=. python scripts/migrate --source .migrate/README.md --output README.md
+	PYTHONPATH=. python3 scripts/migrate --source .migrate/ucloud --output ucloud
+	PYTHONPATH=. python3 scripts/migrate --source .migrate/tests --output tests
+	PYTHONPATH=. python3 scripts/migrate --source .migrate/docs --output docs
+	PYTHONPATH=. python3 scripts/migrate --source .migrate/examples --output examples
+	PYTHONPATH=. python3 scripts/migrate --source .migrate/README.md --output README.md
 	sed -i 's/unicode/unicode  # noqa: F821/g' ucloud/core/utils/compat.py
 	rm -rf .migrate

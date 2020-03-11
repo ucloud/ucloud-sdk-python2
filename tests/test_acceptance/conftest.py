@@ -1,7 +1,9 @@
 # -*- coding: utf-8 -*-
 
+import json
 import os
 import pytest
+from ucloud.testing.driver import spec
 from ucloud.client import Client
 
 
@@ -26,3 +28,12 @@ def variables_factory():
         "Zone": "cn-bj2-05",
         "ProjectId": os.getenv("UCLOUD_PROJECT_ID"),
     }
+
+
+@pytest.fixture(scope="session", autouse=True)
+def save_report(request):
+    def save_report_handler():
+        with open("./report.json", "w") as f:
+            json.dump(spec.json(), f)
+
+    request.addfinalizer(save_report_handler)
