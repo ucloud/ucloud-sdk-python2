@@ -3809,7 +3809,7 @@
 <li><strong>ProjectId</strong> (str) - (Config) 项目ID。不填写为默认项目，子帐号必须填写。 请参考 <a class="reference external" href="https://docs.ucloud.cn/api/summary/get_project_list.html">GetProjectList接口</a></li>
 <li><strong>Region</strong> (str) - (Config) 地域。 参见  <a class="reference external" href="https://docs.ucloud.cn/api/summary/regionlist.html">地域和可用区列表</a></li>
 <li><strong>HighAvailability</strong> (str) - (Required) 是否开启高可用,enable或disable</li>
-<li><strong>Name</strong> (str) - (Required) 请求创建组的名称 (范围[6-63],只能包含英文、<a href="#id588"><span class="problematic" id="id589">数字以及符号-和_</span></a>)</li>
+<li><strong>Name</strong> (str) - (Required) 请求创建组的名称 (范围[6-63],只能包含英文、<a href="#id605"><span class="problematic" id="id606">数字以及符号-和_</span></a>)</li>
 <li><strong>Zone</strong> (str) - (Required) 可用区。参见  <a class="reference external" href="https://docs.ucloud.cn/api/summary/regionlist.html">可用区列表</a></li>
 <li><strong>AutoBackup</strong> (str) - 是否自动备份,enable或disable，默认disable</li>
 <li><strong>BackupId</strong> (str) - 有此项代表从备份中创建，无代表正常创建</li>
@@ -4267,7 +4267,7 @@
 <li><strong>ProjectId</strong> (str) - (Config) 项目ID。不填写为默认项目，子帐号必须填写。 请参考 <a class="reference external" href="https://docs.ucloud.cn/api/summary/get_project_list.html">GetProjectList接口</a></li>
 <li><strong>Region</strong> (str) - (Config) 地域。 参见  <a class="reference external" href="https://docs.ucloud.cn/api/summary/regionlist.html">地域和可用区列表</a></li>
 <li><strong>GroupId</strong> (str) - (Required) 组的ID</li>
-<li><strong>Name</strong> (str) - (Required) Redis组名称 (范围[6-63],只能包含英文、<a href="#id590"><span class="problematic" id="id591">数字以及符号-和_</span></a>)</li>
+<li><strong>Name</strong> (str) - (Required) Redis组名称 (范围[6-63],只能包含英文、<a href="#id607"><span class="problematic" id="id608">数字以及符号-和_</span></a>)</li>
 <li><strong>Zone</strong> (str) - 可用区。参见  <a class="reference external" href="https://docs.ucloud.cn/api/summary/regionlist.html">可用区列表</a></li>
 </ul>
 <p><strong>Response</strong></p>
@@ -5602,6 +5602,353 @@
 </dd></dl>
 
 </div>
+<div class="section" id="ipsecvpn">
+<h2>IPSecVPN<a class="headerlink" href="#ipsecvpn" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="ucloud.services.ipsecvpn.client.IPSecVPNClient">
+<em class="property">class </em><code class="descclassname">ucloud.services.ipsecvpn.client.</code><code class="descname">IPSecVPNClient</code><span class="sig-paren">(</span><em>config</em>, <em>transport=None</em>, <em>middleware=None</em>, <em>logger=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/ipsecvpn/client.html#IPSecVPNClient"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.ipsecvpn.client.IPSecVPNClient" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="ucloud.services.ipsecvpn.client.IPSecVPNClient.describe_remote_vpn_gateway">
+<code class="descname">describe_remote_vpn_gateway</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/ipsecvpn/client.html#IPSecVPNClient.describe_remote_vpn_gateway"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.ipsecvpn.client.IPSecVPNClient.describe_remote_vpn_gateway" title="Permalink to this definition">¶</a></dt>
+<dd><p>DescribeRemoteVPNGateway - 获取客户VPN网关信息</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>ProjectId</strong> (str) - (Config) 项目ID。不填写为默认项目，子帐号必须填写。 请参考 <a class="reference external" href="https://docs.ucloud.cn/api/summary/get_project_list.html">GetProjectList接口</a></li>
+<li><strong>Region</strong> (str) - (Config) 地域。 参见  <a class="reference external" href="https://docs.ucloud.cn/api/summary/regionlist.html">地域和可用区列表</a></li>
+<li><strong>Limit</strong> (int) - 数据分页值, 默认为20</li>
+<li><strong>Offset</strong> (int) - 数据偏移量, 默认为0</li>
+<li><strong>RemoteVPNGatewayIds</strong> (list) - 客户VPN网关的资源ID，例如RemoteVPNGatewayIds.0代表希望获取客户VPN网关1的信息，RemoteVPNGatewayIds.1代表客户VPN网关2，如果为空，则返回当前Region中所有客户VPN网关实例的信息</li>
+<li><strong>Tag</strong> (str) - 业务组名称，若指定则返回业务组下所有客户VPN网关信息</li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>DataSet</strong> (list) - 见 <strong>RemoteVPNGatewayDataSet</strong> 模型定义</li>
+<li><strong>TotalCount</strong> (int) - 符合条件的客户VPN网关总数</li>
+</ul>
+<p><strong>Response Model</strong></p>
+<p><strong>RemoteVPNGatewayDataSet</strong></p>
+<ul class="simple">
+<li><strong>ActiveTunnels</strong> (str) - 活跃的隧道id</li>
+<li><strong>CreateTime</strong> (int) - 创建时间</li>
+<li><strong>Remark</strong> (str) - 备注</li>
+<li><strong>RemoteVPNGatewayAddr</strong> (str) - 客户网关IP地址</li>
+<li><strong>RemoteVPNGatewayId</strong> (str) - 客户网关ID</li>
+<li><strong>RemoteVPNGatewayName</strong> (str) - 客户网关名称</li>
+<li><strong>Tag</strong> (str) - 用户组</li>
+<li><strong>TunnelCount</strong> (int) - 活跃的隧道数量</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.ipsecvpn.client.IPSecVPNClient.describe_vpn_tunnel">
+<code class="descname">describe_vpn_tunnel</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/ipsecvpn/client.html#IPSecVPNClient.describe_vpn_tunnel"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.ipsecvpn.client.IPSecVPNClient.describe_vpn_tunnel" title="Permalink to this definition">¶</a></dt>
+<dd><p>DescribeVPNTunnel - 获取VPN隧道信息</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>ProjectId</strong> (str) - (Config) 项目ID。不填写为默认项目，子帐号必须填写。 请参考 <a class="reference external" href="https://docs.ucloud.cn/api/summary/get_project_list.html">GetProjectList接口</a></li>
+<li><strong>Region</strong> (str) - (Config) 地域。 参见  <a class="reference external" href="https://docs.ucloud.cn/api/summary/regionlist.html">地域和可用区列表</a></li>
+<li><strong>Limit</strong> (int) - 数据分页值, 默认为20</li>
+<li><strong>Offset</strong> (int) - 数据偏移量, 默认为0</li>
+<li><strong>Tag</strong> (str) - 业务组名称，若指定则返回指定的业务组下的所有VPN网关的信息</li>
+<li><strong>VPNTunnelIds</strong> (list) - VPN隧道的资源ID，例如VPNTunnelIds.0代表希望获取信息的VPN隧道1，VPNTunneIds.1代表VPN隧道2，如果为空，则返回当前Region中所有的VPN隧道实例</li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>DataSet</strong> (list) - 见 <strong>VPNTunnelDataSet</strong> 模型定义</li>
+<li><strong>TotalCount</strong> (int) - VPN隧道总数</li>
+</ul>
+<p><strong>Response Model</strong></p>
+<p><strong>IPSecData</strong></p>
+<ul class="simple">
+<li><strong>IPSecAuthenticationAlgorithm</strong> (str) - IPSec通道中使用的认证算法</li>
+<li><strong>IPSecEncryptionAlgorithm</strong> (str) - IPSec通道中使用的加密算法</li>
+<li><strong>IPSecLocalSubnetIds</strong> (list) - 指定VPN连接的本地子网，用逗号分隔</li>
+<li><strong>IPSecPFSDhGroup</strong> (str) - 是否开启PFS功能,Disable表示关闭，数字表示DH组</li>
+<li><strong>IPSecProtocol</strong> (str) - 使用的安全协议，ESP或AH</li>
+<li><strong>IPSecRemoteSubnets</strong> (list) - 指定VPN连接的客户网段，用逗号分隔</li>
+<li><strong>IPSecSALifetime</strong> (str) - IPSec中SA的生存时间</li>
+<li><strong>IPSecSALifetimeBytes</strong> (str) - IPSec中SA的生存时间（以字节计）</li>
+</ul>
+<p><strong>IKEData</strong></p>
+<ul class="simple">
+<li><strong>IKEAuthenticationAlgorithm</strong> (str) - IKE认证算法</li>
+<li><strong>IKEDhGroup</strong> (str) - IKEDH组</li>
+<li><strong>IKEEncryptionAlgorithm</strong> (str) - IKE加密算法</li>
+<li><strong>IKEExchangeMode</strong> (str) - IKEv1协商模式</li>
+<li><strong>IKELocalId</strong> (str) - IKE本地ID标识</li>
+<li><strong>IKEPreSharedKey</strong> (str) - IKE预共享秘钥</li>
+<li><strong>IKERemoteId</strong> (str) - IKE对端ID标识</li>
+<li><strong>IKESALifetime</strong> (str) - IKE秘钥生存时间</li>
+<li><strong>IKEVersion</strong> (str) - IKE版本</li>
+</ul>
+<p><strong>VPNTunnelDataSet</strong></p>
+<ul class="simple">
+<li><strong>CreateTime</strong> (int) - 创建时间</li>
+<li><strong>IKEData</strong> (dict) - 见 <strong>IKEData</strong> 模型定义</li>
+<li><strong>IPSecData</strong> (dict) - 见 <strong>IPSecData</strong> 模型定义</li>
+<li><strong>Remark</strong> (str) - 备注</li>
+<li><strong>RemoteVPNGatewayId</strong> (str) - 对端网关Id</li>
+<li><strong>RemoteVPNGatewayName</strong> (str) - 对端网关名字</li>
+<li><strong>Tag</strong> (str) - 用户组</li>
+<li><strong>VPCId</strong> (str) - 所属VPCId</li>
+<li><strong>VPCName</strong> (str) - 所属VOC名字</li>
+<li><strong>VPNGatewayId</strong> (str) - 所属VPN网关id</li>
+<li><strong>VPNGatewayName</strong> (str) - VPN网关名字</li>
+<li><strong>VPNTunnelId</strong> (str) - 隧道id</li>
+<li><strong>VPNTunnelName</strong> (str) - 隧道名称</li>
+</ul>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="ufs">
+<h2>UFS<a class="headerlink" href="#ufs" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="ucloud.services.ufs.client.UFSClient">
+<em class="property">class </em><code class="descclassname">ucloud.services.ufs.client.</code><code class="descname">UFSClient</code><span class="sig-paren">(</span><em>config</em>, <em>transport=None</em>, <em>middleware=None</em>, <em>logger=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/ufs/client.html#UFSClient"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.ufs.client.UFSClient" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="ucloud.services.ufs.client.UFSClient.create_ufs_volume">
+<code class="descname">create_ufs_volume</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/ufs/client.html#UFSClient.create_ufs_volume"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.ufs.client.UFSClient.create_ufs_volume" title="Permalink to this definition">¶</a></dt>
+<dd><p>CreateUFSVolume - 创建文件系统</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>ProjectId</strong> (str) - (Config) 项目ID。不填写为默认项目，子帐号必须填写。 请参考 <a class="reference external" href="https://docs.ucloud.cn/api/summary/get_project_list.html">GetProjectList接口</a></li>
+<li><strong>Region</strong> (str) - (Config) 地域。 参见  <a class="reference external" href="https://docs.ucloud.cn/api/summary/regionlist.html">地域和可用区列表</a></li>
+<li><strong>ProtocolType</strong> (str) - (Required) 文件系统协议，枚举值，NFSv3表示NFS V3协议，NFSv4表示NFS V4协议</li>
+<li><strong>Size</strong> (int) - (Required) 文件系统大小，单位为GB，最大不超过20T，香港容量型必须为100的整数倍，Size最小为500GB，北京，上海，广州的容量型必须为1024的整数倍，Size最小为1024GB。性能型文件系统Size最小为100GB</li>
+<li><strong>StorageType</strong> (str) - (Required) 文件系统存储类型，枚举值，Basic表示容量型，Advanced表示性能型</li>
+<li><strong>ChargeType</strong> (str) - 计费模式，枚举值为： Year，按年付费； Month，按月付费； Dynamic，按需付费（需开启权限）； Trial，试用（需开启权限） 默认为Dynamic</li>
+<li><strong>CouponId</strong> (str) - 使用的代金券id</li>
+<li><strong>Quantity</strong> (int) - 购买时长 默认: 1</li>
+<li><strong>Remark</strong> (str) - 备注</li>
+<li><strong>Tag</strong> (str) - 文件系统所属业务组</li>
+<li><strong>VolumeName</strong> (str) - 文件系统名称</li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>VolumeId</strong> (str) - 文件系统ID</li>
+<li><strong>VolumeName</strong> (str) - 文件系统名称</li>
+<li><strong>VolumeStatus</strong> (str) - 文件系统挂载点状态</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.ufs.client.UFSClient.describe_ufs_volume_2">
+<code class="descname">describe_ufs_volume_2</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/ufs/client.html#UFSClient.describe_ufs_volume_2"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.ufs.client.UFSClient.describe_ufs_volume_2" title="Permalink to this definition">¶</a></dt>
+<dd><p>DescribeUFSVolume2 - 获取文件系统列表</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>ProjectId</strong> (str) - (Config) 项目ID。不填写为默认项目，子帐号必须填写。 请参考 <a class="reference external" href="https://docs.ucloud.cn/api/summary/get_project_list.html">GetProjectList接口</a></li>
+<li><strong>Region</strong> (str) - (Config) 地域。 参见  <a class="reference external" href="https://docs.ucloud.cn/api/summary/regionlist.html">地域和可用区列表</a></li>
+<li><strong>Limit</strong> (int) - 文件列表长度</li>
+<li><strong>Offset</strong> (int) - 文件列表起始</li>
+<li><strong>VolumeId</strong> (str) - 文件系统ID</li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>DataSet</strong> (list) - 见 <strong>UFSVolumeInfo2</strong> 模型定义</li>
+<li><strong>TotalCount</strong> (int) - 文件系统总数</li>
+</ul>
+<p><strong>Response Model</strong></p>
+<p><strong>UFSVolumeInfo2</strong></p>
+<ul class="simple">
+<li><strong>CreateTime</strong> (int) - 文件系统创建时间（unix时间戳）</li>
+<li><strong>ExpiredTime</strong> (int) - 文件系统过期时间（unix时间戳）</li>
+<li><strong>IsExpired</strong> (str) - 是否过期</li>
+<li><strong>MaxMountPointNum</strong> (int) - 文件系统允许创建的最大挂载点数目</li>
+<li><strong>ProtocolType</strong> (str) - 文件系统协议，枚举值，NFSv3表示NFS V3协议，NFSv4表示NFS V4协议</li>
+<li><strong>Remark</strong> (str) - 文件系统备注信息</li>
+<li><strong>Size</strong> (int) - 文件系统大小，单位GB</li>
+<li><strong>StorageType</strong> (str) - 文件系统存储类型，枚举值，Basic表示容量型，Advanced表示性能型</li>
+<li><strong>Tag</strong> (str) - 文件系统所属业务组</li>
+<li><strong>TotalMountPointNum</strong> (int) - 当前文件系统已创建的挂载点数目</li>
+<li><strong>UsedSize</strong> (int) - 文件系统当前使用容量，单位GB</li>
+<li><strong>VolumeId</strong> (str) - 文件系统ID</li>
+<li><strong>VolumeName</strong> (str) - 文件系统名称</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.ufs.client.UFSClient.extend_ufs_volume">
+<code class="descname">extend_ufs_volume</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/ufs/client.html#UFSClient.extend_ufs_volume"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.ufs.client.UFSClient.extend_ufs_volume" title="Permalink to this definition">¶</a></dt>
+<dd><p>ExtendUFSVolume - 文件系统扩容</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>ProjectId</strong> (str) - (Config) 项目ID。不填写为默认项目，子帐号必须填写。 请参考 <a class="reference external" href="https://docs.ucloud.cn/api/summary/get_project_list.html">GetProjectList接口</a></li>
+<li><strong>Region</strong> (str) - (Config) 地域。 参见  <a class="reference external" href="https://docs.ucloud.cn/api/summary/regionlist.html">地域和可用区列表</a></li>
+<li><strong>Size</strong> (int) - (Required) 文件系统大小，单位为GB，最大不超过20T，香港容量型必须为100的整数倍，Size最小为500GB，北京，上海，广州的容量型必须为1024的整数倍，Size最小为1024GB。性能型文件系统Size最小为100GB</li>
+<li><strong>VolumeId</strong> (str) - (Required) 文件系统ID</li>
+</ul>
+<p><strong>Response</strong></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.ufs.client.UFSClient.remove_ufs_volume">
+<code class="descname">remove_ufs_volume</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/ufs/client.html#UFSClient.remove_ufs_volume"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.ufs.client.UFSClient.remove_ufs_volume" title="Permalink to this definition">¶</a></dt>
+<dd><p>RemoveUFSVolume - 删除UFS文件系统</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>ProjectId</strong> (str) - (Config) 项目ID。不填写为默认项目，子帐号必须填写。 请参考 <a class="reference external" href="https://docs.ucloud.cn/api/summary/get_project_list.html">GetProjectList接口</a></li>
+<li><strong>Region</strong> (str) - (Config) 地域。 参见  <a class="reference external" href="https://docs.ucloud.cn/api/summary/regionlist.html">地域和可用区列表</a></li>
+<li><strong>VolumeId</strong> (str) - (Required) 文件系统ID</li>
+</ul>
+<p><strong>Response</strong></p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="uhub">
+<h2>UHub<a class="headerlink" href="#uhub" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="ucloud.services.uhub.client.UHubClient">
+<em class="property">class </em><code class="descclassname">ucloud.services.uhub.client.</code><code class="descname">UHubClient</code><span class="sig-paren">(</span><em>config</em>, <em>transport=None</em>, <em>middleware=None</em>, <em>logger=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/uhub/client.html#UHubClient"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.uhub.client.UHubClient" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="ucloud.services.uhub.client.UHubClient.create_repo">
+<code class="descname">create_repo</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/uhub/client.html#UHubClient.create_repo"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.uhub.client.UHubClient.create_repo" title="Permalink to this definition">¶</a></dt>
+<dd><p>CreateRepo - 创建镜像仓库</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>ProjectId</strong> (str) - (Config) 项目ID。不填写为默认项目，子帐号必须填写。 请参考 <a class="reference external" href="https://docs.ucloud.cn/api/summary/get_project_list.html">GetProjectList接口</a></li>
+<li><strong>RepoName</strong> (str) - (Required) 仓库名称，不可修改</li>
+<li><strong>Description</strong> (str) - 仓库备注</li>
+<li><strong>IsShared</strong> (bool) - 镜像仓库是否公开，公开为true、不公开为false;默认为false</li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>Message</strong> (str) - 有错误时返回内容</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.uhub.client.UHubClient.delete_repo">
+<code class="descname">delete_repo</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/uhub/client.html#UHubClient.delete_repo"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.uhub.client.UHubClient.delete_repo" title="Permalink to this definition">¶</a></dt>
+<dd><p>DeleteRepo - 删除镜像仓库</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>ProjectId</strong> (str) - (Config) 项目ID。不填写为默认项目，子帐号必须填写。 请参考 <a class="reference external" href="https://docs.ucloud.cn/api/summary/get_project_list.html">GetProjectList接口</a></li>
+<li><strong>RepoName</strong> (str) - (Required) 镜像仓库名称</li>
+</ul>
+<p><strong>Response</strong></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.uhub.client.UHubClient.delete_repo_image">
+<code class="descname">delete_repo_image</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/uhub/client.html#UHubClient.delete_repo_image"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.uhub.client.UHubClient.delete_repo_image" title="Permalink to this definition">¶</a></dt>
+<dd><p>DeleteRepoImage - 删除镜像</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>ProjectId</strong> (str) - (Config) 项目ID。不填写为默认项目，子帐号必须填写。 请参考 <a class="reference external" href="https://docs.ucloud.cn/api/summary/get_project_list.html">GetProjectList接口</a></li>
+<li><strong>ImageName</strong> (str) - (Required) 镜像名称</li>
+<li><strong>RepoName</strong> (str) - (Required) 镜像仓库名称</li>
+<li><strong>TagName</strong> (str) - 不指定tag则删除全部tag</li>
+</ul>
+<p><strong>Response</strong></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.uhub.client.UHubClient.get_image_tag">
+<code class="descname">get_image_tag</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/uhub/client.html#UHubClient.get_image_tag"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.uhub.client.UHubClient.get_image_tag" title="Permalink to this definition">¶</a></dt>
+<dd><p>GetImageTag - 获取镜像tag</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>ProjectId</strong> (str) - (Config) 项目ID。不填写为默认项目，子帐号必须填写。 请参考 <a class="reference external" href="https://docs.ucloud.cn/api/summary/get_project_list.html">GetProjectList接口</a></li>
+<li><strong>ImageName</strong> (str) - (Required) 镜像名称</li>
+<li><strong>RepoName</strong> (str) - (Required) 镜像仓库名称</li>
+<li><strong>Limit</strong> (int) - 每次获取数量，默认为20</li>
+<li><strong>Offset</strong> (int) - 偏移量，默认0</li>
+<li><strong>TagName</strong> (str) - 默认不写，如果填写，代表查询该tag，否则查全部tag</li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>TagSet</strong> (list) - 见 <strong>TagSet</strong> 模型定义</li>
+<li><strong>TotalCount</strong> (int) - tag总数</li>
+</ul>
+<p><strong>Response Model</strong></p>
+<p><strong>TagSet</strong></p>
+<ul class="simple">
+<li><strong>TagName</strong> (str) - Tag名称</li>
+<li><strong>UpdateTime</strong> (str) - 镜像更新时间</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.uhub.client.UHubClient.get_repo">
+<code class="descname">get_repo</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/uhub/client.html#UHubClient.get_repo"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.uhub.client.UHubClient.get_repo" title="Permalink to this definition">¶</a></dt>
+<dd><p>GetRepo - 获取镜像仓库</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>ProjectId</strong> (str) - (Config) 项目ID。不填写为默认项目，子帐号必须填写。 请参考 <a class="reference external" href="https://docs.ucloud.cn/api/summary/get_project_list.html">GetProjectList接口</a></li>
+<li><strong>Limit</strong> (int) - 数量，默认20</li>
+<li><strong>Offset</strong> (int) - 偏移量，默认0</li>
+<li><strong>Type</strong> (str) - private私有仓库，public公共仓库，默认public</li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>RepoSet</strong> (list) - 见 <strong>RepoSet</strong> 模型定义</li>
+<li><strong>TotalCount</strong> (int) - 总的仓库数量</li>
+</ul>
+<p><strong>Response Model</strong></p>
+<p><strong>RepoSet</strong></p>
+<ul class="simple">
+<li><strong>CreateTime</strong> (str) - 仓库创建时间</li>
+<li><strong>Description</strong> (str) - 镜像仓库描述</li>
+<li><strong>IsOutSide</strong> (str) - 镜像仓库是否外网可以访问，可以为ture,不可以为false</li>
+<li><strong>IsShared</strong> (str) - 镜像仓库类型,false为私有；true为公有</li>
+<li><strong>RepoName</strong> (str) - 镜像仓库名称</li>
+<li><strong>UpdateTime</strong> (str) - 仓库更新时间</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.uhub.client.UHubClient.get_repo_image">
+<code class="descname">get_repo_image</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/uhub/client.html#UHubClient.get_repo_image"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.uhub.client.UHubClient.get_repo_image" title="Permalink to this definition">¶</a></dt>
+<dd><p>GetRepoImage - 获取镜像仓库下的镜像</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>ProjectId</strong> (str) - (Config) 项目ID。不填写为默认项目，子帐号必须填写。 请参考 <a class="reference external" href="https://docs.ucloud.cn/api/summary/get_project_list.html">GetProjectList接口</a></li>
+<li><strong>RepoName</strong> (str) - (Required) 镜像仓库名称</li>
+<li><strong>Limit</strong> (int) - 显示数量，默认为20</li>
+<li><strong>Offset</strong> (int) - 偏移量，默认0</li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>ImageSet</strong> (list) - 见 <strong>ImageSet</strong> 模型定义</li>
+<li><strong>TotalCount</strong> (int) -</li>
+</ul>
+<p><strong>Response Model</strong></p>
+<p><strong>ImageSet</strong></p>
+<ul class="simple">
+<li><strong>CreateTime</strong> (str) - 创建时间</li>
+<li><strong>ImageName</strong> (str) - 镜像名称</li>
+<li><strong>LatestTag</strong> (str) - 最新push的Tag</li>
+<li><strong>PullCount</strong> (int) - 镜像被下载次数</li>
+<li><strong>RepoName</strong> (str) - 镜像仓库名称</li>
+<li><strong>UpdateTime</strong> (str) - 修改时间</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.uhub.client.UHubClient.update_repo">
+<code class="descname">update_repo</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/uhub/client.html#UHubClient.update_repo"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.uhub.client.UHubClient.update_repo" title="Permalink to this definition">¶</a></dt>
+<dd><p>UpdateRepo - 更新镜像仓库</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>ProjectId</strong> (str) - (Config) 项目ID。不填写为默认项目，子帐号必须填写。 请参考 <a class="reference external" href="https://docs.ucloud.cn/api/summary/get_project_list.html">GetProjectList接口</a></li>
+<li><strong>RepoName</strong> (str) - (Required) 镜像仓库名称，不可修改</li>
+<li><strong>Description</strong> (str) - 备注</li>
+<li><strong>IsShared</strong> (str) - false设置为私有；true设置为公有。默认false</li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>Message</strong> (str) - 错误的时候返回</li>
+</ul>
+</dd></dl>
+
+</dd></dl>
+
+</div>
 <div class="section" id="vpc">
 <h2>VPC<a class="headerlink" href="#vpc" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
@@ -5834,6 +6181,7 @@
 <li><strong>Limit</strong> (int) - 列表长度，默认为20</li>
 <li><strong>Offset</strong> (int) - 偏移量，默认为0</li>
 <li><strong>RouteTableId</strong> (str) - 路由表Id</li>
+<li><strong>ShowAvailableIPs</strong> (bool) - 是否返回子网的可用IP数，true为是，false为否，默认不返回</li>
 <li><strong>SubnetId</strong> (str) - 子网id，适用于一次查询一个子网信息</li>
 <li><strong>SubnetIds</strong> (list) - 子网id数组，适用于一次查询多个子网信息</li>
 <li><strong>Tag</strong> (str) - 业务组名称，默认为Default</li>
@@ -5847,12 +6195,12 @@
 <p><strong>Response Model</strong></p>
 <p><strong>SubnetInfo</strong></p>
 <ul class="simple">
+<li><strong>AvailableIPs</strong> (int) - 可用IP数量</li>
 <li><strong>CreateTime</strong> (int) - 创建时间</li>
 <li><strong>Gateway</strong> (str) - 子网网关</li>
 <li><strong>HasNATGW</strong> (bool) - 是否有natgw</li>
 <li><strong>IPv6Network</strong> (str) - 子网关联的IPv6网段</li>
-<li><strong>Netmask</strong> (int) - 子网掩码</li>
-<li><strong>OperatorName</strong> (str) - 子网关联的IPv6网段所属运营商</li>
+<li><strong>Netmask</strong> (str) - 子网掩码</li>
 <li><strong>Remark</strong> (str) - 备注</li>
 <li><strong>RouteTableId</strong> (str) - 路由表Id</li>
 <li><strong>Subnet</strong> (str) - 子网网段</li>
@@ -5863,38 +6211,6 @@
 <li><strong>VPCId</strong> (str) - VPCId</li>
 <li><strong>VPCName</strong> (str) - VPC名称</li>
 <li><strong>Zone</strong> (str) - 可用区名称</li>
-</ul>
-</dd></dl>
-
-<dl class="method">
-<dt id="ucloud.services.vpc.client.VPCClient.describe_subnet_resource">
-<code class="descname">describe_subnet_resource</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/vpc/client.html#VPCClient.describe_subnet_resource"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.vpc.client.VPCClient.describe_subnet_resource" title="Permalink to this definition">¶</a></dt>
-<dd><p>DescribeSubnetResource - 展示子网资源</p>
-<p><strong>Request</strong></p>
-<ul class="simple">
-<li><strong>ProjectId</strong> (str) - (Config) 项目ID。不填写为默认项目，子帐号必须填写。 请参考 <a class="reference external" href="https://docs.ucloud.cn/api/summary/get_project_list.html">GetProjectList接口</a></li>
-<li><strong>Region</strong> (str) - (Config) 地域。 参见  <a class="reference external" href="https://docs.ucloud.cn/api/summary/regionlist.html">地域和可用区列表</a></li>
-<li><strong>SubnetId</strong> (str) - (Required) 子网id</li>
-<li><strong>Limit</strong> (int) - 单页返回数据长度，默认为20</li>
-<li><strong>Offset</strong> (int) - 列表起始位置偏移量，默认为0</li>
-<li><strong>ResourceType</strong> (str) - 资源类型，默认为全部资源类型。枚举值为：UHOST，云主机；PHOST，物理云主机；ULB，负载均衡；UHADOOP_HOST，hadoop节点；UFORTRESS_HOST，堡垒机；UNATGW，NAT网关；UKAFKA，Kafka消息队列；UMEM，内存存储；DOCKER，容器集群；UDB，数据库；UDW，数据仓库；VIP，内网VIP.</li>
-</ul>
-<p><strong>Response</strong></p>
-<ul class="simple">
-<li><strong>DataSet</strong> (list) - 见 <strong>SubnetResource</strong> 模型定义</li>
-<li><strong>TotalCount</strong> (int) - 总数</li>
-</ul>
-<p><strong>Response Model</strong></p>
-<p><strong>SubnetResource</strong></p>
-<ul class="simple">
-<li><strong>IP</strong> (str) - 资源ip</li>
-<li><strong>IPv6Address</strong> (str) - 资源的IPv6地址</li>
-<li><strong>Name</strong> (str) - 资源名称</li>
-<li><strong>ResourceId</strong> (str) - 资源Id</li>
-<li><strong>ResourceType</strong> (str) - 资源类型。对应的资源类型：UHOST，云主机；PHOST，物理云主机；ULB，负载均衡；UHADOOP_HOST，hadoop节点；UFORTRESS_HOST，堡垒机；UNATGW，NAT网关；UKAFKA，Kafka消息队列；UMEM，内存存储；DOCKER，容器集群；UDB，数据库；UDW，数据仓库；VIP，内网VIP.</li>
-<li><strong>SubResourceId</strong> (str) - 资源绑定的虚拟网卡的实例ID</li>
-<li><strong>SubResourceName</strong> (str) - 资源绑定的虚拟网卡的实例名称</li>
-<li><strong>SubResourceType</strong> (str) - 资源绑定的虚拟网卡的类型</li>
 </ul>
 </dd></dl>
 
@@ -5972,7 +6288,7 @@
 <ul class="simple">
 <li><strong>ProjectId</strong> (str) - (Config) 项目ID。不填写为默认项目，子帐号必须填写。 请参考 <a class="reference external" href="https://docs.ucloud.cn/api/summary/get_project_list.html">GetProjectList接口</a></li>
 <li><strong>Region</strong> (str) - (Config) 地域。 参见  <a class="reference external" href="https://docs.ucloud.cn/api/summary/regionlist.html">地域和可用区列表</a></li>
-<li><strong>RouteRule</strong> (list) - (Required) 格式: RouteRuleId | 目的网段 | 下一跳类型 | 下一跳 <a href="#id586"><span class="problematic" id="id587">|优先级|</span></a> 备注 | 增、删、改标志  (下一跳类型为instance或者vip，下一跳为云主机id或者vip的id，优先级使用0，动作标志为add/delete/update)   。”添加”示例: test_id | 10.8.0.0/16 | instance | uhost-xd8ja | 0 | Default Route Rule| add (添加的RouteRuleId填任意非空字符串)     。”删除”示例: routerule-xk3jxa | 10.8.0.0/16 | instance | uhost-xd8ja | 0 | Default Route Rule| delete (RouteRuleId来自DescribeRouteTable中)     。“修改”示例: routerule-xk3jxa | 10.8.0.0/16 | instance | uhost-cjksa2 | 0 | Default Route Rule| update (RouteRuleId来自DescribeRouteTable中)</li>
+<li><strong>RouteRule</strong> (list) - (Required) 格式: RouteRuleId | 目的网段 | 下一跳类型 | 下一跳 <a href="#id603"><span class="problematic" id="id604">|优先级|</span></a> 备注 | 增、删、改标志  (下一跳类型为instance或者vip，下一跳为云主机id或者vip的id，优先级使用0，动作标志为add/delete/update)   。”添加”示例: test_id | 10.8.0.0/16 | instance | uhost-xd8ja | 0 | Default Route Rule| add (添加的RouteRuleId填任意非空字符串)     。”删除”示例: routerule-xk3jxa | 10.8.0.0/16 | instance | uhost-xd8ja | 0 | Default Route Rule| delete (RouteRuleId来自DescribeRouteTable中)     。“修改”示例: routerule-xk3jxa | 10.8.0.0/16 | instance | uhost-cjksa2 | 0 | Default Route Rule| update (RouteRuleId来自DescribeRouteTable中)</li>
 <li><strong>RouteTableId</strong> (str) - (Required) 通过DescribeRouteTable拿到</li>
 </ul>
 <p><strong>Response</strong></p>

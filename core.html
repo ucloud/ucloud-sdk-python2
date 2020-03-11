@@ -63,7 +63,7 @@
 
 <dl class="class">
 <dt id="ucloud.core.client.Config">
-<em class="property">class </em><code class="descclassname">ucloud.core.client.</code><code class="descname">Config</code><span class="sig-paren">(</span><em>region=None</em>, <em>project_id=None</em>, <em>base_url='https://api.ucloud.cn'</em>, <em>user_agent=None</em>, <em>timeout=30</em>, <em>max_retries=3</em>, <em>log_level=20</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/core/client/_cfg.html#Config"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.core.client.Config" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">ucloud.core.client.</code><code class="descname">Config</code><span class="sig-paren">(</span><em>region=None</em>, <em>project_id=None</em>, <em>base_url='https://api.ucloud.cn'</em>, <em>user_agent=None</em>, <em>timeout=30</em>, <em>max_retries=3</em>, <em>log_level=20</em>, <em>ssl_verify=True</em>, <em>ssl_cacert=None</em>, <em>ssl_cert=None</em>, <em>ssl_key=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/core/client/_cfg.html#Config"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.core.client.Config" title="Permalink to this definition">¶</a></dt>
 <dd><p>Config is the config of ucloud sdk, use for setting up</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -203,6 +203,29 @@ the backoff delay = {backoff factor} * (2 ^ ({number of total retries} - 1))</li
 <span class="go">(1, 1)</span>
 </pre></div>
 </div>
+<dl class="method">
+<dt id="ucloud.core.utils.middleware.Middleware.exception">
+<code class="descname">exception</code><span class="sig-paren">(</span><em>handler</em>, <em>index=-1</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/core/utils/middleware.html#Middleware.exception"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.core.utils.middleware.Middleware.exception" title="Permalink to this definition">¶</a></dt>
+<dd><p>exception is the exception handler register to add exception handler.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>handler</strong> – exception handler function, receive exception object
+and raise a new exception or ignore it</li>
+<li><strong>index</strong> (<em>int</em>) – the position of handler in the handler list,
+default is append it to end</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
 <dl class="method">
 <dt id="ucloud.core.utils.middleware.Middleware.request">
 <code class="descname">request</code><span class="sig-paren">(</span><em>handler</em>, <em>index=-1</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/core/utils/middleware.html#Middleware.request"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.core.utils.middleware.Middleware.request" title="Permalink to this definition">¶</a></dt>
