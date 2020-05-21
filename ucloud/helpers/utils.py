@@ -62,10 +62,10 @@ def gen_string(letters, length):
     return "".join([random.choice(letters) for i in range(length)])
 
 
-def first(l):
-    if len(l) == 0:
+def first(arr):
+    if len(arr) == 0:
         return None
-    return l[0]
+    return arr[0]
 
 
 def b64encode(s):
