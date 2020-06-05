@@ -11,7 +11,7 @@ from ucloud.client import Client
 def ustack_client():
     return Client(
         {
-            "base_url": "http://192.168.179.2/api",
+            "base_url": "http://console.pre.ucloudstack.com/api",
             "region": "cn",
             "public_key": os.getenv("UCLOUDSTACK_PUBLIC_KEY"),
             "private_key": os.getenv("UCLOUDSTACK_PRIVATE_KEY"),
