@@ -7,6 +7,7 @@ from requests.adapters import HTTPAdapter
 from ucloud.core.transport import http
 from ucloud.core.transport.http import Request, Response, SSLOption
 from ucloud.core.utils.middleware import Middleware
+from ucloud.core import exc
 
 
 class RequestsTransport(http.Transport):
@@ -79,6 +80,10 @@ class RequestsTransport(http.Transport):
             resp = self.convert_response(session_resp)
             resp.request = req
             resp.response_time = time.time()
+            if resp.status_code >= 400:
+                raise exc.HTTPStatusException(
+                    resp.status_code, resp.request_uuid
+                )
             return resp
 
     @staticmethod
