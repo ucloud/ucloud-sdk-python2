@@ -10,19 +10,19 @@ class UHubClient(Client):
         super(UHubClient, self).__init__(config, transport, middleware, logger)
 
     def create_repo(self, req=None, **kwargs):
-        """ CreateRepo - 创建镜像仓库
+        """CreateRepo - 创建镜像仓库
 
         **Request**
 
-        - **ProjectId** (str) - (Config) 项目ID。不填写为默认项目，子帐号必须填写。 请参考 `GetProjectList接口 <https://docs.ucloud.cn/api/summary/get_project_list.html>`_ 
+        - **ProjectId** (str) - (Config) 项目ID。不填写为默认项目，子帐号必须填写。 请参考 `GetProjectList接口 <https://docs.ucloud.cn/api/summary/get_project_list.html>`_
         - **RepoName** (str) - (Required) 仓库名称，不可修改
         - **Description** (str) - 仓库备注
         - **IsShared** (bool) - 镜像仓库是否公开，公开为true、不公开为false;默认为false
-        
+
         **Response**
 
         - **Message** (str) - 有错误时返回内容
-        
+
         """
         d = {"ProjectId": self.config.project_id}
         req and d.update(req)
@@ -32,16 +32,16 @@ class UHubClient(Client):
         return apis.CreateRepoResponseSchema().loads(resp)
 
     def delete_repo(self, req=None, **kwargs):
-        """ DeleteRepo - 删除镜像仓库
+        """DeleteRepo - 删除镜像仓库
 
         **Request**
 
-        - **ProjectId** (str) - (Config) 项目ID。不填写为默认项目，子帐号必须填写。 请参考 `GetProjectList接口 <https://docs.ucloud.cn/api/summary/get_project_list.html>`_ 
+        - **ProjectId** (str) - (Config) 项目ID。不填写为默认项目，子帐号必须填写。 请参考 `GetProjectList接口 <https://docs.ucloud.cn/api/summary/get_project_list.html>`_
         - **RepoName** (str) - (Required) 镜像仓库名称
-        
+
         **Response**
 
-        
+
         """
         d = {"ProjectId": self.config.project_id}
         req and d.update(req)
@@ -50,18 +50,18 @@ class UHubClient(Client):
         return apis.DeleteRepoResponseSchema().loads(resp)
 
     def delete_repo_image(self, req=None, **kwargs):
-        """ DeleteRepoImage - 删除镜像
+        """DeleteRepoImage - 删除镜像
 
         **Request**
 
-        - **ProjectId** (str) - (Config) 项目ID。不填写为默认项目，子帐号必须填写。 请参考 `GetProjectList接口 <https://docs.ucloud.cn/api/summary/get_project_list.html>`_ 
+        - **ProjectId** (str) - (Config) 项目ID。不填写为默认项目，子帐号必须填写。 请参考 `GetProjectList接口 <https://docs.ucloud.cn/api/summary/get_project_list.html>`_
         - **ImageName** (str) - (Required) 镜像名称
         - **RepoName** (str) - (Required) 镜像仓库名称
         - **TagName** (str) - 不指定tag则删除全部tag
-        
+
         **Response**
 
-        
+
         """
         d = {"ProjectId": self.config.project_id}
         req and d.update(req)
@@ -70,26 +70,26 @@ class UHubClient(Client):
         return apis.DeleteRepoImageResponseSchema().loads(resp)
 
     def get_image_tag(self, req=None, **kwargs):
-        """ GetImageTag - 获取镜像tag
+        """GetImageTag - 获取镜像tag
 
         **Request**
 
-        - **ProjectId** (str) - (Config) 项目ID。不填写为默认项目，子帐号必须填写。 请参考 `GetProjectList接口 <https://docs.ucloud.cn/api/summary/get_project_list.html>`_ 
+        - **ProjectId** (str) - (Config) 项目ID。不填写为默认项目，子帐号必须填写。 请参考 `GetProjectList接口 <https://docs.ucloud.cn/api/summary/get_project_list.html>`_
         - **ImageName** (str) - (Required) 镜像名称
         - **RepoName** (str) - (Required) 镜像仓库名称
         - **Limit** (int) - 每次获取数量，默认为20
         - **Offset** (int) - 偏移量，默认0
         - **TagName** (str) - 默认不写，如果填写，代表查询该tag，否则查全部tag
-        
+
         **Response**
 
         - **TagSet** (list) - 见 **TagSet** 模型定义
         - **TotalCount** (int) - tag总数
-        
+
         **Response Model**
-        
-        **TagSet** 
-        
+
+        **TagSet**
+
         - **TagName** (str) - Tag名称
         - **UpdateTime** (str) - 镜像更新时间
 
@@ -101,24 +101,24 @@ class UHubClient(Client):
         return apis.GetImageTagResponseSchema().loads(resp)
 
     def get_repo(self, req=None, **kwargs):
-        """ GetRepo - 获取镜像仓库
+        """GetRepo - 获取镜像仓库
 
         **Request**
 
-        - **ProjectId** (str) - (Config) 项目ID。不填写为默认项目，子帐号必须填写。 请参考 `GetProjectList接口 <https://docs.ucloud.cn/api/summary/get_project_list.html>`_ 
+        - **ProjectId** (str) - (Config) 项目ID。不填写为默认项目，子帐号必须填写。 请参考 `GetProjectList接口 <https://docs.ucloud.cn/api/summary/get_project_list.html>`_
         - **Limit** (int) - 数量，默认20
         - **Offset** (int) - 偏移量，默认0
         - **Type** (str) - private私有仓库，public公共仓库，默认public
-        
+
         **Response**
 
         - **RepoSet** (list) - 见 **RepoSet** 模型定义
         - **TotalCount** (int) - 总的仓库数量
-        
+
         **Response Model**
-        
-        **RepoSet** 
-        
+
+        **RepoSet**
+
         - **CreateTime** (str) - 仓库创建时间
         - **Description** (str) - 镜像仓库描述
         - **IsOutSide** (str) - 镜像仓库是否外网可以访问，可以为ture,不可以为false
@@ -134,24 +134,24 @@ class UHubClient(Client):
         return apis.GetRepoResponseSchema().loads(resp)
 
     def get_repo_image(self, req=None, **kwargs):
-        """ GetRepoImage - 获取镜像仓库下的镜像
+        """GetRepoImage - 获取镜像仓库下的镜像
 
         **Request**
 
-        - **ProjectId** (str) - (Config) 项目ID。不填写为默认项目，子帐号必须填写。 请参考 `GetProjectList接口 <https://docs.ucloud.cn/api/summary/get_project_list.html>`_ 
+        - **ProjectId** (str) - (Config) 项目ID。不填写为默认项目，子帐号必须填写。 请参考 `GetProjectList接口 <https://docs.ucloud.cn/api/summary/get_project_list.html>`_
         - **RepoName** (str) - (Required) 镜像仓库名称
         - **Limit** (int) - 显示数量，默认为20
         - **Offset** (int) - 偏移量，默认0
-        
+
         **Response**
 
         - **ImageSet** (list) - 见 **ImageSet** 模型定义
-        - **TotalCount** (int) - 
-        
+        - **TotalCount** (int) -
+
         **Response Model**
-        
-        **ImageSet** 
-        
+
+        **ImageSet**
+
         - **CreateTime** (str) - 创建时间
         - **ImageName** (str) - 镜像名称
         - **LatestTag** (str) - 最新push的Tag
@@ -167,19 +167,19 @@ class UHubClient(Client):
         return apis.GetRepoImageResponseSchema().loads(resp)
 
     def update_repo(self, req=None, **kwargs):
-        """ UpdateRepo - 更新镜像仓库
+        """UpdateRepo - 更新镜像仓库
 
         **Request**
 
-        - **ProjectId** (str) - (Config) 项目ID。不填写为默认项目，子帐号必须填写。 请参考 `GetProjectList接口 <https://docs.ucloud.cn/api/summary/get_project_list.html>`_ 
+        - **ProjectId** (str) - (Config) 项目ID。不填写为默认项目，子帐号必须填写。 请参考 `GetProjectList接口 <https://docs.ucloud.cn/api/summary/get_project_list.html>`_
         - **RepoName** (str) - (Required) 镜像仓库名称，不可修改
         - **Description** (str) - 备注
         - **IsShared** (str) - false设置为私有；true设置为公有。默认false
-        
+
         **Response**
 
         - **Message** (str) - 错误的时候返回
-        
+
         """
         d = {"ProjectId": self.config.project_id}
         req and d.update(req)

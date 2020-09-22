@@ -14,8 +14,7 @@ API: CreatePHost
 
 
 class CreatePHostRequestSchema(schema.RequestSchema):
-    """ CreatePHost - 指定数据中心，根据资源使用量创建指定数量的UPHost物理云主机实例。
-    """
+    """CreatePHost - 指定数据中心，根据资源使用量创建指定数量的UPHost物理云主机实例。"""
 
     fields = {
         "ChargeType": fields.Str(required=False, dump_to="ChargeType"),
@@ -42,8 +41,7 @@ class CreatePHostRequestSchema(schema.RequestSchema):
 
 
 class CreatePHostResponseSchema(schema.ResponseSchema):
-    """ CreatePHost - 指定数据中心，根据资源使用量创建指定数量的UPHost物理云主机实例。
-    """
+    """CreatePHost - 指定数据中心，根据资源使用量创建指定数量的UPHost物理云主机实例。"""
 
     fields = {
         "PHostId": fields.List(
@@ -60,8 +58,7 @@ API: DescribePHost
 
 
 class DescribePHostRequestSchema(schema.RequestSchema):
-    """ DescribePHost - 获取物理机详细信息
-    """
+    """DescribePHost - 获取物理机详细信息"""
 
     fields = {
         "Limit": fields.Int(required=False, dump_to="Limit"),
@@ -74,8 +71,7 @@ class DescribePHostRequestSchema(schema.RequestSchema):
 
 
 class DescribePHostResponseSchema(schema.ResponseSchema):
-    """ DescribePHost - 获取物理机详细信息
-    """
+    """DescribePHost - 获取物理机详细信息"""
 
     fields = {
         "PHostSet": fields.List(
@@ -93,8 +89,7 @@ API: DescribePHostImage
 
 
 class DescribePHostImageRequestSchema(schema.RequestSchema):
-    """ DescribePHostImage - 获取物理云主机镜像列表
-    """
+    """DescribePHostImage - 获取物理云主机镜像列表"""
 
     fields = {
         "ImageId": fields.List(fields.Str()),
@@ -108,8 +103,7 @@ class DescribePHostImageRequestSchema(schema.RequestSchema):
 
 
 class DescribePHostImageResponseSchema(schema.ResponseSchema):
-    """ DescribePHostImage - 获取物理云主机镜像列表
-    """
+    """DescribePHostImage - 获取物理云主机镜像列表"""
 
     fields = {
         "ImageSet": fields.List(
@@ -127,8 +121,7 @@ API: DescribePHostTags
 
 
 class DescribePHostTagsRequestSchema(schema.RequestSchema):
-    """ DescribePHostTags - 获取物理机tag列表（业务组）
-    """
+    """DescribePHostTags - 获取物理机tag列表（业务组）"""
 
     fields = {
         "ProjectId": fields.Str(required=False, dump_to="ProjectId"),
@@ -138,8 +131,7 @@ class DescribePHostTagsRequestSchema(schema.RequestSchema):
 
 
 class DescribePHostTagsResponseSchema(schema.ResponseSchema):
-    """ DescribePHostTags - 获取物理机tag列表（业务组）
-    """
+    """DescribePHostTags - 获取物理机tag列表（业务组）"""
 
     fields = {
         "TagSet": fields.List(
@@ -157,8 +149,7 @@ API: GetPHostPrice
 
 
 class GetPHostPriceRequestSchema(schema.RequestSchema):
-    """ GetPHostPrice - 获取物理机价格列表
-    """
+    """GetPHostPrice - 获取物理机价格列表"""
 
     fields = {
         "ChargeType": fields.Str(required=True, dump_to="ChargeType"),
@@ -173,8 +164,7 @@ class GetPHostPriceRequestSchema(schema.RequestSchema):
 
 
 class GetPHostPriceResponseSchema(schema.ResponseSchema):
-    """ GetPHostPrice - 获取物理机价格列表
-    """
+    """GetPHostPrice - 获取物理机价格列表"""
 
     fields = {
         "PriceSet": fields.List(
@@ -191,8 +181,7 @@ API: ModifyPHostInfo
 
 
 class ModifyPHostInfoRequestSchema(schema.RequestSchema):
-    """ ModifyPHostInfo - 更改物理机信息
-    """
+    """ModifyPHostInfo - 更改物理机信息"""
 
     fields = {
         "Name": fields.Str(required=False, dump_to="Name"),
@@ -206,8 +195,7 @@ class ModifyPHostInfoRequestSchema(schema.RequestSchema):
 
 
 class ModifyPHostInfoResponseSchema(schema.ResponseSchema):
-    """ ModifyPHostInfo - 更改物理机信息
-    """
+    """ModifyPHostInfo - 更改物理机信息"""
 
     fields = {"PHostId": fields.Str(required=False, load_from="PHostId")}
 
@@ -220,8 +208,7 @@ API: PoweroffPHost
 
 
 class PoweroffPHostRequestSchema(schema.RequestSchema):
-    """ PoweroffPHost - 断电物理云主机
-    """
+    """PoweroffPHost - 断电物理云主机"""
 
     fields = {
         "PHostId": fields.Str(required=True, dump_to="PHostId"),
@@ -232,8 +219,7 @@ class PoweroffPHostRequestSchema(schema.RequestSchema):
 
 
 class PoweroffPHostResponseSchema(schema.ResponseSchema):
-    """ PoweroffPHost - 断电物理云主机
-    """
+    """PoweroffPHost - 断电物理云主机"""
 
     fields = {"PHostId": fields.Str(required=False, load_from="PHostId")}
 
@@ -246,8 +232,7 @@ API: RebootPHost
 
 
 class RebootPHostRequestSchema(schema.RequestSchema):
-    """ RebootPHost - 重启物理机
-    """
+    """RebootPHost - 重启物理机"""
 
     fields = {
         "PHostId": fields.Str(required=True, dump_to="PHostId"),
@@ -258,8 +243,7 @@ class RebootPHostRequestSchema(schema.RequestSchema):
 
 
 class RebootPHostResponseSchema(schema.ResponseSchema):
-    """ RebootPHost - 重启物理机
-    """
+    """RebootPHost - 重启物理机"""
 
     fields = {"PHostId": fields.Str(required=False, load_from="PHostId")}
 
@@ -272,8 +256,7 @@ API: ReinstallPHost
 
 
 class ReinstallPHostRequestSchema(schema.RequestSchema):
-    """ ReinstallPHost - 重装物理机操作系统
-    """
+    """ReinstallPHost - 重装物理机操作系统"""
 
     fields = {
         "ImageId": fields.Str(required=False, dump_to="ImageId"),
@@ -291,8 +274,7 @@ class ReinstallPHostRequestSchema(schema.RequestSchema):
 
 
 class ReinstallPHostResponseSchema(schema.ResponseSchema):
-    """ ReinstallPHost - 重装物理机操作系统
-    """
+    """ReinstallPHost - 重装物理机操作系统"""
 
     fields = {"PHostId": fields.Str(required=False, load_from="PHostId")}
 
@@ -305,8 +287,7 @@ API: StartPHost
 
 
 class StartPHostRequestSchema(schema.RequestSchema):
-    """ StartPHost - 启动物理机
-    """
+    """StartPHost - 启动物理机"""
 
     fields = {
         "PHostId": fields.Str(required=True, dump_to="PHostId"),
@@ -317,8 +298,7 @@ class StartPHostRequestSchema(schema.RequestSchema):
 
 
 class StartPHostResponseSchema(schema.ResponseSchema):
-    """ StartPHost - 启动物理机
-    """
+    """StartPHost - 启动物理机"""
 
     fields = {"PHostId": fields.Str(required=False, load_from="PHostId")}
 
@@ -331,8 +311,7 @@ API: TerminatePHost
 
 
 class TerminatePHostRequestSchema(schema.RequestSchema):
-    """ TerminatePHost - 删除物理云主机
-    """
+    """TerminatePHost - 删除物理云主机"""
 
     fields = {
         "PHostId": fields.Str(required=True, dump_to="PHostId"),
@@ -344,7 +323,6 @@ class TerminatePHostRequestSchema(schema.RequestSchema):
 
 
 class TerminatePHostResponseSchema(schema.ResponseSchema):
-    """ TerminatePHost - 删除物理云主机
-    """
+    """TerminatePHost - 删除物理云主机"""
 
     fields = {"PHostId": fields.Str(required=False, load_from="PHostId")}

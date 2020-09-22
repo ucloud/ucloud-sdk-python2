@@ -21,7 +21,7 @@ class Step(object):
         validators=None,
         **kwargs
     ):
-        """ Step is the test step in a test scenario
+        """Step is the test step in a test scenario
         :param invoker: invoker is a callable function
         :param max_retries: the maximum retry number by the `retry_for` exception,
                             it will resolve the flaky testing case
@@ -149,7 +149,7 @@ class Scenario(object):
 
 
 def value_at_path(d, path):
-    """ access value by object path
+    """access value by object path
 
     :param d: dict or list of dict
     :param path: object path like `Data.1.UHostId`

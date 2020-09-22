@@ -5,8 +5,7 @@ from ucloud.core.typesystem import schema, fields
 
 
 class UnetEIPAddrSetSchema(schema.ResponseSchema):
-    """ UnetEIPAddrSet - DescribeEIP
-    """
+    """UnetEIPAddrSet - DescribeEIP"""
 
     fields = {
         "IP": fields.Str(required=False, load_from="IP"),
@@ -15,8 +14,7 @@ class UnetEIPAddrSetSchema(schema.ResponseSchema):
 
 
 class UnetAllocateEIPSetSchema(schema.ResponseSchema):
-    """ UnetAllocateEIPSet - AllocateEIP
-    """
+    """UnetAllocateEIPSet - AllocateEIP"""
 
     fields = {
         "EIPAddr": fields.List(UnetEIPAddrSetSchema()),
@@ -25,8 +23,7 @@ class UnetAllocateEIPSetSchema(schema.ResponseSchema):
 
 
 class VIPSetSchema(schema.ResponseSchema):
-    """ VIPSet - VIPSet
-    """
+    """VIPSet - VIPSet"""
 
     fields = {
         "VIP": fields.Str(required=False, load_from="VIP"),
@@ -36,8 +33,7 @@ class VIPSetSchema(schema.ResponseSchema):
 
 
 class EIPAddrSetSchema(schema.ResponseSchema):
-    """ EIPAddrSet - DescribeShareBandwidth
-    """
+    """EIPAddrSet - DescribeShareBandwidth"""
 
     fields = {
         "IP": fields.Str(required=False, load_from="IP"),
@@ -46,8 +42,7 @@ class EIPAddrSetSchema(schema.ResponseSchema):
 
 
 class UnetBandwidthPackageSetSchema(schema.ResponseSchema):
-    """ UnetBandwidthPackageSet - DescribeBandwidthPackage
-    """
+    """UnetBandwidthPackageSet - DescribeBandwidthPackage"""
 
     fields = {
         "Bandwidth": fields.Int(required=False, load_from="Bandwidth"),
@@ -63,8 +58,7 @@ class UnetBandwidthPackageSetSchema(schema.ResponseSchema):
 
 
 class UnetBandwidthUsageEIPSetSchema(schema.ResponseSchema):
-    """ UnetBandwidthUsageEIPSet - DescribeBandwidthUsage
-    """
+    """UnetBandwidthUsageEIPSet - DescribeBandwidthUsage"""
 
     fields = {
         "CurBandwidth": fields.Float(required=False, load_from="CurBandwidth"),
@@ -73,8 +67,7 @@ class UnetBandwidthUsageEIPSetSchema(schema.ResponseSchema):
 
 
 class ShareBandwidthSetSchema(schema.ResponseSchema):
-    """ ShareBandwidthSet - DescribeEIP
-    """
+    """ShareBandwidthSet - DescribeEIP"""
 
     fields = {
         "ShareBandwidth": fields.Int(
@@ -90,8 +83,7 @@ class ShareBandwidthSetSchema(schema.ResponseSchema):
 
 
 class UnetEIPResourceSetSchema(schema.ResponseSchema):
-    """ UnetEIPResourceSet - DescribeEIP
-    """
+    """UnetEIPResourceSet - DescribeEIP"""
 
     fields = {
         "EIPId": fields.Str(required=False, load_from="EIPId"),
@@ -109,8 +101,7 @@ class UnetEIPResourceSetSchema(schema.ResponseSchema):
 
 
 class UnetEIPSetSchema(schema.ResponseSchema):
-    """ UnetEIPSet - DescribeEIP
-    """
+    """UnetEIPSet - DescribeEIP"""
 
     fields = {
         "Bandwidth": fields.Int(required=False, load_from="Bandwidth"),
@@ -133,8 +124,7 @@ class UnetEIPSetSchema(schema.ResponseSchema):
 
 
 class FirewallRuleSetSchema(schema.ResponseSchema):
-    """ FirewallRuleSet - DescribeFirewall
-    """
+    """FirewallRuleSet - DescribeFirewall"""
 
     fields = {
         "DstPort": fields.Str(required=False, load_from="DstPort"),
@@ -147,8 +137,7 @@ class FirewallRuleSetSchema(schema.ResponseSchema):
 
 
 class FirewallDataSetSchema(schema.ResponseSchema):
-    """ FirewallDataSet - DescribeFirewall
-    """
+    """FirewallDataSet - DescribeFirewall"""
 
     fields = {
         "CreateTime": fields.Int(required=False, load_from="CreateTime"),
@@ -164,8 +153,7 @@ class FirewallDataSetSchema(schema.ResponseSchema):
 
 
 class ResourceSetSchema(schema.ResponseSchema):
-    """ ResourceSet - 资源信息
-    """
+    """ResourceSet - 资源信息"""
 
     fields = {
         "Name": fields.Str(required=False, load_from="Name"),
@@ -180,8 +168,7 @@ class ResourceSetSchema(schema.ResponseSchema):
 
 
 class EIPSetDataSchema(schema.ResponseSchema):
-    """ EIPSetData - describeShareBandwidth
-    """
+    """EIPSetData - describeShareBandwidth"""
 
     fields = {
         "Bandwidth": fields.Int(required=False, load_from="Bandwidth"),
@@ -191,8 +178,7 @@ class EIPSetDataSchema(schema.ResponseSchema):
 
 
 class UnetShareBandwidthSetSchema(schema.ResponseSchema):
-    """ UnetShareBandwidthSet - DescribeShareBandwidth
-    """
+    """UnetShareBandwidthSet - DescribeShareBandwidth"""
 
     fields = {
         "BandwidthGuarantee": fields.Int(
@@ -216,8 +202,7 @@ class UnetShareBandwidthSetSchema(schema.ResponseSchema):
 
 
 class VIPDetailSetSchema(schema.ResponseSchema):
-    """ VIPDetailSet - VIPDetailSet
-    """
+    """VIPDetailSet - VIPDetailSet"""
 
     fields = {
         "CreateTime": fields.Int(required=False, load_from="CreateTime"),
@@ -232,8 +217,7 @@ class VIPDetailSetSchema(schema.ResponseSchema):
 
 
 class EIPPayModeSetSchema(schema.ResponseSchema):
-    """ EIPPayModeSet - GetEIPPayModeEIP
-    """
+    """EIPPayModeSet - GetEIPPayModeEIP"""
 
     fields = {
         "EIPId": fields.Str(required=False, load_from="EIPId"),
@@ -242,8 +226,7 @@ class EIPPayModeSetSchema(schema.ResponseSchema):
 
 
 class EIPPriceDetailSetSchema(schema.ResponseSchema):
-    """ EIPPriceDetailSet - GetEIPPrice
-    """
+    """EIPPriceDetailSet - GetEIPPrice"""
 
     fields = {
         "ChargeType": fields.Str(required=False, load_from="ChargeType"),

@@ -5,8 +5,7 @@ from ucloud.core.typesystem import schema, fields
 
 
 class ParamSchema(schema.ResponseSchema):
-    """ Param - 工作流参数
-    """
+    """Param - 工作流参数"""
 
     fields = {
         "Name": fields.Str(required=False, load_from="Name"),
@@ -16,8 +15,7 @@ class ParamSchema(schema.ResponseSchema):
 
 
 class ActivityTemplateSchema(schema.ResponseSchema):
-    """ ActivityTemplate - 工作流的Activity定义
-    """
+    """ActivityTemplate - 工作流的Activity定义"""
 
     fields = {
         "Input": fields.Str(),
@@ -31,8 +29,7 @@ class ActivityTemplateSchema(schema.ResponseSchema):
 
 
 class WorkflowTemplateSchema(schema.ResponseSchema):
-    """ WorkflowTemplate - Workflow对象定义
-    """
+    """WorkflowTemplate - Workflow对象定义"""
 
     fields = {
         "Activites": fields.List(ActivityTemplateSchema()),

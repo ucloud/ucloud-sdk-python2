@@ -14,8 +14,7 @@ API: CreateUMemSpace
 
 
 class CreateUMemSpaceRequestSchema(schema.RequestSchema):
-    """ CreateUMemSpace - 创建UMem内存空间
-    """
+    """CreateUMemSpace - 创建UMem内存空间"""
 
     fields = {
         "ChargeType": fields.Str(required=False, dump_to="ChargeType"),
@@ -36,8 +35,7 @@ class CreateUMemSpaceRequestSchema(schema.RequestSchema):
 
 
 class CreateUMemSpaceResponseSchema(schema.ResponseSchema):
-    """ CreateUMemSpace - 创建UMem内存空间
-    """
+    """CreateUMemSpace - 创建UMem内存空间"""
 
     fields = {"SpaceId": fields.Str(required=False, load_from="SpaceId")}
 
@@ -50,8 +48,7 @@ API: CreateUMemcacheGroup
 
 
 class CreateUMemcacheGroupRequestSchema(schema.RequestSchema):
-    """ CreateUMemcacheGroup - 创建单机Memcache
-    """
+    """CreateUMemcacheGroup - 创建单机Memcache"""
 
     fields = {
         "ChargeType": fields.Str(required=False, dump_to="ChargeType"),
@@ -72,8 +69,7 @@ class CreateUMemcacheGroupRequestSchema(schema.RequestSchema):
 
 
 class CreateUMemcacheGroupResponseSchema(schema.ResponseSchema):
-    """ CreateUMemcacheGroup - 创建单机Memcache
-    """
+    """CreateUMemcacheGroup - 创建单机Memcache"""
 
     fields = {"GroupId": fields.Str(required=False, load_from="GroupId")}
 
@@ -86,8 +82,7 @@ API: CreateURedisGroup
 
 
 class CreateURedisGroupRequestSchema(schema.RequestSchema):
-    """ CreateURedisGroup - 创建主备redis
-    """
+    """CreateURedisGroup - 创建主备redis"""
 
     fields = {
         "AutoBackup": fields.Str(required=False, dump_to="AutoBackup"),
@@ -116,8 +111,7 @@ class CreateURedisGroupRequestSchema(schema.RequestSchema):
 
 
 class CreateURedisGroupResponseSchema(schema.ResponseSchema):
-    """ CreateURedisGroup - 创建主备redis
-    """
+    """CreateURedisGroup - 创建主备redis"""
 
     fields = {"GroupId": fields.Str(required=False, load_from="GroupId")}
 
@@ -130,8 +124,7 @@ API: DeleteUMemSpace
 
 
 class DeleteUMemSpaceRequestSchema(schema.RequestSchema):
-    """ DeleteUMemSpace - 删除UMem内存空间
-    """
+    """DeleteUMemSpace - 删除UMem内存空间"""
 
     fields = {
         "ProjectId": fields.Str(required=False, dump_to="ProjectId"),
@@ -142,8 +135,7 @@ class DeleteUMemSpaceRequestSchema(schema.RequestSchema):
 
 
 class DeleteUMemSpaceResponseSchema(schema.ResponseSchema):
-    """ DeleteUMemSpace - 删除UMem内存空间
-    """
+    """DeleteUMemSpace - 删除UMem内存空间"""
 
     fields = {}
 
@@ -156,8 +148,7 @@ API: DeleteUMemcacheGroup
 
 
 class DeleteUMemcacheGroupRequestSchema(schema.RequestSchema):
-    """ DeleteUMemcacheGroup - 删除单机Memcache
-    """
+    """DeleteUMemcacheGroup - 删除单机Memcache"""
 
     fields = {
         "GroupId": fields.Str(required=True, dump_to="GroupId"),
@@ -168,8 +159,7 @@ class DeleteUMemcacheGroupRequestSchema(schema.RequestSchema):
 
 
 class DeleteUMemcacheGroupResponseSchema(schema.ResponseSchema):
-    """ DeleteUMemcacheGroup - 删除单机Memcache
-    """
+    """DeleteUMemcacheGroup - 删除单机Memcache"""
 
     fields = {}
 
@@ -182,8 +172,7 @@ API: DeleteURedisGroup
 
 
 class DeleteURedisGroupRequestSchema(schema.RequestSchema):
-    """ DeleteURedisGroup - 删除主备redis
-    """
+    """DeleteURedisGroup - 删除主备redis"""
 
     fields = {
         "GroupId": fields.Str(required=True, dump_to="GroupId"),
@@ -193,8 +182,7 @@ class DeleteURedisGroupRequestSchema(schema.RequestSchema):
 
 
 class DeleteURedisGroupResponseSchema(schema.ResponseSchema):
-    """ DeleteURedisGroup - 删除主备redis
-    """
+    """DeleteURedisGroup - 删除主备redis"""
 
     fields = {}
 
@@ -207,8 +195,7 @@ API: DescribeUMemPrice
 
 
 class DescribeUMemPriceRequestSchema(schema.RequestSchema):
-    """ DescribeUMemPrice - 获取UMem实例价格信息
-    """
+    """DescribeUMemPrice - 获取UMem实例价格信息"""
 
     fields = {
         "ChargeType": fields.Str(required=False, dump_to="ChargeType"),
@@ -223,8 +210,7 @@ class DescribeUMemPriceRequestSchema(schema.RequestSchema):
 
 
 class DescribeUMemPriceResponseSchema(schema.ResponseSchema):
-    """ DescribeUMemPrice - 获取UMem实例价格信息
-    """
+    """DescribeUMemPrice - 获取UMem实例价格信息"""
 
     fields = {
         "DataSet": fields.List(
@@ -241,8 +227,7 @@ API: DescribeUMemSpace
 
 
 class DescribeUMemSpaceRequestSchema(schema.RequestSchema):
-    """ DescribeUMemSpace - 获取UMem内存空间列表
-    """
+    """DescribeUMemSpace - 获取UMem内存空间列表"""
 
     fields = {
         "Limit": fields.Int(required=False, dump_to="Limit"),
@@ -255,8 +240,7 @@ class DescribeUMemSpaceRequestSchema(schema.RequestSchema):
 
 
 class DescribeUMemSpaceResponseSchema(schema.ResponseSchema):
-    """ DescribeUMemSpace - 获取UMem内存空间列表
-    """
+    """DescribeUMemSpace - 获取UMem内存空间列表"""
 
     fields = {
         "DataSet": fields.List(
@@ -274,8 +258,7 @@ API: DescribeUMemUpgradePrice
 
 
 class DescribeUMemUpgradePriceRequestSchema(schema.RequestSchema):
-    """ DescribeUMemUpgradePrice - 获取UMem升级价格信息
-    """
+    """DescribeUMemUpgradePrice - 获取UMem升级价格信息"""
 
     fields = {
         "ProjectId": fields.Str(required=False, dump_to="ProjectId"),
@@ -288,8 +271,7 @@ class DescribeUMemUpgradePriceRequestSchema(schema.RequestSchema):
 
 
 class DescribeUMemUpgradePriceResponseSchema(schema.ResponseSchema):
-    """ DescribeUMemUpgradePrice - 获取UMem升级价格信息
-    """
+    """DescribeUMemUpgradePrice - 获取UMem升级价格信息"""
 
     fields = {
         "DataSet": models.PriceDataSetSchema(),
@@ -305,8 +287,7 @@ API: DescribeUMemcacheGroup
 
 
 class DescribeUMemcacheGroupRequestSchema(schema.RequestSchema):
-    """ DescribeUMemcacheGroup - 显示Memcache
-    """
+    """DescribeUMemcacheGroup - 显示Memcache"""
 
     fields = {
         "GroupId": fields.Str(required=False, dump_to="GroupId"),
@@ -319,8 +300,7 @@ class DescribeUMemcacheGroupRequestSchema(schema.RequestSchema):
 
 
 class DescribeUMemcacheGroupResponseSchema(schema.ResponseSchema):
-    """ DescribeUMemcacheGroup - 显示Memcache
-    """
+    """DescribeUMemcacheGroup - 显示Memcache"""
 
     fields = {
         "DataSet": fields.List(
@@ -340,8 +320,7 @@ API: DescribeUMemcachePrice
 
 
 class DescribeUMemcachePriceRequestSchema(schema.RequestSchema):
-    """ DescribeUMemcachePrice - 获取umemcache组价格信息
-    """
+    """DescribeUMemcachePrice - 获取umemcache组价格信息"""
 
     fields = {
         "ChargeType": fields.Str(required=False, dump_to="ChargeType"),
@@ -355,8 +334,7 @@ class DescribeUMemcachePriceRequestSchema(schema.RequestSchema):
 
 
 class DescribeUMemcachePriceResponseSchema(schema.ResponseSchema):
-    """ DescribeUMemcachePrice - 获取umemcache组价格信息
-    """
+    """DescribeUMemcachePrice - 获取umemcache组价格信息"""
 
     fields = {
         "DataSet": fields.List(
@@ -375,8 +353,7 @@ API: DescribeUMemcacheUpgradePrice
 
 
 class DescribeUMemcacheUpgradePriceRequestSchema(schema.RequestSchema):
-    """ DescribeUMemcacheUpgradePrice - 获取umemcache升级价格信息
-    """
+    """DescribeUMemcacheUpgradePrice - 获取umemcache升级价格信息"""
 
     fields = {
         "GroupId": fields.Str(required=True, dump_to="GroupId"),
@@ -388,8 +365,7 @@ class DescribeUMemcacheUpgradePriceRequestSchema(schema.RequestSchema):
 
 
 class DescribeUMemcacheUpgradePriceResponseSchema(schema.ResponseSchema):
-    """ DescribeUMemcacheUpgradePrice - 获取umemcache升级价格信息
-    """
+    """DescribeUMemcacheUpgradePrice - 获取umemcache升级价格信息"""
 
     fields = {
         "DataSet": models.PriceDataSetSchema(),
@@ -405,8 +381,7 @@ API: DescribeURedisBackup
 
 
 class DescribeURedisBackupRequestSchema(schema.RequestSchema):
-    """ DescribeURedisBackup - 查询主备redis备份
-    """
+    """DescribeURedisBackup - 查询主备redis备份"""
 
     fields = {
         "GroupId": fields.Str(required=False, dump_to="GroupId"),
@@ -418,8 +393,7 @@ class DescribeURedisBackupRequestSchema(schema.RequestSchema):
 
 
 class DescribeURedisBackupResponseSchema(schema.ResponseSchema):
-    """ DescribeURedisBackup - 查询主备redis备份
-    """
+    """DescribeURedisBackup - 查询主备redis备份"""
 
     fields = {
         "DataSet": fields.List(
@@ -437,8 +411,7 @@ API: DescribeURedisBackupURL
 
 
 class DescribeURedisBackupURLRequestSchema(schema.RequestSchema):
-    """ DescribeURedisBackupURL - 获取主备Redis备份下载链接
-    """
+    """DescribeURedisBackupURL - 获取主备Redis备份下载链接"""
 
     fields = {
         "BackupId": fields.Str(required=True, dump_to="BackupId"),
@@ -451,8 +424,7 @@ class DescribeURedisBackupURLRequestSchema(schema.RequestSchema):
 
 
 class DescribeURedisBackupURLResponseSchema(schema.ResponseSchema):
-    """ DescribeURedisBackupURL - 获取主备Redis备份下载链接
-    """
+    """DescribeURedisBackupURL - 获取主备Redis备份下载链接"""
 
     fields = {
         "BackupPath": fields.Str(required=False, load_from="BackupPath"),
@@ -471,8 +443,7 @@ API: DescribeURedisGroup
 
 
 class DescribeURedisGroupRequestSchema(schema.RequestSchema):
-    """ DescribeURedisGroup - 查询主备Redis
-    """
+    """DescribeURedisGroup - 查询主备Redis"""
 
     fields = {
         "GroupId": fields.Str(required=False, dump_to="GroupId"),
@@ -485,8 +456,7 @@ class DescribeURedisGroupRequestSchema(schema.RequestSchema):
 
 
 class DescribeURedisGroupResponseSchema(schema.ResponseSchema):
-    """ DescribeURedisGroup - 查询主备Redis
-    """
+    """DescribeURedisGroup - 查询主备Redis"""
 
     fields = {
         "DataSet": fields.List(
@@ -504,8 +474,7 @@ API: DescribeURedisPrice
 
 
 class DescribeURedisPriceRequestSchema(schema.RequestSchema):
-    """ DescribeURedisPrice - 取uredis价格信息
-    """
+    """DescribeURedisPrice - 取uredis价格信息"""
 
     fields = {
         "ChargeType": fields.Str(required=False, dump_to="ChargeType"),
@@ -521,8 +490,7 @@ class DescribeURedisPriceRequestSchema(schema.RequestSchema):
 
 
 class DescribeURedisPriceResponseSchema(schema.ResponseSchema):
-    """ DescribeURedisPrice - 取uredis价格信息
-    """
+    """DescribeURedisPrice - 取uredis价格信息"""
 
     fields = {
         "DataSet": fields.List(
@@ -539,8 +507,7 @@ API: DescribeURedisUpgradePrice
 
 
 class DescribeURedisUpgradePriceRequestSchema(schema.RequestSchema):
-    """ DescribeURedisUpgradePrice - 获取uredis升级价格信息
-    """
+    """DescribeURedisUpgradePrice - 获取uredis升级价格信息"""
 
     fields = {
         "GroupId": fields.Str(required=True, dump_to="GroupId"),
@@ -553,8 +520,7 @@ class DescribeURedisUpgradePriceRequestSchema(schema.RequestSchema):
 
 
 class DescribeURedisUpgradePriceResponseSchema(schema.ResponseSchema):
-    """ DescribeURedisUpgradePrice - 获取uredis升级价格信息
-    """
+    """DescribeURedisUpgradePrice - 获取uredis升级价格信息"""
 
     fields = {
         "DataSet": models.PriceDataSetSchema(),
@@ -570,8 +536,7 @@ API: GetUMemSpaceState
 
 
 class GetUMemSpaceStateRequestSchema(schema.RequestSchema):
-    """ GetUMemSpaceState - 获取UMem内存空间列表
-    """
+    """GetUMemSpaceState - 获取UMem内存空间列表"""
 
     fields = {
         "ProjectId": fields.Str(required=False, dump_to="ProjectId"),
@@ -582,8 +547,7 @@ class GetUMemSpaceStateRequestSchema(schema.RequestSchema):
 
 
 class GetUMemSpaceStateResponseSchema(schema.ResponseSchema):
-    """ GetUMemSpaceState - 获取UMem内存空间列表
-    """
+    """GetUMemSpaceState - 获取UMem内存空间列表"""
 
     fields = {"State": fields.Str(required=False, load_from="State")}
 
@@ -596,8 +560,7 @@ API: ModifyUMemSpaceName
 
 
 class ModifyUMemSpaceNameRequestSchema(schema.RequestSchema):
-    """ ModifyUMemSpaceName - 修改UMem内存空间名称
-    """
+    """ModifyUMemSpaceName - 修改UMem内存空间名称"""
 
     fields = {
         "Name": fields.Str(required=True, dump_to="Name"),
@@ -609,8 +572,7 @@ class ModifyUMemSpaceNameRequestSchema(schema.RequestSchema):
 
 
 class ModifyUMemSpaceNameResponseSchema(schema.ResponseSchema):
-    """ ModifyUMemSpaceName - 修改UMem内存空间名称
-    """
+    """ModifyUMemSpaceName - 修改UMem内存空间名称"""
 
     fields = {}
 
@@ -623,8 +585,7 @@ API: ModifyURedisGroupName
 
 
 class ModifyURedisGroupNameRequestSchema(schema.RequestSchema):
-    """ ModifyURedisGroupName - 修改主备redis名称
-    """
+    """ModifyURedisGroupName - 修改主备redis名称"""
 
     fields = {
         "GroupId": fields.Str(required=True, dump_to="GroupId"),
@@ -636,8 +597,7 @@ class ModifyURedisGroupNameRequestSchema(schema.RequestSchema):
 
 
 class ModifyURedisGroupNameResponseSchema(schema.ResponseSchema):
-    """ ModifyURedisGroupName - 修改主备redis名称
-    """
+    """ModifyURedisGroupName - 修改主备redis名称"""
 
     fields = {}
 
@@ -650,8 +610,7 @@ API: ResizeUDredisSpace
 
 
 class ResizeUDredisSpaceRequestSchema(schema.RequestSchema):
-    """ ResizeUDredisSpace - 调整内存空间容量
-    """
+    """ResizeUDredisSpace - 调整内存空间容量"""
 
     fields = {
         "CouponId": fields.Str(required=False, dump_to="CouponId"),
@@ -664,8 +623,7 @@ class ResizeUDredisSpaceRequestSchema(schema.RequestSchema):
 
 
 class ResizeUDredisSpaceResponseSchema(schema.ResponseSchema):
-    """ ResizeUDredisSpace - 调整内存空间容量
-    """
+    """ResizeUDredisSpace - 调整内存空间容量"""
 
     fields = {}
 
@@ -678,8 +636,7 @@ API: ResizeUMemSpace
 
 
 class ResizeUMemSpaceRequestSchema(schema.RequestSchema):
-    """ ResizeUMemSpace - 调整内存空间容量
-    """
+    """ResizeUMemSpace - 调整内存空间容量"""
 
     fields = {
         "ChargeType": fields.Str(required=False, dump_to="ChargeType"),
@@ -694,8 +651,7 @@ class ResizeUMemSpaceRequestSchema(schema.RequestSchema):
 
 
 class ResizeUMemSpaceResponseSchema(schema.ResponseSchema):
-    """ ResizeUMemSpace - 调整内存空间容量
-    """
+    """ResizeUMemSpace - 调整内存空间容量"""
 
     fields = {}
 
@@ -708,8 +664,7 @@ API: ResizeURedisGroup
 
 
 class ResizeURedisGroupRequestSchema(schema.RequestSchema):
-    """ ResizeURedisGroup - 调整主备redis容量
-    """
+    """ResizeURedisGroup - 调整主备redis容量"""
 
     fields = {
         "ChargeType": fields.Str(required=False, dump_to="ChargeType"),
@@ -724,8 +679,7 @@ class ResizeURedisGroupRequestSchema(schema.RequestSchema):
 
 
 class ResizeURedisGroupResponseSchema(schema.ResponseSchema):
-    """ ResizeURedisGroup - 调整主备redis容量
-    """
+    """ResizeURedisGroup - 调整主备redis容量"""
 
     fields = {}
 
@@ -738,8 +692,7 @@ API: RestartUMemcacheGroup
 
 
 class RestartUMemcacheGroupRequestSchema(schema.RequestSchema):
-    """ RestartUMemcacheGroup - 重启单机Memcache
-    """
+    """RestartUMemcacheGroup - 重启单机Memcache"""
 
     fields = {
         "GroupId": fields.Str(required=True, dump_to="GroupId"),
@@ -750,7 +703,6 @@ class RestartUMemcacheGroupRequestSchema(schema.RequestSchema):
 
 
 class RestartUMemcacheGroupResponseSchema(schema.ResponseSchema):
-    """ RestartUMemcacheGroup - 重启单机Memcache
-    """
+    """RestartUMemcacheGroup - 重启单机Memcache"""
 
     fields = {}

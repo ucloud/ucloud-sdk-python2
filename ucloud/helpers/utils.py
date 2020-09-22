@@ -20,7 +20,7 @@ def gen_password(
     min_number=1,
     min_specials=1,
 ):
-    """ generate password for any resource
+    """generate password for any resource
 
     >>> len(gen_password(20))
     20
@@ -69,7 +69,7 @@ def first(arr):
 
 
 def b64encode(s):
-    """ base64 encode
+    """base64 encode
 
     :param str s: input string
     :return: base64 string
@@ -78,7 +78,7 @@ def b64encode(s):
 
 
 def b64decode(s):
-    """ base64 decode
+    """base64 decode
 
     :param str s: base64 string
     :return: output string

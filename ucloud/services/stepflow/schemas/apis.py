@@ -14,8 +14,7 @@ API: CreateSFWorkflowFromTemplate
 
 
 class CreateSFWorkflowFromTemplateRequestSchema(schema.RequestSchema):
-    """ CreateSFWorkflowFromTemplate - 导入工作流定义
-    """
+    """CreateSFWorkflowFromTemplate - 导入工作流定义"""
 
     fields = {
         "Namespace": fields.Str(required=True, dump_to="Namespace"),
@@ -27,8 +26,7 @@ class CreateSFWorkflowFromTemplateRequestSchema(schema.RequestSchema):
 
 
 class CreateSFWorkflowFromTemplateResponseSchema(schema.ResponseSchema):
-    """ CreateSFWorkflowFromTemplate - 导入工作流定义
-    """
+    """CreateSFWorkflowFromTemplate - 导入工作流定义"""
 
     fields = {
         "Message": fields.Str(required=True, load_from="Message"),
@@ -44,8 +42,7 @@ API: GetSFWorkflowTemplate
 
 
 class GetSFWorkflowTemplateRequestSchema(schema.RequestSchema):
-    """ GetSFWorkflowTemplate - 导出工作流定义
-    """
+    """GetSFWorkflowTemplate - 导出工作流定义"""
 
     fields = {
         "ProjectId": fields.Str(required=False, dump_to="ProjectId"),
@@ -58,8 +55,7 @@ class GetSFWorkflowTemplateRequestSchema(schema.RequestSchema):
 
 
 class GetSFWorkflowTemplateResponseSchema(schema.ResponseSchema):
-    """ GetSFWorkflowTemplate - 导出工作流定义
-    """
+    """GetSFWorkflowTemplate - 导出工作流定义"""
 
     fields = {
         "Message": fields.Str(required=False, load_from="Message"),

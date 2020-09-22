@@ -14,8 +14,7 @@ API: BackupUDBInstance
 
 
 class BackupUDBInstanceRequestSchema(schema.RequestSchema):
-    """ BackupUDBInstance - 备份UDB实例
-    """
+    """BackupUDBInstance - 备份UDB实例"""
 
     fields = {
         "BackupMethod": fields.Str(required=False, dump_to="BackupMethod"),
@@ -31,8 +30,7 @@ class BackupUDBInstanceRequestSchema(schema.RequestSchema):
 
 
 class BackupUDBInstanceResponseSchema(schema.ResponseSchema):
-    """ BackupUDBInstance - 备份UDB实例
-    """
+    """BackupUDBInstance - 备份UDB实例"""
 
     fields = {}
 
@@ -45,8 +43,7 @@ API: BackupUDBInstanceBinlog
 
 
 class BackupUDBInstanceBinlogRequestSchema(schema.RequestSchema):
-    """ BackupUDBInstanceBinlog - 备份UDB指定时间段的binlog列表
-    """
+    """BackupUDBInstanceBinlog - 备份UDB指定时间段的binlog列表"""
 
     fields = {
         "BackupFile": fields.Str(required=True, dump_to="BackupFile"),
@@ -59,8 +56,7 @@ class BackupUDBInstanceBinlogRequestSchema(schema.RequestSchema):
 
 
 class BackupUDBInstanceBinlogResponseSchema(schema.ResponseSchema):
-    """ BackupUDBInstanceBinlog - 备份UDB指定时间段的binlog列表
-    """
+    """BackupUDBInstanceBinlog - 备份UDB指定时间段的binlog列表"""
 
     fields = {}
 
@@ -73,8 +69,7 @@ API: BackupUDBInstanceErrorLog
 
 
 class BackupUDBInstanceErrorLogRequestSchema(schema.RequestSchema):
-    """ BackupUDBInstanceErrorLog - 备份UDB指定时间段的errorlog
-    """
+    """BackupUDBInstanceErrorLog - 备份UDB指定时间段的errorlog"""
 
     fields = {
         "BackupName": fields.Str(required=True, dump_to="BackupName"),
@@ -86,8 +81,7 @@ class BackupUDBInstanceErrorLogRequestSchema(schema.RequestSchema):
 
 
 class BackupUDBInstanceErrorLogResponseSchema(schema.ResponseSchema):
-    """ BackupUDBInstanceErrorLog - 备份UDB指定时间段的errorlog
-    """
+    """BackupUDBInstanceErrorLog - 备份UDB指定时间段的errorlog"""
 
     fields = {}
 
@@ -100,8 +94,7 @@ API: BackupUDBInstanceSlowLog
 
 
 class BackupUDBInstanceSlowLogRequestSchema(schema.RequestSchema):
-    """ BackupUDBInstanceSlowLog - 备份UDB指定时间段的slowlog分析结果
-    """
+    """BackupUDBInstanceSlowLog - 备份UDB指定时间段的slowlog分析结果"""
 
     fields = {
         "BackupName": fields.Str(required=True, dump_to="BackupName"),
@@ -114,8 +107,7 @@ class BackupUDBInstanceSlowLogRequestSchema(schema.RequestSchema):
 
 
 class BackupUDBInstanceSlowLogResponseSchema(schema.ResponseSchema):
-    """ BackupUDBInstanceSlowLog - 备份UDB指定时间段的slowlog分析结果
-    """
+    """BackupUDBInstanceSlowLog - 备份UDB指定时间段的slowlog分析结果"""
 
     fields = {}
 
@@ -128,8 +120,7 @@ API: CheckRecoverUDBInstance
 
 
 class CheckRecoverUDBInstanceRequestSchema(schema.RequestSchema):
-    """ CheckRecoverUDBInstance - 核查db是否可以使用回档功能
-    """
+    """CheckRecoverUDBInstance - 核查db是否可以使用回档功能"""
 
     fields = {
         "ProjectId": fields.Str(required=False, dump_to="ProjectId"),
@@ -140,8 +131,7 @@ class CheckRecoverUDBInstanceRequestSchema(schema.RequestSchema):
 
 
 class CheckRecoverUDBInstanceResponseSchema(schema.ResponseSchema):
-    """ CheckRecoverUDBInstance - 核查db是否可以使用回档功能
-    """
+    """CheckRecoverUDBInstance - 核查db是否可以使用回档功能"""
 
     fields = {
         "LastestTime": fields.Int(required=False, load_from="LastestTime")
@@ -156,8 +146,7 @@ API: CheckUDBInstanceToHAAllowance
 
 
 class CheckUDBInstanceToHAAllowanceRequestSchema(schema.RequestSchema):
-    """ CheckUDBInstanceToHAAllowance - 核查db是否可以升级为高可用
-    """
+    """CheckUDBInstanceToHAAllowance - 核查db是否可以升级为高可用"""
 
     fields = {
         "DBId": fields.Str(required=True, dump_to="DBId"),
@@ -167,8 +156,7 @@ class CheckUDBInstanceToHAAllowanceRequestSchema(schema.RequestSchema):
 
 
 class CheckUDBInstanceToHAAllowanceResponseSchema(schema.ResponseSchema):
-    """ CheckUDBInstanceToHAAllowance - 核查db是否可以升级为高可用
-    """
+    """CheckUDBInstanceToHAAllowance - 核查db是否可以升级为高可用"""
 
     fields = {"Allowance": fields.Str(required=False, load_from="Allowance")}
 
@@ -181,8 +169,7 @@ API: ClearUDBLog
 
 
 class ClearUDBLogRequestSchema(schema.RequestSchema):
-    """ ClearUDBLog - 清除UDB实例的log
-    """
+    """ClearUDBLog - 清除UDB实例的log"""
 
     fields = {
         "BeforeTime": fields.Int(required=False, dump_to="BeforeTime"),
@@ -195,8 +182,7 @@ class ClearUDBLogRequestSchema(schema.RequestSchema):
 
 
 class ClearUDBLogResponseSchema(schema.ResponseSchema):
-    """ ClearUDBLog - 清除UDB实例的log
-    """
+    """ClearUDBLog - 清除UDB实例的log"""
 
     fields = {}
 
@@ -209,8 +195,7 @@ API: CreateUDBInstance
 
 
 class CreateUDBInstanceRequestSchema(schema.RequestSchema):
-    """ CreateUDBInstance - 创建UDB实例（包括创建mysql master节点、mongodb primary/configsvr节点和从备份恢复实例）
-    """
+    """CreateUDBInstance - 创建UDB实例（包括创建mysql master节点、mongodb primary/configsvr节点和从备份恢复实例）"""
 
     fields = {
         "AdminPassword": fields.Str(required=True, dump_to="AdminPassword"),
@@ -250,8 +235,7 @@ class CreateUDBInstanceRequestSchema(schema.RequestSchema):
 
 
 class CreateUDBInstanceResponseSchema(schema.ResponseSchema):
-    """ CreateUDBInstance - 创建UDB实例（包括创建mysql master节点、mongodb primary/configsvr节点和从备份恢复实例）
-    """
+    """CreateUDBInstance - 创建UDB实例（包括创建mysql master节点、mongodb primary/configsvr节点和从备份恢复实例）"""
 
     fields = {"DBId": fields.Str(required=False, load_from="DBId")}
 
@@ -264,8 +248,7 @@ API: CreateUDBInstanceByRecovery
 
 
 class CreateUDBInstanceByRecoveryRequestSchema(schema.RequestSchema):
-    """ CreateUDBInstanceByRecovery - 创建db，将新创建的db恢复到指定db某个指定时间点
-    """
+    """CreateUDBInstanceByRecovery - 创建db，将新创建的db恢复到指定db某个指定时间点"""
 
     fields = {
         "ChargeType": fields.Str(required=False, dump_to="ChargeType"),
@@ -285,8 +268,7 @@ class CreateUDBInstanceByRecoveryRequestSchema(schema.RequestSchema):
 
 
 class CreateUDBInstanceByRecoveryResponseSchema(schema.ResponseSchema):
-    """ CreateUDBInstanceByRecovery - 创建db，将新创建的db恢复到指定db某个指定时间点
-    """
+    """CreateUDBInstanceByRecovery - 创建db，将新创建的db恢复到指定db某个指定时间点"""
 
     fields = {"DBId": fields.Str(required=False, load_from="DBId")}
 
@@ -299,8 +281,7 @@ API: CreateUDBParamGroup
 
 
 class CreateUDBParamGroupRequestSchema(schema.RequestSchema):
-    """ CreateUDBParamGroup - 从已有配置文件创建新配置文件
-    """
+    """CreateUDBParamGroup - 从已有配置文件创建新配置文件"""
 
     fields = {
         "DBTypeId": fields.Str(required=True, dump_to="DBTypeId"),
@@ -315,8 +296,7 @@ class CreateUDBParamGroupRequestSchema(schema.RequestSchema):
 
 
 class CreateUDBParamGroupResponseSchema(schema.ResponseSchema):
-    """ CreateUDBParamGroup - 从已有配置文件创建新配置文件
-    """
+    """CreateUDBParamGroup - 从已有配置文件创建新配置文件"""
 
     fields = {"GroupId": fields.Int(required=False, load_from="GroupId")}
 
@@ -329,8 +309,7 @@ API: CreateUDBReplicationInstance
 
 
 class CreateUDBReplicationInstanceRequestSchema(schema.RequestSchema):
-    """ CreateUDBReplicationInstance - 创建MongoDB的副本节点（包括仲裁）
-    """
+    """CreateUDBReplicationInstance - 创建MongoDB的副本节点（包括仲裁）"""
 
     fields = {
         "CouponId": fields.Str(required=False, dump_to="CouponId"),
@@ -346,8 +325,7 @@ class CreateUDBReplicationInstanceRequestSchema(schema.RequestSchema):
 
 
 class CreateUDBReplicationInstanceResponseSchema(schema.ResponseSchema):
-    """ CreateUDBReplicationInstance - 创建MongoDB的副本节点（包括仲裁）
-    """
+    """CreateUDBReplicationInstance - 创建MongoDB的副本节点（包括仲裁）"""
 
     fields = {"DBId": fields.Str(required=False, load_from="DBId")}
 
@@ -360,8 +338,7 @@ API: CreateUDBRouteInstance
 
 
 class CreateUDBRouteInstanceRequestSchema(schema.RequestSchema):
-    """ CreateUDBRouteInstance - 创建mongos实例
-    """
+    """CreateUDBRouteInstance - 创建mongos实例"""
 
     fields = {
         "ChargeType": fields.Str(required=False, dump_to="ChargeType"),
@@ -382,8 +359,7 @@ class CreateUDBRouteInstanceRequestSchema(schema.RequestSchema):
 
 
 class CreateUDBRouteInstanceResponseSchema(schema.ResponseSchema):
-    """ CreateUDBRouteInstance - 创建mongos实例
-    """
+    """CreateUDBRouteInstance - 创建mongos实例"""
 
     fields = {"DBId": fields.Str(required=False, load_from="DBId")}
 
@@ -396,8 +372,7 @@ API: CreateUDBSlave
 
 
 class CreateUDBSlaveRequestSchema(schema.RequestSchema):
-    """ CreateUDBSlave - 创建UDB实例的slave
-    """
+    """CreateUDBSlave - 创建UDB实例的slave"""
 
     fields = {
         "CouponId": fields.Str(required=False, dump_to="CouponId"),
@@ -418,8 +393,7 @@ class CreateUDBSlaveRequestSchema(schema.RequestSchema):
 
 
 class CreateUDBSlaveResponseSchema(schema.ResponseSchema):
-    """ CreateUDBSlave - 创建UDB实例的slave
-    """
+    """CreateUDBSlave - 创建UDB实例的slave"""
 
     fields = {"DBId": fields.Str(required=False, load_from="DBId")}
 
@@ -432,8 +406,7 @@ API: DeleteUDBBackup
 
 
 class DeleteUDBBackupRequestSchema(schema.RequestSchema):
-    """ DeleteUDBBackup - 删除UDB实例备份
-    """
+    """DeleteUDBBackup - 删除UDB实例备份"""
 
     fields = {
         "BackupId": fields.Int(required=True, dump_to="BackupId"),
@@ -445,8 +418,7 @@ class DeleteUDBBackupRequestSchema(schema.RequestSchema):
 
 
 class DeleteUDBBackupResponseSchema(schema.ResponseSchema):
-    """ DeleteUDBBackup - 删除UDB实例备份
-    """
+    """DeleteUDBBackup - 删除UDB实例备份"""
 
     fields = {}
 
@@ -459,8 +431,7 @@ API: DeleteUDBInstance
 
 
 class DeleteUDBInstanceRequestSchema(schema.RequestSchema):
-    """ DeleteUDBInstance - 删除UDB实例
-    """
+    """DeleteUDBInstance - 删除UDB实例"""
 
     fields = {
         "DBId": fields.Str(required=True, dump_to="DBId"),
@@ -472,8 +443,7 @@ class DeleteUDBInstanceRequestSchema(schema.RequestSchema):
 
 
 class DeleteUDBInstanceResponseSchema(schema.ResponseSchema):
-    """ DeleteUDBInstance - 删除UDB实例
-    """
+    """DeleteUDBInstance - 删除UDB实例"""
 
     fields = {}
 
@@ -486,8 +456,7 @@ API: DeleteUDBLogPackage
 
 
 class DeleteUDBLogPackageRequestSchema(schema.RequestSchema):
-    """ DeleteUDBLogPackage - 删除UDB日志包
-    """
+    """DeleteUDBLogPackage - 删除UDB日志包"""
 
     fields = {
         "BackupId": fields.Int(required=True, dump_to="BackupId"),
@@ -499,8 +468,7 @@ class DeleteUDBLogPackageRequestSchema(schema.RequestSchema):
 
 
 class DeleteUDBLogPackageResponseSchema(schema.ResponseSchema):
-    """ DeleteUDBLogPackage - 删除UDB日志包
-    """
+    """DeleteUDBLogPackage - 删除UDB日志包"""
 
     fields = {}
 
@@ -513,8 +481,7 @@ API: DeleteUDBParamGroup
 
 
 class DeleteUDBParamGroupRequestSchema(schema.RequestSchema):
-    """ DeleteUDBParamGroup - 删除配置参数组
-    """
+    """DeleteUDBParamGroup - 删除配置参数组"""
 
     fields = {
         "GroupId": fields.Int(required=True, dump_to="GroupId"),
@@ -526,8 +493,7 @@ class DeleteUDBParamGroupRequestSchema(schema.RequestSchema):
 
 
 class DeleteUDBParamGroupResponseSchema(schema.ResponseSchema):
-    """ DeleteUDBParamGroup - 删除配置参数组
-    """
+    """DeleteUDBParamGroup - 删除配置参数组"""
 
     fields = {}
 
@@ -540,8 +506,7 @@ API: DescribeUDBBackup
 
 
 class DescribeUDBBackupRequestSchema(schema.RequestSchema):
-    """ DescribeUDBBackup - 列表UDB实例备份信息.Zone不填表示多可用区，填代表单可用区
-    """
+    """DescribeUDBBackup - 列表UDB实例备份信息.Zone不填表示多可用区，填代表单可用区"""
 
     fields = {
         "BackupId": fields.Int(required=False, dump_to="BackupId"),
@@ -559,8 +524,7 @@ class DescribeUDBBackupRequestSchema(schema.RequestSchema):
 
 
 class DescribeUDBBackupResponseSchema(schema.ResponseSchema):
-    """ DescribeUDBBackup - 列表UDB实例备份信息.Zone不填表示多可用区，填代表单可用区
-    """
+    """DescribeUDBBackup - 列表UDB实例备份信息.Zone不填表示多可用区，填代表单可用区"""
 
     fields = {
         "DataSet": fields.List(
@@ -578,8 +542,7 @@ API: DescribeUDBBackupBlacklist
 
 
 class DescribeUDBBackupBlacklistRequestSchema(schema.RequestSchema):
-    """ DescribeUDBBackupBlacklist - 获取UDB实例的备份黑名单
-    """
+    """DescribeUDBBackupBlacklist - 获取UDB实例的备份黑名单"""
 
     fields = {
         "DBId": fields.Str(required=True, dump_to="DBId"),
@@ -590,8 +553,7 @@ class DescribeUDBBackupBlacklistRequestSchema(schema.RequestSchema):
 
 
 class DescribeUDBBackupBlacklistResponseSchema(schema.ResponseSchema):
-    """ DescribeUDBBackupBlacklist - 获取UDB实例的备份黑名单
-    """
+    """DescribeUDBBackupBlacklist - 获取UDB实例的备份黑名单"""
 
     fields = {"Blacklist": fields.Str(required=False, load_from="Blacklist")}
 
@@ -604,8 +566,7 @@ API: DescribeUDBBinlogBackupURL
 
 
 class DescribeUDBBinlogBackupURLRequestSchema(schema.RequestSchema):
-    """ DescribeUDBBinlogBackupURL - 获取UDB的Binlog备份地址
-    """
+    """DescribeUDBBinlogBackupURL - 获取UDB的Binlog备份地址"""
 
     fields = {
         "BackupId": fields.Int(required=True, dump_to="BackupId"),
@@ -616,8 +577,7 @@ class DescribeUDBBinlogBackupURLRequestSchema(schema.RequestSchema):
 
 
 class DescribeUDBBinlogBackupURLResponseSchema(schema.ResponseSchema):
-    """ DescribeUDBBinlogBackupURL - 获取UDB的Binlog备份地址
-    """
+    """DescribeUDBBinlogBackupURL - 获取UDB的Binlog备份地址"""
 
     fields = {
         "BackupPath": fields.Str(required=False, load_from="BackupPath"),
@@ -635,8 +595,7 @@ API: DescribeUDBInstance
 
 
 class DescribeUDBInstanceRequestSchema(schema.RequestSchema):
-    """ DescribeUDBInstance - 获取UDB实例信息，支持两类操作：（1）指定DBId用于获取该db的信息；（2）指定ClassType、Offset、Limit用于列表操作，查询某一个类型db。
-    """
+    """DescribeUDBInstance - 获取UDB实例信息，支持两类操作：（1）指定DBId用于获取该db的信息；（2）指定ClassType、Offset、Limit用于列表操作，查询某一个类型db。"""
 
     fields = {
         "ClassType": fields.Str(required=False, dump_to="ClassType"),
@@ -653,8 +612,7 @@ class DescribeUDBInstanceRequestSchema(schema.RequestSchema):
 
 
 class DescribeUDBInstanceResponseSchema(schema.ResponseSchema):
-    """ DescribeUDBInstance - 获取UDB实例信息，支持两类操作：（1）指定DBId用于获取该db的信息；（2）指定ClassType、Offset、Limit用于列表操作，查询某一个类型db。
-    """
+    """DescribeUDBInstance - 获取UDB实例信息，支持两类操作：（1）指定DBId用于获取该db的信息；（2）指定ClassType、Offset、Limit用于列表操作，查询某一个类型db。"""
 
     fields = {
         "DataSet": fields.List(
@@ -672,8 +630,7 @@ API: DescribeUDBInstanceBackupState
 
 
 class DescribeUDBInstanceBackupStateRequestSchema(schema.RequestSchema):
-    """ DescribeUDBInstanceBackupState - 获取UDB实例备份状态
-    """
+    """DescribeUDBInstanceBackupState - 获取UDB实例备份状态"""
 
     fields = {
         "BackupId": fields.Int(required=True, dump_to="BackupId"),
@@ -685,8 +642,7 @@ class DescribeUDBInstanceBackupStateRequestSchema(schema.RequestSchema):
 
 
 class DescribeUDBInstanceBackupStateResponseSchema(schema.ResponseSchema):
-    """ DescribeUDBInstanceBackupState - 获取UDB实例备份状态
-    """
+    """DescribeUDBInstanceBackupState - 获取UDB实例备份状态"""
 
     fields = {
         "BackupEndTime": fields.Int(required=False, load_from="BackupEndTime"),
@@ -703,8 +659,7 @@ API: DescribeUDBInstanceBackupURL
 
 
 class DescribeUDBInstanceBackupURLRequestSchema(schema.RequestSchema):
-    """ DescribeUDBInstanceBackupURL - 获取UDB备份下载地址
-    """
+    """DescribeUDBInstanceBackupURL - 获取UDB备份下载地址"""
 
     fields = {
         "BackupId": fields.Int(required=True, dump_to="BackupId"),
@@ -716,8 +671,7 @@ class DescribeUDBInstanceBackupURLRequestSchema(schema.RequestSchema):
 
 
 class DescribeUDBInstanceBackupURLResponseSchema(schema.ResponseSchema):
-    """ DescribeUDBInstanceBackupURL - 获取UDB备份下载地址
-    """
+    """DescribeUDBInstanceBackupURL - 获取UDB备份下载地址"""
 
     fields = {
         "BackupPath": fields.Str(required=False, load_from="BackupPath"),
@@ -735,8 +689,7 @@ API: DescribeUDBInstanceBinlog
 
 
 class DescribeUDBInstanceBinlogRequestSchema(schema.RequestSchema):
-    """ DescribeUDBInstanceBinlog - 获取UDB指定时间段的binlog列表
-    """
+    """DescribeUDBInstanceBinlog - 获取UDB指定时间段的binlog列表"""
 
     fields = {
         "BeginTime": fields.Int(required=True, dump_to="BeginTime"),
@@ -749,8 +702,7 @@ class DescribeUDBInstanceBinlogRequestSchema(schema.RequestSchema):
 
 
 class DescribeUDBInstanceBinlogResponseSchema(schema.ResponseSchema):
-    """ DescribeUDBInstanceBinlog - 获取UDB指定时间段的binlog列表
-    """
+    """DescribeUDBInstanceBinlog - 获取UDB指定时间段的binlog列表"""
 
     fields = {
         "DataSet": fields.List(
@@ -769,8 +721,7 @@ API: DescribeUDBInstanceBinlogBackupState
 
 
 class DescribeUDBInstanceBinlogBackupStateRequestSchema(schema.RequestSchema):
-    """ DescribeUDBInstanceBinlogBackupState - 获取udb实例备份状态
-    """
+    """DescribeUDBInstanceBinlogBackupState - 获取udb实例备份状态"""
 
     fields = {
         "BackupId": fields.Int(required=True, dump_to="BackupId"),
@@ -782,8 +733,7 @@ class DescribeUDBInstanceBinlogBackupStateRequestSchema(schema.RequestSchema):
 
 
 class DescribeUDBInstanceBinlogBackupStateResponseSchema(schema.ResponseSchema):
-    """ DescribeUDBInstanceBinlogBackupState - 获取udb实例备份状态
-    """
+    """DescribeUDBInstanceBinlogBackupState - 获取udb实例备份状态"""
 
     fields = {
         "BackupSize": fields.Int(required=False, load_from="BackupSize"),
@@ -799,8 +749,7 @@ API: DescribeUDBInstancePrice
 
 
 class DescribeUDBInstancePriceRequestSchema(schema.RequestSchema):
-    """ DescribeUDBInstancePrice - 获取UDB实例价格信息
-    """
+    """DescribeUDBInstancePrice - 获取UDB实例价格信息"""
 
     fields = {
         "ChargeType": fields.Str(required=False, dump_to="ChargeType"),
@@ -818,8 +767,7 @@ class DescribeUDBInstancePriceRequestSchema(schema.RequestSchema):
 
 
 class DescribeUDBInstancePriceResponseSchema(schema.ResponseSchema):
-    """ DescribeUDBInstancePrice - 获取UDB实例价格信息
-    """
+    """DescribeUDBInstancePrice - 获取UDB实例价格信息"""
 
     fields = {
         "DataSet": fields.List(
@@ -838,8 +786,7 @@ API: DescribeUDBInstanceState
 
 
 class DescribeUDBInstanceStateRequestSchema(schema.RequestSchema):
-    """ DescribeUDBInstanceState - 获取UDB实例状态
-    """
+    """DescribeUDBInstanceState - 获取UDB实例状态"""
 
     fields = {
         "DBId": fields.Str(required=True, dump_to="DBId"),
@@ -850,8 +797,7 @@ class DescribeUDBInstanceStateRequestSchema(schema.RequestSchema):
 
 
 class DescribeUDBInstanceStateResponseSchema(schema.ResponseSchema):
-    """ DescribeUDBInstanceState - 获取UDB实例状态
-    """
+    """DescribeUDBInstanceState - 获取UDB实例状态"""
 
     fields = {"State": fields.Str(required=False, load_from="State")}
 
@@ -864,8 +810,7 @@ API: DescribeUDBInstanceUpgradePrice
 
 
 class DescribeUDBInstanceUpgradePriceRequestSchema(schema.RequestSchema):
-    """ DescribeUDBInstanceUpgradePrice - 获取UDB实例升降级价格信息
-    """
+    """DescribeUDBInstanceUpgradePrice - 获取UDB实例升降级价格信息"""
 
     fields = {
         "DBId": fields.Str(required=True, dump_to="DBId"),
@@ -880,8 +825,7 @@ class DescribeUDBInstanceUpgradePriceRequestSchema(schema.RequestSchema):
 
 
 class DescribeUDBInstanceUpgradePriceResponseSchema(schema.ResponseSchema):
-    """ DescribeUDBInstanceUpgradePrice - 获取UDB实例升降级价格信息
-    """
+    """DescribeUDBInstanceUpgradePrice - 获取UDB实例升降级价格信息"""
 
     fields = {"Price": fields.Int(required=False, load_from="Price")}
 
@@ -894,8 +838,7 @@ API: DescribeUDBLogBackupURL
 
 
 class DescribeUDBLogBackupURLRequestSchema(schema.RequestSchema):
-    """ DescribeUDBLogBackupURL - 获取UDB的slowlog备份地址
-    """
+    """DescribeUDBLogBackupURL - 获取UDB的slowlog备份地址"""
 
     fields = {
         "BackupId": fields.Int(required=True, dump_to="BackupId"),
@@ -906,8 +849,7 @@ class DescribeUDBLogBackupURLRequestSchema(schema.RequestSchema):
 
 
 class DescribeUDBLogBackupURLResponseSchema(schema.ResponseSchema):
-    """ DescribeUDBLogBackupURL - 获取UDB的slowlog备份地址
-    """
+    """DescribeUDBLogBackupURL - 获取UDB的slowlog备份地址"""
 
     fields = {
         "BackupPath": fields.Str(required=False, load_from="BackupPath"),
@@ -923,8 +865,7 @@ API: DescribeUDBLogPackage
 
 
 class DescribeUDBLogPackageRequestSchema(schema.RequestSchema):
-    """ DescribeUDBLogPackage - 列表UDB实例binlog或slowlog或errorlog备份信息
-    """
+    """DescribeUDBLogPackage - 列表UDB实例binlog或slowlog或errorlog备份信息"""
 
     fields = {
         "BeginTime": fields.Int(required=False, dump_to="BeginTime"),
@@ -941,8 +882,7 @@ class DescribeUDBLogPackageRequestSchema(schema.RequestSchema):
 
 
 class DescribeUDBLogPackageResponseSchema(schema.ResponseSchema):
-    """ DescribeUDBLogPackage - 列表UDB实例binlog或slowlog或errorlog备份信息
-    """
+    """DescribeUDBLogPackage - 列表UDB实例binlog或slowlog或errorlog备份信息"""
 
     fields = {
         "DataSet": fields.List(
@@ -962,8 +902,7 @@ API: DescribeUDBParamGroup
 
 
 class DescribeUDBParamGroupRequestSchema(schema.RequestSchema):
-    """ DescribeUDBParamGroup - 获取参数组详细参数信息
-    """
+    """DescribeUDBParamGroup - 获取参数组详细参数信息"""
 
     fields = {
         "ClassType": fields.Str(required=False, dump_to="ClassType"),
@@ -979,8 +918,7 @@ class DescribeUDBParamGroupRequestSchema(schema.RequestSchema):
 
 
 class DescribeUDBParamGroupResponseSchema(schema.ResponseSchema):
-    """ DescribeUDBParamGroup - 获取参数组详细参数信息
-    """
+    """DescribeUDBParamGroup - 获取参数组详细参数信息"""
 
     fields = {
         "DataSet": fields.List(
@@ -998,8 +936,7 @@ API: DescribeUDBType
 
 
 class DescribeUDBTypeRequestSchema(schema.RequestSchema):
-    """ DescribeUDBType - 获取UDB支持的类型信息
-    """
+    """DescribeUDBType - 获取UDB支持的类型信息"""
 
     fields = {
         "BackupZone": fields.Str(required=False, dump_to="BackupZone"),
@@ -1012,8 +949,7 @@ class DescribeUDBTypeRequestSchema(schema.RequestSchema):
 
 
 class DescribeUDBTypeResponseSchema(schema.ResponseSchema):
-    """ DescribeUDBType - 获取UDB支持的类型信息
-    """
+    """DescribeUDBType - 获取UDB支持的类型信息"""
 
     fields = {
         "Action": fields.Str(required=True, load_from="Action"),
@@ -1032,8 +968,7 @@ API: EditUDBBackupBlacklist
 
 
 class EditUDBBackupBlacklistRequestSchema(schema.RequestSchema):
-    """ EditUDBBackupBlacklist - 编辑UDB实例的备份黑名单
-    """
+    """EditUDBBackupBlacklist - 编辑UDB实例的备份黑名单"""
 
     fields = {
         "Blacklist": fields.Str(required=True, dump_to="Blacklist"),
@@ -1045,8 +980,7 @@ class EditUDBBackupBlacklistRequestSchema(schema.RequestSchema):
 
 
 class EditUDBBackupBlacklistResponseSchema(schema.ResponseSchema):
-    """ EditUDBBackupBlacklist - 编辑UDB实例的备份黑名单
-    """
+    """EditUDBBackupBlacklist - 编辑UDB实例的备份黑名单"""
 
     fields = {}
 
@@ -1059,8 +993,7 @@ API: FetchUDBInstanceEarliestRecoverTime
 
 
 class FetchUDBInstanceEarliestRecoverTimeRequestSchema(schema.RequestSchema):
-    """ FetchUDBInstanceEarliestRecoverTime - 获取UDB最早可回档的时间点
-    """
+    """FetchUDBInstanceEarliestRecoverTime - 获取UDB最早可回档的时间点"""
 
     fields = {
         "DBId": fields.Str(required=True, dump_to="DBId"),
@@ -1071,8 +1004,7 @@ class FetchUDBInstanceEarliestRecoverTimeRequestSchema(schema.RequestSchema):
 
 
 class FetchUDBInstanceEarliestRecoverTimeResponseSchema(schema.ResponseSchema):
-    """ FetchUDBInstanceEarliestRecoverTime - 获取UDB最早可回档的时间点
-    """
+    """FetchUDBInstanceEarliestRecoverTime - 获取UDB最早可回档的时间点"""
 
     fields = {
         "EarliestTime": fields.Int(required=False, load_from="EarliestTime")
@@ -1087,8 +1019,7 @@ API: ModifyUDBInstanceName
 
 
 class ModifyUDBInstanceNameRequestSchema(schema.RequestSchema):
-    """ ModifyUDBInstanceName - 重命名UDB实例
-    """
+    """ModifyUDBInstanceName - 重命名UDB实例"""
 
     fields = {
         "DBId": fields.Str(required=True, dump_to="DBId"),
@@ -1100,8 +1031,7 @@ class ModifyUDBInstanceNameRequestSchema(schema.RequestSchema):
 
 
 class ModifyUDBInstanceNameResponseSchema(schema.ResponseSchema):
-    """ ModifyUDBInstanceName - 重命名UDB实例
-    """
+    """ModifyUDBInstanceName - 重命名UDB实例"""
 
     fields = {}
 
@@ -1114,8 +1044,7 @@ API: ModifyUDBInstancePassword
 
 
 class ModifyUDBInstancePasswordRequestSchema(schema.RequestSchema):
-    """ ModifyUDBInstancePassword - 修改DB实例的管理员密码
-    """
+    """ModifyUDBInstancePassword - 修改DB实例的管理员密码"""
 
     fields = {
         "AccountName": fields.Str(required=False, dump_to="AccountName"),
@@ -1128,8 +1057,7 @@ class ModifyUDBInstancePasswordRequestSchema(schema.RequestSchema):
 
 
 class ModifyUDBInstancePasswordResponseSchema(schema.ResponseSchema):
-    """ ModifyUDBInstancePassword - 修改DB实例的管理员密码
-    """
+    """ModifyUDBInstancePassword - 修改DB实例的管理员密码"""
 
     fields = {}
 
@@ -1142,8 +1070,7 @@ API: PromoteUDBInstanceToHA
 
 
 class PromoteUDBInstanceToHARequestSchema(schema.RequestSchema):
-    """ PromoteUDBInstanceToHA - 普通db升级为高可用(只针对mysql5.5及以上版本)
-    """
+    """PromoteUDBInstanceToHA - 普通db升级为高可用(只针对mysql5.5及以上版本)"""
 
     fields = {
         "DBId": fields.Str(required=True, dump_to="DBId"),
@@ -1153,8 +1080,7 @@ class PromoteUDBInstanceToHARequestSchema(schema.RequestSchema):
 
 
 class PromoteUDBInstanceToHAResponseSchema(schema.ResponseSchema):
-    """ PromoteUDBInstanceToHA - 普通db升级为高可用(只针对mysql5.5及以上版本)
-    """
+    """PromoteUDBInstanceToHA - 普通db升级为高可用(只针对mysql5.5及以上版本)"""
 
     fields = {}
 
@@ -1167,8 +1093,7 @@ API: PromoteUDBSlave
 
 
 class PromoteUDBSlaveRequestSchema(schema.RequestSchema):
-    """ PromoteUDBSlave - 从库提升为独立库
-    """
+    """PromoteUDBSlave - 从库提升为独立库"""
 
     fields = {
         "DBId": fields.Str(required=True, dump_to="DBId"),
@@ -1180,8 +1105,7 @@ class PromoteUDBSlaveRequestSchema(schema.RequestSchema):
 
 
 class PromoteUDBSlaveResponseSchema(schema.ResponseSchema):
-    """ PromoteUDBSlave - 从库提升为独立库
-    """
+    """PromoteUDBSlave - 从库提升为独立库"""
 
     fields = {}
 
@@ -1194,8 +1118,7 @@ API: ResizeUDBInstance
 
 
 class ResizeUDBInstanceRequestSchema(schema.RequestSchema):
-    """ ResizeUDBInstance - 修改（升级和降级）UDB实例的配置，包括内存和磁盘的配置，对于内存升级无需关闭实例，其他场景需要事先关闭实例。两套参数可以配置升降机：1.配置UseSSD和SSDType  2.配置InstanceType，不需要配置InstanceMode。这两套第二套参数的优先级更高
-    """
+    """ResizeUDBInstance - 修改（升级和降级）UDB实例的配置，包括内存和磁盘的配置，对于内存升级无需关闭实例，其他场景需要事先关闭实例。两套参数可以配置升降机：1.配置UseSSD和SSDType  2.配置InstanceType，不需要配置InstanceMode。这两套第二套参数的优先级更高"""
 
     fields = {
         "CouponId": fields.Str(required=False, dump_to="CouponId"),
@@ -1217,8 +1140,7 @@ class ResizeUDBInstanceRequestSchema(schema.RequestSchema):
 
 
 class ResizeUDBInstanceResponseSchema(schema.ResponseSchema):
-    """ ResizeUDBInstance - 修改（升级和降级）UDB实例的配置，包括内存和磁盘的配置，对于内存升级无需关闭实例，其他场景需要事先关闭实例。两套参数可以配置升降机：1.配置UseSSD和SSDType  2.配置InstanceType，不需要配置InstanceMode。这两套第二套参数的优先级更高
-    """
+    """ResizeUDBInstance - 修改（升级和降级）UDB实例的配置，包括内存和磁盘的配置，对于内存升级无需关闭实例，其他场景需要事先关闭实例。两套参数可以配置升降机：1.配置UseSSD和SSDType  2.配置InstanceType，不需要配置InstanceMode。这两套第二套参数的优先级更高"""
 
     fields = {}
 
@@ -1231,8 +1153,7 @@ API: RestartUDBInstance
 
 
 class RestartUDBInstanceRequestSchema(schema.RequestSchema):
-    """ RestartUDBInstance - 重启UDB实例
-    """
+    """RestartUDBInstance - 重启UDB实例"""
 
     fields = {
         "DBId": fields.Str(required=True, dump_to="DBId"),
@@ -1243,8 +1164,7 @@ class RestartUDBInstanceRequestSchema(schema.RequestSchema):
 
 
 class RestartUDBInstanceResponseSchema(schema.ResponseSchema):
-    """ RestartUDBInstance - 重启UDB实例
-    """
+    """RestartUDBInstance - 重启UDB实例"""
 
     fields = {}
 
@@ -1257,8 +1177,7 @@ API: StartUDBInstance
 
 
 class StartUDBInstanceRequestSchema(schema.RequestSchema):
-    """ StartUDBInstance - 启动UDB实例
-    """
+    """StartUDBInstance - 启动UDB实例"""
 
     fields = {
         "DBId": fields.Str(required=True, dump_to="DBId"),
@@ -1269,8 +1188,7 @@ class StartUDBInstanceRequestSchema(schema.RequestSchema):
 
 
 class StartUDBInstanceResponseSchema(schema.ResponseSchema):
-    """ StartUDBInstance - 启动UDB实例
-    """
+    """StartUDBInstance - 启动UDB实例"""
 
     fields = {}
 
@@ -1283,8 +1201,7 @@ API: StopUDBInstance
 
 
 class StopUDBInstanceRequestSchema(schema.RequestSchema):
-    """ StopUDBInstance - 关闭UDB实例
-    """
+    """StopUDBInstance - 关闭UDB实例"""
 
     fields = {
         "DBId": fields.Str(required=True, dump_to="DBId"),
@@ -1296,8 +1213,7 @@ class StopUDBInstanceRequestSchema(schema.RequestSchema):
 
 
 class StopUDBInstanceResponseSchema(schema.ResponseSchema):
-    """ StopUDBInstance - 关闭UDB实例
-    """
+    """StopUDBInstance - 关闭UDB实例"""
 
     fields = {}
 
@@ -1310,8 +1226,7 @@ API: SwitchUDBInstanceToHA
 
 
 class SwitchUDBInstanceToHARequestSchema(schema.RequestSchema):
-    """ SwitchUDBInstanceToHA - 普通UDB切换为高可用，原db状态为WaitForSwitch时，调用该api
-    """
+    """SwitchUDBInstanceToHA - 普通UDB切换为高可用，原db状态为WaitForSwitch时，调用该api"""
 
     fields = {
         "ChargeType": fields.Str(required=False, dump_to="ChargeType"),
@@ -1324,8 +1239,7 @@ class SwitchUDBInstanceToHARequestSchema(schema.RequestSchema):
 
 
 class SwitchUDBInstanceToHAResponseSchema(schema.ResponseSchema):
-    """ SwitchUDBInstanceToHA - 普通UDB切换为高可用，原db状态为WaitForSwitch时，调用该api
-    """
+    """SwitchUDBInstanceToHA - 普通UDB切换为高可用，原db状态为WaitForSwitch时，调用该api"""
 
     fields = {"DBId": fields.Str(required=False, load_from="DBId")}
 
@@ -1338,8 +1252,7 @@ API: UpdateUDBInstanceBackupStrategy
 
 
 class UpdateUDBInstanceBackupStrategyRequestSchema(schema.RequestSchema):
-    """ UpdateUDBInstanceBackupStrategy - 修改UDB自动备份策略
-    """
+    """UpdateUDBInstanceBackupStrategy - 修改UDB自动备份策略"""
 
     fields = {
         "BackupDate": fields.Str(required=False, dump_to="BackupDate"),
@@ -1354,8 +1267,7 @@ class UpdateUDBInstanceBackupStrategyRequestSchema(schema.RequestSchema):
 
 
 class UpdateUDBInstanceBackupStrategyResponseSchema(schema.ResponseSchema):
-    """ UpdateUDBInstanceBackupStrategy - 修改UDB自动备份策略
-    """
+    """UpdateUDBInstanceBackupStrategy - 修改UDB自动备份策略"""
 
     fields = {}
 
@@ -1368,8 +1280,7 @@ API: UpdateUDBInstanceSlaveBackupSwitch
 
 
 class UpdateUDBInstanceSlaveBackupSwitchRequestSchema(schema.RequestSchema):
-    """ UpdateUDBInstanceSlaveBackupSwitch - 开启或者关闭UDB从库备份
-    """
+    """UpdateUDBInstanceSlaveBackupSwitch - 开启或者关闭UDB从库备份"""
 
     fields = {
         "BackupSwitch": fields.Int(required=True, dump_to="BackupSwitch"),
@@ -1382,8 +1293,7 @@ class UpdateUDBInstanceSlaveBackupSwitchRequestSchema(schema.RequestSchema):
 
 
 class UpdateUDBInstanceSlaveBackupSwitchResponseSchema(schema.ResponseSchema):
-    """ UpdateUDBInstanceSlaveBackupSwitch - 开启或者关闭UDB从库备份
-    """
+    """UpdateUDBInstanceSlaveBackupSwitch - 开启或者关闭UDB从库备份"""
 
     fields = {}
 
@@ -1396,8 +1306,7 @@ API: UpdateUDBParamGroup
 
 
 class UpdateUDBParamGroupRequestSchema(schema.RequestSchema):
-    """ UpdateUDBParamGroup - 更新UDB配置参数项
-    """
+    """UpdateUDBParamGroup - 更新UDB配置参数项"""
 
     fields = {
         "Description": fields.Str(required=False, dump_to="Description"),
@@ -1413,8 +1322,7 @@ class UpdateUDBParamGroupRequestSchema(schema.RequestSchema):
 
 
 class UpdateUDBParamGroupResponseSchema(schema.ResponseSchema):
-    """ UpdateUDBParamGroup - 更新UDB配置参数项
-    """
+    """UpdateUDBParamGroup - 更新UDB配置参数项"""
 
     fields = {}
 
@@ -1427,8 +1335,7 @@ API: UploadUDBParamGroup
 
 
 class UploadUDBParamGroupRequestSchema(schema.RequestSchema):
-    """ UploadUDBParamGroup - 导入UDB配置
-    """
+    """UploadUDBParamGroup - 导入UDB配置"""
 
     fields = {
         "Content": fields.Str(required=True, dump_to="Content"),
@@ -1446,7 +1353,6 @@ class UploadUDBParamGroupRequestSchema(schema.RequestSchema):
 
 
 class UploadUDBParamGroupResponseSchema(schema.ResponseSchema):
-    """ UploadUDBParamGroup - 导入UDB配置
-    """
+    """UploadUDBParamGroup - 导入UDB配置"""
 
     fields = {"GroupId": fields.Int(required=False, load_from="GroupId")}
