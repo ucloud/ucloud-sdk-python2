@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 
+from ucloud.core.utils.compat import str
+
 
 def encode(d):
     result = {}
