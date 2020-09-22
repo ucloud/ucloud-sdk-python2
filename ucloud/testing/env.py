@@ -21,7 +21,7 @@ def is_ut():
 
 
 def pre_check_env():
-    """ pre check environment for testing
+    """pre check environment for testing
 
     NOTE: system environment variables credential is required for test environment
     """

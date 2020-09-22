@@ -14,8 +14,7 @@ API: BatchDescribeNewUcdnDomain
 
 
 class BatchDescribeNewUcdnDomainRequestSchema(schema.RequestSchema):
-    """ BatchDescribeNewUcdnDomain - 批量获取加速域名配置
-    """
+    """BatchDescribeNewUcdnDomain - 批量获取加速域名配置"""
 
     fields = {
         "ChannelType": fields.Str(required=False, dump_to="ChannelType"),
@@ -27,8 +26,7 @@ class BatchDescribeNewUcdnDomainRequestSchema(schema.RequestSchema):
 
 
 class BatchDescribeNewUcdnDomainResponseSchema(schema.ResponseSchema):
-    """ BatchDescribeNewUcdnDomain - 批量获取加速域名配置
-    """
+    """BatchDescribeNewUcdnDomain - 批量获取加速域名配置"""
 
     fields = {
         "Arrearage": fields.List(
@@ -55,8 +53,7 @@ API: DescribeNewUcdnPrefetchCacheTask
 
 
 class DescribeNewUcdnPrefetchCacheTaskRequestSchema(schema.RequestSchema):
-    """ DescribeNewUcdnPrefetchCacheTask - 获取预取任务状态
-    """
+    """DescribeNewUcdnPrefetchCacheTask - 获取预取任务状态"""
 
     fields = {
         "BeginTime": fields.Int(required=False, dump_to="BeginTime"),
@@ -70,8 +67,7 @@ class DescribeNewUcdnPrefetchCacheTaskRequestSchema(schema.RequestSchema):
 
 
 class DescribeNewUcdnPrefetchCacheTaskResponseSchema(schema.ResponseSchema):
-    """ DescribeNewUcdnPrefetchCacheTask - 获取预取任务状态
-    """
+    """DescribeNewUcdnPrefetchCacheTask - 获取预取任务状态"""
 
     fields = {
         "TaskList": fields.List(
@@ -89,8 +85,7 @@ API: DescribeNewUcdnRefreshCacheTask
 
 
 class DescribeNewUcdnRefreshCacheTaskRequestSchema(schema.RequestSchema):
-    """ DescribeNewUcdnRefreshCacheTask - 获取域名刷新任务状态
-    """
+    """DescribeNewUcdnRefreshCacheTask - 获取域名刷新任务状态"""
 
     fields = {
         "BeginTime": fields.Int(required=False, dump_to="BeginTime"),
@@ -104,8 +99,7 @@ class DescribeNewUcdnRefreshCacheTaskRequestSchema(schema.RequestSchema):
 
 
 class DescribeNewUcdnRefreshCacheTaskResponseSchema(schema.ResponseSchema):
-    """ DescribeNewUcdnRefreshCacheTask - 获取域名刷新任务状态
-    """
+    """DescribeNewUcdnRefreshCacheTask - 获取域名刷新任务状态"""
 
     fields = {
         "TaskList": fields.List(
@@ -123,8 +117,7 @@ API: GetNewUcdnDomainBandwidth
 
 
 class GetNewUcdnDomainBandwidthRequestSchema(schema.RequestSchema):
-    """ GetNewUcdnDomainBandwidth - 获取域名带宽数据
-    """
+    """GetNewUcdnDomainBandwidth - 获取域名带宽数据"""
 
     fields = {
         "Areacode": fields.Str(required=False, dump_to="Areacode"),
@@ -137,8 +130,7 @@ class GetNewUcdnDomainBandwidthRequestSchema(schema.RequestSchema):
 
 
 class GetNewUcdnDomainBandwidthResponseSchema(schema.ResponseSchema):
-    """ GetNewUcdnDomainBandwidth - 获取域名带宽数据
-    """
+    """GetNewUcdnDomainBandwidth - 获取域名带宽数据"""
 
     fields = {
         "BandwidthList": fields.List(
@@ -158,8 +150,7 @@ API: GetNewUcdnDomainHitRate
 
 
 class GetNewUcdnDomainHitRateRequestSchema(schema.RequestSchema):
-    """ GetNewUcdnDomainHitRate - 获取域名命中率
-    """
+    """GetNewUcdnDomainHitRate - 获取域名命中率"""
 
     fields = {
         "Areacode": fields.Str(required=False, dump_to="Areacode"),
@@ -172,8 +163,7 @@ class GetNewUcdnDomainHitRateRequestSchema(schema.RequestSchema):
 
 
 class GetNewUcdnDomainHitRateResponseSchema(schema.ResponseSchema):
-    """ GetNewUcdnDomainHitRate - 获取域名命中率
-    """
+    """GetNewUcdnDomainHitRate - 获取域名命中率"""
 
     fields = {
         "HitRateList": fields.List(
@@ -190,8 +180,7 @@ API: GetNewUcdnDomainHttpCode
 
 
 class GetNewUcdnDomainHttpCodeRequestSchema(schema.RequestSchema):
-    """ GetNewUcdnDomainHttpCode - 获取域名状态码监控
-    """
+    """GetNewUcdnDomainHttpCode - 获取域名状态码监控"""
 
     fields = {
         "Areacode": fields.Str(required=False, dump_to="Areacode"),
@@ -204,8 +193,7 @@ class GetNewUcdnDomainHttpCodeRequestSchema(schema.RequestSchema):
 
 
 class GetNewUcdnDomainHttpCodeResponseSchema(schema.ResponseSchema):
-    """ GetNewUcdnDomainHttpCode - 获取域名状态码监控
-    """
+    """GetNewUcdnDomainHttpCode - 获取域名状态码监控"""
 
     fields = {
         "HttpCodeDetail": fields.List(
@@ -224,8 +212,7 @@ API: GetNewUcdnDomainHttpCodeV2
 
 
 class GetNewUcdnDomainHttpCodeV2RequestSchema(schema.RequestSchema):
-    """ GetNewUcdnDomainHttpCodeV2 - 获取域名详细状态码监控
-    """
+    """GetNewUcdnDomainHttpCodeV2 - 获取域名详细状态码监控"""
 
     fields = {
         "Areacode": fields.Str(required=False, dump_to="Areacode"),
@@ -238,8 +225,7 @@ class GetNewUcdnDomainHttpCodeV2RequestSchema(schema.RequestSchema):
 
 
 class GetNewUcdnDomainHttpCodeV2ResponseSchema(schema.ResponseSchema):
-    """ GetNewUcdnDomainHttpCodeV2 - 获取域名详细状态码监控
-    """
+    """GetNewUcdnDomainHttpCodeV2 - 获取域名详细状态码监控"""
 
     fields = {
         "HttpCodeV2Detail": fields.List(
@@ -258,8 +244,7 @@ API: GetNewUcdnDomainRequestNum
 
 
 class GetNewUcdnDomainRequestNumRequestSchema(schema.RequestSchema):
-    """ GetNewUcdnDomainRequestNum - 获取域名请求数
-    """
+    """GetNewUcdnDomainRequestNum - 获取域名请求数"""
 
     fields = {
         "Areacode": fields.Str(required=False, dump_to="Areacode"),
@@ -272,8 +257,7 @@ class GetNewUcdnDomainRequestNumRequestSchema(schema.RequestSchema):
 
 
 class GetNewUcdnDomainRequestNumResponseSchema(schema.ResponseSchema):
-    """ GetNewUcdnDomainRequestNum - 获取域名请求数
-    """
+    """GetNewUcdnDomainRequestNum - 获取域名请求数"""
 
     fields = {
         "RequestList": fields.List(
@@ -290,8 +274,7 @@ API: GetUcdnDomainLog
 
 
 class GetUcdnDomainLogRequestSchema(schema.RequestSchema):
-    """ GetUcdnDomainLog - 获取加速域名原始日志
-    """
+    """GetUcdnDomainLog - 获取加速域名原始日志"""
 
     fields = {
         "BeginTime": fields.Int(required=False, dump_to="BeginTime"),
@@ -303,8 +286,7 @@ class GetUcdnDomainLogRequestSchema(schema.RequestSchema):
 
 
 class GetUcdnDomainLogResponseSchema(schema.ResponseSchema):
-    """ GetUcdnDomainLog - 获取加速域名原始日志
-    """
+    """GetUcdnDomainLog - 获取加速域名原始日志"""
 
     fields = {
         "LogSet": fields.List(
@@ -321,8 +303,7 @@ API: GetUcdnDomainPrefetchEnable
 
 
 class GetUcdnDomainPrefetchEnableRequestSchema(schema.RequestSchema):
-    """ GetUcdnDomainPrefetchEnable - 获取域名预取开启状态
-    """
+    """GetUcdnDomainPrefetchEnable - 获取域名预取开启状态"""
 
     fields = {
         "DomainId": fields.Str(required=True, dump_to="DomainId"),
@@ -331,8 +312,7 @@ class GetUcdnDomainPrefetchEnableRequestSchema(schema.RequestSchema):
 
 
 class GetUcdnDomainPrefetchEnableResponseSchema(schema.ResponseSchema):
-    """ GetUcdnDomainPrefetchEnable - 获取域名预取开启状态
-    """
+    """GetUcdnDomainPrefetchEnable - 获取域名预取开启状态"""
 
     fields = {"Enable": fields.Int(required=False, load_from="Enable")}
 
@@ -345,8 +325,7 @@ API: GetUcdnDomainRequestNumV2
 
 
 class GetUcdnDomainRequestNumV2RequestSchema(schema.RequestSchema):
-    """ GetUcdnDomainRequestNumV2 - 获取域名请求数
-    """
+    """GetUcdnDomainRequestNumV2 - 获取域名请求数"""
 
     fields = {
         "Areacode": fields.Str(required=False, dump_to="Areacode"),
@@ -359,8 +338,7 @@ class GetUcdnDomainRequestNumV2RequestSchema(schema.RequestSchema):
 
 
 class GetUcdnDomainRequestNumV2ResponseSchema(schema.ResponseSchema):
-    """ GetUcdnDomainRequestNumV2 - 获取域名请求数
-    """
+    """GetUcdnDomainRequestNumV2 - 获取域名请求数"""
 
     fields = {
         "RequestList": fields.List(
@@ -377,8 +355,7 @@ API: GetUcdnDomainTraffic
 
 
 class GetUcdnDomainTrafficRequestSchema(schema.RequestSchema):
-    """ GetUcdnDomainTraffic - 获取加速域名流量使用信息
-    """
+    """GetUcdnDomainTraffic - 获取加速域名流量使用信息"""
 
     fields = {
         "Areacode": fields.Str(required=False, dump_to="Areacode"),
@@ -390,8 +367,7 @@ class GetUcdnDomainTrafficRequestSchema(schema.RequestSchema):
 
 
 class GetUcdnDomainTrafficResponseSchema(schema.ResponseSchema):
-    """ GetUcdnDomainTraffic - 获取加速域名流量使用信息
-    """
+    """GetUcdnDomainTraffic - 获取加速域名流量使用信息"""
 
     fields = {
         "TrafficSet": fields.List(
@@ -410,8 +386,7 @@ API: GetUcdnPassBandwidth
 
 
 class GetUcdnPassBandwidthRequestSchema(schema.RequestSchema):
-    """ GetUcdnPassBandwidth - 获取回源带宽数据（cdn回客户源站部分）
-    """
+    """GetUcdnPassBandwidth - 获取回源带宽数据（cdn回客户源站部分）"""
 
     fields = {
         "Areacode": fields.Str(required=False, dump_to="Areacode"),
@@ -424,8 +399,7 @@ class GetUcdnPassBandwidthRequestSchema(schema.RequestSchema):
 
 
 class GetUcdnPassBandwidthResponseSchema(schema.ResponseSchema):
-    """ GetUcdnPassBandwidth - 获取回源带宽数据（cdn回客户源站部分）
-    """
+    """GetUcdnPassBandwidth - 获取回源带宽数据（cdn回客户源站部分）"""
 
     fields = {
         "BandwidthDetail": fields.List(
@@ -444,15 +418,13 @@ API: GetUcdnTraffic
 
 
 class GetUcdnTrafficRequestSchema(schema.RequestSchema):
-    """ GetUcdnTraffic - 获取流量信息
-    """
+    """GetUcdnTraffic - 获取流量信息"""
 
     fields = {"ProjectId": fields.Str(required=False, dump_to="ProjectId")}
 
 
 class GetUcdnTrafficResponseSchema(schema.ResponseSchema):
-    """ GetUcdnTraffic - 获取流量信息
-    """
+    """GetUcdnTraffic - 获取流量信息"""
 
     fields = {
         "TrafficSet": fields.List(
@@ -469,8 +441,7 @@ API: PrefetchNewUcdnDomainCache
 
 
 class PrefetchNewUcdnDomainCacheRequestSchema(schema.RequestSchema):
-    """ PrefetchNewUcdnDomainCache - 提交预取任务
-    """
+    """PrefetchNewUcdnDomainCache - 提交预取任务"""
 
     fields = {
         "ProjectId": fields.Str(required=False, dump_to="ProjectId"),
@@ -479,8 +450,7 @@ class PrefetchNewUcdnDomainCacheRequestSchema(schema.RequestSchema):
 
 
 class PrefetchNewUcdnDomainCacheResponseSchema(schema.ResponseSchema):
-    """ PrefetchNewUcdnDomainCache - 提交预取任务
-    """
+    """PrefetchNewUcdnDomainCache - 提交预取任务"""
 
     fields = {"TaskId": fields.Str(required=False, load_from="TaskId")}
 
@@ -493,8 +463,7 @@ API: RefreshNewUcdnDomainCache
 
 
 class RefreshNewUcdnDomainCacheRequestSchema(schema.RequestSchema):
-    """ RefreshNewUcdnDomainCache - 刷新缓存
-    """
+    """RefreshNewUcdnDomainCache - 刷新缓存"""
 
     fields = {
         "ProjectId": fields.Str(required=False, dump_to="ProjectId"),
@@ -504,8 +473,7 @@ class RefreshNewUcdnDomainCacheRequestSchema(schema.RequestSchema):
 
 
 class RefreshNewUcdnDomainCacheResponseSchema(schema.ResponseSchema):
-    """ RefreshNewUcdnDomainCache - 刷新缓存
-    """
+    """RefreshNewUcdnDomainCache - 刷新缓存"""
 
     fields = {"TaskId": fields.Str(required=False, load_from="TaskId")}
 
@@ -518,8 +486,7 @@ API: SwitchUcdnChargeType
 
 
 class SwitchUcdnChargeTypeRequestSchema(schema.RequestSchema):
-    """ SwitchUcdnChargeType - 切换账号计费方式
-    """
+    """SwitchUcdnChargeType - 切换账号计费方式"""
 
     fields = {
         "ChargeType": fields.Str(required=True, dump_to="ChargeType"),
@@ -528,7 +495,6 @@ class SwitchUcdnChargeTypeRequestSchema(schema.RequestSchema):
 
 
 class SwitchUcdnChargeTypeResponseSchema(schema.ResponseSchema):
-    """ SwitchUcdnChargeType - 切换账号计费方式
-    """
+    """SwitchUcdnChargeType - 切换账号计费方式"""
 
     fields = {}

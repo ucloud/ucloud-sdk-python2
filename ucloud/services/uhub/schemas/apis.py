@@ -14,8 +14,7 @@ API: CreateRepo
 
 
 class CreateRepoRequestSchema(schema.RequestSchema):
-    """ CreateRepo - 创建镜像仓库
-    """
+    """CreateRepo - 创建镜像仓库"""
 
     fields = {
         "Description": fields.Str(required=False, dump_to="Description"),
@@ -26,8 +25,7 @@ class CreateRepoRequestSchema(schema.RequestSchema):
 
 
 class CreateRepoResponseSchema(schema.ResponseSchema):
-    """ CreateRepo - 创建镜像仓库
-    """
+    """CreateRepo - 创建镜像仓库"""
 
     fields = {"Message": fields.Str(required=False, load_from="Message")}
 
@@ -40,8 +38,7 @@ API: DeleteRepo
 
 
 class DeleteRepoRequestSchema(schema.RequestSchema):
-    """ DeleteRepo - 删除镜像仓库
-    """
+    """DeleteRepo - 删除镜像仓库"""
 
     fields = {
         "ProjectId": fields.Str(required=False, dump_to="ProjectId"),
@@ -50,8 +47,7 @@ class DeleteRepoRequestSchema(schema.RequestSchema):
 
 
 class DeleteRepoResponseSchema(schema.ResponseSchema):
-    """ DeleteRepo - 删除镜像仓库
-    """
+    """DeleteRepo - 删除镜像仓库"""
 
     fields = {}
 
@@ -64,8 +60,7 @@ API: DeleteRepoImage
 
 
 class DeleteRepoImageRequestSchema(schema.RequestSchema):
-    """ DeleteRepoImage - 删除镜像
-    """
+    """DeleteRepoImage - 删除镜像"""
 
     fields = {
         "ImageName": fields.Str(required=True, dump_to="ImageName"),
@@ -76,8 +71,7 @@ class DeleteRepoImageRequestSchema(schema.RequestSchema):
 
 
 class DeleteRepoImageResponseSchema(schema.ResponseSchema):
-    """ DeleteRepoImage - 删除镜像
-    """
+    """DeleteRepoImage - 删除镜像"""
 
     fields = {}
 
@@ -90,8 +84,7 @@ API: GetImageTag
 
 
 class GetImageTagRequestSchema(schema.RequestSchema):
-    """ GetImageTag - 获取镜像tag
-    """
+    """GetImageTag - 获取镜像tag"""
 
     fields = {
         "ImageName": fields.Str(required=True, dump_to="ImageName"),
@@ -104,8 +97,7 @@ class GetImageTagRequestSchema(schema.RequestSchema):
 
 
 class GetImageTagResponseSchema(schema.ResponseSchema):
-    """ GetImageTag - 获取镜像tag
-    """
+    """GetImageTag - 获取镜像tag"""
 
     fields = {
         "TagSet": fields.List(
@@ -123,8 +115,7 @@ API: GetRepo
 
 
 class GetRepoRequestSchema(schema.RequestSchema):
-    """ GetRepo - 获取镜像仓库
-    """
+    """GetRepo - 获取镜像仓库"""
 
     fields = {
         "Limit": fields.Int(required=False, dump_to="Limit"),
@@ -135,8 +126,7 @@ class GetRepoRequestSchema(schema.RequestSchema):
 
 
 class GetRepoResponseSchema(schema.ResponseSchema):
-    """ GetRepo - 获取镜像仓库
-    """
+    """GetRepo - 获取镜像仓库"""
 
     fields = {
         "RepoSet": fields.List(
@@ -154,8 +144,7 @@ API: GetRepoImage
 
 
 class GetRepoImageRequestSchema(schema.RequestSchema):
-    """ GetRepoImage - 获取镜像仓库下的镜像
-    """
+    """GetRepoImage - 获取镜像仓库下的镜像"""
 
     fields = {
         "Limit": fields.Int(required=False, dump_to="Limit"),
@@ -166,8 +155,7 @@ class GetRepoImageRequestSchema(schema.RequestSchema):
 
 
 class GetRepoImageResponseSchema(schema.ResponseSchema):
-    """ GetRepoImage - 获取镜像仓库下的镜像
-    """
+    """GetRepoImage - 获取镜像仓库下的镜像"""
 
     fields = {
         "ImageSet": fields.List(
@@ -185,8 +173,7 @@ API: UpdateRepo
 
 
 class UpdateRepoRequestSchema(schema.RequestSchema):
-    """ UpdateRepo - 更新镜像仓库
-    """
+    """UpdateRepo - 更新镜像仓库"""
 
     fields = {
         "Description": fields.Str(required=False, dump_to="Description"),
@@ -197,7 +184,6 @@ class UpdateRepoRequestSchema(schema.RequestSchema):
 
 
 class UpdateRepoResponseSchema(schema.ResponseSchema):
-    """ UpdateRepo - 更新镜像仓库
-    """
+    """UpdateRepo - 更新镜像仓库"""
 
     fields = {"Message": fields.Str(required=False, load_from="Message")}

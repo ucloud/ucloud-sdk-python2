@@ -5,7 +5,7 @@ import time
 
 
 def concat(*args):
-    """  cancat strings
+    """cancat strings
 
     >>> concat(42, 'foo', 'bar')
     '42foobar'
@@ -14,7 +14,7 @@ def concat(*args):
 
 
 def concat_without_dot(args):
-    """  replace blank
+    """replace blank
 
     >>> concat_without_dot('42foo bar')
     '42foobar'
@@ -23,7 +23,7 @@ def concat_without_dot(args):
 
 
 def search_value(array, origin_key, origin_value, dest_key):
-    """ given origin key and value,search dest_value form array by dest_key
+    """given origin key and value,search dest_value form array by dest_key
 
     >>> d = [{"UHostId": "foo", "Name": "testing"}]
     >>> search_value(d, "Name", "testing", "UHostId")
@@ -36,7 +36,7 @@ def search_value(array, origin_key, origin_value, dest_key):
 
 
 def timedelta(timestamp, value, typ="days"):
-    """ given timestamp(10bit) and calculate relative delta time
+    """given timestamp(10bit) and calculate relative delta time
 
     >>> timedelta(0, 1, "days")
     86400.0
@@ -56,7 +56,7 @@ def timedelta(timestamp, value, typ="days"):
 
 
 def get_timestamp(length=13):
-    """ get current timestamp string
+    """get current timestamp string
 
     >>> len(str(int(get_timestamp(10))))
     10

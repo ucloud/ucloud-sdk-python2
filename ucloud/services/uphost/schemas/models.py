@@ -5,8 +5,7 @@ from ucloud.core.typesystem import schema, fields
 
 
 class PHostIPSetSchema(schema.ResponseSchema):
-    """ PHostIPSet - DescribePHost
-    """
+    """PHostIPSet - DescribePHost"""
 
     fields = {
         "Bandwidth": fields.Int(required=False, load_from="Bandwidth"),
@@ -20,8 +19,7 @@ class PHostIPSetSchema(schema.ResponseSchema):
 
 
 class PHostDiskSetSchema(schema.ResponseSchema):
-    """ PHostDiskSet - GetPHostTypeInfo
-    """
+    """PHostDiskSet - GetPHostTypeInfo"""
 
     fields = {
         "Count": fields.Int(required=False, load_from="Count"),
@@ -33,8 +31,7 @@ class PHostDiskSetSchema(schema.ResponseSchema):
 
 
 class PHostCPUSetSchema(schema.ResponseSchema):
-    """ PHostCPUSet - DescribePHost
-    """
+    """PHostCPUSet - DescribePHost"""
 
     fields = {
         "CoreCount": fields.Int(required=False, load_from="CoreCount"),
@@ -45,8 +42,7 @@ class PHostCPUSetSchema(schema.ResponseSchema):
 
 
 class PHostSetSchema(schema.ResponseSchema):
-    """ PHostSet - DescribePHost
-    """
+    """PHostSet - DescribePHost"""
 
     fields = {
         "AutoRenew": fields.Str(required=False, load_from="AutoRenew"),
@@ -77,8 +73,7 @@ class PHostSetSchema(schema.ResponseSchema):
 
 
 class PHostImageSetSchema(schema.ResponseSchema):
-    """ PHostImageSet - DescribePHostImage
-    """
+    """PHostImageSet - DescribePHostImage"""
 
     fields = {
         "ImageId": fields.Str(required=False, load_from="ImageId"),
@@ -89,8 +84,7 @@ class PHostImageSetSchema(schema.ResponseSchema):
 
 
 class PHostTagSetSchema(schema.ResponseSchema):
-    """ PHostTagSet - DescribePHostTags
-    """
+    """PHostTagSet - DescribePHostTags"""
 
     fields = {
         "Tag": fields.Str(required=False, load_from="Tag"),
@@ -99,8 +93,7 @@ class PHostTagSetSchema(schema.ResponseSchema):
 
 
 class PHostPriceSetSchema(schema.ResponseSchema):
-    """ PHostPriceSet - GetPHostPrice
-    """
+    """PHostPriceSet - GetPHostPrice"""
 
     fields = {
         "ChargeType": fields.Str(required=False, load_from="ChargeType"),

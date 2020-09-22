@@ -7,10 +7,11 @@ from requests.adapters import HTTPAdapter
 from ucloud.core.transport import http
 from ucloud.core.transport.http import Request, Response, SSLOption
 from ucloud.core.utils.middleware import Middleware
+from ucloud.core import exc
 
 
 class RequestsTransport(http.Transport):
-    """ transport is the implementation of http client, use for send a request and return a http response
+    """transport is the implementation of http client, use for send a request and return a http response
 
     :type max_retries: int
     :param max_retries: max retries is the max number of transport request when occur http error
@@ -34,7 +35,7 @@ class RequestsTransport(http.Transport):
         self._middleware = Middleware()
 
     def send(self, req, **options):
-        """ send request and return the response
+        """send request and return the response
 
         :param req: the full http request descriptor
         :return: the response of http request
@@ -53,7 +54,7 @@ class RequestsTransport(http.Transport):
 
     @property
     def middleware(self):
-        """ the middleware object, see :mod:
+        """the middleware object, see :mod:
 
         :return: the transport middleware
         """
@@ -79,6 +80,10 @@ class RequestsTransport(http.Transport):
             resp = self.convert_response(session_resp)
             resp.request = req
             resp.response_time = time.time()
+            if resp.status_code >= 400:
+                raise exc.HTTPStatusException(
+                    resp.status_code, resp.request_uuid
+                )
             return resp
 
     @staticmethod

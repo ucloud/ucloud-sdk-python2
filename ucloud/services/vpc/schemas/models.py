@@ -5,8 +5,7 @@ from ucloud.core.typesystem import schema, fields
 
 
 class RouteRuleInfoSchema(schema.ResponseSchema):
-    """ RouteRuleInfo - 路由规则信息
-    """
+    """RouteRuleInfo - 路由规则信息"""
 
     fields = {
         "DstAddr": fields.Str(required=False, load_from="DstAddr"),
@@ -19,8 +18,7 @@ class RouteRuleInfoSchema(schema.ResponseSchema):
 
 
 class RouteTableInfoSchema(schema.ResponseSchema):
-    """ RouteTableInfo - 路由表信息
-    """
+    """RouteTableInfo - 路由表信息"""
 
     fields = {
         "CreateTime": fields.Int(required=False, load_from="CreateTime"),
@@ -38,8 +36,7 @@ class RouteTableInfoSchema(schema.ResponseSchema):
 
 
 class SubnetInfoSchema(schema.ResponseSchema):
-    """ SubnetInfo - 子网信息
-    """
+    """SubnetInfo - 子网信息"""
 
     fields = {
         "AvailableIPs": fields.Int(required=False, load_from="AvailableIPs"),
@@ -62,8 +59,7 @@ class SubnetInfoSchema(schema.ResponseSchema):
 
 
 class SubnetResourceSchema(schema.ResponseSchema):
-    """ SubnetResource - 子网下资源
-    """
+    """SubnetResource - 子网下资源"""
 
     fields = {
         "IP": fields.Str(required=False, load_from="IP"),
@@ -82,8 +78,7 @@ class SubnetResourceSchema(schema.ResponseSchema):
 
 
 class VPCNetworkInfoSchema(schema.ResponseSchema):
-    """ VPCNetworkInfo - vpc地址空间信息
-    """
+    """VPCNetworkInfo - vpc地址空间信息"""
 
     fields = {
         "Network": fields.Str(required=False, load_from="Network"),
@@ -92,8 +87,7 @@ class VPCNetworkInfoSchema(schema.ResponseSchema):
 
 
 class VPCInfoSchema(schema.ResponseSchema):
-    """ VPCInfo - VPC信息
-    """
+    """VPCInfo - VPC信息"""
 
     fields = {
         "CreateTime": fields.Int(required=True, load_from="CreateTime"),
@@ -110,8 +104,7 @@ class VPCInfoSchema(schema.ResponseSchema):
 
 
 class VPCIntercomInfoSchema(schema.ResponseSchema):
-    """ VPCIntercomInfo -
-    """
+    """VPCIntercomInfo -"""
 
     fields = {
         "DstRegion": fields.Str(required=False, load_from="DstRegion"),

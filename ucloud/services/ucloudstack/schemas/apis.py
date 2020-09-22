@@ -14,12 +14,13 @@ API: AllocateEIP
 
 
 class AllocateEIPRequestSchema(schema.RequestSchema):
-    """ AllocateEIP - 申请外网IP
-    """
+    """AllocateEIP - 申请外网IP"""
 
     fields = {
         "Bandwidth": fields.Int(required=True, dump_to="Bandwidth"),
         "ChargeType": fields.Str(required=True, dump_to="ChargeType"),
+        "IP": fields.Str(required=False, dump_to="IP"),
+        "IPVersion": fields.Str(required=False, dump_to="IPVersion"),
         "Name": fields.Str(required=True, dump_to="Name"),
         "OperatorName": fields.Str(required=True, dump_to="OperatorName"),
         "Quantity": fields.Int(required=False, dump_to="Quantity"),
@@ -29,8 +30,7 @@ class AllocateEIPRequestSchema(schema.RequestSchema):
 
 
 class AllocateEIPResponseSchema(schema.ResponseSchema):
-    """ AllocateEIP - 申请外网IP
-    """
+    """AllocateEIP - 申请外网IP"""
 
     fields = {
         "EIPID": fields.Str(required=True, load_from="EIPID"),
@@ -46,8 +46,7 @@ API: AttachDisk
 
 
 class AttachDiskRequestSchema(schema.RequestSchema):
-    """ AttachDisk - 绑定硬盘
-    """
+    """AttachDisk - 绑定硬盘"""
 
     fields = {
         "DiskID": fields.Str(required=True, dump_to="DiskID"),
@@ -59,8 +58,31 @@ class AttachDiskRequestSchema(schema.RequestSchema):
 
 
 class AttachDiskResponseSchema(schema.ResponseSchema):
-    """ AttachDisk - 绑定硬盘
-    """
+    """AttachDisk - 绑定硬盘"""
+
+    fields = {"Message": fields.Str(required=True, load_from="Message")}
+
+
+"""
+API: AttachNIC
+
+绑定UCloudStack网卡
+"""
+
+
+class AttachNICRequestSchema(schema.RequestSchema):
+    """AttachNIC - 绑定UCloudStack网卡"""
+
+    fields = {
+        "NICID": fields.Str(required=True, dump_to="NICID"),
+        "Region": fields.Str(required=True, dump_to="Region"),
+        "ResourceID": fields.Str(required=True, dump_to="ResourceID"),
+        "Zone": fields.Str(required=True, dump_to="Zone"),
+    }
+
+
+class AttachNICResponseSchema(schema.ResponseSchema):
+    """AttachNIC - 绑定UCloudStack网卡"""
 
     fields = {"Message": fields.Str(required=True, load_from="Message")}
 
@@ -73,8 +95,7 @@ API: BindAlarmTemplate
 
 
 class BindAlarmTemplateRequestSchema(schema.RequestSchema):
-    """ BindAlarmTemplate - 绑定告警模板
-    """
+    """BindAlarmTemplate - 绑定告警模板"""
 
     fields = {
         "AlarmTemplateID": fields.Str(required=True, dump_to="AlarmTemplateID"),
@@ -86,8 +107,7 @@ class BindAlarmTemplateRequestSchema(schema.RequestSchema):
 
 
 class BindAlarmTemplateResponseSchema(schema.ResponseSchema):
-    """ BindAlarmTemplate - 绑定告警模板
-    """
+    """BindAlarmTemplate - 绑定告警模板"""
 
     fields = {"Message": fields.Str(required=True, load_from="Message")}
 
@@ -95,13 +115,12 @@ class BindAlarmTemplateResponseSchema(schema.ResponseSchema):
 """
 API: BindEIP
 
-绑定UCoudStack外网IP
+绑定外网 IP
 """
 
 
 class BindEIPRequestSchema(schema.RequestSchema):
-    """ BindEIP - 绑定UCoudStack外网IP
-    """
+    """BindEIP - 绑定外网 IP"""
 
     fields = {
         "EIPID": fields.Str(required=True, dump_to="EIPID"),
@@ -113,8 +132,7 @@ class BindEIPRequestSchema(schema.RequestSchema):
 
 
 class BindEIPResponseSchema(schema.ResponseSchema):
-    """ BindEIP - 绑定UCoudStack外网IP
-    """
+    """BindEIP - 绑定外网 IP"""
 
     fields = {"Message": fields.Str(required=True, load_from="Message")}
 
@@ -127,8 +145,7 @@ API: BindPhysicalIP
 
 
 class BindPhysicalIPRequestSchema(schema.RequestSchema):
-    """ BindPhysicalIP - 绑定物理 IP ，被绑定的资源必须处于运行中或有效状态。
-    """
+    """BindPhysicalIP - 绑定物理 IP ，被绑定的资源必须处于运行中或有效状态。"""
 
     fields = {
         "PhysicalIPID": fields.Str(required=True, dump_to="PhysicalIPID"),
@@ -140,8 +157,7 @@ class BindPhysicalIPRequestSchema(schema.RequestSchema):
 
 
 class BindPhysicalIPResponseSchema(schema.ResponseSchema):
-    """ BindPhysicalIP - 绑定物理 IP ，被绑定的资源必须处于运行中或有效状态。
-    """
+    """BindPhysicalIP - 绑定物理 IP ，被绑定的资源必须处于运行中或有效状态。"""
 
     fields = {"Message": fields.Str(required=True, load_from="Message")}
 
@@ -154,11 +170,10 @@ API: BindSecurityGroup
 
 
 class BindSecurityGroupRequestSchema(schema.RequestSchema):
-    """ BindSecurityGroup - 绑定安全组
-    """
+    """BindSecurityGroup - 绑定安全组"""
 
     fields = {
-        "NICID": fields.Str(required=False, dump_to="NICID"),
+        "NICType": fields.Str(required=False, dump_to="NICType"),
         "Region": fields.Str(required=True, dump_to="Region"),
         "ResourceID": fields.Str(required=True, dump_to="ResourceID"),
         "SGID": fields.Str(required=True, dump_to="SGID"),
@@ -167,8 +182,7 @@ class BindSecurityGroupRequestSchema(schema.RequestSchema):
 
 
 class BindSecurityGroupResponseSchema(schema.ResponseSchema):
-    """ BindSecurityGroup - 绑定安全组
-    """
+    """BindSecurityGroup - 绑定安全组"""
 
     fields = {"Message": fields.Str(required=True, load_from="Message")}
 
@@ -181,8 +195,7 @@ API: CloneDisk
 
 
 class CloneDiskRequestSchema(schema.RequestSchema):
-    """ CloneDisk - 克隆硬盘
-    """
+    """CloneDisk - 克隆硬盘"""
 
     fields = {
         "ChargeType": fields.Str(required=True, dump_to="ChargeType"),
@@ -195,8 +208,7 @@ class CloneDiskRequestSchema(schema.RequestSchema):
 
 
 class CloneDiskResponseSchema(schema.ResponseSchema):
-    """ CloneDisk - 克隆硬盘
-    """
+    """CloneDisk - 克隆硬盘"""
 
     fields = {
         "DiskID": fields.Str(required=True, load_from="DiskID"),
@@ -212,8 +224,7 @@ API: CreateCertificate
 
 
 class CreateCertificateRequestSchema(schema.RequestSchema):
-    """ CreateCertificate - 创建证书
-    """
+    """CreateCertificate - 创建证书"""
 
     fields = {
         "Certificate": fields.Str(required=True, dump_to="Certificate"),
@@ -227,8 +238,7 @@ class CreateCertificateRequestSchema(schema.RequestSchema):
 
 
 class CreateCertificateResponseSchema(schema.ResponseSchema):
-    """ CreateCertificate - 创建证书
-    """
+    """CreateCertificate - 创建证书"""
 
     fields = {
         "CertificateID": fields.Str(required=True, load_from="CertificateID"),
@@ -244,8 +254,7 @@ API: CreateCustomImage
 
 
 class CreateCustomImageRequestSchema(schema.RequestSchema):
-    """ CreateCustomImage - 创建自制镜像
-    """
+    """CreateCustomImage - 创建自制镜像"""
 
     fields = {
         "ImageDescription": fields.Str(
@@ -259,8 +268,7 @@ class CreateCustomImageRequestSchema(schema.RequestSchema):
 
 
 class CreateCustomImageResponseSchema(schema.ResponseSchema):
-    """ CreateCustomImage - 创建自制镜像
-    """
+    """CreateCustomImage - 创建自制镜像"""
 
     fields = {
         "ImageID": fields.Str(required=True, load_from="ImageID"),
@@ -276,8 +284,7 @@ API: CreateDisk
 
 
 class CreateDiskRequestSchema(schema.RequestSchema):
-    """ CreateDisk - 创建硬盘
-    """
+    """CreateDisk - 创建硬盘"""
 
     fields = {
         "ChargeType": fields.Str(required=True, dump_to="ChargeType"),
@@ -291,8 +298,7 @@ class CreateDiskRequestSchema(schema.RequestSchema):
 
 
 class CreateDiskResponseSchema(schema.ResponseSchema):
-    """ CreateDisk - 创建硬盘
-    """
+    """CreateDisk - 创建硬盘"""
 
     fields = {
         "DiskID": fields.Str(required=True, load_from="DiskID"),
@@ -308,8 +314,7 @@ API: CreateLB
 
 
 class CreateLBRequestSchema(schema.RequestSchema):
-    """ CreateLB - 创建负载均衡
-    """
+    """CreateLB - 创建负载均衡"""
 
     fields = {
         "ChargeType": fields.Str(required=True, dump_to="ChargeType"),
@@ -328,8 +333,7 @@ class CreateLBRequestSchema(schema.RequestSchema):
 
 
 class CreateLBResponseSchema(schema.ResponseSchema):
-    """ CreateLB - 创建负载均衡
-    """
+    """CreateLB - 创建负载均衡"""
 
     fields = {
         "LBID": fields.Str(required=False, load_from="LBID"),
@@ -345,8 +349,7 @@ API: CreateNATGW
 
 
 class CreateNATGWRequestSchema(schema.RequestSchema):
-    """ CreateNATGW - 创建NAT网关
-    """
+    """CreateNATGW - 创建NAT网关"""
 
     fields = {
         "ChargeType": fields.Str(required=True, dump_to="ChargeType"),
@@ -364,8 +367,7 @@ class CreateNATGWRequestSchema(schema.RequestSchema):
 
 
 class CreateNATGWResponseSchema(schema.ResponseSchema):
-    """ CreateNATGW - 创建NAT网关
-    """
+    """CreateNATGW - 创建NAT网关"""
 
     fields = {
         "Message": fields.Str(required=False, load_from="Message"),
@@ -381,8 +383,7 @@ API: CreateNATGWRule
 
 
 class CreateNATGWRuleRequestSchema(schema.RequestSchema):
-    """ CreateNATGWRule - 添加NAT网关白名单
-    """
+    """CreateNATGWRule - 添加NAT网关白名单"""
 
     fields = {
         "BindResourceID": fields.Str(required=True, dump_to="BindResourceID"),
@@ -394,12 +395,41 @@ class CreateNATGWRuleRequestSchema(schema.RequestSchema):
 
 
 class CreateNATGWRuleResponseSchema(schema.ResponseSchema):
-    """ CreateNATGWRule - 添加NAT网关白名单
-    """
+    """CreateNATGWRule - 添加NAT网关白名单"""
 
     fields = {
         "Message": fields.Str(required=True, load_from="Message"),
         "RuleID": fields.Str(required=False, load_from="RuleID"),
+    }
+
+
+"""
+API: CreateNIC
+
+创建网卡
+"""
+
+
+class CreateNICRequestSchema(schema.RequestSchema):
+    """CreateNIC - 创建网卡"""
+
+    fields = {
+        "IP": fields.Str(required=False, dump_to="IP"),
+        "Name": fields.Str(required=True, dump_to="Name"),
+        "Region": fields.Str(required=True, dump_to="Region"),
+        "SGID": fields.Str(required=False, dump_to="SGID"),
+        "SubnetID": fields.Str(required=True, dump_to="SubnetID"),
+        "VPCID": fields.Str(required=True, dump_to="VPCID"),
+        "Zone": fields.Str(required=True, dump_to="Zone"),
+    }
+
+
+class CreateNICResponseSchema(schema.ResponseSchema):
+    """CreateNIC - 创建网卡"""
+
+    fields = {
+        "Message": fields.Str(required=True, load_from="Message"),
+        "NICID": fields.Str(required=True, load_from="NICID"),
     }
 
 
@@ -411,8 +441,7 @@ API: CreatePhysicalIP
 
 
 class CreatePhysicalIPRequestSchema(schema.RequestSchema):
-    """ CreatePhysicalIP - 创建物理 IP ，需确保平台已配置物理 IP 线路相关信息及物理网络联通性。
-    """
+    """CreatePhysicalIP - 创建物理 IP ，需确保平台已配置物理 IP 线路相关信息及物理网络联通性。"""
 
     fields = {
         "Name": fields.Str(required=True, dump_to="Name"),
@@ -424,8 +453,7 @@ class CreatePhysicalIPRequestSchema(schema.RequestSchema):
 
 
 class CreatePhysicalIPResponseSchema(schema.ResponseSchema):
-    """ CreatePhysicalIP - 创建物理 IP ，需确保平台已配置物理 IP 线路相关信息及物理网络联通性。
-    """
+    """CreatePhysicalIP - 创建物理 IP ，需确保平台已配置物理 IP 线路相关信息及物理网络联通性。"""
 
     fields = {
         "Message": fields.Str(required=False, load_from="Message"),
@@ -441,8 +469,7 @@ API: CreateRS
 
 
 class CreateRSRequestSchema(schema.RequestSchema):
-    """ CreateRS - 为负载均衡的 VServer 添加后端服务节点。
-    """
+    """CreateRS - 为负载均衡的 VServer 添加后端服务节点。"""
 
     fields = {
         "BindResourceID": fields.Str(required=True, dump_to="BindResourceID"),
@@ -456,8 +483,7 @@ class CreateRSRequestSchema(schema.RequestSchema):
 
 
 class CreateRSResponseSchema(schema.ResponseSchema):
-    """ CreateRS - 为负载均衡的 VServer 添加后端服务节点。
-    """
+    """CreateRS - 为负载均衡的 VServer 添加后端服务节点。"""
 
     fields = {
         "Message": fields.Str(required=False, load_from="Message"),
@@ -473,8 +499,7 @@ API: CreateSecurityGroup
 
 
 class CreateSecurityGroupRequestSchema(schema.RequestSchema):
-    """ CreateSecurityGroup - 创建安全组
-    """
+    """CreateSecurityGroup - 创建安全组"""
 
     fields = {
         "Name": fields.Str(required=True, dump_to="Name"),
@@ -486,8 +511,7 @@ class CreateSecurityGroupRequestSchema(schema.RequestSchema):
 
 
 class CreateSecurityGroupResponseSchema(schema.ResponseSchema):
-    """ CreateSecurityGroup - 创建安全组
-    """
+    """CreateSecurityGroup - 创建安全组"""
 
     fields = {
         "Message": fields.Str(required=True, load_from="Message"),
@@ -503,8 +527,7 @@ API: CreateSecurityGroupRule
 
 
 class CreateSecurityGroupRuleRequestSchema(schema.RequestSchema):
-    """ CreateSecurityGroupRule - 创建安全组规则
-    """
+    """CreateSecurityGroupRule - 创建安全组规则"""
 
     fields = {
         "Region": fields.Str(required=True, dump_to="Region"),
@@ -515,8 +538,7 @@ class CreateSecurityGroupRuleRequestSchema(schema.RequestSchema):
 
 
 class CreateSecurityGroupRuleResponseSchema(schema.ResponseSchema):
-    """ CreateSecurityGroupRule - 创建安全组规则
-    """
+    """CreateSecurityGroupRule - 创建安全组规则"""
 
     fields = {
         "Message": fields.Str(required=True, load_from="Message"),
@@ -532,8 +554,7 @@ API: CreateSnapshot
 
 
 class CreateSnapshotRequestSchema(schema.RequestSchema):
-    """ CreateSnapshot - 创建硬盘快照
-    """
+    """CreateSnapshot - 创建硬盘快照"""
 
     fields = {
         "DiskID": fields.Str(required=True, dump_to="DiskID"),
@@ -545,8 +566,7 @@ class CreateSnapshotRequestSchema(schema.RequestSchema):
 
 
 class CreateSnapshotResponseSchema(schema.ResponseSchema):
-    """ CreateSnapshot - 创建硬盘快照
-    """
+    """CreateSnapshot - 创建硬盘快照"""
 
     fields = {
         "Message": fields.Str(required=True, load_from="Message"),
@@ -562,8 +582,7 @@ API: CreateSubnet
 
 
 class CreateSubnetRequestSchema(schema.RequestSchema):
-    """ CreateSubnet - 创建子网
-    """
+    """CreateSubnet - 创建子网"""
 
     fields = {
         "Name": fields.Str(required=True, dump_to="Name"),
@@ -576,8 +595,7 @@ class CreateSubnetRequestSchema(schema.RequestSchema):
 
 
 class CreateSubnetResponseSchema(schema.ResponseSchema):
-    """ CreateSubnet - 创建子网
-    """
+    """CreateSubnet - 创建子网"""
 
     fields = {
         "Message": fields.Str(required=True, load_from="Message"),
@@ -593,8 +611,7 @@ API: CreateUser
 
 
 class CreateUserRequestSchema(schema.RequestSchema):
-    """ CreateUser - 管理员添加账号
-    """
+    """CreateUser - 管理员添加账号"""
 
     fields = {
         "PassWord": fields.Str(required=True, dump_to="PassWord"),
@@ -603,8 +620,7 @@ class CreateUserRequestSchema(schema.RequestSchema):
 
 
 class CreateUserResponseSchema(schema.ResponseSchema):
-    """ CreateUser - 管理员添加账号
-    """
+    """CreateUser - 管理员添加账号"""
 
     fields = {
         "Message": fields.Str(required=True, load_from="Message"),
@@ -620,8 +636,7 @@ API: CreateVMInstance
 
 
 class CreateVMInstanceRequestSchema(schema.RequestSchema):
-    """ CreateVMInstance - 创建虚拟机
-    """
+    """CreateVMInstance - 创建虚拟机"""
 
     fields = {
         "Bandwidth": fields.Str(required=False, dump_to="Bandwidth"),
@@ -651,8 +666,7 @@ class CreateVMInstanceRequestSchema(schema.RequestSchema):
 
 
 class CreateVMInstanceResponseSchema(schema.ResponseSchema):
-    """ CreateVMInstance - 创建虚拟机
-    """
+    """CreateVMInstance - 创建虚拟机"""
 
     fields = {
         "DiskID": fields.Str(required=False, load_from="DiskID"),
@@ -670,8 +684,7 @@ API: CreateVPC
 
 
 class CreateVPCRequestSchema(schema.RequestSchema):
-    """ CreateVPC - 创建VPC
-    """
+    """CreateVPC - 创建VPC"""
 
     fields = {
         "Name": fields.Str(required=True, dump_to="Name"),
@@ -683,8 +696,7 @@ class CreateVPCRequestSchema(schema.RequestSchema):
 
 
 class CreateVPCResponseSchema(schema.ResponseSchema):
-    """ CreateVPC - 创建VPC
-    """
+    """CreateVPC - 创建VPC"""
 
     fields = {
         "Message": fields.Str(required=True, load_from="Message"),
@@ -700,8 +712,7 @@ API: CreateVS
 
 
 class CreateVSRequestSchema(schema.RequestSchema):
-    """ CreateVS - 创建负载均衡VServer
-    """
+    """CreateVS - 创建负载均衡VServer"""
 
     fields = {
         "CACertificateID": fields.Str(
@@ -731,11 +742,12 @@ class CreateVSRequestSchema(schema.RequestSchema):
 
 
 class CreateVSResponseSchema(schema.ResponseSchema):
-    """ CreateVS - 创建负载均衡VServer
-    """
+    """CreateVS - 创建负载均衡VServer"""
 
     fields = {
+        "Action": fields.Str(required=True, load_from="Action"),
         "Message": fields.Str(required=False, load_from="Message"),
+        "RetCode": fields.Int(required=True, load_from="RetCode"),
         "VSID": fields.Str(required=False, load_from="VSID"),
     }
 
@@ -748,8 +760,7 @@ API: CreateVSPolicy
 
 
 class CreateVSPolicyRequestSchema(schema.RequestSchema):
-    """ CreateVSPolicy - 创建七层负载均衡内容转发规则，仅当 VServer 的监听协议为 HTTP 时有效。
-    """
+    """CreateVSPolicy - 创建七层负载均衡内容转发规则，仅当 VServer 的监听协议为 HTTP 时有效。"""
 
     fields = {
         "Domain": fields.Str(required=False, dump_to="Domain"),
@@ -763,8 +774,7 @@ class CreateVSPolicyRequestSchema(schema.RequestSchema):
 
 
 class CreateVSPolicyResponseSchema(schema.ResponseSchema):
-    """ CreateVSPolicy - 创建七层负载均衡内容转发规则，仅当 VServer 的监听协议为 HTTP 时有效。
-    """
+    """CreateVSPolicy - 创建七层负载均衡内容转发规则，仅当 VServer 的监听协议为 HTTP 时有效。"""
 
     fields = {
         "Message": fields.Str(required=False, load_from="Message"),
@@ -780,8 +790,7 @@ API: DeleteCertificate
 
 
 class DeleteCertificateRequestSchema(schema.RequestSchema):
-    """ DeleteCertificate - 删除证书
-    """
+    """DeleteCertificate - 删除证书"""
 
     fields = {
         "CertificateID": fields.Str(required=True, dump_to="CertificateID"),
@@ -791,8 +800,7 @@ class DeleteCertificateRequestSchema(schema.RequestSchema):
 
 
 class DeleteCertificateResponseSchema(schema.ResponseSchema):
-    """ DeleteCertificate - 删除证书
-    """
+    """DeleteCertificate - 删除证书"""
 
     fields = {"Message": fields.Str(required=True, load_from="Message")}
 
@@ -805,8 +813,7 @@ API: DeleteCustomImage
 
 
 class DeleteCustomImageRequestSchema(schema.RequestSchema):
-    """ DeleteCustomImage - 删除自制镜像
-    """
+    """DeleteCustomImage - 删除自制镜像"""
 
     fields = {
         "ImageID": fields.Str(required=True, dump_to="ImageID"),
@@ -816,8 +823,7 @@ class DeleteCustomImageRequestSchema(schema.RequestSchema):
 
 
 class DeleteCustomImageResponseSchema(schema.ResponseSchema):
-    """ DeleteCustomImage - 删除自制镜像
-    """
+    """DeleteCustomImage - 删除自制镜像"""
 
     fields = {"Message": fields.Str(required=True, load_from="Message")}
 
@@ -830,8 +836,7 @@ API: DeleteDisk
 
 
 class DeleteDiskRequestSchema(schema.RequestSchema):
-    """ DeleteDisk - 删除硬盘
-    """
+    """DeleteDisk - 删除硬盘"""
 
     fields = {
         "DiskID": fields.Str(required=True, dump_to="DiskID"),
@@ -841,8 +846,7 @@ class DeleteDiskRequestSchema(schema.RequestSchema):
 
 
 class DeleteDiskResponseSchema(schema.ResponseSchema):
-    """ DeleteDisk - 删除硬盘
-    """
+    """DeleteDisk - 删除硬盘"""
 
     fields = {"Message": fields.Str(required=True, load_from="Message")}
 
@@ -855,8 +859,7 @@ API: DeleteLB
 
 
 class DeleteLBRequestSchema(schema.RequestSchema):
-    """ DeleteLB - 删除负载均衡
-    """
+    """DeleteLB - 删除负载均衡"""
 
     fields = {
         "LBID": fields.Str(required=True, dump_to="LBID"),
@@ -866,8 +869,7 @@ class DeleteLBRequestSchema(schema.RequestSchema):
 
 
 class DeleteLBResponseSchema(schema.ResponseSchema):
-    """ DeleteLB - 删除负载均衡
-    """
+    """DeleteLB - 删除负载均衡"""
 
     fields = {"Message": fields.Str(required=True, load_from="Message")}
 
@@ -880,8 +882,7 @@ API: DeleteNATGW
 
 
 class DeleteNATGWRequestSchema(schema.RequestSchema):
-    """ DeleteNATGW - 删除NAT网关
-    """
+    """DeleteNATGW - 删除NAT网关"""
 
     fields = {
         "NATGWID": fields.Str(required=True, dump_to="NATGWID"),
@@ -891,8 +892,7 @@ class DeleteNATGWRequestSchema(schema.RequestSchema):
 
 
 class DeleteNATGWResponseSchema(schema.ResponseSchema):
-    """ DeleteNATGW - 删除NAT网关
-    """
+    """DeleteNATGW - 删除NAT网关"""
 
     fields = {"Message": fields.Str(required=True, load_from="Message")}
 
@@ -905,8 +905,7 @@ API: DeleteNATGWRule
 
 
 class DeleteNATGWRuleRequestSchema(schema.RequestSchema):
-    """ DeleteNATGWRule - 删除NAT网关白名单
-    """
+    """DeleteNATGWRule - 删除NAT网关白名单"""
 
     fields = {
         "NATGWID": fields.Str(required=True, dump_to="NATGWID"),
@@ -917,8 +916,30 @@ class DeleteNATGWRuleRequestSchema(schema.RequestSchema):
 
 
 class DeleteNATGWRuleResponseSchema(schema.ResponseSchema):
-    """ DeleteNATGWRule - 删除NAT网关白名单
-    """
+    """DeleteNATGWRule - 删除NAT网关白名单"""
+
+    fields = {"Message": fields.Str(required=True, load_from="Message")}
+
+
+"""
+API: DeleteNIC
+
+删除网卡
+"""
+
+
+class DeleteNICRequestSchema(schema.RequestSchema):
+    """DeleteNIC - 删除网卡"""
+
+    fields = {
+        "NICID": fields.Str(required=True, dump_to="NICID"),
+        "Region": fields.Str(required=True, dump_to="Region"),
+        "Zone": fields.Str(required=True, dump_to="Zone"),
+    }
+
+
+class DeleteNICResponseSchema(schema.ResponseSchema):
+    """DeleteNIC - 删除网卡"""
 
     fields = {"Message": fields.Str(required=True, load_from="Message")}
 
@@ -931,8 +952,7 @@ API: DeletePhysicalIP
 
 
 class DeletePhysicalIPRequestSchema(schema.RequestSchema):
-    """ DeletePhysicalIP - 删除物理IP
-    """
+    """DeletePhysicalIP - 删除物理IP"""
 
     fields = {
         "PhysicalIPID": fields.Str(required=True, dump_to="PhysicalIPID"),
@@ -942,8 +962,7 @@ class DeletePhysicalIPRequestSchema(schema.RequestSchema):
 
 
 class DeletePhysicalIPResponseSchema(schema.ResponseSchema):
-    """ DeletePhysicalIP - 删除物理IP
-    """
+    """DeletePhysicalIP - 删除物理IP"""
 
     fields = {"Message": fields.Str(required=True, load_from="Message")}
 
@@ -956,8 +975,7 @@ API: DeleteRS
 
 
 class DeleteRSRequestSchema(schema.RequestSchema):
-    """ DeleteRS - 移除负载均衡的单个服务节点
-    """
+    """DeleteRS - 移除负载均衡的单个服务节点"""
 
     fields = {
         "LBID": fields.Str(required=True, dump_to="LBID"),
@@ -969,8 +987,7 @@ class DeleteRSRequestSchema(schema.RequestSchema):
 
 
 class DeleteRSResponseSchema(schema.ResponseSchema):
-    """ DeleteRS - 移除负载均衡的单个服务节点
-    """
+    """DeleteRS - 移除负载均衡的单个服务节点"""
 
     fields = {"Message": fields.Str(required=True, load_from="Message")}
 
@@ -983,8 +1000,7 @@ API: DeleteSecurityGroup
 
 
 class DeleteSecurityGroupRequestSchema(schema.RequestSchema):
-    """ DeleteSecurityGroup - 删除安全组
-    """
+    """DeleteSecurityGroup - 删除安全组"""
 
     fields = {
         "Region": fields.Str(required=True, dump_to="Region"),
@@ -994,8 +1010,7 @@ class DeleteSecurityGroupRequestSchema(schema.RequestSchema):
 
 
 class DeleteSecurityGroupResponseSchema(schema.ResponseSchema):
-    """ DeleteSecurityGroup - 删除安全组
-    """
+    """DeleteSecurityGroup - 删除安全组"""
 
     fields = {"Message": fields.Str(required=True, load_from="Message")}
 
@@ -1008,8 +1023,7 @@ API: DeleteSecurityGroupRule
 
 
 class DeleteSecurityGroupRuleRequestSchema(schema.RequestSchema):
-    """ DeleteSecurityGroupRule - 删除安全组规则
-    """
+    """DeleteSecurityGroupRule - 删除安全组规则"""
 
     fields = {
         "Region": fields.Str(required=True, dump_to="Region"),
@@ -1020,8 +1034,7 @@ class DeleteSecurityGroupRuleRequestSchema(schema.RequestSchema):
 
 
 class DeleteSecurityGroupRuleResponseSchema(schema.ResponseSchema):
-    """ DeleteSecurityGroupRule - 删除安全组规则
-    """
+    """DeleteSecurityGroupRule - 删除安全组规则"""
 
     fields = {"Message": fields.Str(required=True, load_from="Message")}
 
@@ -1034,8 +1047,7 @@ API: DeleteSnapshot
 
 
 class DeleteSnapshotRequestSchema(schema.RequestSchema):
-    """ DeleteSnapshot - 删除快照，仅支持状态为正常的快照进行删除操作。
-    """
+    """DeleteSnapshot - 删除快照，仅支持状态为正常的快照进行删除操作。"""
 
     fields = {
         "Region": fields.Str(required=True, dump_to="Region"),
@@ -1045,8 +1057,7 @@ class DeleteSnapshotRequestSchema(schema.RequestSchema):
 
 
 class DeleteSnapshotResponseSchema(schema.ResponseSchema):
-    """ DeleteSnapshot - 删除快照，仅支持状态为正常的快照进行删除操作。
-    """
+    """DeleteSnapshot - 删除快照，仅支持状态为正常的快照进行删除操作。"""
 
     fields = {"Message": fields.Str(required=True, load_from="Message")}
 
@@ -1059,8 +1070,7 @@ API: DeleteSubnet
 
 
 class DeleteSubnetRequestSchema(schema.RequestSchema):
-    """ DeleteSubnet - 删除子网
-    """
+    """DeleteSubnet - 删除子网"""
 
     fields = {
         "Region": fields.Str(required=True, dump_to="Region"),
@@ -1070,8 +1080,7 @@ class DeleteSubnetRequestSchema(schema.RequestSchema):
 
 
 class DeleteSubnetResponseSchema(schema.ResponseSchema):
-    """ DeleteSubnet - 删除子网
-    """
+    """DeleteSubnet - 删除子网"""
 
     fields = {"Message": fields.Str(required=True, load_from="Message")}
 
@@ -1084,8 +1093,7 @@ API: DeleteVMInstance
 
 
 class DeleteVMInstanceRequestSchema(schema.RequestSchema):
-    """ DeleteVMInstance - 删除虚拟机
-    """
+    """DeleteVMInstance - 删除虚拟机"""
 
     fields = {
         "Region": fields.Str(required=True, dump_to="Region"),
@@ -1095,8 +1103,7 @@ class DeleteVMInstanceRequestSchema(schema.RequestSchema):
 
 
 class DeleteVMInstanceResponseSchema(schema.ResponseSchema):
-    """ DeleteVMInstance - 删除虚拟机
-    """
+    """DeleteVMInstance - 删除虚拟机"""
 
     fields = {"Message": fields.Str(required=False, load_from="Message")}
 
@@ -1109,8 +1116,7 @@ API: DeleteVPC
 
 
 class DeleteVPCRequestSchema(schema.RequestSchema):
-    """ DeleteVPC - 删除VPC
-    """
+    """DeleteVPC - 删除VPC"""
 
     fields = {
         "Region": fields.Str(required=True, dump_to="Region"),
@@ -1120,8 +1126,7 @@ class DeleteVPCRequestSchema(schema.RequestSchema):
 
 
 class DeleteVPCResponseSchema(schema.ResponseSchema):
-    """ DeleteVPC - 删除VPC
-    """
+    """DeleteVPC - 删除VPC"""
 
     fields = {"Message": fields.Str(required=True, load_from="Message")}
 
@@ -1134,8 +1139,7 @@ API: DeleteVS
 
 
 class DeleteVSRequestSchema(schema.RequestSchema):
-    """ DeleteVS - 删除VServer
-    """
+    """DeleteVS - 删除VServer"""
 
     fields = {
         "LBID": fields.Str(required=True, dump_to="LBID"),
@@ -1146,8 +1150,7 @@ class DeleteVSRequestSchema(schema.RequestSchema):
 
 
 class DeleteVSResponseSchema(schema.ResponseSchema):
-    """ DeleteVS - 删除VServer
-    """
+    """DeleteVS - 删除VServer"""
 
     fields = {"Message": fields.Str(required=True, load_from="Message")}
 
@@ -1160,8 +1163,7 @@ API: DeleteVSPolicy
 
 
 class DeleteVSPolicyRequestSchema(schema.RequestSchema):
-    """ DeleteVSPolicy - 删除七层负载均衡内容转发规则，仅当 VServer 的监听协议为 HTTP 时有效。
-    """
+    """DeleteVSPolicy - 删除七层负载均衡内容转发规则，仅当 VServer 的监听协议为 HTTP 时有效。"""
 
     fields = {
         "LBID": fields.Str(required=True, dump_to="LBID"),
@@ -1173,8 +1175,7 @@ class DeleteVSPolicyRequestSchema(schema.RequestSchema):
 
 
 class DeleteVSPolicyResponseSchema(schema.ResponseSchema):
-    """ DeleteVSPolicy - 删除七层负载均衡内容转发规则，仅当 VServer 的监听协议为 HTTP 时有效。
-    """
+    """DeleteVSPolicy - 删除七层负载均衡内容转发规则，仅当 VServer 的监听协议为 HTTP 时有效。"""
 
     fields = {"Message": fields.Str(required=False, load_from="Message")}
 
@@ -1187,8 +1188,7 @@ API: DescribeCertificate
 
 
 class DescribeCertificateRequestSchema(schema.RequestSchema):
-    """ DescribeCertificate - 查询证书
-    """
+    """DescribeCertificate - 查询证书"""
 
     fields = {
         "CertificateIDs": fields.List(fields.Str()),
@@ -1203,8 +1203,7 @@ class DescribeCertificateRequestSchema(schema.RequestSchema):
 
 
 class DescribeCertificateResponseSchema(schema.ResponseSchema):
-    """ DescribeCertificate - 查询证书
-    """
+    """DescribeCertificate - 查询证书"""
 
     fields = {
         "Infos": fields.List(
@@ -1223,11 +1222,11 @@ API: DescribeDisk
 
 
 class DescribeDiskRequestSchema(schema.RequestSchema):
-    """ DescribeDisk - 获取硬盘信息
-    """
+    """DescribeDisk - 获取硬盘信息"""
 
     fields = {
         "DiskIDs": fields.List(fields.Str()),
+        "DiskType": fields.Str(required=False, dump_to="DiskType"),
         "Limit": fields.Int(required=False, dump_to="Limit"),
         "Offset": fields.Int(required=False, dump_to="Offset"),
         "Region": fields.Str(required=True, dump_to="Region"),
@@ -1236,8 +1235,7 @@ class DescribeDiskRequestSchema(schema.RequestSchema):
 
 
 class DescribeDiskResponseSchema(schema.ResponseSchema):
-    """ DescribeDisk - 获取硬盘信息
-    """
+    """DescribeDisk - 获取硬盘信息"""
 
     fields = {
         "Infos": fields.List(
@@ -1256,11 +1254,12 @@ API: DescribeEIP
 
 
 class DescribeEIPRequestSchema(schema.RequestSchema):
-    """ DescribeEIP - 获取外网IP的信息
-    """
+    """DescribeEIP - 获取外网IP的信息"""
 
     fields = {
+        "BindResourceID": fields.Str(required=False, dump_to="BindResourceID"),
         "EIPIDs": fields.List(fields.Str()),
+        "IPVersion": fields.Str(required=False, dump_to="IPVersion"),
         "Limit": fields.Str(required=False, dump_to="Limit"),
         "Offset": fields.Str(required=False, dump_to="Offset"),
         "Region": fields.Str(required=True, dump_to="Region"),
@@ -1269,8 +1268,7 @@ class DescribeEIPRequestSchema(schema.RequestSchema):
 
 
 class DescribeEIPResponseSchema(schema.ResponseSchema):
-    """ DescribeEIP - 获取外网IP的信息
-    """
+    """DescribeEIP - 获取外网IP的信息"""
 
     fields = {
         "Infos": fields.List(
@@ -1289,8 +1287,7 @@ API: DescribeImage
 
 
 class DescribeImageRequestSchema(schema.RequestSchema):
-    """ DescribeImage - 获取镜像信息，包括默认镜像和自制镜像。
-    """
+    """DescribeImage - 获取镜像信息，包括默认镜像和自制镜像。"""
 
     fields = {
         "ImageIDs": fields.List(fields.Str()),
@@ -1303,8 +1300,7 @@ class DescribeImageRequestSchema(schema.RequestSchema):
 
 
 class DescribeImageResponseSchema(schema.ResponseSchema):
-    """ DescribeImage - 获取镜像信息，包括默认镜像和自制镜像。
-    """
+    """DescribeImage - 获取镜像信息，包括默认镜像和自制镜像。"""
 
     fields = {
         "Action": fields.Str(required=True, load_from="Action"),
@@ -1325,8 +1321,7 @@ API: DescribeLB
 
 
 class DescribeLBRequestSchema(schema.RequestSchema):
-    """ DescribeLB - 获取负载均衡信息
-    """
+    """DescribeLB - 获取负载均衡信息"""
 
     fields = {
         "LBIDs": fields.List(fields.Str()),
@@ -1340,8 +1335,7 @@ class DescribeLBRequestSchema(schema.RequestSchema):
 
 
 class DescribeLBResponseSchema(schema.ResponseSchema):
-    """ DescribeLB - 获取负载均衡信息
-    """
+    """DescribeLB - 获取负载均衡信息"""
 
     fields = {
         "Infos": fields.List(
@@ -1360,8 +1354,7 @@ API: DescribeMetric
 
 
 class DescribeMetricRequestSchema(schema.RequestSchema):
-    """ DescribeMetric - 获取资源监控信息
-    """
+    """DescribeMetric - 获取资源监控信息"""
 
     fields = {
         "BeginTime": fields.Str(required=True, dump_to="BeginTime"),
@@ -1375,8 +1368,7 @@ class DescribeMetricRequestSchema(schema.RequestSchema):
 
 
 class DescribeMetricResponseSchema(schema.ResponseSchema):
-    """ DescribeMetric - 获取资源监控信息
-    """
+    """DescribeMetric - 获取资源监控信息"""
 
     fields = {
         "Infos": fields.List(
@@ -1395,8 +1387,7 @@ API: DescribeNATGW
 
 
 class DescribeNATGWRequestSchema(schema.RequestSchema):
-    """ DescribeNATGW - 获取NAT网关信息
-    """
+    """DescribeNATGW - 获取NAT网关信息"""
 
     fields = {
         "Limit": fields.Int(required=False, dump_to="Limit"),
@@ -1408,8 +1399,7 @@ class DescribeNATGWRequestSchema(schema.RequestSchema):
 
 
 class DescribeNATGWResponseSchema(schema.ResponseSchema):
-    """ DescribeNATGW - 获取NAT网关信息
-    """
+    """DescribeNATGW - 获取NAT网关信息"""
 
     fields = {
         "Infos": fields.List(
@@ -1428,8 +1418,7 @@ API: DescribeNATGWRule
 
 
 class DescribeNATGWRuleRequestSchema(schema.RequestSchema):
-    """ DescribeNATGWRule - 获取NAT网关白名单信息 
-    """
+    """DescribeNATGWRule - 获取NAT网关白名单信息"""
 
     fields = {
         "BindResourceIDs": fields.List(fields.Str()),
@@ -1444,12 +1433,42 @@ class DescribeNATGWRuleRequestSchema(schema.RequestSchema):
 
 
 class DescribeNATGWRuleResponseSchema(schema.ResponseSchema):
-    """ DescribeNATGWRule - 获取NAT网关白名单信息 
-    """
+    """DescribeNATGWRule - 获取NAT网关白名单信息"""
 
     fields = {
         "Infos": fields.List(
             models.NATGWRuleInfoSchema(), required=True, load_from="Infos"
+        ),
+        "Message": fields.Str(required=True, load_from="Message"),
+        "TotalCount": fields.Int(required=True, load_from="TotalCount"),
+    }
+
+
+"""
+API: DescribeNIC
+
+获取网卡信息
+"""
+
+
+class DescribeNICRequestSchema(schema.RequestSchema):
+    """DescribeNIC - 获取网卡信息"""
+
+    fields = {
+        "Limit": fields.Int(required=False, dump_to="Limit"),
+        "NICIDs": fields.List(fields.Str()),
+        "Offset": fields.Int(required=False, dump_to="Offset"),
+        "Region": fields.Str(required=True, dump_to="Region"),
+        "Zone": fields.Str(required=True, dump_to="Zone"),
+    }
+
+
+class DescribeNICResponseSchema(schema.ResponseSchema):
+    """DescribeNIC - 获取网卡信息"""
+
+    fields = {
+        "Infos": fields.List(
+            models.NICInfoSchema(), required=True, load_from="Infos"
         ),
         "Message": fields.Str(required=True, load_from="Message"),
         "TotalCount": fields.Int(required=True, load_from="TotalCount"),
@@ -1464,8 +1483,7 @@ API: DescribeOPLogs
 
 
 class DescribeOPLogsRequestSchema(schema.RequestSchema):
-    """ DescribeOPLogs - 查询操作日志
-    """
+    """DescribeOPLogs - 查询操作日志"""
 
     fields = {
         "BeginTime": fields.Int(required=True, dump_to="BeginTime"),
@@ -1481,8 +1499,7 @@ class DescribeOPLogsRequestSchema(schema.RequestSchema):
 
 
 class DescribeOPLogsResponseSchema(schema.ResponseSchema):
-    """ DescribeOPLogs - 查询操作日志
-    """
+    """DescribeOPLogs - 查询操作日志"""
 
     fields = {
         "Infos": fields.List(
@@ -1501,8 +1518,7 @@ API: DescribePhysicalIP
 
 
 class DescribePhysicalIPRequestSchema(schema.RequestSchema):
-    """ DescribePhysicalIP - 获取物理IP信息 
-    """
+    """DescribePhysicalIP - 获取物理IP信息"""
 
     fields = {
         "Limit": fields.Str(required=False, dump_to="Limit"),
@@ -1514,8 +1530,7 @@ class DescribePhysicalIPRequestSchema(schema.RequestSchema):
 
 
 class DescribePhysicalIPResponseSchema(schema.ResponseSchema):
-    """ DescribePhysicalIP - 获取物理IP信息 
-    """
+    """DescribePhysicalIP - 获取物理IP信息"""
 
     fields = {
         "Infos": fields.List(
@@ -1534,8 +1549,7 @@ API: DescribeRS
 
 
 class DescribeRSRequestSchema(schema.RequestSchema):
-    """ DescribeRS - 获取负载均衡服务的服务节点信息
-    """
+    """DescribeRS - 获取负载均衡服务的服务节点信息"""
 
     fields = {
         "LBID": fields.Str(required=True, dump_to="LBID"),
@@ -1549,8 +1563,7 @@ class DescribeRSRequestSchema(schema.RequestSchema):
 
 
 class DescribeRSResponseSchema(schema.ResponseSchema):
-    """ DescribeRS - 获取负载均衡服务的服务节点信息
-    """
+    """DescribeRS - 获取负载均衡服务的服务节点信息"""
 
     fields = {
         "Infos": fields.List(
@@ -1569,8 +1582,7 @@ API: DescribeRecycledResource
 
 
 class DescribeRecycledResourceRequestSchema(schema.RequestSchema):
-    """ DescribeRecycledResource - 查询回收站资源
-    """
+    """DescribeRecycledResource - 查询回收站资源"""
 
     fields = {
         "Limit": fields.Int(required=False, dump_to="Limit"),
@@ -1582,8 +1594,7 @@ class DescribeRecycledResourceRequestSchema(schema.RequestSchema):
 
 
 class DescribeRecycledResourceResponseSchema(schema.ResponseSchema):
-    """ DescribeRecycledResource - 查询回收站资源
-    """
+    """DescribeRecycledResource - 查询回收站资源"""
 
     fields = {
         "Infos": fields.List(
@@ -1603,8 +1614,7 @@ API: DescribeSecurityGroup
 
 
 class DescribeSecurityGroupRequestSchema(schema.RequestSchema):
-    """ DescribeSecurityGroup - 查询安全组信息
-    """
+    """DescribeSecurityGroup - 查询安全组信息"""
 
     fields = {
         "Limit": fields.Int(required=False, dump_to="Limit"),
@@ -1616,8 +1626,7 @@ class DescribeSecurityGroupRequestSchema(schema.RequestSchema):
 
 
 class DescribeSecurityGroupResponseSchema(schema.ResponseSchema):
-    """ DescribeSecurityGroup - 查询安全组信息
-    """
+    """DescribeSecurityGroup - 查询安全组信息"""
 
     fields = {
         "Infos": fields.List(
@@ -1629,6 +1638,69 @@ class DescribeSecurityGroupResponseSchema(schema.ResponseSchema):
 
 
 """
+API: DescribeSecurityGroupResource
+
+查询安全组绑定的资源信息
+"""
+
+
+class DescribeSecurityGroupResourceRequestSchema(schema.RequestSchema):
+    """DescribeSecurityGroupResource - 查询安全组绑定的资源信息"""
+
+    fields = {
+        "Limit": fields.Int(required=False, dump_to="Limit"),
+        "Offset": fields.Int(required=False, dump_to="Offset"),
+        "Region": fields.Str(required=True, dump_to="Region"),
+        "SGID": fields.Str(required=True, dump_to="SGID"),
+        "Zone": fields.Str(required=True, dump_to="Zone"),
+    }
+
+
+class DescribeSecurityGroupResourceResponseSchema(schema.ResponseSchema):
+    """DescribeSecurityGroupResource - 查询安全组绑定的资源信息"""
+
+    fields = {
+        "Infos": fields.List(
+            models.SGResourceInfoSchema(), required=True, load_from="Infos"
+        ),
+        "Message": fields.Str(required=True, load_from="Message"),
+        "TotalCount": fields.Int(required=True, load_from="TotalCount"),
+    }
+
+
+"""
+API: DescribeSnapshot
+
+查询硬盘快照信息
+"""
+
+
+class DescribeSnapshotRequestSchema(schema.RequestSchema):
+    """DescribeSnapshot - 查询硬盘快照信息"""
+
+    fields = {
+        "DiskID": fields.Str(required=False, dump_to="DiskID"),
+        "Limit": fields.Int(required=False, dump_to="Limit"),
+        "Offset": fields.Int(required=False, dump_to="Offset"),
+        "Region": fields.Str(required=True, dump_to="Region"),
+        "SnapshotIDs": fields.List(fields.Str()),
+        "Zone": fields.Str(required=True, dump_to="Zone"),
+    }
+
+
+class DescribeSnapshotResponseSchema(schema.ResponseSchema):
+    """DescribeSnapshot - 查询硬盘快照信息"""
+
+    fields = {
+        "Infos": fields.List(
+            models.SnapshotInfoSchema(), required=True, load_from="Infos"
+        ),
+        "Message": fields.Str(required=True, load_from="Message"),
+        "TotalCount": fields.Int(required=True, load_from="TotalCount"),
+    }
+
+
+"""
 API: DescribeStorageType
 
 查询存储类型
@@ -1636,8 +1708,7 @@ API: DescribeStorageType
 
 
 class DescribeStorageTypeRequestSchema(schema.RequestSchema):
-    """ DescribeStorageType - 查询存储类型
-    """
+    """DescribeStorageType - 查询存储类型"""
 
     fields = {
         "Region": fields.Str(required=True, dump_to="Region"),
@@ -1646,8 +1717,7 @@ class DescribeStorageTypeRequestSchema(schema.RequestSchema):
 
 
 class DescribeStorageTypeResponseSchema(schema.ResponseSchema):
-    """ DescribeStorageType - 查询存储类型
-    """
+    """DescribeStorageType - 查询存储类型"""
 
     fields = {
         "Infos": fields.List(
@@ -1666,8 +1736,7 @@ API: DescribeSubnet
 
 
 class DescribeSubnetRequestSchema(schema.RequestSchema):
-    """ DescribeSubnet - 查询子网信息
-    """
+    """DescribeSubnet - 查询子网信息"""
 
     fields = {
         "Limit": fields.Int(required=False, dump_to="Limit"),
@@ -1680,8 +1749,7 @@ class DescribeSubnetRequestSchema(schema.RequestSchema):
 
 
 class DescribeSubnetResponseSchema(schema.ResponseSchema):
-    """ DescribeSubnet - 查询子网信息
-    """
+    """DescribeSubnet - 查询子网信息"""
 
     fields = {
         "Infos": fields.List(
@@ -1700,8 +1768,7 @@ API: DescribeUser
 
 
 class DescribeUserRequestSchema(schema.RequestSchema):
-    """ DescribeUser - 查询租户信息
-    """
+    """DescribeUser - 查询租户信息"""
 
     fields = {
         "Limit": fields.Int(required=False, dump_to="Limit"),
@@ -1711,8 +1778,7 @@ class DescribeUserRequestSchema(schema.RequestSchema):
 
 
 class DescribeUserResponseSchema(schema.ResponseSchema):
-    """ DescribeUser - 查询租户信息
-    """
+    """DescribeUser - 查询租户信息"""
 
     fields = {
         "Infos": fields.List(
@@ -1731,12 +1797,11 @@ API: DescribeVMInstance
 
 
 class DescribeVMInstanceRequestSchema(schema.RequestSchema):
-    """ DescribeVMInstance - 查询虚拟机
-    """
+    """DescribeVMInstance - 查询虚拟机"""
 
     fields = {
         "Limit": fields.Int(required=False, dump_to="Limit"),
-        "Offset": fields.Str(required=False, dump_to="Offset"),
+        "Offset": fields.Int(required=False, dump_to="Offset"),
         "Region": fields.Str(required=True, dump_to="Region"),
         "SubnetID": fields.Str(required=False, dump_to="SubnetID"),
         "VMIDs": fields.List(fields.Str()),
@@ -1746,8 +1811,7 @@ class DescribeVMInstanceRequestSchema(schema.RequestSchema):
 
 
 class DescribeVMInstanceResponseSchema(schema.ResponseSchema):
-    """ DescribeVMInstance - 查询虚拟机
-    """
+    """DescribeVMInstance - 查询虚拟机"""
 
     fields = {
         "Infos": fields.List(
@@ -1766,8 +1830,7 @@ API: DescribeVMType
 
 
 class DescribeVMTypeRequestSchema(schema.RequestSchema):
-    """ DescribeVMType - 查询主机机型
-    """
+    """DescribeVMType - 查询主机机型"""
 
     fields = {
         "Region": fields.Str(required=True, dump_to="Region"),
@@ -1776,8 +1839,7 @@ class DescribeVMTypeRequestSchema(schema.RequestSchema):
 
 
 class DescribeVMTypeResponseSchema(schema.ResponseSchema):
-    """ DescribeVMType - 查询主机机型
-    """
+    """DescribeVMType - 查询主机机型"""
 
     fields = {
         "Infos": fields.List(
@@ -1796,8 +1858,7 @@ API: DescribeVPC
 
 
 class DescribeVPCRequestSchema(schema.RequestSchema):
-    """ DescribeVPC - 查询VPC信息
-    """
+    """DescribeVPC - 查询VPC信息"""
 
     fields = {
         "Limit": fields.Int(required=False, dump_to="Limit"),
@@ -1809,8 +1870,7 @@ class DescribeVPCRequestSchema(schema.RequestSchema):
 
 
 class DescribeVPCResponseSchema(schema.ResponseSchema):
-    """ DescribeVPC - 查询VPC信息
-    """
+    """DescribeVPC - 查询VPC信息"""
 
     fields = {
         "Infos": fields.List(
@@ -1829,8 +1889,7 @@ API: DescribeVS
 
 
 class DescribeVSRequestSchema(schema.RequestSchema):
-    """ DescribeVS - 获取负载均衡 VServer 信息
-    """
+    """DescribeVS - 获取负载均衡 VServer 信息"""
 
     fields = {
         "LBID": fields.Str(required=True, dump_to="LBID"),
@@ -1843,8 +1902,7 @@ class DescribeVSRequestSchema(schema.RequestSchema):
 
 
 class DescribeVSResponseSchema(schema.ResponseSchema):
-    """ DescribeVS - 获取负载均衡 VServer 信息
-    """
+    """DescribeVS - 获取负载均衡 VServer 信息"""
 
     fields = {
         "Infos": fields.List(
@@ -1863,8 +1921,7 @@ API: DescribeVSPolicy
 
 
 class DescribeVSPolicyRequestSchema(schema.RequestSchema):
-    """ DescribeVSPolicy - 获取七层负载均衡内容转发规则信息，仅当 VServer 的监听协议为 HTTP 时有效。
-    """
+    """DescribeVSPolicy - 获取七层负载均衡内容转发规则信息，仅当 VServer 的监听协议为 HTTP 时有效。"""
 
     fields = {
         "LBID": fields.Str(required=True, dump_to="LBID"),
@@ -1878,8 +1935,7 @@ class DescribeVSPolicyRequestSchema(schema.RequestSchema):
 
 
 class DescribeVSPolicyResponseSchema(schema.ResponseSchema):
-    """ DescribeVSPolicy - 获取七层负载均衡内容转发规则信息，仅当 VServer 的监听协议为 HTTP 时有效。
-    """
+    """DescribeVSPolicy - 获取七层负载均衡内容转发规则信息，仅当 VServer 的监听协议为 HTTP 时有效。"""
 
     fields = {
         "Infos": fields.List(
@@ -1893,13 +1949,12 @@ class DescribeVSPolicyResponseSchema(schema.ResponseSchema):
 """
 API: DetachDisk
 
-解绑UClouStack硬盘
+解绑硬盘
 """
 
 
 class DetachDiskRequestSchema(schema.RequestSchema):
-    """ DetachDisk - 解绑UClouStack硬盘
-    """
+    """DetachDisk - 解绑硬盘"""
 
     fields = {
         "DiskID": fields.Str(required=True, dump_to="DiskID"),
@@ -1910,8 +1965,31 @@ class DetachDiskRequestSchema(schema.RequestSchema):
 
 
 class DetachDiskResponseSchema(schema.ResponseSchema):
-    """ DetachDisk - 解绑UClouStack硬盘
-    """
+    """DetachDisk - 解绑硬盘"""
+
+    fields = {"Message": fields.Str(required=True, load_from="Message")}
+
+
+"""
+API: DetachNIC
+
+解绑UClouStack网卡
+"""
+
+
+class DetachNICRequestSchema(schema.RequestSchema):
+    """DetachNIC - 解绑UClouStack网卡"""
+
+    fields = {
+        "NICID": fields.Str(required=True, dump_to="NICID"),
+        "Region": fields.Str(required=True, dump_to="Region"),
+        "ResourceID": fields.Str(required=True, dump_to="ResourceID"),
+        "Zone": fields.Str(required=True, dump_to="Zone"),
+    }
+
+
+class DetachNICResponseSchema(schema.ResponseSchema):
+    """DetachNIC - 解绑UClouStack网卡"""
 
     fields = {"Message": fields.Str(required=True, load_from="Message")}
 
@@ -1924,8 +2002,7 @@ API: DisableRS
 
 
 class DisableRSRequestSchema(schema.RequestSchema):
-    """ DisableRS - 禁用负载均衡的单个服务节点
-    """
+    """DisableRS - 禁用负载均衡的单个服务节点"""
 
     fields = {
         "LBID": fields.Str(required=True, dump_to="LBID"),
@@ -1937,8 +2014,7 @@ class DisableRSRequestSchema(schema.RequestSchema):
 
 
 class DisableRSResponseSchema(schema.ResponseSchema):
-    """ DisableRS - 禁用负载均衡的单个服务节点
-    """
+    """DisableRS - 禁用负载均衡的单个服务节点"""
 
     fields = {"Message": fields.Str(required=True, load_from="Message")}
 
@@ -1951,8 +2027,7 @@ API: EnableRS
 
 
 class EnableRSRequestSchema(schema.RequestSchema):
-    """ EnableRS - 启用负载均衡的单个服务节点
-    """
+    """EnableRS - 启用负载均衡的单个服务节点"""
 
     fields = {
         "LBID": fields.Str(required=True, dump_to="LBID"),
@@ -1964,8 +2039,7 @@ class EnableRSRequestSchema(schema.RequestSchema):
 
 
 class EnableRSResponseSchema(schema.ResponseSchema):
-    """ EnableRS - 启用负载均衡的单个服务节点
-    """
+    """EnableRS - 启用负载均衡的单个服务节点"""
 
     fields = {"Message": fields.Str(required=True, load_from="Message")}
 
@@ -1978,8 +2052,7 @@ API: GetDiskPrice
 
 
 class GetDiskPriceRequestSchema(schema.RequestSchema):
-    """ GetDiskPrice - 获取硬盘价格
-    """
+    """GetDiskPrice - 获取硬盘价格"""
 
     fields = {
         "ChargeType": fields.Str(required=True, dump_to="ChargeType"),
@@ -1992,8 +2065,7 @@ class GetDiskPriceRequestSchema(schema.RequestSchema):
 
 
 class GetDiskPriceResponseSchema(schema.ResponseSchema):
-    """ GetDiskPrice - 获取硬盘价格
-    """
+    """GetDiskPrice - 获取硬盘价格"""
 
     fields = {
         "Infos": fields.List(
@@ -2011,8 +2083,7 @@ API: GetEIPPrice
 
 
 class GetEIPPriceRequestSchema(schema.RequestSchema):
-    """ GetEIPPrice - 获取外网IP价格
-    """
+    """GetEIPPrice - 获取外网IP价格"""
 
     fields = {
         "Bandwidth": fields.Int(required=True, dump_to="Bandwidth"),
@@ -2025,8 +2096,7 @@ class GetEIPPriceRequestSchema(schema.RequestSchema):
 
 
 class GetEIPPriceResponseSchema(schema.ResponseSchema):
-    """ GetEIPPrice - 获取外网IP价格
-    """
+    """GetEIPPrice - 获取外网IP价格"""
 
     fields = {
         "Infos": fields.List(
@@ -2044,8 +2114,7 @@ API: GetVMInstancePrice
 
 
 class GetVMInstancePriceRequestSchema(schema.RequestSchema):
-    """ GetVMInstancePrice - 获取虚拟机价格
-    """
+    """GetVMInstancePrice - 获取虚拟机价格"""
 
     fields = {
         "BootDiskSetType": fields.Str(required=True, dump_to="BootDiskSetType"),
@@ -2065,8 +2134,7 @@ class GetVMInstancePriceRequestSchema(schema.RequestSchema):
 
 
 class GetVMInstancePriceResponseSchema(schema.ResponseSchema):
-    """ GetVMInstancePrice - 获取虚拟机价格
-    """
+    """GetVMInstancePrice - 获取虚拟机价格"""
 
     fields = {
         "Infos": fields.List(
@@ -2084,8 +2152,7 @@ API: ModifyEIPBandwidth
 
 
 class ModifyEIPBandwidthRequestSchema(schema.RequestSchema):
-    """ ModifyEIPBandwidth - 调整外网IP带宽
-    """
+    """ModifyEIPBandwidth - 调整外网IP带宽"""
 
     fields = {
         "Bandwidth": fields.Int(required=True, dump_to="Bandwidth"),
@@ -2096,8 +2163,7 @@ class ModifyEIPBandwidthRequestSchema(schema.RequestSchema):
 
 
 class ModifyEIPBandwidthResponseSchema(schema.ResponseSchema):
-    """ ModifyEIPBandwidth - 调整外网IP带宽
-    """
+    """ModifyEIPBandwidth - 调整外网IP带宽"""
 
     fields = {"Message": fields.Str(required=True, load_from="Message")}
 
@@ -2110,8 +2176,7 @@ API: ModifyNameAndRemark
 
 
 class ModifyNameAndRemarkRequestSchema(schema.RequestSchema):
-    """ ModifyNameAndRemark - 修改资源名称和备注
-    """
+    """ModifyNameAndRemark - 修改资源名称和备注"""
 
     fields = {
         "Name": fields.Str(required=True, dump_to="Name"),
@@ -2123,8 +2188,7 @@ class ModifyNameAndRemarkRequestSchema(schema.RequestSchema):
 
 
 class ModifyNameAndRemarkResponseSchema(schema.ResponseSchema):
-    """ ModifyNameAndRemark - 修改资源名称和备注
-    """
+    """ModifyNameAndRemark - 修改资源名称和备注"""
 
     fields = {"Message": fields.Str(required=True, load_from="Message")}
 
@@ -2137,8 +2201,7 @@ API: PoweroffVMInstance
 
 
 class PoweroffVMInstanceRequestSchema(schema.RequestSchema):
-    """ PoweroffVMInstance - 断电虚拟机，可能导致丢失数据甚至损坏操作系统，仅适用于虚拟机死机及级端测试场景。
-    """
+    """PoweroffVMInstance - 断电虚拟机，可能导致丢失数据甚至损坏操作系统，仅适用于虚拟机死机及级端测试场景。"""
 
     fields = {
         "Region": fields.Str(required=True, dump_to="Region"),
@@ -2148,8 +2211,7 @@ class PoweroffVMInstanceRequestSchema(schema.RequestSchema):
 
 
 class PoweroffVMInstanceResponseSchema(schema.ResponseSchema):
-    """ PoweroffVMInstance - 断电虚拟机，可能导致丢失数据甚至损坏操作系统，仅适用于虚拟机死机及级端测试场景。
-    """
+    """PoweroffVMInstance - 断电虚拟机，可能导致丢失数据甚至损坏操作系统，仅适用于虚拟机死机及级端测试场景。"""
 
     fields = {"Message": fields.Str(required=True, load_from="Message")}
 
@@ -2162,8 +2224,7 @@ API: Recharge
 
 
 class RechargeRequestSchema(schema.RequestSchema):
-    """ Recharge - 管理员给租户充值
-    """
+    """Recharge - 管理员给租户充值"""
 
     fields = {
         "Amount": fields.Int(required=True, dump_to="Amount"),
@@ -2174,8 +2235,7 @@ class RechargeRequestSchema(schema.RequestSchema):
 
 
 class RechargeResponseSchema(schema.ResponseSchema):
-    """ Recharge - 管理员给租户充值
-    """
+    """Recharge - 管理员给租户充值"""
 
     fields = {"Message": fields.Str(required=True, load_from="Message")}
 
@@ -2188,8 +2248,7 @@ API: ReinstallVMInstance
 
 
 class ReinstallVMInstanceRequestSchema(schema.RequestSchema):
-    """ ReinstallVMInstance - 重装系统，关机的虚拟机才可以重装系统
-    """
+    """ReinstallVMInstance - 重装系统，关机的虚拟机才可以重装系统"""
 
     fields = {
         "ImageID": fields.Str(required=True, dump_to="ImageID"),
@@ -2200,8 +2259,7 @@ class ReinstallVMInstanceRequestSchema(schema.RequestSchema):
 
 
 class ReinstallVMInstanceResponseSchema(schema.ResponseSchema):
-    """ ReinstallVMInstance - 重装系统，关机的虚拟机才可以重装系统
-    """
+    """ReinstallVMInstance - 重装系统，关机的虚拟机才可以重装系统"""
 
     fields = {"Message": fields.Str(required=True, load_from="Message")}
 
@@ -2214,8 +2272,7 @@ API: ReleaseEIP
 
 
 class ReleaseEIPRequestSchema(schema.RequestSchema):
-    """ ReleaseEIP - 删除外网IP
-    """
+    """ReleaseEIP - 删除外网IP"""
 
     fields = {
         "EIPID": fields.Str(required=True, dump_to="EIPID"),
@@ -2225,8 +2282,7 @@ class ReleaseEIPRequestSchema(schema.RequestSchema):
 
 
 class ReleaseEIPResponseSchema(schema.ResponseSchema):
-    """ ReleaseEIP - 删除外网IP
-    """
+    """ReleaseEIP - 删除外网IP"""
 
     fields = {"Message": fields.Str(required=True, load_from="Message")}
 
@@ -2239,8 +2295,7 @@ API: RenewResource
 
 
 class RenewResourceRequestSchema(schema.RequestSchema):
-    """ RenewResource - 续费回收站资源 
-    """
+    """RenewResource - 续费回收站资源"""
 
     fields = {
         "Quantity": fields.Int(required=False, dump_to="Quantity"),
@@ -2251,8 +2306,7 @@ class RenewResourceRequestSchema(schema.RequestSchema):
 
 
 class RenewResourceResponseSchema(schema.ResponseSchema):
-    """ RenewResource - 续费回收站资源 
-    """
+    """RenewResource - 续费回收站资源"""
 
     fields = {"Message": fields.Str(required=False, load_from="Message")}
 
@@ -2265,8 +2319,7 @@ API: ResetVMInstancePassword
 
 
 class ResetVMInstancePasswordRequestSchema(schema.RequestSchema):
-    """ ResetVMInstancePassword - 重置虚拟机密码，主机必须开机才可以重置密码
-    """
+    """ResetVMInstancePassword - 重置虚拟机密码，主机必须开机才可以重置密码"""
 
     fields = {
         "Password": fields.Str(required=True, dump_to="Password"),
@@ -2277,8 +2330,7 @@ class ResetVMInstancePasswordRequestSchema(schema.RequestSchema):
 
 
 class ResetVMInstancePasswordResponseSchema(schema.ResponseSchema):
-    """ ResetVMInstancePassword - 重置虚拟机密码，主机必须开机才可以重置密码
-    """
+    """ResetVMInstancePassword - 重置虚拟机密码，主机必须开机才可以重置密码"""
 
     fields = {"Message": fields.Str(required=True, load_from="Message")}
 
@@ -2291,8 +2343,7 @@ API: ResizeVMConfig
 
 
 class ResizeVMConfigRequestSchema(schema.RequestSchema):
-    """ ResizeVMConfig - 修改虚拟机配置
-    """
+    """ResizeVMConfig - 修改虚拟机配置"""
 
     fields = {
         "CPU": fields.Int(required=True, dump_to="CPU"),
@@ -2304,8 +2355,7 @@ class ResizeVMConfigRequestSchema(schema.RequestSchema):
 
 
 class ResizeVMConfigResponseSchema(schema.ResponseSchema):
-    """ ResizeVMConfig - 修改虚拟机配置
-    """
+    """ResizeVMConfig - 修改虚拟机配置"""
 
     fields = {"Message": fields.Str(required=True, load_from="Message")}
 
@@ -2318,8 +2368,7 @@ API: RestartVMInstance
 
 
 class RestartVMInstanceRequestSchema(schema.RequestSchema):
-    """ RestartVMInstance - 重启虚拟机
-    """
+    """RestartVMInstance - 重启虚拟机"""
 
     fields = {
         "Region": fields.Str(required=True, dump_to="Region"),
@@ -2329,8 +2378,7 @@ class RestartVMInstanceRequestSchema(schema.RequestSchema):
 
 
 class RestartVMInstanceResponseSchema(schema.ResponseSchema):
-    """ RestartVMInstance - 重启虚拟机
-    """
+    """RestartVMInstance - 重启虚拟机"""
 
     fields = {"Message": fields.Str(required=True, load_from="Message")}
 
@@ -2343,8 +2391,7 @@ API: RollbackResource
 
 
 class RollbackResourceRequestSchema(schema.RequestSchema):
-    """ RollbackResource - 恢复回收站资源
-    """
+    """RollbackResource - 恢复回收站资源"""
 
     fields = {
         "Region": fields.Str(required=True, dump_to="Region"),
@@ -2354,8 +2401,7 @@ class RollbackResourceRequestSchema(schema.RequestSchema):
 
 
 class RollbackResourceResponseSchema(schema.ResponseSchema):
-    """ RollbackResource - 恢复回收站资源
-    """
+    """RollbackResource - 恢复回收站资源"""
 
     fields = {"Message": fields.Str(required=False, load_from="Message")}
 
@@ -2368,8 +2414,7 @@ API: RollbackSnapshot
 
 
 class RollbackSnapshotRequestSchema(schema.RequestSchema):
-    """ RollbackSnapshot - 将某个快照内的数据回滚到原云硬盘，仅支持正常状态的快照进行回滚操作，回滚时硬盘必须处于未绑定或其挂载的主机为关机状态。
-    """
+    """RollbackSnapshot - 将某个快照内的数据回滚到原云硬盘，仅支持正常状态的快照进行回滚操作，回滚时硬盘必须处于未绑定或其挂载的主机为关机状态。"""
 
     fields = {
         "DiskID": fields.Str(required=True, dump_to="DiskID"),
@@ -2380,8 +2425,7 @@ class RollbackSnapshotRequestSchema(schema.RequestSchema):
 
 
 class RollbackSnapshotResponseSchema(schema.ResponseSchema):
-    """ RollbackSnapshot - 将某个快照内的数据回滚到原云硬盘，仅支持正常状态的快照进行回滚操作，回滚时硬盘必须处于未绑定或其挂载的主机为关机状态。
-    """
+    """RollbackSnapshot - 将某个快照内的数据回滚到原云硬盘，仅支持正常状态的快照进行回滚操作，回滚时硬盘必须处于未绑定或其挂载的主机为关机状态。"""
 
     fields = {"Message": fields.Str(required=True, load_from="Message")}
 
@@ -2394,8 +2438,7 @@ API: StartVMInstance
 
 
 class StartVMInstanceRequestSchema(schema.RequestSchema):
-    """ StartVMInstance - 开启虚拟机
-    """
+    """StartVMInstance - 开启虚拟机"""
 
     fields = {
         "Region": fields.Str(required=True, dump_to="Region"),
@@ -2405,8 +2448,7 @@ class StartVMInstanceRequestSchema(schema.RequestSchema):
 
 
 class StartVMInstanceResponseSchema(schema.ResponseSchema):
-    """ StartVMInstance - 开启虚拟机
-    """
+    """StartVMInstance - 开启虚拟机"""
 
     fields = {"Message": fields.Str(required=False, load_from="Message")}
 
@@ -2419,8 +2461,7 @@ API: StopVMInstance
 
 
 class StopVMInstanceRequestSchema(schema.RequestSchema):
-    """ StopVMInstance - 关闭虚拟机
-    """
+    """StopVMInstance - 关闭虚拟机"""
 
     fields = {
         "Region": fields.Str(required=True, dump_to="Region"),
@@ -2430,8 +2471,7 @@ class StopVMInstanceRequestSchema(schema.RequestSchema):
 
 
 class StopVMInstanceResponseSchema(schema.ResponseSchema):
-    """ StopVMInstance - 关闭虚拟机
-    """
+    """StopVMInstance - 关闭虚拟机"""
 
     fields = {
         "Message": fields.Str(required=False, load_from="Message"),
@@ -2447,8 +2487,7 @@ API: TerminateResource
 
 
 class TerminateResourceRequestSchema(schema.RequestSchema):
-    """ TerminateResource - 销毁资源
-    """
+    """TerminateResource - 销毁资源"""
 
     fields = {
         "Region": fields.Str(required=True, dump_to="Region"),
@@ -2458,8 +2497,7 @@ class TerminateResourceRequestSchema(schema.RequestSchema):
 
 
 class TerminateResourceResponseSchema(schema.ResponseSchema):
-    """ TerminateResource - 销毁资源
-    """
+    """TerminateResource - 销毁资源"""
 
     fields = {"Message": fields.Str(required=False, load_from="Message")}
 
@@ -2472,8 +2510,7 @@ API: UnBindEIP
 
 
 class UnBindEIPRequestSchema(schema.RequestSchema):
-    """ UnBindEIP - 解绑外网IP
-    """
+    """UnBindEIP - 解绑外网IP"""
 
     fields = {
         "EIPID": fields.Str(required=True, dump_to="EIPID"),
@@ -2485,8 +2522,7 @@ class UnBindEIPRequestSchema(schema.RequestSchema):
 
 
 class UnBindEIPResponseSchema(schema.ResponseSchema):
-    """ UnBindEIP - 解绑外网IP
-    """
+    """UnBindEIP - 解绑外网IP"""
 
     fields = {"Message": fields.Str(required=True, load_from="Message")}
 
@@ -2499,8 +2535,7 @@ API: UnBindSecurityGroup
 
 
 class UnBindSecurityGroupRequestSchema(schema.RequestSchema):
-    """ UnBindSecurityGroup - 解绑安全组
-    """
+    """UnBindSecurityGroup - 解绑安全组"""
 
     fields = {
         "Region": fields.Str(required=True, dump_to="Region"),
@@ -2511,8 +2546,7 @@ class UnBindSecurityGroupRequestSchema(schema.RequestSchema):
 
 
 class UnBindSecurityGroupResponseSchema(schema.ResponseSchema):
-    """ UnBindSecurityGroup - 解绑安全组
-    """
+    """UnBindSecurityGroup - 解绑安全组"""
 
     fields = {"Message": fields.Str(required=True, load_from="Message")}
 
@@ -2525,8 +2559,7 @@ API: UnbindAlarmTemplate
 
 
 class UnbindAlarmTemplateRequestSchema(schema.RequestSchema):
-    """ UnbindAlarmTemplate - 解绑告警模板
-    """
+    """UnbindAlarmTemplate - 解绑告警模板"""
 
     fields = {
         "AlarmTemplateID": fields.Str(required=True, dump_to="AlarmTemplateID"),
@@ -2538,8 +2571,7 @@ class UnbindAlarmTemplateRequestSchema(schema.RequestSchema):
 
 
 class UnbindAlarmTemplateResponseSchema(schema.ResponseSchema):
-    """ UnbindAlarmTemplate - 解绑告警模板
-    """
+    """UnbindAlarmTemplate - 解绑告警模板"""
 
     fields = {"Message": fields.Str(required=True, load_from="Message")}
 
@@ -2552,8 +2584,7 @@ API: UnbindPhysicalIP
 
 
 class UnbindPhysicalIPRequestSchema(schema.RequestSchema):
-    """ UnbindPhysicalIP - 解绑物理IP
-    """
+    """UnbindPhysicalIP - 解绑物理IP"""
 
     fields = {
         "PhysicalIPID": fields.Str(required=True, dump_to="PhysicalIPID"),
@@ -2565,8 +2596,7 @@ class UnbindPhysicalIPRequestSchema(schema.RequestSchema):
 
 
 class UnbindPhysicalIPResponseSchema(schema.ResponseSchema):
-    """ UnbindPhysicalIP - 解绑物理IP
-    """
+    """UnbindPhysicalIP - 解绑物理IP"""
 
     fields = {"Message": fields.Str(required=True, load_from="Message")}
 
@@ -2579,8 +2609,7 @@ API: UpdateAlarmTemplateRule
 
 
 class UpdateAlarmTemplateRuleRequestSchema(schema.RequestSchema):
-    """ UpdateAlarmTemplateRule - 更新告警模板规则
-    """
+    """UpdateAlarmTemplateRule - 更新告警模板规则"""
 
     fields = {
         "AlarmStrategy": fields.Str(required=True, dump_to="AlarmStrategy"),
@@ -2600,8 +2629,7 @@ class UpdateAlarmTemplateRuleRequestSchema(schema.RequestSchema):
 
 
 class UpdateAlarmTemplateRuleResponseSchema(schema.ResponseSchema):
-    """ UpdateAlarmTemplateRule - 更新告警模板规则
-    """
+    """UpdateAlarmTemplateRule - 更新告警模板规则"""
 
     fields = {"Message": fields.Str(required=True, load_from="Message")}
 
@@ -2614,8 +2642,7 @@ API: UpdateRS
 
 
 class UpdateRSRequestSchema(schema.RequestSchema):
-    """ UpdateRS - 修改负载均衡的服务节点
-    """
+    """UpdateRS - 修改负载均衡的服务节点"""
 
     fields = {
         "LBID": fields.Str(required=True, dump_to="LBID"),
@@ -2629,8 +2656,7 @@ class UpdateRSRequestSchema(schema.RequestSchema):
 
 
 class UpdateRSResponseSchema(schema.ResponseSchema):
-    """ UpdateRS - 修改负载均衡的服务节点
-    """
+    """UpdateRS - 修改负载均衡的服务节点"""
 
     fields = {"Message": fields.Str(required=False, load_from="Message")}
 
@@ -2643,8 +2669,7 @@ API: UpdateSecurityGroupRule
 
 
 class UpdateSecurityGroupRuleRequestSchema(schema.RequestSchema):
-    """ UpdateSecurityGroupRule - 修改安全组规则
-    """
+    """UpdateSecurityGroupRule - 修改安全组规则"""
 
     fields = {
         "Region": fields.Str(required=True, dump_to="Region"),
@@ -2655,8 +2680,7 @@ class UpdateSecurityGroupRuleRequestSchema(schema.RequestSchema):
 
 
 class UpdateSecurityGroupRuleResponseSchema(schema.ResponseSchema):
-    """ UpdateSecurityGroupRule - 修改安全组规则
-    """
+    """UpdateSecurityGroupRule - 修改安全组规则"""
 
     fields = {"Message": fields.Str(required=True, load_from="Message")}
 
@@ -2669,8 +2693,7 @@ API: UpdateVS
 
 
 class UpdateVSRequestSchema(schema.RequestSchema):
-    """ UpdateVS - 修改负载均衡VServer
-    """
+    """UpdateVS - 修改负载均衡VServer"""
 
     fields = {
         "CACertificateID": fields.Str(
@@ -2702,8 +2725,7 @@ class UpdateVSRequestSchema(schema.RequestSchema):
 
 
 class UpdateVSResponseSchema(schema.ResponseSchema):
-    """ UpdateVS - 修改负载均衡VServer
-    """
+    """UpdateVS - 修改负载均衡VServer"""
 
     fields = {"Message": fields.Str(required=False, load_from="Message")}
 
@@ -2716,8 +2738,7 @@ API: UpdateVSPolicy
 
 
 class UpdateVSPolicyRequestSchema(schema.RequestSchema):
-    """ UpdateVSPolicy - 更新七层负载均衡内容转发规则，仅当 VServer 的监听协议为 HTTP 时有效。
-    """
+    """UpdateVSPolicy - 更新七层负载均衡内容转发规则，仅当 VServer 的监听协议为 HTTP 时有效。"""
 
     fields = {
         "Domain": fields.Str(required=False, dump_to="Domain"),
@@ -2732,8 +2753,7 @@ class UpdateVSPolicyRequestSchema(schema.RequestSchema):
 
 
 class UpdateVSPolicyResponseSchema(schema.ResponseSchema):
-    """ UpdateVSPolicy - 更新七层负载均衡内容转发规则，仅当 VServer 的监听协议为 HTTP 时有效。
-    """
+    """UpdateVSPolicy - 更新七层负载均衡内容转发规则，仅当 VServer 的监听协议为 HTTP 时有效。"""
 
     fields = {"Message": fields.Str(required=False, load_from="Message")}
 
@@ -2741,13 +2761,12 @@ class UpdateVSPolicyResponseSchema(schema.ResponseSchema):
 """
 API: UpgradeDisk
 
-升级硬盘
+扩容硬盘，为保证数据完整性，容量扩容前建议暂停对当前硬盘的所有文件系统读写操作，并进入操作系统进行 `umount ` 或`脱机` 操作。
 """
 
 
 class UpgradeDiskRequestSchema(schema.RequestSchema):
-    """ UpgradeDisk - 升级硬盘
-    """
+    """UpgradeDisk - 扩容硬盘，为保证数据完整性，容量扩容前建议暂停对当前硬盘的所有文件系统读写操作，并进入操作系统进行 `umount ` 或`脱机` 操作。"""
 
     fields = {
         "DiskID": fields.Str(required=True, dump_to="DiskID"),
@@ -2758,7 +2777,10 @@ class UpgradeDiskRequestSchema(schema.RequestSchema):
 
 
 class UpgradeDiskResponseSchema(schema.ResponseSchema):
-    """ UpgradeDisk - 升级硬盘
-    """
+    """UpgradeDisk - 扩容硬盘，为保证数据完整性，容量扩容前建议暂停对当前硬盘的所有文件系统读写操作，并进入操作系统进行 `umount ` 或`脱机` 操作。"""
 
-    fields = {"Message": fields.Str(required=True, load_from="Message")}
+    fields = {
+        "Action": fields.Str(required=True, load_from="Action"),
+        "Message": fields.Str(required=True, load_from="Message"),
+        "RetCode": fields.Int(required=True, load_from="RetCode"),
+    }

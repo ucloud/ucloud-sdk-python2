@@ -14,8 +14,7 @@ API: CreateUSMSSignature
 
 
 class CreateUSMSSignatureRequestSchema(schema.RequestSchema):
-    """ CreateUSMSSignature - 调用接口CreateUSMSSignature申请短信签名
-    """
+    """CreateUSMSSignature - 调用接口CreateUSMSSignature申请短信签名"""
 
     fields = {
         "CertificateType": fields.Int(required=True, dump_to="CertificateType"),
@@ -30,8 +29,7 @@ class CreateUSMSSignatureRequestSchema(schema.RequestSchema):
 
 
 class CreateUSMSSignatureResponseSchema(schema.ResponseSchema):
-    """ CreateUSMSSignature - 调用接口CreateUSMSSignature申请短信签名
-    """
+    """CreateUSMSSignature - 调用接口CreateUSMSSignature申请短信签名"""
 
     fields = {
         "Message": fields.Str(required=True, load_from="Message"),
@@ -48,8 +46,7 @@ API: CreateUSMSTemplate
 
 
 class CreateUSMSTemplateRequestSchema(schema.RequestSchema):
-    """ CreateUSMSTemplate - 调用接口CreateUSMSTemplate申请短信模板
-    """
+    """CreateUSMSTemplate - 调用接口CreateUSMSTemplate申请短信模板"""
 
     fields = {
         "ProjectId": fields.Str(required=True, dump_to="ProjectId"),
@@ -66,8 +63,7 @@ class CreateUSMSTemplateRequestSchema(schema.RequestSchema):
 
 
 class CreateUSMSTemplateResponseSchema(schema.ResponseSchema):
-    """ CreateUSMSTemplate - 调用接口CreateUSMSTemplate申请短信模板
-    """
+    """CreateUSMSTemplate - 调用接口CreateUSMSTemplate申请短信模板"""
 
     fields = {
         "Message": fields.Str(required=True, load_from="Message"),
@@ -83,8 +79,7 @@ API: DeleteUSMSSignature
 
 
 class DeleteUSMSSignatureRequestSchema(schema.RequestSchema):
-    """ DeleteUSMSSignature - 调用接口DeleteUSMSSignature删除短信签名
-    """
+    """DeleteUSMSSignature - 调用接口DeleteUSMSSignature删除短信签名"""
 
     fields = {
         "ProjectId": fields.Str(required=True, dump_to="ProjectId"),
@@ -93,8 +88,7 @@ class DeleteUSMSSignatureRequestSchema(schema.RequestSchema):
 
 
 class DeleteUSMSSignatureResponseSchema(schema.ResponseSchema):
-    """ DeleteUSMSSignature - 调用接口DeleteUSMSSignature删除短信签名
-    """
+    """DeleteUSMSSignature - 调用接口DeleteUSMSSignature删除短信签名"""
 
     fields = {"Message": fields.Str(required=True, load_from="Message")}
 
@@ -107,8 +101,7 @@ API: DeleteUSMSTemplate
 
 
 class DeleteUSMSTemplateRequestSchema(schema.RequestSchema):
-    """ DeleteUSMSTemplate - 调用接口DeleteUSMSTemplate删除短信模板
-    """
+    """DeleteUSMSTemplate - 调用接口DeleteUSMSTemplate删除短信模板"""
 
     fields = {
         "ProjectId": fields.Str(required=True, dump_to="ProjectId"),
@@ -119,8 +112,7 @@ class DeleteUSMSTemplateRequestSchema(schema.RequestSchema):
 
 
 class DeleteUSMSTemplateResponseSchema(schema.ResponseSchema):
-    """ DeleteUSMSTemplate - 调用接口DeleteUSMSTemplate删除短信模板
-    """
+    """DeleteUSMSTemplate - 调用接口DeleteUSMSTemplate删除短信模板"""
 
     fields = {"Message": fields.Str(required=True, load_from="Message")}
 
@@ -133,8 +125,7 @@ API: GetUSMSSendReceipt
 
 
 class GetUSMSSendReceiptRequestSchema(schema.RequestSchema):
-    """ GetUSMSSendReceipt - 获取短信发送回执信息。下游服务提供商回执信息返回会有一定延时，建议发送完短信以后，5-10分钟后再调用该接口拉取回执信息。若超过12小时未返回，则请联系技术支持确认原因
-    """
+    """GetUSMSSendReceipt - 获取短信发送回执信息。下游服务提供商回执信息返回会有一定延时，建议发送完短信以后，5-10分钟后再调用该接口拉取回执信息。若超过12小时未返回，则请联系技术支持确认原因"""
 
     fields = {
         "ProjectId": fields.Str(required=False, dump_to="ProjectId"),
@@ -145,8 +136,7 @@ class GetUSMSSendReceiptRequestSchema(schema.RequestSchema):
 
 
 class GetUSMSSendReceiptResponseSchema(schema.ResponseSchema):
-    """ GetUSMSSendReceipt - 获取短信发送回执信息。下游服务提供商回执信息返回会有一定延时，建议发送完短信以后，5-10分钟后再调用该接口拉取回执信息。若超过12小时未返回，则请联系技术支持确认原因
-    """
+    """GetUSMSSendReceipt - 获取短信发送回执信息。下游服务提供商回执信息返回会有一定延时，建议发送完短信以后，5-10分钟后再调用该接口拉取回执信息。若超过12小时未返回，则请联系技术支持确认原因"""
 
     fields = {
         "Data": fields.List(
@@ -164,8 +154,7 @@ API: QueryUSMSSignature
 
 
 class QueryUSMSSignatureRequestSchema(schema.RequestSchema):
-    """ QueryUSMSSignature - 调用接口QueryUSMSSignature查询短信签名申请状态
-    """
+    """QueryUSMSSignature - 调用接口QueryUSMSSignature查询短信签名申请状态"""
 
     fields = {
         "ProjectId": fields.Str(required=False, dump_to="ProjectId"),
@@ -175,8 +164,7 @@ class QueryUSMSSignatureRequestSchema(schema.RequestSchema):
 
 
 class QueryUSMSSignatureResponseSchema(schema.ResponseSchema):
-    """ QueryUSMSSignature - 调用接口QueryUSMSSignature查询短信签名申请状态
-    """
+    """QueryUSMSSignature - 调用接口QueryUSMSSignature查询短信签名申请状态"""
 
     fields = {
         "Data": models.OutSignatureSchema(),
@@ -192,8 +180,7 @@ API: QueryUSMSTemplate
 
 
 class QueryUSMSTemplateRequestSchema(schema.RequestSchema):
-    """ QueryUSMSTemplate - 调用接口QueryUSMSTemplate查询短信模板申请状态
-    """
+    """QueryUSMSTemplate - 调用接口QueryUSMSTemplate查询短信模板申请状态"""
 
     fields = {
         "ProjectId": fields.Str(required=True, dump_to="ProjectId"),
@@ -202,8 +189,7 @@ class QueryUSMSTemplateRequestSchema(schema.RequestSchema):
 
 
 class QueryUSMSTemplateResponseSchema(schema.ResponseSchema):
-    """ QueryUSMSTemplate - 调用接口QueryUSMSTemplate查询短信模板申请状态
-    """
+    """QueryUSMSTemplate - 调用接口QueryUSMSTemplate查询短信模板申请状态"""
 
     fields = {
         "Data": models.OutTemplateSchema(),
@@ -219,8 +205,7 @@ API: SendUSMSMessage
 
 
 class SendUSMSMessageRequestSchema(schema.RequestSchema):
-    """ SendUSMSMessage - 发送短信息。短信字数超过70个后，按照每66个进行切割(因为要加上1/3), 2/3)等字样，占用4个字长)。短信最大长度不能超过600个字。每个汉字、数字、字母、字符都按一个字计
-    """
+    """SendUSMSMessage - 发送短信息。短信字数超过70个后，按照每66个进行切割(因为要加上1/3), 2/3)等字样，占用4个字长)。短信最大长度不能超过600个字。每个汉字、数字、字母、字符都按一个字计"""
 
     fields = {
         "PhoneNumbers": fields.List(fields.Str()),
@@ -234,8 +219,7 @@ class SendUSMSMessageRequestSchema(schema.RequestSchema):
 
 
 class SendUSMSMessageResponseSchema(schema.ResponseSchema):
-    """ SendUSMSMessage - 发送短信息。短信字数超过70个后，按照每66个进行切割(因为要加上1/3), 2/3)等字样，占用4个字长)。短信最大长度不能超过600个字。每个汉字、数字、字母、字符都按一个字计
-    """
+    """SendUSMSMessage - 发送短信息。短信字数超过70个后，按照每66个进行切割(因为要加上1/3), 2/3)等字样，占用4个字长)。短信最大长度不能超过600个字。每个汉字、数字、字母、字符都按一个字计"""
 
     fields = {
         "Action": fields.Str(required=True, load_from="Action"),
@@ -253,8 +237,7 @@ API: UpdateUSMSSignature
 
 
 class UpdateUSMSSignatureRequestSchema(schema.RequestSchema):
-    """ UpdateUSMSSignature - 调用接口UpdateUSMSSignature修改未通过审核的短信签名，并重新提交审核
-    """
+    """UpdateUSMSSignature - 调用接口UpdateUSMSSignature修改未通过审核的短信签名，并重新提交审核"""
 
     fields = {
         "CertificateType": fields.Int(
@@ -271,8 +254,7 @@ class UpdateUSMSSignatureRequestSchema(schema.RequestSchema):
 
 
 class UpdateUSMSSignatureResponseSchema(schema.ResponseSchema):
-    """ UpdateUSMSSignature - 调用接口UpdateUSMSSignature修改未通过审核的短信签名，并重新提交审核
-    """
+    """UpdateUSMSSignature - 调用接口UpdateUSMSSignature修改未通过审核的短信签名，并重新提交审核"""
 
     fields = {"Message": fields.Str(required=True, load_from="Message")}
 
@@ -285,8 +267,7 @@ API: UpdateUSMSTemplate
 
 
 class UpdateUSMSTemplateRequestSchema(schema.RequestSchema):
-    """ UpdateUSMSTemplate - 调用接口UpdateUSMSTemplate修改未通过审核的短信模板，并重新提交审核
-    """
+    """UpdateUSMSTemplate - 调用接口UpdateUSMSTemplate修改未通过审核的短信模板，并重新提交审核"""
 
     fields = {
         "ProjectId": fields.Str(required=True, dump_to="ProjectId"),
@@ -303,7 +284,6 @@ class UpdateUSMSTemplateRequestSchema(schema.RequestSchema):
 
 
 class UpdateUSMSTemplateResponseSchema(schema.ResponseSchema):
-    """ UpdateUSMSTemplate - 调用接口UpdateUSMSTemplate修改未通过审核的短信模板，并重新提交审核
-    """
+    """UpdateUSMSTemplate - 调用接口UpdateUSMSTemplate修改未通过审核的短信模板，并重新提交审核"""
 
     fields = {"Message": fields.Str(required=True, load_from="Message")}

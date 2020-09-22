@@ -5,8 +5,7 @@ from ucloud.core.typesystem import schema, fields
 
 
 class BindVSInfoSchema(schema.ResponseSchema):
-    """ BindVSInfo - 证书绑定的vs信息
-    """
+    """BindVSInfo - 证书绑定的vs信息"""
 
     fields = {
         "LBID": fields.Str(required=False, load_from="LBID"),
@@ -18,8 +17,7 @@ class BindVSInfoSchema(schema.ResponseSchema):
 
 
 class CertificateInfoSchema(schema.ResponseSchema):
-    """ CertificateInfo - 证书信息
-    """
+    """CertificateInfo - 证书信息"""
 
     fields = {
         "CertificateContent": fields.Str(
@@ -44,30 +42,29 @@ class CertificateInfoSchema(schema.ResponseSchema):
 
 
 class DiskInfoSchema(schema.ResponseSchema):
-    """ DiskInfo - 磁盘信息
-    """
+    """DiskInfo - 磁盘信息"""
 
     fields = {
         "AttachResourceID": fields.Str(
-            required=False, load_from="AttachResourceID"
+            required=True, load_from="AttachResourceID"
         ),
-        "ChargeType": fields.Str(required=False, load_from="ChargeType"),
-        "CreateTime": fields.Int(required=False, load_from="CreateTime"),
-        "DiskID": fields.Str(required=False, load_from="DiskID"),
-        "DiskStatus": fields.Str(required=False, load_from="DiskStatus"),
-        "ExpireTime": fields.Int(required=False, load_from="ExpireTime"),
-        "Name": fields.Str(required=False, load_from="Name"),
-        "Region": fields.Str(required=False, load_from="Region"),
+        "ChargeType": fields.Str(required=True, load_from="ChargeType"),
+        "CreateTime": fields.Int(required=True, load_from="CreateTime"),
+        "DiskID": fields.Str(required=True, load_from="DiskID"),
+        "DiskStatus": fields.Str(required=True, load_from="DiskStatus"),
+        "DiskType": fields.Str(required=True, load_from="DiskType"),
+        "ExpireTime": fields.Int(required=True, load_from="ExpireTime"),
+        "Name": fields.Str(required=True, load_from="Name"),
+        "Region": fields.Str(required=True, load_from="Region"),
         "Remark": fields.Str(required=False, load_from="Remark"),
-        "SetType": fields.Str(required=False, load_from="SetType"),
-        "Size": fields.Int(required=False, load_from="Size"),
-        "Zone": fields.Str(required=False, load_from="Zone"),
+        "SetType": fields.Str(required=True, load_from="SetType"),
+        "Size": fields.Int(required=True, load_from="Size"),
+        "Zone": fields.Str(required=True, load_from="Zone"),
     }
 
 
 class EIPInfoSchema(schema.ResponseSchema):
-    """ EIPInfo - 外网IP信息
-    """
+    """EIPInfo - 外网IP信息"""
 
     fields = {
         "Bandwidth": fields.Int(required=False, load_from="Bandwidth"),
@@ -77,11 +74,14 @@ class EIPInfoSchema(schema.ResponseSchema):
         "BindResourceType": fields.Str(
             required=False, load_from="BindResourceType"
         ),
+        "CanDefaultGW": fields.Int(required=False, load_from="CanDefaultGW"),
         "ChargeType": fields.Str(required=False, load_from="ChargeType"),
         "CreateTime": fields.Int(required=False, load_from="CreateTime"),
         "EIPID": fields.Str(required=False, load_from="EIPID"),
         "ExpireTime": fields.Int(required=False, load_from="ExpireTime"),
         "IP": fields.Str(required=False, load_from="IP"),
+        "IPVersion": fields.Str(required=False, load_from="IPVersion"),
+        "ISDefaultGW": fields.Int(required=False, load_from="ISDefaultGW"),
         "Name": fields.Str(required=False, load_from="Name"),
         "OperatorName": fields.Str(required=False, load_from="OperatorName"),
         "Region": fields.Str(required=False, load_from="Region"),
@@ -92,8 +92,7 @@ class EIPInfoSchema(schema.ResponseSchema):
 
 
 class ImageInfoSchema(schema.ResponseSchema):
-    """ ImageInfo - 镜像信息
-    """
+    """ImageInfo - 镜像信息"""
 
     fields = {
         "CreateTime": fields.Int(required=True, load_from="CreateTime"),
@@ -111,8 +110,7 @@ class ImageInfoSchema(schema.ResponseSchema):
 
 
 class LBInfoSchema(schema.ResponseSchema):
-    """ LBInfo - 负载均衡信息
-    """
+    """LBInfo - 负载均衡信息"""
 
     fields = {
         "AlarmTemplateID": fields.Str(
@@ -138,8 +136,7 @@ class LBInfoSchema(schema.ResponseSchema):
 
 
 class MetricSetSchema(schema.ResponseSchema):
-    """ MetricSet - 监控值
-    """
+    """MetricSet - 监控值"""
 
     fields = {
         "Timestamp": fields.Int(required=False, load_from="Timestamp"),
@@ -148,8 +145,7 @@ class MetricSetSchema(schema.ResponseSchema):
 
 
 class MetricInfoSchema(schema.ResponseSchema):
-    """ MetricInfo - 监控信息
-    """
+    """MetricInfo - 监控信息"""
 
     fields = {
         "Infos": fields.List(MetricSetSchema()),
@@ -158,8 +154,7 @@ class MetricInfoSchema(schema.ResponseSchema):
 
 
 class NATGWInfoSchema(schema.ResponseSchema):
-    """ NATGWInfo - NAT网关信息
-    """
+    """NATGWInfo - NAT网关信息"""
 
     fields = {
         "AlarmTemplateID": fields.Str(
@@ -182,8 +177,7 @@ class NATGWInfoSchema(schema.ResponseSchema):
 
 
 class NATGWRuleInfoSchema(schema.ResponseSchema):
-    """ NATGWRuleInfo - NAT网关关联的白名单资源信息
-    """
+    """NATGWRuleInfo - NAT网关关联的白名单资源信息"""
 
     fields = {
         "BindResourceID": fields.Str(required=True, load_from="BindResourceID"),
@@ -200,9 +194,28 @@ class NATGWRuleInfoSchema(schema.ResponseSchema):
     }
 
 
+class NICInfoSchema(schema.ResponseSchema):
+    """NICInfo - 网卡信息"""
+
+    fields = {
+        "BindResourceID": fields.Str(required=True, load_from="BindResourceID"),
+        "CreateTime": fields.Int(required=True, load_from="CreateTime"),
+        "IP": fields.Str(required=True, load_from="IP"),
+        "MAC": fields.Str(required=True, load_from="MAC"),
+        "NICID": fields.Str(required=True, load_from="NICID"),
+        "NICStatus": fields.Str(required=True, load_from="NICStatus"),
+        "Name": fields.Str(required=True, load_from="Name"),
+        "Region": fields.Str(required=True, load_from="Region"),
+        "Remark": fields.Str(required=True, load_from="Remark"),
+        "SGID": fields.Str(required=True, load_from="SGID"),
+        "SubnetID": fields.Str(required=True, load_from="SubnetID"),
+        "VPCID": fields.Str(required=True, load_from="VPCID"),
+        "Zone": fields.Str(required=True, load_from="Zone"),
+    }
+
+
 class OPLogInfoSchema(schema.ResponseSchema):
-    """ OPLogInfo - 操作日志
-    """
+    """OPLogInfo - 操作日志"""
 
     fields = {
         "CreateTime": fields.Int(required=False, load_from="CreateTime"),
@@ -221,8 +234,7 @@ class OPLogInfoSchema(schema.ResponseSchema):
 
 
 class PhysicalIPInfoSchema(schema.ResponseSchema):
-    """ PhysicalIPInfo - 物理IP信息
-    """
+    """PhysicalIPInfo - 物理IP信息"""
 
     fields = {
         "BindResourceID": fields.Str(required=True, load_from="BindResourceID"),
@@ -243,8 +255,7 @@ class PhysicalIPInfoSchema(schema.ResponseSchema):
 
 
 class RSInfoSchema(schema.ResponseSchema):
-    """ RSInfo - 转发规则关联的服务节点信息
-    """
+    """RSInfo - 转发规则关联的服务节点信息"""
 
     fields = {
         "BindResourceID": fields.Str(required=True, load_from="BindResourceID"),
@@ -263,8 +274,7 @@ class RSInfoSchema(schema.ResponseSchema):
 
 
 class RecycledResourceInfoSchema(schema.ResponseSchema):
-    """ RecycledResourceInfo - 回收站资源信息
-    """
+    """RecycledResourceInfo - 回收站资源信息"""
 
     fields = {
         "CreateTime": fields.Int(required=True, load_from="CreateTime"),
@@ -287,8 +297,7 @@ class RecycledResourceInfoSchema(schema.ResponseSchema):
 
 
 class SGRuleInfoSchema(schema.ResponseSchema):
-    """ SGRuleInfo - 安全组规则信息
-    """
+    """SGRuleInfo - 安全组规则信息"""
 
     fields = {
         "DstPort": fields.Str(required=False, load_from="DstPort"),
@@ -302,8 +311,7 @@ class SGRuleInfoSchema(schema.ResponseSchema):
 
 
 class SGInfoSchema(schema.ResponseSchema):
-    """ SGInfo - 安全组信息
-    """
+    """SGInfo - 安全组信息"""
 
     fields = {
         "CreateTime": fields.Int(required=False, load_from="CreateTime"),
@@ -320,9 +328,38 @@ class SGInfoSchema(schema.ResponseSchema):
     }
 
 
+class SGResourceInfoSchema(schema.ResponseSchema):
+    """SGResourceInfo - 安全组绑定的资源信息"""
+
+    fields = {
+        "Name": fields.Str(required=True, load_from="Name"),
+        "Region": fields.Str(required=True, load_from="Region"),
+        "ResourceID": fields.Str(required=True, load_from="ResourceID"),
+        "ResourceType": fields.Str(required=True, load_from="ResourceType"),
+        "Zone": fields.Str(required=True, load_from="Zone"),
+    }
+
+
+class SnapshotInfoSchema(schema.ResponseSchema):
+    """SnapshotInfo - 快照的详细信息"""
+
+    fields = {
+        "CreateTime": fields.Int(required=False, load_from="CreateTime"),
+        "DiskID": fields.Str(required=False, load_from="DiskID"),
+        "DiskType": fields.Str(required=False, load_from="DiskType"),
+        "Name": fields.Str(required=False, load_from="Name"),
+        "Region": fields.Str(required=False, load_from="Region"),
+        "Remark": fields.Str(required=False, load_from="Remark"),
+        "SnapshotID": fields.Str(required=False, load_from="SnapshotID"),
+        "SnapshotStatus": fields.Str(
+            required=False, load_from="SnapshotStatus"
+        ),
+        "Zone": fields.Str(required=False, load_from="Zone"),
+    }
+
+
 class StorageTypeInfoSchema(schema.ResponseSchema):
-    """ StorageTypeInfo - 存储类型信息
-    """
+    """StorageTypeInfo - 存储类型信息"""
 
     fields = {
         "Region": fields.Str(required=True, load_from="Region"),
@@ -336,8 +373,7 @@ class StorageTypeInfoSchema(schema.ResponseSchema):
 
 
 class SubnetInfoSchema(schema.ResponseSchema):
-    """ SubnetInfo - 子网信息
-    """
+    """SubnetInfo - 子网信息"""
 
     fields = {
         "CreateTime": fields.Int(required=False, load_from="CreateTime"),
@@ -353,8 +389,7 @@ class SubnetInfoSchema(schema.ResponseSchema):
 
 
 class UserInfoSchema(schema.ResponseSchema):
-    """ UserInfo - 租户信息
-    """
+    """UserInfo - 租户信息"""
 
     fields = {
         "Amount": fields.Float(required=False, load_from="Amount"),
@@ -369,8 +404,7 @@ class UserInfoSchema(schema.ResponseSchema):
 
 
 class VMDiskInfoSchema(schema.ResponseSchema):
-    """ VMDiskInfo - UCloudStack虚拟机磁盘信息
-    """
+    """VMDiskInfo - 虚拟机磁盘信息"""
 
     fields = {
         "DiskID": fields.Str(required=False, load_from="DiskID"),
@@ -383,8 +417,7 @@ class VMDiskInfoSchema(schema.ResponseSchema):
 
 
 class VMIPInfoSchema(schema.ResponseSchema):
-    """ VMIPInfo - UCloudStack虚拟机IP信息
-    """
+    """VMIPInfo - 虚拟机IP信息"""
 
     fields = {
         "IP": fields.Str(required=False, load_from="IP"),
@@ -403,8 +436,7 @@ class VMIPInfoSchema(schema.ResponseSchema):
 
 
 class VMInstanceInfoSchema(schema.ResponseSchema):
-    """ VMInstanceInfo - UCloudStack虚拟机信息
-    """
+    """VMInstanceInfo - UCloudStack虚拟机信息"""
 
     fields = {
         "CPU": fields.Int(required=False, load_from="CPU"),
@@ -419,7 +451,6 @@ class VMInstanceInfoSchema(schema.ResponseSchema):
         "OSName": fields.Str(required=False, load_from="OSName"),
         "OSType": fields.Str(required=False, load_from="OSType"),
         "Region": fields.Str(required=False, load_from="Region"),
-        "RegionAlias": fields.Str(required=False, load_from="RegionAlias"),
         "Remark": fields.Str(required=False, load_from="Remark"),
         "State": fields.Str(required=False, load_from="State"),
         "SubnetID": fields.Str(required=False, load_from="SubnetID"),
@@ -430,13 +461,11 @@ class VMInstanceInfoSchema(schema.ResponseSchema):
         "VPCID": fields.Str(required=False, load_from="VPCID"),
         "VPCName": fields.Str(required=False, load_from="VPCName"),
         "Zone": fields.Str(required=False, load_from="Zone"),
-        "ZoneAlias": fields.Str(required=False, load_from="ZoneAlias"),
     }
 
 
 class VMTypeInfoSchema(schema.ResponseSchema):
-    """ VMTypeInfo - 主机机型信息
-    """
+    """VMTypeInfo - 主机机型信息"""
 
     fields = {
         "Region": fields.Str(required=True, load_from="Region"),
@@ -448,8 +477,7 @@ class VMTypeInfoSchema(schema.ResponseSchema):
 
 
 class VPCInfoSchema(schema.ResponseSchema):
-    """ VPCInfo - VPC信息
-    """
+    """VPCInfo - VPC信息"""
 
     fields = {
         "CreateTime": fields.Int(required=False, load_from="CreateTime"),
@@ -467,8 +495,7 @@ class VPCInfoSchema(schema.ResponseSchema):
 
 
 class VSPolicyInfoSchema(schema.ResponseSchema):
-    """ VSPolicyInfo - 内容转发规则信息
-    """
+    """VSPolicyInfo - 内容转发规则信息"""
 
     fields = {
         "CreateTime": fields.Int(required=True, load_from="CreateTime"),
@@ -484,12 +511,14 @@ class VSPolicyInfoSchema(schema.ResponseSchema):
 
 
 class VSInfoSchema(schema.ResponseSchema):
-    """ VSInfo - RServer信息
-    """
+    """VSInfo - VServer信息"""
 
     fields = {
         "AlarmTemplateID": fields.Str(
             required=True, load_from="AlarmTemplateID"
+        ),
+        "CACertificateID": fields.Str(
+            required=False, load_from="CACertificateID"
         ),
         "CreateTime": fields.Int(required=True, load_from="CreateTime"),
         "Domain": fields.Str(required=False, load_from="Domain"),
@@ -511,6 +540,11 @@ class VSInfoSchema(schema.ResponseSchema):
         "Protocol": fields.Str(required=True, load_from="Protocol"),
         "RSHealthStatus": fields.Str(required=True, load_from="RSHealthStatus"),
         "RSInfos": fields.List(RSInfoSchema()),
+        "SSLMode": fields.Str(required=False, load_from="SSLMode"),
+        "Scheduler": fields.Str(required=True, load_from="Scheduler"),
+        "ServerCertificateID": fields.Str(
+            required=False, load_from="ServerCertificateID"
+        ),
         "UpdateTime": fields.Int(required=True, load_from="UpdateTime"),
         "VSID": fields.Str(required=True, load_from="VSID"),
         "VSPolicyInfos": fields.List(VSPolicyInfoSchema()),
@@ -519,8 +553,7 @@ class VSInfoSchema(schema.ResponseSchema):
 
 
 class PriceInfoSchema(schema.ResponseSchema):
-    """ PriceInfo - 价格信息
-    """
+    """PriceInfo - 价格信息"""
 
     fields = {
         "ChargeType": fields.Str(required=True, load_from="ChargeType"),

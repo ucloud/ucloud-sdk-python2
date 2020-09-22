@@ -5,8 +5,7 @@ from ucloud.core.typesystem import schema, fields
 
 
 class UMemPriceSetSchema(schema.ResponseSchema):
-    """ UMemPriceSet - DescribeUMemPrice
-    """
+    """UMemPriceSet - DescribeUMemPrice"""
 
     fields = {
         "ChargeType": fields.Str(required=False, load_from="ChargeType"),
@@ -16,8 +15,7 @@ class UMemPriceSetSchema(schema.ResponseSchema):
 
 
 class UMemSpaceAddressSetSchema(schema.ResponseSchema):
-    """ UMemSpaceAddressSet - DescribeUMemSpace
-    """
+    """UMemSpaceAddressSet - DescribeUMemSpace"""
 
     fields = {
         "IP": fields.Str(required=False, load_from="IP"),
@@ -26,8 +24,7 @@ class UMemSpaceAddressSetSchema(schema.ResponseSchema):
 
 
 class UMemSpaceSetSchema(schema.ResponseSchema):
-    """ UMemSpaceSet - DescribeUMemSpace
-    """
+    """UMemSpaceSet - DescribeUMemSpace"""
 
     fields = {
         "Address": fields.List(UMemSpaceAddressSetSchema()),
@@ -50,8 +47,7 @@ class UMemSpaceSetSchema(schema.ResponseSchema):
 
 
 class PriceDataSetSchema(schema.ResponseSchema):
-    """ PriceDataSet - 升降级价格
-    """
+    """PriceDataSet - 升降级价格"""
 
     fields = {
         "CustomPrice": fields.Int(required=False, load_from="CustomPrice"),
@@ -61,8 +57,7 @@ class PriceDataSetSchema(schema.ResponseSchema):
 
 
 class UMemcacheGroupSetSchema(schema.ResponseSchema):
-    """ UMemcacheGroupSet - DescribeUMemcacheGroup
-    """
+    """UMemcacheGroupSet - DescribeUMemcacheGroup"""
 
     fields = {
         "ChargeType": fields.Str(required=False, load_from="ChargeType"),
@@ -85,8 +80,7 @@ class UMemcacheGroupSetSchema(schema.ResponseSchema):
 
 
 class UMemcachePriceSetSchema(schema.ResponseSchema):
-    """ UMemcachePriceSet - DescribeUMemcachePrice
-    """
+    """UMemcachePriceSet - DescribeUMemcachePrice"""
 
     fields = {
         "ChargeType": fields.Str(required=False, load_from="ChargeType"),
@@ -96,8 +90,7 @@ class UMemcachePriceSetSchema(schema.ResponseSchema):
 
 
 class URedisBackupSetSchema(schema.ResponseSchema):
-    """ URedisBackupSet - DescribeURedisBackup
-    """
+    """URedisBackupSet - DescribeURedisBackup"""
 
     fields = {
         "BackupId": fields.Str(required=False, load_from="BackupId"),
@@ -113,8 +106,7 @@ class URedisBackupSetSchema(schema.ResponseSchema):
 
 
 class URedisGroupSetSchema(schema.ResponseSchema):
-    """ URedisGroupSet - DescribeURedisGroup
-    """
+    """URedisGroupSet - DescribeURedisGroup"""
 
     fields = {
         "AutoBackup": fields.Str(required=False, load_from="AutoBackup"),
@@ -149,8 +141,7 @@ class URedisGroupSetSchema(schema.ResponseSchema):
 
 
 class URedisPriceSetSchema(schema.ResponseSchema):
-    """ URedisPriceSet - 主备Redis价格
-    """
+    """URedisPriceSet - 主备Redis价格"""
 
     fields = {
         "ChargeType": fields.Str(required=False, load_from="ChargeType"),

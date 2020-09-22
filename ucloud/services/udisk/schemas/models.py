@@ -5,8 +5,7 @@ from ucloud.core.typesystem import schema, fields
 
 
 class UDiskDataSetSchema(schema.ResponseSchema):
-    """ UDiskDataSet - DescribeUDisk
-    """
+    """UDiskDataSet - DescribeUDisk"""
 
     fields = {
         "ArkSwitchEnable": fields.Int(
@@ -43,8 +42,7 @@ class UDiskDataSetSchema(schema.ResponseSchema):
 
 
 class UDiskPriceDataSetSchema(schema.ResponseSchema):
-    """ UDiskPriceDataSet - DescribeUDiskPrice
-    """
+    """UDiskPriceDataSet - DescribeUDiskPrice"""
 
     fields = {
         "ChargeName": fields.Str(required=False, load_from="ChargeName"),
@@ -55,8 +53,7 @@ class UDiskPriceDataSetSchema(schema.ResponseSchema):
 
 
 class UDiskSnapshotSetSchema(schema.ResponseSchema):
-    """ UDiskSnapshotSet - DescribeUDiskSnapshot
-    """
+    """UDiskSnapshotSet - DescribeUDiskSnapshot"""
 
     fields = {
         "CmkId": fields.Str(required=False, load_from="CmkId"),
