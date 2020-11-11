@@ -20,6 +20,8 @@ class AllocateEIPRequestSchema(schema.RequestSchema):
     fields = {
         "Bandwidth": fields.Int(required=True, dump_to="Bandwidth"),
         "ChargeType": fields.Str(required=True, dump_to="ChargeType"),
+        "IP": fields.Str(required=False, dump_to="IP"),
+        "IPVersion": fields.Str(required=False, dump_to="IPVersion"),
         "Name": fields.Str(required=True, dump_to="Name"),
         "OperatorName": fields.Str(required=True, dump_to="OperatorName"),
         "Quantity": fields.Int(required=False, dump_to="Quantity"),
@@ -66,6 +68,32 @@ class AttachDiskResponseSchema(schema.ResponseSchema):
 
 
 """
+API: AttachNIC
+
+绑定UCloudStack网卡
+"""
+
+
+class AttachNICRequestSchema(schema.RequestSchema):
+    """ AttachNIC - 绑定UCloudStack网卡
+    """
+
+    fields = {
+        "NICID": fields.Str(required=True, dump_to="NICID"),
+        "Region": fields.Str(required=True, dump_to="Region"),
+        "ResourceID": fields.Str(required=True, dump_to="ResourceID"),
+        "Zone": fields.Str(required=True, dump_to="Zone"),
+    }
+
+
+class AttachNICResponseSchema(schema.ResponseSchema):
+    """ AttachNIC - 绑定UCloudStack网卡
+    """
+
+    fields = {"Message": fields.Str(required=True, load_from="Message")}
+
+
+"""
 API: BindAlarmTemplate
 
 绑定告警模板
@@ -95,12 +123,12 @@ class BindAlarmTemplateResponseSchema(schema.ResponseSchema):
 """
 API: BindEIP
 
-绑定UCoudStack外网IP
+绑定外网 IP
 """
 
 
 class BindEIPRequestSchema(schema.RequestSchema):
-    """ BindEIP - 绑定UCoudStack外网IP
+    """ BindEIP - 绑定外网 IP
     """
 
     fields = {
@@ -113,7 +141,7 @@ class BindEIPRequestSchema(schema.RequestSchema):
 
 
 class BindEIPResponseSchema(schema.ResponseSchema):
-    """ BindEIP - 绑定UCoudStack外网IP
+    """ BindEIP - 绑定外网 IP
     """
 
     fields = {"Message": fields.Str(required=True, load_from="Message")}
@@ -158,7 +186,7 @@ class BindSecurityGroupRequestSchema(schema.RequestSchema):
     """
 
     fields = {
-        "NICID": fields.Str(required=False, dump_to="NICID"),
+        "NICType": fields.Str(required=False, dump_to="NICType"),
         "Region": fields.Str(required=True, dump_to="Region"),
         "ResourceID": fields.Str(required=True, dump_to="ResourceID"),
         "SGID": fields.Str(required=True, dump_to="SGID"),
@@ -400,6 +428,38 @@ class CreateNATGWRuleResponseSchema(schema.ResponseSchema):
     fields = {
         "Message": fields.Str(required=True, load_from="Message"),
         "RuleID": fields.Str(required=False, load_from="RuleID"),
+    }
+
+
+"""
+API: CreateNIC
+
+创建网卡
+"""
+
+
+class CreateNICRequestSchema(schema.RequestSchema):
+    """ CreateNIC - 创建网卡
+    """
+
+    fields = {
+        "IP": fields.Str(required=False, dump_to="IP"),
+        "Name": fields.Str(required=True, dump_to="Name"),
+        "Region": fields.Str(required=True, dump_to="Region"),
+        "SGID": fields.Str(required=False, dump_to="SGID"),
+        "SubnetID": fields.Str(required=True, dump_to="SubnetID"),
+        "VPCID": fields.Str(required=True, dump_to="VPCID"),
+        "Zone": fields.Str(required=True, dump_to="Zone"),
+    }
+
+
+class CreateNICResponseSchema(schema.ResponseSchema):
+    """ CreateNIC - 创建网卡
+    """
+
+    fields = {
+        "Message": fields.Str(required=True, load_from="Message"),
+        "NICID": fields.Str(required=True, load_from="NICID"),
     }
 
 
@@ -735,7 +795,9 @@ class CreateVSResponseSchema(schema.ResponseSchema):
     """
 
     fields = {
+        "Action": fields.Str(required=True, load_from="Action"),
         "Message": fields.Str(required=False, load_from="Message"),
+        "RetCode": fields.Int(required=True, load_from="RetCode"),
         "VSID": fields.Str(required=False, load_from="VSID"),
     }
 
@@ -918,6 +980,31 @@ class DeleteNATGWRuleRequestSchema(schema.RequestSchema):
 
 class DeleteNATGWRuleResponseSchema(schema.ResponseSchema):
     """ DeleteNATGWRule - 删除NAT网关白名单
+    """
+
+    fields = {"Message": fields.Str(required=True, load_from="Message")}
+
+
+"""
+API: DeleteNIC
+
+删除网卡
+"""
+
+
+class DeleteNICRequestSchema(schema.RequestSchema):
+    """ DeleteNIC - 删除网卡
+    """
+
+    fields = {
+        "NICID": fields.Str(required=True, dump_to="NICID"),
+        "Region": fields.Str(required=True, dump_to="Region"),
+        "Zone": fields.Str(required=True, dump_to="Zone"),
+    }
+
+
+class DeleteNICResponseSchema(schema.ResponseSchema):
+    """ DeleteNIC - 删除网卡
     """
 
     fields = {"Message": fields.Str(required=True, load_from="Message")}
@@ -1228,6 +1315,7 @@ class DescribeDiskRequestSchema(schema.RequestSchema):
 
     fields = {
         "DiskIDs": fields.List(fields.Str()),
+        "DiskType": fields.Str(required=False, dump_to="DiskType"),
         "Limit": fields.Int(required=False, dump_to="Limit"),
         "Offset": fields.Int(required=False, dump_to="Offset"),
         "Region": fields.Str(required=True, dump_to="Region"),
@@ -1260,7 +1348,9 @@ class DescribeEIPRequestSchema(schema.RequestSchema):
     """
 
     fields = {
+        "BindResourceID": fields.Str(required=False, dump_to="BindResourceID"),
         "EIPIDs": fields.List(fields.Str()),
+        "IPVersion": fields.Str(required=False, dump_to="IPVersion"),
         "Limit": fields.Str(required=False, dump_to="Limit"),
         "Offset": fields.Str(required=False, dump_to="Offset"),
         "Region": fields.Str(required=True, dump_to="Region"),
@@ -1457,6 +1547,39 @@ class DescribeNATGWRuleResponseSchema(schema.ResponseSchema):
 
 
 """
+API: DescribeNIC
+
+获取网卡信息
+"""
+
+
+class DescribeNICRequestSchema(schema.RequestSchema):
+    """ DescribeNIC - 获取网卡信息
+    """
+
+    fields = {
+        "Limit": fields.Int(required=False, dump_to="Limit"),
+        "NICIDs": fields.List(fields.Str()),
+        "Offset": fields.Int(required=False, dump_to="Offset"),
+        "Region": fields.Str(required=True, dump_to="Region"),
+        "Zone": fields.Str(required=True, dump_to="Zone"),
+    }
+
+
+class DescribeNICResponseSchema(schema.ResponseSchema):
+    """ DescribeNIC - 获取网卡信息
+    """
+
+    fields = {
+        "Infos": fields.List(
+            models.NICInfoSchema(), required=True, load_from="Infos"
+        ),
+        "Message": fields.Str(required=True, load_from="Message"),
+        "TotalCount": fields.Int(required=True, load_from="TotalCount"),
+    }
+
+
+"""
 API: DescribeOPLogs
 
 查询操作日志
@@ -1629,6 +1752,73 @@ class DescribeSecurityGroupResponseSchema(schema.ResponseSchema):
 
 
 """
+API: DescribeSecurityGroupResource
+
+查询安全组绑定的资源信息
+"""
+
+
+class DescribeSecurityGroupResourceRequestSchema(schema.RequestSchema):
+    """ DescribeSecurityGroupResource - 查询安全组绑定的资源信息
+    """
+
+    fields = {
+        "Limit": fields.Int(required=False, dump_to="Limit"),
+        "Offset": fields.Int(required=False, dump_to="Offset"),
+        "Region": fields.Str(required=True, dump_to="Region"),
+        "SGID": fields.Str(required=True, dump_to="SGID"),
+        "Zone": fields.Str(required=True, dump_to="Zone"),
+    }
+
+
+class DescribeSecurityGroupResourceResponseSchema(schema.ResponseSchema):
+    """ DescribeSecurityGroupResource - 查询安全组绑定的资源信息
+    """
+
+    fields = {
+        "Infos": fields.List(
+            models.SGResourceInfoSchema(), required=True, load_from="Infos"
+        ),
+        "Message": fields.Str(required=True, load_from="Message"),
+        "TotalCount": fields.Int(required=True, load_from="TotalCount"),
+    }
+
+
+"""
+API: DescribeSnapshot
+
+查询硬盘快照信息
+"""
+
+
+class DescribeSnapshotRequestSchema(schema.RequestSchema):
+    """ DescribeSnapshot - 查询硬盘快照信息
+    """
+
+    fields = {
+        "DiskID": fields.Str(required=False, dump_to="DiskID"),
+        "Limit": fields.Int(required=False, dump_to="Limit"),
+        "Offset": fields.Int(required=False, dump_to="Offset"),
+        "Region": fields.Str(required=True, dump_to="Region"),
+        "SnapshotIDs": fields.List(fields.Str()),
+        "Zone": fields.Str(required=True, dump_to="Zone"),
+    }
+
+
+class DescribeSnapshotResponseSchema(schema.ResponseSchema):
+    """ DescribeSnapshot - 查询硬盘快照信息
+    """
+
+    fields = {
+        "Infos": fields.List(
+            models.SnapshotInfoSchema(), required=True, load_from="Infos"
+        ),
+        "Message": fields.Str(required=True, load_from="Message"),
+        "TotalCount": fields.Int(required=True, load_from="TotalCount"),
+    }
+
+
+"""
 API: DescribeStorageType
 
 查询存储类型
@@ -1736,7 +1926,7 @@ class DescribeVMInstanceRequestSchema(schema.RequestSchema):
 
     fields = {
         "Limit": fields.Int(required=False, dump_to="Limit"),
-        "Offset": fields.Str(required=False, dump_to="Offset"),
+        "Offset": fields.Int(required=False, dump_to="Offset"),
         "Region": fields.Str(required=True, dump_to="Region"),
         "SubnetID": fields.Str(required=False, dump_to="SubnetID"),
         "VMIDs": fields.List(fields.Str()),
@@ -1893,12 +2083,12 @@ class DescribeVSPolicyResponseSchema(schema.ResponseSchema):
 """
 API: DetachDisk
 
-解绑UClouStack硬盘
+解绑硬盘
 """
 
 
 class DetachDiskRequestSchema(schema.RequestSchema):
-    """ DetachDisk - 解绑UClouStack硬盘
+    """ DetachDisk - 解绑硬盘
     """
 
     fields = {
@@ -1910,7 +2100,33 @@ class DetachDiskRequestSchema(schema.RequestSchema):
 
 
 class DetachDiskResponseSchema(schema.ResponseSchema):
-    """ DetachDisk - 解绑UClouStack硬盘
+    """ DetachDisk - 解绑硬盘
+    """
+
+    fields = {"Message": fields.Str(required=True, load_from="Message")}
+
+
+"""
+API: DetachNIC
+
+解绑UClouStack网卡
+"""
+
+
+class DetachNICRequestSchema(schema.RequestSchema):
+    """ DetachNIC - 解绑UClouStack网卡
+    """
+
+    fields = {
+        "NICID": fields.Str(required=True, dump_to="NICID"),
+        "Region": fields.Str(required=True, dump_to="Region"),
+        "ResourceID": fields.Str(required=True, dump_to="ResourceID"),
+        "Zone": fields.Str(required=True, dump_to="Zone"),
+    }
+
+
+class DetachNICResponseSchema(schema.ResponseSchema):
+    """ DetachNIC - 解绑UClouStack网卡
     """
 
     fields = {"Message": fields.Str(required=True, load_from="Message")}
@@ -2741,12 +2957,12 @@ class UpdateVSPolicyResponseSchema(schema.ResponseSchema):
 """
 API: UpgradeDisk
 
-升级硬盘
+扩容硬盘，为保证数据完整性，容量扩容前建议暂停对当前硬盘的所有文件系统读写操作，并进入操作系统进行 `umount ` 或`脱机` 操作。
 """
 
 
 class UpgradeDiskRequestSchema(schema.RequestSchema):
-    """ UpgradeDisk - 升级硬盘
+    """ UpgradeDisk - 扩容硬盘，为保证数据完整性，容量扩容前建议暂停对当前硬盘的所有文件系统读写操作，并进入操作系统进行 `umount ` 或`脱机` 操作。
     """
 
     fields = {
@@ -2758,7 +2974,11 @@ class UpgradeDiskRequestSchema(schema.RequestSchema):
 
 
 class UpgradeDiskResponseSchema(schema.ResponseSchema):
-    """ UpgradeDisk - 升级硬盘
+    """ UpgradeDisk - 扩容硬盘，为保证数据完整性，容量扩容前建议暂停对当前硬盘的所有文件系统读写操作，并进入操作系统进行 `umount ` 或`脱机` 操作。
     """
 
-    fields = {"Message": fields.Str(required=True, load_from="Message")}
+    fields = {
+        "Action": fields.Str(required=True, load_from="Action"),
+        "Message": fields.Str(required=True, load_from="Message"),
+        "RetCode": fields.Int(required=True, load_from="RetCode"),
+    }
