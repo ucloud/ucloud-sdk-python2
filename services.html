@@ -3809,7 +3809,7 @@
 <li><strong>ProjectId</strong> (str) - (Config) 项目ID。不填写为默认项目，子帐号必须填写。 请参考 <a class="reference external" href="https://docs.ucloud.cn/api/summary/get_project_list.html">GetProjectList接口</a></li>
 <li><strong>Region</strong> (str) - (Config) 地域。 参见  <a class="reference external" href="https://docs.ucloud.cn/api/summary/regionlist.html">地域和可用区列表</a></li>
 <li><strong>HighAvailability</strong> (str) - (Required) 是否开启高可用,enable或disable</li>
-<li><strong>Name</strong> (str) - (Required) 请求创建组的名称 (范围[6-63],只能包含英文、<a href="#id607"><span class="problematic" id="id608">数字以及符号-和_</span></a>)</li>
+<li><strong>Name</strong> (str) - (Required) 请求创建组的名称 (范围[6-63],只能包含英文、<a href="#id615"><span class="problematic" id="id616">数字以及符号-和_</span></a>)</li>
 <li><strong>Zone</strong> (str) - (Required) 可用区。参见  <a class="reference external" href="https://docs.ucloud.cn/api/summary/regionlist.html">可用区列表</a></li>
 <li><strong>AutoBackup</strong> (str) - 是否自动备份,enable或disable，默认disable</li>
 <li><strong>BackupId</strong> (str) - 有此项代表从备份中创建，无代表正常创建</li>
@@ -4267,7 +4267,7 @@
 <li><strong>ProjectId</strong> (str) - (Config) 项目ID。不填写为默认项目，子帐号必须填写。 请参考 <a class="reference external" href="https://docs.ucloud.cn/api/summary/get_project_list.html">GetProjectList接口</a></li>
 <li><strong>Region</strong> (str) - (Config) 地域。 参见  <a class="reference external" href="https://docs.ucloud.cn/api/summary/regionlist.html">地域和可用区列表</a></li>
 <li><strong>GroupId</strong> (str) - (Required) 组的ID</li>
-<li><strong>Name</strong> (str) - (Required) Redis组名称 (范围[6-63],只能包含英文、<a href="#id609"><span class="problematic" id="id610">数字以及符号-和_</span></a>)</li>
+<li><strong>Name</strong> (str) - (Required) Redis组名称 (范围[6-63],只能包含英文、<a href="#id617"><span class="problematic" id="id618">数字以及符号-和_</span></a>)</li>
 <li><strong>Zone</strong> (str) - 可用区。参见  <a class="reference external" href="https://docs.ucloud.cn/api/summary/regionlist.html">可用区列表</a></li>
 </ul>
 <p><strong>Response</strong></p>
@@ -5602,353 +5602,6 @@
 </dd></dl>
 
 </div>
-<div class="section" id="ipsecvpn">
-<h2>IPSecVPN<a class="headerlink" href="#ipsecvpn" title="Permalink to this headline">¶</a></h2>
-<dl class="class">
-<dt id="ucloud.services.ipsecvpn.client.IPSecVPNClient">
-<em class="property">class </em><code class="descclassname">ucloud.services.ipsecvpn.client.</code><code class="descname">IPSecVPNClient</code><span class="sig-paren">(</span><em>config</em>, <em>transport=None</em>, <em>middleware=None</em>, <em>logger=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/ipsecvpn/client.html#IPSecVPNClient"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.ipsecvpn.client.IPSecVPNClient" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="method">
-<dt id="ucloud.services.ipsecvpn.client.IPSecVPNClient.describe_remote_vpn_gateway">
-<code class="descname">describe_remote_vpn_gateway</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/ipsecvpn/client.html#IPSecVPNClient.describe_remote_vpn_gateway"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.ipsecvpn.client.IPSecVPNClient.describe_remote_vpn_gateway" title="Permalink to this definition">¶</a></dt>
-<dd><p>DescribeRemoteVPNGateway - 获取客户VPN网关信息</p>
-<p><strong>Request</strong></p>
-<ul class="simple">
-<li><strong>ProjectId</strong> (str) - (Config) 项目ID。不填写为默认项目，子帐号必须填写。 请参考 <a class="reference external" href="https://docs.ucloud.cn/api/summary/get_project_list.html">GetProjectList接口</a></li>
-<li><strong>Region</strong> (str) - (Config) 地域。 参见  <a class="reference external" href="https://docs.ucloud.cn/api/summary/regionlist.html">地域和可用区列表</a></li>
-<li><strong>Limit</strong> (int) - 数据分页值, 默认为20</li>
-<li><strong>Offset</strong> (int) - 数据偏移量, 默认为0</li>
-<li><strong>RemoteVPNGatewayIds</strong> (list) - 客户VPN网关的资源ID，例如RemoteVPNGatewayIds.0代表希望获取客户VPN网关1的信息，RemoteVPNGatewayIds.1代表客户VPN网关2，如果为空，则返回当前Region中所有客户VPN网关实例的信息</li>
-<li><strong>Tag</strong> (str) - 业务组名称，若指定则返回业务组下所有客户VPN网关信息</li>
-</ul>
-<p><strong>Response</strong></p>
-<ul class="simple">
-<li><strong>DataSet</strong> (list) - 见 <strong>RemoteVPNGatewayDataSet</strong> 模型定义</li>
-<li><strong>TotalCount</strong> (int) - 符合条件的客户VPN网关总数</li>
-</ul>
-<p><strong>Response Model</strong></p>
-<p><strong>RemoteVPNGatewayDataSet</strong></p>
-<ul class="simple">
-<li><strong>ActiveTunnels</strong> (str) - 活跃的隧道id</li>
-<li><strong>CreateTime</strong> (int) - 创建时间</li>
-<li><strong>Remark</strong> (str) - 备注</li>
-<li><strong>RemoteVPNGatewayAddr</strong> (str) - 客户网关IP地址</li>
-<li><strong>RemoteVPNGatewayId</strong> (str) - 客户网关ID</li>
-<li><strong>RemoteVPNGatewayName</strong> (str) - 客户网关名称</li>
-<li><strong>Tag</strong> (str) - 用户组</li>
-<li><strong>TunnelCount</strong> (int) - 活跃的隧道数量</li>
-</ul>
-</dd></dl>
-
-<dl class="method">
-<dt id="ucloud.services.ipsecvpn.client.IPSecVPNClient.describe_vpn_tunnel">
-<code class="descname">describe_vpn_tunnel</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/ipsecvpn/client.html#IPSecVPNClient.describe_vpn_tunnel"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.ipsecvpn.client.IPSecVPNClient.describe_vpn_tunnel" title="Permalink to this definition">¶</a></dt>
-<dd><p>DescribeVPNTunnel - 获取VPN隧道信息</p>
-<p><strong>Request</strong></p>
-<ul class="simple">
-<li><strong>ProjectId</strong> (str) - (Config) 项目ID。不填写为默认项目，子帐号必须填写。 请参考 <a class="reference external" href="https://docs.ucloud.cn/api/summary/get_project_list.html">GetProjectList接口</a></li>
-<li><strong>Region</strong> (str) - (Config) 地域。 参见  <a class="reference external" href="https://docs.ucloud.cn/api/summary/regionlist.html">地域和可用区列表</a></li>
-<li><strong>Limit</strong> (int) - 数据分页值, 默认为20</li>
-<li><strong>Offset</strong> (int) - 数据偏移量, 默认为0</li>
-<li><strong>Tag</strong> (str) - 业务组名称，若指定则返回指定的业务组下的所有VPN网关的信息</li>
-<li><strong>VPNTunnelIds</strong> (list) - VPN隧道的资源ID，例如VPNTunnelIds.0代表希望获取信息的VPN隧道1，VPNTunneIds.1代表VPN隧道2，如果为空，则返回当前Region中所有的VPN隧道实例</li>
-</ul>
-<p><strong>Response</strong></p>
-<ul class="simple">
-<li><strong>DataSet</strong> (list) - 见 <strong>VPNTunnelDataSet</strong> 模型定义</li>
-<li><strong>TotalCount</strong> (int) - VPN隧道总数</li>
-</ul>
-<p><strong>Response Model</strong></p>
-<p><strong>IPSecData</strong></p>
-<ul class="simple">
-<li><strong>IPSecAuthenticationAlgorithm</strong> (str) - IPSec通道中使用的认证算法</li>
-<li><strong>IPSecEncryptionAlgorithm</strong> (str) - IPSec通道中使用的加密算法</li>
-<li><strong>IPSecLocalSubnetIds</strong> (list) - 指定VPN连接的本地子网，用逗号分隔</li>
-<li><strong>IPSecPFSDhGroup</strong> (str) - 是否开启PFS功能,Disable表示关闭，数字表示DH组</li>
-<li><strong>IPSecProtocol</strong> (str) - 使用的安全协议，ESP或AH</li>
-<li><strong>IPSecRemoteSubnets</strong> (list) - 指定VPN连接的客户网段，用逗号分隔</li>
-<li><strong>IPSecSALifetime</strong> (str) - IPSec中SA的生存时间</li>
-<li><strong>IPSecSALifetimeBytes</strong> (str) - IPSec中SA的生存时间（以字节计）</li>
-</ul>
-<p><strong>IKEData</strong></p>
-<ul class="simple">
-<li><strong>IKEAuthenticationAlgorithm</strong> (str) - IKE认证算法</li>
-<li><strong>IKEDhGroup</strong> (str) - IKEDH组</li>
-<li><strong>IKEEncryptionAlgorithm</strong> (str) - IKE加密算法</li>
-<li><strong>IKEExchangeMode</strong> (str) - IKEv1协商模式</li>
-<li><strong>IKELocalId</strong> (str) - IKE本地ID标识</li>
-<li><strong>IKEPreSharedKey</strong> (str) - IKE预共享秘钥</li>
-<li><strong>IKERemoteId</strong> (str) - IKE对端ID标识</li>
-<li><strong>IKESALifetime</strong> (str) - IKE秘钥生存时间</li>
-<li><strong>IKEVersion</strong> (str) - IKE版本</li>
-</ul>
-<p><strong>VPNTunnelDataSet</strong></p>
-<ul class="simple">
-<li><strong>CreateTime</strong> (int) - 创建时间</li>
-<li><strong>IKEData</strong> (dict) - 见 <strong>IKEData</strong> 模型定义</li>
-<li><strong>IPSecData</strong> (dict) - 见 <strong>IPSecData</strong> 模型定义</li>
-<li><strong>Remark</strong> (str) - 备注</li>
-<li><strong>RemoteVPNGatewayId</strong> (str) - 对端网关Id</li>
-<li><strong>RemoteVPNGatewayName</strong> (str) - 对端网关名字</li>
-<li><strong>Tag</strong> (str) - 用户组</li>
-<li><strong>VPCId</strong> (str) - 所属VPCId</li>
-<li><strong>VPCName</strong> (str) - 所属VOC名字</li>
-<li><strong>VPNGatewayId</strong> (str) - 所属VPN网关id</li>
-<li><strong>VPNGatewayName</strong> (str) - VPN网关名字</li>
-<li><strong>VPNTunnelId</strong> (str) - 隧道id</li>
-<li><strong>VPNTunnelName</strong> (str) - 隧道名称</li>
-</ul>
-</dd></dl>
-
-</dd></dl>
-
-</div>
-<div class="section" id="ufs">
-<h2>UFS<a class="headerlink" href="#ufs" title="Permalink to this headline">¶</a></h2>
-<dl class="class">
-<dt id="ucloud.services.ufs.client.UFSClient">
-<em class="property">class </em><code class="descclassname">ucloud.services.ufs.client.</code><code class="descname">UFSClient</code><span class="sig-paren">(</span><em>config</em>, <em>transport=None</em>, <em>middleware=None</em>, <em>logger=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/ufs/client.html#UFSClient"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.ufs.client.UFSClient" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="method">
-<dt id="ucloud.services.ufs.client.UFSClient.create_ufs_volume">
-<code class="descname">create_ufs_volume</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/ufs/client.html#UFSClient.create_ufs_volume"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.ufs.client.UFSClient.create_ufs_volume" title="Permalink to this definition">¶</a></dt>
-<dd><p>CreateUFSVolume - 创建文件系统</p>
-<p><strong>Request</strong></p>
-<ul class="simple">
-<li><strong>ProjectId</strong> (str) - (Config) 项目ID。不填写为默认项目，子帐号必须填写。 请参考 <a class="reference external" href="https://docs.ucloud.cn/api/summary/get_project_list.html">GetProjectList接口</a></li>
-<li><strong>Region</strong> (str) - (Config) 地域。 参见  <a class="reference external" href="https://docs.ucloud.cn/api/summary/regionlist.html">地域和可用区列表</a></li>
-<li><strong>ProtocolType</strong> (str) - (Required) 文件系统协议，枚举值，NFSv3表示NFS V3协议，NFSv4表示NFS V4协议</li>
-<li><strong>Size</strong> (int) - (Required) 文件系统大小，单位为GB，最大不超过20T，香港容量型必须为100的整数倍，Size最小为500GB，北京，上海，广州的容量型必须为1024的整数倍，Size最小为1024GB。性能型文件系统Size最小为100GB</li>
-<li><strong>StorageType</strong> (str) - (Required) 文件系统存储类型，枚举值，Basic表示容量型，Advanced表示性能型</li>
-<li><strong>ChargeType</strong> (str) - 计费模式，枚举值为： Year，按年付费； Month，按月付费； Dynamic，按需付费（需开启权限）； Trial，试用（需开启权限） 默认为Dynamic</li>
-<li><strong>CouponId</strong> (str) - 使用的代金券id</li>
-<li><strong>Quantity</strong> (int) - 购买时长 默认: 1</li>
-<li><strong>Remark</strong> (str) - 备注</li>
-<li><strong>Tag</strong> (str) - 文件系统所属业务组</li>
-<li><strong>VolumeName</strong> (str) - 文件系统名称</li>
-</ul>
-<p><strong>Response</strong></p>
-<ul class="simple">
-<li><strong>VolumeId</strong> (str) - 文件系统ID</li>
-<li><strong>VolumeName</strong> (str) - 文件系统名称</li>
-<li><strong>VolumeStatus</strong> (str) - 文件系统挂载点状态</li>
-</ul>
-</dd></dl>
-
-<dl class="method">
-<dt id="ucloud.services.ufs.client.UFSClient.describe_ufs_volume_2">
-<code class="descname">describe_ufs_volume_2</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/ufs/client.html#UFSClient.describe_ufs_volume_2"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.ufs.client.UFSClient.describe_ufs_volume_2" title="Permalink to this definition">¶</a></dt>
-<dd><p>DescribeUFSVolume2 - 获取文件系统列表</p>
-<p><strong>Request</strong></p>
-<ul class="simple">
-<li><strong>ProjectId</strong> (str) - (Config) 项目ID。不填写为默认项目，子帐号必须填写。 请参考 <a class="reference external" href="https://docs.ucloud.cn/api/summary/get_project_list.html">GetProjectList接口</a></li>
-<li><strong>Region</strong> (str) - (Config) 地域。 参见  <a class="reference external" href="https://docs.ucloud.cn/api/summary/regionlist.html">地域和可用区列表</a></li>
-<li><strong>Limit</strong> (int) - 文件列表长度</li>
-<li><strong>Offset</strong> (int) - 文件列表起始</li>
-<li><strong>VolumeId</strong> (str) - 文件系统ID</li>
-</ul>
-<p><strong>Response</strong></p>
-<ul class="simple">
-<li><strong>DataSet</strong> (list) - 见 <strong>UFSVolumeInfo2</strong> 模型定义</li>
-<li><strong>TotalCount</strong> (int) - 文件系统总数</li>
-</ul>
-<p><strong>Response Model</strong></p>
-<p><strong>UFSVolumeInfo2</strong></p>
-<ul class="simple">
-<li><strong>CreateTime</strong> (int) - 文件系统创建时间（unix时间戳）</li>
-<li><strong>ExpiredTime</strong> (int) - 文件系统过期时间（unix时间戳）</li>
-<li><strong>IsExpired</strong> (str) - 是否过期</li>
-<li><strong>MaxMountPointNum</strong> (int) - 文件系统允许创建的最大挂载点数目</li>
-<li><strong>ProtocolType</strong> (str) - 文件系统协议，枚举值，NFSv3表示NFS V3协议，NFSv4表示NFS V4协议</li>
-<li><strong>Remark</strong> (str) - 文件系统备注信息</li>
-<li><strong>Size</strong> (int) - 文件系统大小，单位GB</li>
-<li><strong>StorageType</strong> (str) - 文件系统存储类型，枚举值，Basic表示容量型，Advanced表示性能型</li>
-<li><strong>Tag</strong> (str) - 文件系统所属业务组</li>
-<li><strong>TotalMountPointNum</strong> (int) - 当前文件系统已创建的挂载点数目</li>
-<li><strong>UsedSize</strong> (int) - 文件系统当前使用容量，单位GB</li>
-<li><strong>VolumeId</strong> (str) - 文件系统ID</li>
-<li><strong>VolumeName</strong> (str) - 文件系统名称</li>
-</ul>
-</dd></dl>
-
-<dl class="method">
-<dt id="ucloud.services.ufs.client.UFSClient.extend_ufs_volume">
-<code class="descname">extend_ufs_volume</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/ufs/client.html#UFSClient.extend_ufs_volume"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.ufs.client.UFSClient.extend_ufs_volume" title="Permalink to this definition">¶</a></dt>
-<dd><p>ExtendUFSVolume - 文件系统扩容</p>
-<p><strong>Request</strong></p>
-<ul class="simple">
-<li><strong>ProjectId</strong> (str) - (Config) 项目ID。不填写为默认项目，子帐号必须填写。 请参考 <a class="reference external" href="https://docs.ucloud.cn/api/summary/get_project_list.html">GetProjectList接口</a></li>
-<li><strong>Region</strong> (str) - (Config) 地域。 参见  <a class="reference external" href="https://docs.ucloud.cn/api/summary/regionlist.html">地域和可用区列表</a></li>
-<li><strong>Size</strong> (int) - (Required) 文件系统大小，单位为GB，最大不超过20T，香港容量型必须为100的整数倍，Size最小为500GB，北京，上海，广州的容量型必须为1024的整数倍，Size最小为1024GB。性能型文件系统Size最小为100GB</li>
-<li><strong>VolumeId</strong> (str) - (Required) 文件系统ID</li>
-</ul>
-<p><strong>Response</strong></p>
-</dd></dl>
-
-<dl class="method">
-<dt id="ucloud.services.ufs.client.UFSClient.remove_ufs_volume">
-<code class="descname">remove_ufs_volume</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/ufs/client.html#UFSClient.remove_ufs_volume"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.ufs.client.UFSClient.remove_ufs_volume" title="Permalink to this definition">¶</a></dt>
-<dd><p>RemoveUFSVolume - 删除UFS文件系统</p>
-<p><strong>Request</strong></p>
-<ul class="simple">
-<li><strong>ProjectId</strong> (str) - (Config) 项目ID。不填写为默认项目，子帐号必须填写。 请参考 <a class="reference external" href="https://docs.ucloud.cn/api/summary/get_project_list.html">GetProjectList接口</a></li>
-<li><strong>Region</strong> (str) - (Config) 地域。 参见  <a class="reference external" href="https://docs.ucloud.cn/api/summary/regionlist.html">地域和可用区列表</a></li>
-<li><strong>VolumeId</strong> (str) - (Required) 文件系统ID</li>
-</ul>
-<p><strong>Response</strong></p>
-</dd></dl>
-
-</dd></dl>
-
-</div>
-<div class="section" id="uhub">
-<h2>UHub<a class="headerlink" href="#uhub" title="Permalink to this headline">¶</a></h2>
-<dl class="class">
-<dt id="ucloud.services.uhub.client.UHubClient">
-<em class="property">class </em><code class="descclassname">ucloud.services.uhub.client.</code><code class="descname">UHubClient</code><span class="sig-paren">(</span><em>config</em>, <em>transport=None</em>, <em>middleware=None</em>, <em>logger=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/uhub/client.html#UHubClient"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.uhub.client.UHubClient" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="method">
-<dt id="ucloud.services.uhub.client.UHubClient.create_repo">
-<code class="descname">create_repo</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/uhub/client.html#UHubClient.create_repo"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.uhub.client.UHubClient.create_repo" title="Permalink to this definition">¶</a></dt>
-<dd><p>CreateRepo - 创建镜像仓库</p>
-<p><strong>Request</strong></p>
-<ul class="simple">
-<li><strong>ProjectId</strong> (str) - (Config) 项目ID。不填写为默认项目，子帐号必须填写。 请参考 <a class="reference external" href="https://docs.ucloud.cn/api/summary/get_project_list.html">GetProjectList接口</a></li>
-<li><strong>RepoName</strong> (str) - (Required) 仓库名称，不可修改</li>
-<li><strong>Description</strong> (str) - 仓库备注</li>
-<li><strong>IsShared</strong> (bool) - 镜像仓库是否公开，公开为true、不公开为false;默认为false</li>
-</ul>
-<p><strong>Response</strong></p>
-<ul class="simple">
-<li><strong>Message</strong> (str) - 有错误时返回内容</li>
-</ul>
-</dd></dl>
-
-<dl class="method">
-<dt id="ucloud.services.uhub.client.UHubClient.delete_repo">
-<code class="descname">delete_repo</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/uhub/client.html#UHubClient.delete_repo"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.uhub.client.UHubClient.delete_repo" title="Permalink to this definition">¶</a></dt>
-<dd><p>DeleteRepo - 删除镜像仓库</p>
-<p><strong>Request</strong></p>
-<ul class="simple">
-<li><strong>ProjectId</strong> (str) - (Config) 项目ID。不填写为默认项目，子帐号必须填写。 请参考 <a class="reference external" href="https://docs.ucloud.cn/api/summary/get_project_list.html">GetProjectList接口</a></li>
-<li><strong>RepoName</strong> (str) - (Required) 镜像仓库名称</li>
-</ul>
-<p><strong>Response</strong></p>
-</dd></dl>
-
-<dl class="method">
-<dt id="ucloud.services.uhub.client.UHubClient.delete_repo_image">
-<code class="descname">delete_repo_image</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/uhub/client.html#UHubClient.delete_repo_image"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.uhub.client.UHubClient.delete_repo_image" title="Permalink to this definition">¶</a></dt>
-<dd><p>DeleteRepoImage - 删除镜像</p>
-<p><strong>Request</strong></p>
-<ul class="simple">
-<li><strong>ProjectId</strong> (str) - (Config) 项目ID。不填写为默认项目，子帐号必须填写。 请参考 <a class="reference external" href="https://docs.ucloud.cn/api/summary/get_project_list.html">GetProjectList接口</a></li>
-<li><strong>ImageName</strong> (str) - (Required) 镜像名称</li>
-<li><strong>RepoName</strong> (str) - (Required) 镜像仓库名称</li>
-<li><strong>TagName</strong> (str) - 不指定tag则删除全部tag</li>
-</ul>
-<p><strong>Response</strong></p>
-</dd></dl>
-
-<dl class="method">
-<dt id="ucloud.services.uhub.client.UHubClient.get_image_tag">
-<code class="descname">get_image_tag</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/uhub/client.html#UHubClient.get_image_tag"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.uhub.client.UHubClient.get_image_tag" title="Permalink to this definition">¶</a></dt>
-<dd><p>GetImageTag - 获取镜像tag</p>
-<p><strong>Request</strong></p>
-<ul class="simple">
-<li><strong>ProjectId</strong> (str) - (Config) 项目ID。不填写为默认项目，子帐号必须填写。 请参考 <a class="reference external" href="https://docs.ucloud.cn/api/summary/get_project_list.html">GetProjectList接口</a></li>
-<li><strong>ImageName</strong> (str) - (Required) 镜像名称</li>
-<li><strong>RepoName</strong> (str) - (Required) 镜像仓库名称</li>
-<li><strong>Limit</strong> (int) - 每次获取数量，默认为20</li>
-<li><strong>Offset</strong> (int) - 偏移量，默认0</li>
-<li><strong>TagName</strong> (str) - 默认不写，如果填写，代表查询该tag，否则查全部tag</li>
-</ul>
-<p><strong>Response</strong></p>
-<ul class="simple">
-<li><strong>TagSet</strong> (list) - 见 <strong>TagSet</strong> 模型定义</li>
-<li><strong>TotalCount</strong> (int) - tag总数</li>
-</ul>
-<p><strong>Response Model</strong></p>
-<p><strong>TagSet</strong></p>
-<ul class="simple">
-<li><strong>TagName</strong> (str) - Tag名称</li>
-<li><strong>UpdateTime</strong> (str) - 镜像更新时间</li>
-</ul>
-</dd></dl>
-
-<dl class="method">
-<dt id="ucloud.services.uhub.client.UHubClient.get_repo">
-<code class="descname">get_repo</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/uhub/client.html#UHubClient.get_repo"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.uhub.client.UHubClient.get_repo" title="Permalink to this definition">¶</a></dt>
-<dd><p>GetRepo - 获取镜像仓库</p>
-<p><strong>Request</strong></p>
-<ul class="simple">
-<li><strong>ProjectId</strong> (str) - (Config) 项目ID。不填写为默认项目，子帐号必须填写。 请参考 <a class="reference external" href="https://docs.ucloud.cn/api/summary/get_project_list.html">GetProjectList接口</a></li>
-<li><strong>Limit</strong> (int) - 数量，默认20</li>
-<li><strong>Offset</strong> (int) - 偏移量，默认0</li>
-<li><strong>Type</strong> (str) - private私有仓库，public公共仓库，默认public</li>
-</ul>
-<p><strong>Response</strong></p>
-<ul class="simple">
-<li><strong>RepoSet</strong> (list) - 见 <strong>RepoSet</strong> 模型定义</li>
-<li><strong>TotalCount</strong> (int) - 总的仓库数量</li>
-</ul>
-<p><strong>Response Model</strong></p>
-<p><strong>RepoSet</strong></p>
-<ul class="simple">
-<li><strong>CreateTime</strong> (str) - 仓库创建时间</li>
-<li><strong>Description</strong> (str) - 镜像仓库描述</li>
-<li><strong>IsOutSide</strong> (str) - 镜像仓库是否外网可以访问，可以为ture,不可以为false</li>
-<li><strong>IsShared</strong> (str) - 镜像仓库类型,false为私有；true为公有</li>
-<li><strong>RepoName</strong> (str) - 镜像仓库名称</li>
-<li><strong>UpdateTime</strong> (str) - 仓库更新时间</li>
-</ul>
-</dd></dl>
-
-<dl class="method">
-<dt id="ucloud.services.uhub.client.UHubClient.get_repo_image">
-<code class="descname">get_repo_image</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/uhub/client.html#UHubClient.get_repo_image"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.uhub.client.UHubClient.get_repo_image" title="Permalink to this definition">¶</a></dt>
-<dd><p>GetRepoImage - 获取镜像仓库下的镜像</p>
-<p><strong>Request</strong></p>
-<ul class="simple">
-<li><strong>ProjectId</strong> (str) - (Config) 项目ID。不填写为默认项目，子帐号必须填写。 请参考 <a class="reference external" href="https://docs.ucloud.cn/api/summary/get_project_list.html">GetProjectList接口</a></li>
-<li><strong>RepoName</strong> (str) - (Required) 镜像仓库名称</li>
-<li><strong>Limit</strong> (int) - 显示数量，默认为20</li>
-<li><strong>Offset</strong> (int) - 偏移量，默认0</li>
-</ul>
-<p><strong>Response</strong></p>
-<ul class="simple">
-<li><strong>ImageSet</strong> (list) - 见 <strong>ImageSet</strong> 模型定义</li>
-<li><strong>TotalCount</strong> (int) -</li>
-</ul>
-<p><strong>Response Model</strong></p>
-<p><strong>ImageSet</strong></p>
-<ul class="simple">
-<li><strong>CreateTime</strong> (str) - 创建时间</li>
-<li><strong>ImageName</strong> (str) - 镜像名称</li>
-<li><strong>LatestTag</strong> (str) - 最新push的Tag</li>
-<li><strong>PullCount</strong> (int) - 镜像被下载次数</li>
-<li><strong>RepoName</strong> (str) - 镜像仓库名称</li>
-<li><strong>UpdateTime</strong> (str) - 修改时间</li>
-</ul>
-</dd></dl>
-
-<dl class="method">
-<dt id="ucloud.services.uhub.client.UHubClient.update_repo">
-<code class="descname">update_repo</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/uhub/client.html#UHubClient.update_repo"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.uhub.client.UHubClient.update_repo" title="Permalink to this definition">¶</a></dt>
-<dd><p>UpdateRepo - 更新镜像仓库</p>
-<p><strong>Request</strong></p>
-<ul class="simple">
-<li><strong>ProjectId</strong> (str) - (Config) 项目ID。不填写为默认项目，子帐号必须填写。 请参考 <a class="reference external" href="https://docs.ucloud.cn/api/summary/get_project_list.html">GetProjectList接口</a></li>
-<li><strong>RepoName</strong> (str) - (Required) 镜像仓库名称，不可修改</li>
-<li><strong>Description</strong> (str) - 备注</li>
-<li><strong>IsShared</strong> (str) - false设置为私有；true设置为公有。默认false</li>
-</ul>
-<p><strong>Response</strong></p>
-<ul class="simple">
-<li><strong>Message</strong> (str) - 错误的时候返回</li>
-</ul>
-</dd></dl>
-
-</dd></dl>
-
-</div>
 <div class="section" id="vpc">
 <h2>VPC<a class="headerlink" href="#vpc" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
@@ -6316,7 +5969,7 @@
 <ul class="simple">
 <li><strong>ProjectId</strong> (str) - (Config) 项目ID。不填写为默认项目，子帐号必须填写。 请参考 <a class="reference external" href="https://docs.ucloud.cn/api/summary/get_project_list.html">GetProjectList接口</a></li>
 <li><strong>Region</strong> (str) - (Config) 地域。 参见  <a class="reference external" href="https://docs.ucloud.cn/api/summary/regionlist.html">地域和可用区列表</a></li>
-<li><strong>RouteRule</strong> (list) - (Required) 格式: RouteRuleId | 目的网段 | 下一跳类型 | 下一跳 <a href="#id605"><span class="problematic" id="id606">|优先级|</span></a> 备注 | 增、删、改标志  (下一跳类型为instance或者vip，下一跳为云主机id或者vip的id，优先级使用0，动作标志为add/delete/update)   。”添加”示例: test_id | 10.8.0.0/16 | instance | uhost-xd8ja | 0 | Default Route Rule| add (添加的RouteRuleId填任意非空字符串)     。”删除”示例: routerule-xk3jxa | 10.8.0.0/16 | instance | uhost-xd8ja | 0 | Default Route Rule| delete (RouteRuleId来自DescribeRouteTable中)     。“修改”示例: routerule-xk3jxa | 10.8.0.0/16 | instance | uhost-cjksa2 | 0 | Default Route Rule| update (RouteRuleId来自DescribeRouteTable中)</li>
+<li><strong>RouteRule</strong> (list) - (Required) 格式: RouteRuleId | 目的网段 | 下一跳类型 | 下一跳 <a href="#id613"><span class="problematic" id="id614">|优先级|</span></a> 备注 | 增、删、改标志  (下一跳类型为instance或者vip，下一跳为云主机id或者vip的id，优先级使用0，动作标志为add/delete/update)   。”添加”示例: test_id | 10.8.0.0/16 | instance | uhost-xd8ja | 0 | Default Route Rule| add (添加的RouteRuleId填任意非空字符串)     。”删除”示例: routerule-xk3jxa | 10.8.0.0/16 | instance | uhost-xd8ja | 0 | Default Route Rule| delete (RouteRuleId来自DescribeRouteTable中)     。“修改”示例: routerule-xk3jxa | 10.8.0.0/16 | instance | uhost-cjksa2 | 0 | Default Route Rule| update (RouteRuleId来自DescribeRouteTable中)</li>
 <li><strong>RouteTableId</strong> (str) - (Required) 通过DescribeRouteTable拿到</li>
 </ul>
 <p><strong>Response</strong></p>
@@ -6367,6 +6020,2572 @@
 <p><strong>Response</strong></p>
 <ul class="simple">
 <li><strong>Message</strong> (str) - 错误信息</li>
+</ul>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="ipsecvpn">
+<h2>IPSecVPN<a class="headerlink" href="#ipsecvpn" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="ucloud.services.ipsecvpn.client.IPSecVPNClient">
+<em class="property">class </em><code class="descclassname">ucloud.services.ipsecvpn.client.</code><code class="descname">IPSecVPNClient</code><span class="sig-paren">(</span><em>config</em>, <em>transport=None</em>, <em>middleware=None</em>, <em>logger=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/ipsecvpn/client.html#IPSecVPNClient"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.ipsecvpn.client.IPSecVPNClient" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="ucloud.services.ipsecvpn.client.IPSecVPNClient.describe_remote_vpn_gateway">
+<code class="descname">describe_remote_vpn_gateway</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/ipsecvpn/client.html#IPSecVPNClient.describe_remote_vpn_gateway"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.ipsecvpn.client.IPSecVPNClient.describe_remote_vpn_gateway" title="Permalink to this definition">¶</a></dt>
+<dd><p>DescribeRemoteVPNGateway - 获取客户VPN网关信息</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>ProjectId</strong> (str) - (Config) 项目ID。不填写为默认项目，子帐号必须填写。 请参考 <a class="reference external" href="https://docs.ucloud.cn/api/summary/get_project_list.html">GetProjectList接口</a></li>
+<li><strong>Region</strong> (str) - (Config) 地域。 参见  <a class="reference external" href="https://docs.ucloud.cn/api/summary/regionlist.html">地域和可用区列表</a></li>
+<li><strong>Limit</strong> (int) - 数据分页值, 默认为20</li>
+<li><strong>Offset</strong> (int) - 数据偏移量, 默认为0</li>
+<li><strong>RemoteVPNGatewayIds</strong> (list) - 客户VPN网关的资源ID，例如RemoteVPNGatewayIds.0代表希望获取客户VPN网关1的信息，RemoteVPNGatewayIds.1代表客户VPN网关2，如果为空，则返回当前Region中所有客户VPN网关实例的信息</li>
+<li><strong>Tag</strong> (str) - 业务组名称，若指定则返回业务组下所有客户VPN网关信息</li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>DataSet</strong> (list) - 见 <strong>RemoteVPNGatewayDataSet</strong> 模型定义</li>
+<li><strong>TotalCount</strong> (int) - 符合条件的客户VPN网关总数</li>
+</ul>
+<p><strong>Response Model</strong></p>
+<p><strong>RemoteVPNGatewayDataSet</strong></p>
+<ul class="simple">
+<li><strong>ActiveTunnels</strong> (str) - 活跃的隧道id</li>
+<li><strong>CreateTime</strong> (int) - 创建时间</li>
+<li><strong>Remark</strong> (str) - 备注</li>
+<li><strong>RemoteVPNGatewayAddr</strong> (str) - 客户网关IP地址</li>
+<li><strong>RemoteVPNGatewayId</strong> (str) - 客户网关ID</li>
+<li><strong>RemoteVPNGatewayName</strong> (str) - 客户网关名称</li>
+<li><strong>Tag</strong> (str) - 用户组</li>
+<li><strong>TunnelCount</strong> (int) - 活跃的隧道数量</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.ipsecvpn.client.IPSecVPNClient.describe_vpn_tunnel">
+<code class="descname">describe_vpn_tunnel</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/ipsecvpn/client.html#IPSecVPNClient.describe_vpn_tunnel"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.ipsecvpn.client.IPSecVPNClient.describe_vpn_tunnel" title="Permalink to this definition">¶</a></dt>
+<dd><p>DescribeVPNTunnel - 获取VPN隧道信息</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>ProjectId</strong> (str) - (Config) 项目ID。不填写为默认项目，子帐号必须填写。 请参考 <a class="reference external" href="https://docs.ucloud.cn/api/summary/get_project_list.html">GetProjectList接口</a></li>
+<li><strong>Region</strong> (str) - (Config) 地域。 参见  <a class="reference external" href="https://docs.ucloud.cn/api/summary/regionlist.html">地域和可用区列表</a></li>
+<li><strong>Limit</strong> (int) - 数据分页值, 默认为20</li>
+<li><strong>Offset</strong> (int) - 数据偏移量, 默认为0</li>
+<li><strong>Tag</strong> (str) - 业务组名称，若指定则返回指定的业务组下的所有VPN网关的信息</li>
+<li><strong>VPNTunnelIds</strong> (list) - VPN隧道的资源ID，例如VPNTunnelIds.0代表希望获取信息的VPN隧道1，VPNTunneIds.1代表VPN隧道2，如果为空，则返回当前Region中所有的VPN隧道实例</li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>DataSet</strong> (list) - 见 <strong>VPNTunnelDataSet</strong> 模型定义</li>
+<li><strong>TotalCount</strong> (int) - VPN隧道总数</li>
+</ul>
+<p><strong>Response Model</strong></p>
+<p><strong>IPSecData</strong></p>
+<ul class="simple">
+<li><strong>IPSecAuthenticationAlgorithm</strong> (str) - IPSec通道中使用的认证算法</li>
+<li><strong>IPSecEncryptionAlgorithm</strong> (str) - IPSec通道中使用的加密算法</li>
+<li><strong>IPSecLocalSubnetIds</strong> (list) - 指定VPN连接的本地子网，用逗号分隔</li>
+<li><strong>IPSecPFSDhGroup</strong> (str) - 是否开启PFS功能,Disable表示关闭，数字表示DH组</li>
+<li><strong>IPSecProtocol</strong> (str) - 使用的安全协议，ESP或AH</li>
+<li><strong>IPSecRemoteSubnets</strong> (list) - 指定VPN连接的客户网段，用逗号分隔</li>
+<li><strong>IPSecSALifetime</strong> (str) - IPSec中SA的生存时间</li>
+<li><strong>IPSecSALifetimeBytes</strong> (str) - IPSec中SA的生存时间（以字节计）</li>
+</ul>
+<p><strong>IKEData</strong></p>
+<ul class="simple">
+<li><strong>IKEAuthenticationAlgorithm</strong> (str) - IKE认证算法</li>
+<li><strong>IKEDhGroup</strong> (str) - IKEDH组</li>
+<li><strong>IKEEncryptionAlgorithm</strong> (str) - IKE加密算法</li>
+<li><strong>IKEExchangeMode</strong> (str) - IKEv1协商模式</li>
+<li><strong>IKELocalId</strong> (str) - IKE本地ID标识</li>
+<li><strong>IKEPreSharedKey</strong> (str) - IKE预共享秘钥</li>
+<li><strong>IKERemoteId</strong> (str) - IKE对端ID标识</li>
+<li><strong>IKESALifetime</strong> (str) - IKE秘钥生存时间</li>
+<li><strong>IKEVersion</strong> (str) - IKE版本</li>
+</ul>
+<p><strong>VPNTunnelDataSet</strong></p>
+<ul class="simple">
+<li><strong>CreateTime</strong> (int) - 创建时间</li>
+<li><strong>IKEData</strong> (dict) - 见 <strong>IKEData</strong> 模型定义</li>
+<li><strong>IPSecData</strong> (dict) - 见 <strong>IPSecData</strong> 模型定义</li>
+<li><strong>Remark</strong> (str) - 备注</li>
+<li><strong>RemoteVPNGatewayId</strong> (str) - 对端网关Id</li>
+<li><strong>RemoteVPNGatewayName</strong> (str) - 对端网关名字</li>
+<li><strong>Tag</strong> (str) - 用户组</li>
+<li><strong>VPCId</strong> (str) - 所属VPCId</li>
+<li><strong>VPCName</strong> (str) - 所属VOC名字</li>
+<li><strong>VPNGatewayId</strong> (str) - 所属VPN网关id</li>
+<li><strong>VPNGatewayName</strong> (str) - VPN网关名字</li>
+<li><strong>VPNTunnelId</strong> (str) - 隧道id</li>
+<li><strong>VPNTunnelName</strong> (str) - 隧道名称</li>
+</ul>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="ucloudstack">
+<h2>UCloudStack<a class="headerlink" href="#ucloudstack" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="ucloud.services.ucloudstack.client.UCloudStackClient">
+<em class="property">class </em><code class="descclassname">ucloud.services.ucloudstack.client.</code><code class="descname">UCloudStackClient</code><span class="sig-paren">(</span><em>config</em>, <em>transport=None</em>, <em>middleware=None</em>, <em>logger=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/ucloudstack/client.html#UCloudStackClient"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.ucloudstack.client.UCloudStackClient" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="ucloud.services.ucloudstack.client.UCloudStackClient.allocate_eip">
+<code class="descname">allocate_eip</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/ucloudstack/client.html#UCloudStackClient.allocate_eip"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.ucloudstack.client.UCloudStackClient.allocate_eip" title="Permalink to this definition">¶</a></dt>
+<dd><p>AllocateEIP - 申请外网IP</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>Region</strong> (str) - (Config) 地域。枚举值：cn,表示中国；</li>
+<li><strong>Bandwidth</strong> (int) - (Required) 带宽，默认值1，默认范围1~100</li>
+<li><strong>ChargeType</strong> (str) - (Required) 计费模式。枚举值：Dynamic，表示小时；Month，表示月；Year，表示年；</li>
+<li><strong>Name</strong> (str) - (Required) 名称</li>
+<li><strong>OperatorName</strong> (str) - (Required) 线路。目前支持Bgp</li>
+<li><strong>Zone</strong> (str) - (Required) 可用区。枚举值：zone-01，表示中国；</li>
+<li><strong>Quantity</strong> (int) - 购买时长。默认值1。小时不生效，月范围【1，11】，年范围【1，5】。</li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>EIPID</strong> (str) - 申请的EIP的ID</li>
+<li><strong>Message</strong> (str) - 返回信息描述。</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.ucloudstack.client.UCloudStackClient.attach_disk">
+<code class="descname">attach_disk</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/ucloudstack/client.html#UCloudStackClient.attach_disk"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.ucloudstack.client.UCloudStackClient.attach_disk" title="Permalink to this definition">¶</a></dt>
+<dd><p>AttachDisk - 绑定硬盘</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>Region</strong> (str) - (Config) 地域。枚举值：cn,表示中国；</li>
+<li><strong>DiskID</strong> (str) - (Required) 硬盘ID</li>
+<li><strong>ResourceID</strong> (str) - (Required) 绑定的资源ID</li>
+<li><strong>ResourceType</strong> (str) - (Required) 绑定的资源类型，枚举值：VM，标识虚拟机</li>
+<li><strong>Zone</strong> (str) - (Required) 可用区。枚举值：zone-01，表示中国；</li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>Message</strong> (str) - 返回信息描述。</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.ucloudstack.client.UCloudStackClient.bind_alarm_template">
+<code class="descname">bind_alarm_template</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/ucloudstack/client.html#UCloudStackClient.bind_alarm_template"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.ucloudstack.client.UCloudStackClient.bind_alarm_template" title="Permalink to this definition">¶</a></dt>
+<dd><p>BindAlarmTemplate - 绑定告警模板</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>Region</strong> (str) - (Config) 地域。枚举值： cn，表示中国；</li>
+<li><strong>AlarmTemplateID</strong> (str) - (Required) 告警模板ID</li>
+<li><strong>ResourceIDs</strong> (list) - (Required) 【数组】告警模板ID。调用方式举例：ResourceIDs.0=“one-id”、ResourceIDs.1=“two-id”。</li>
+<li><strong>ResourceType</strong> (str) - (Required) 资源类型。VM：虚拟机, LB:负载均衡, NATGW：nat网关;EIP:弹性IP</li>
+<li><strong>Zone</strong> (str) - (Required) 可用区。枚举值：zone-01，表示中国；</li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>Message</strong> (str) - 返回信息描述</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.ucloudstack.client.UCloudStackClient.bind_eip">
+<code class="descname">bind_eip</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/ucloudstack/client.html#UCloudStackClient.bind_eip"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.ucloudstack.client.UCloudStackClient.bind_eip" title="Permalink to this definition">¶</a></dt>
+<dd><p>BindEIP - 绑定UCoudStack外网IP</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>Region</strong> (str) - (Config) 地域。枚举值：cn,表示中国；中国</li>
+<li><strong>EIPID</strong> (str) - (Required) 外网IP的ID</li>
+<li><strong>ResourceID</strong> (str) - (Required) 资源ID</li>
+<li><strong>ResourceType</strong> (str) - (Required) 资源类型。VM：虚拟机, LB:负载均衡, NATGW：nat网关</li>
+<li><strong>Zone</strong> (str) - (Required) 可用区。枚举值：zone-01，表示中国；</li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>Message</strong> (str) - 返回描述</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.ucloudstack.client.UCloudStackClient.bind_physical_ip">
+<code class="descname">bind_physical_ip</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/ucloudstack/client.html#UCloudStackClient.bind_physical_ip"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.ucloudstack.client.UCloudStackClient.bind_physical_ip" title="Permalink to this definition">¶</a></dt>
+<dd><p>BindPhysicalIP - 绑定物理 IP ，被绑定的资源必须处于运行中或有效状态。</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>Region</strong> (str) - (Config) 地域。</li>
+<li><strong>PhysicalIPID</strong> (str) - (Required) 物理IP的ID</li>
+<li><strong>ResourceID</strong> (str) - (Required) 资源ID</li>
+<li><strong>ResourceType</strong> (str) - (Required) 资源类型。VM：虚拟机</li>
+<li><strong>Zone</strong> (str) - (Required) 可用区。</li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>Message</strong> (str) - 返回描述</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.ucloudstack.client.UCloudStackClient.bind_security_group">
+<code class="descname">bind_security_group</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/ucloudstack/client.html#UCloudStackClient.bind_security_group"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.ucloudstack.client.UCloudStackClient.bind_security_group" title="Permalink to this definition">¶</a></dt>
+<dd><p>BindSecurityGroup - 绑定安全组</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>Region</strong> (str) - (Config) 地域。枚举值： cn，表示中国；</li>
+<li><strong>ResourceID</strong> (str) - (Required) 绑定的资源ID。调用方式举例：ResourceID=“one-id”。</li>
+<li><strong>SGID</strong> (str) - (Required) 安全组ID</li>
+<li><strong>Zone</strong> (str) - (Required) 可用区。枚举值：zone-01，表示中国；</li>
+<li><strong>NICID</strong> (str) - 网卡ID</li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>Message</strong> (str) - 返回信息描述</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.ucloudstack.client.UCloudStackClient.clone_disk">
+<code class="descname">clone_disk</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/ucloudstack/client.html#UCloudStackClient.clone_disk"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.ucloudstack.client.UCloudStackClient.clone_disk" title="Permalink to this definition">¶</a></dt>
+<dd><p>CloneDisk - 克隆硬盘</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>Region</strong> (str) - (Config) 地域。枚举值：cn,表示中国；</li>
+<li><strong>ChargeType</strong> (str) - (Required) 计费模式。枚举值：Dynamic，表示小时；Month，表示月；Year，表示年；</li>
+<li><strong>Name</strong> (str) - (Required) 名称</li>
+<li><strong>SrcID</strong> (str) - (Required) 源硬盘ID</li>
+<li><strong>Zone</strong> (str) - (Required) 可用区。枚举值：zone-01，表示中国；</li>
+<li><strong>Quantity</strong> (int) - 购买时长。默认值1。小时不生效，月范围【1，11】，年范围【1，5】。</li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>DiskID</strong> (str) - 克隆出的硬盘ID</li>
+<li><strong>Message</strong> (str) - 返回信息描述。</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.ucloudstack.client.UCloudStackClient.create_certificate">
+<code class="descname">create_certificate</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/ucloudstack/client.html#UCloudStackClient.create_certificate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.ucloudstack.client.UCloudStackClient.create_certificate" title="Permalink to this definition">¶</a></dt>
+<dd><p>CreateCertificate - 创建证书</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>Region</strong> (str) - (Config) 地域。 参见  <a class="reference external" href="https://docs.ucloud.cn/api/summary/regionlist.html">地域和可用区列表</a></li>
+<li><strong>Certificate</strong> (str) - (Required) 证书内容</li>
+<li><strong>CertificateType</strong> (str) - (Required) 证书类型，枚举值[“ServerCrt”,”CACrt”]。分别表示服务器证书和CA证书。只有在双向认证的时候才需要CA证书</li>
+<li><strong>Name</strong> (str) - (Required) 证书名称</li>
+<li><strong>Zone</strong> (str) - (Required) 可用区。参见  <a class="reference external" href="https://docs.ucloud.cn/api/summary/regionlist.html">可用区列表</a></li>
+<li><strong>PrivateKey</strong> (str) - 私钥内容,服务器证书必传,CA证书不用传递</li>
+<li><strong>Remark</strong> (str) - 证书描述</li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>CertificateID</strong> (str) - 证书ID</li>
+<li><strong>Message</strong> (str) - 错误描述</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.ucloudstack.client.UCloudStackClient.create_custom_image">
+<code class="descname">create_custom_image</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/ucloudstack/client.html#UCloudStackClient.create_custom_image"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.ucloudstack.client.UCloudStackClient.create_custom_image" title="Permalink to this definition">¶</a></dt>
+<dd><p>CreateCustomImage - 创建自制镜像</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>Region</strong> (str) - (Config) 地域。枚举值：cn,表示中国；</li>
+<li><strong>ImageName</strong> (str) - (Required) 镜像名称</li>
+<li><strong>VMID</strong> (str) - (Required) 虚拟机ID</li>
+<li><strong>Zone</strong> (str) - (Required) 可用区。枚举值：zone-01，表示中国；</li>
+<li><strong>ImageDescription</strong> (str) - 镜像描述。</li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>ImageID</strong> (str) - 创建的自制镜像ID</li>
+<li><strong>Message</strong> (str) - 返回信息描述。</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.ucloudstack.client.UCloudStackClient.create_disk">
+<code class="descname">create_disk</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/ucloudstack/client.html#UCloudStackClient.create_disk"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.ucloudstack.client.UCloudStackClient.create_disk" title="Permalink to this definition">¶</a></dt>
+<dd><p>CreateDisk - 创建硬盘</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>Region</strong> (str) - (Config) 地域。枚举值：cn,表示中国；</li>
+<li><strong>ChargeType</strong> (str) - (Required) 计费模式。枚举值：Dynamic，表示小时；Month，表示月；Year，表示年；</li>
+<li><strong>DiskSpace</strong> (int) - (Required) 磁盘大小</li>
+<li><strong>Name</strong> (str) - (Required) 磁盘名称</li>
+<li><strong>SetType</strong> (str) - (Required) 磁盘类型。例如：Normal,SSD</li>
+<li><strong>Zone</strong> (str) - (Required) 可用区。枚举值：zone-01，表示中国；</li>
+<li><strong>Quantity</strong> (int) - 购买时长。默认值1。小时不生效，月范围【1，11】，年范围【1，5】。</li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>DiskID</strong> (str) - 创建的磁盘ID</li>
+<li><strong>Message</strong> (str) - 返回信息描述。</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.ucloudstack.client.UCloudStackClient.create_lb">
+<code class="descname">create_lb</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/ucloudstack/client.html#UCloudStackClient.create_lb"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.ucloudstack.client.UCloudStackClient.create_lb" title="Permalink to this definition">¶</a></dt>
+<dd><p>CreateLB - 创建负载均衡</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>Region</strong> (str) - (Config) 地域。枚举值：cn,表示中国；</li>
+<li><strong>ChargeType</strong> (str) - (Required) 计费模式。枚举值：Dynamic，表示小时；Month，表示月；Year，表示年；</li>
+<li><strong>LBType</strong> (str) - (Required) 枚举值。LAN：内网，WAN:外网</li>
+<li><strong>Name</strong> (str) - (Required) 名称。</li>
+<li><strong>SubnetID</strong> (str) - (Required) LB 实例所在的子网 ID 。</li>
+<li><strong>VMType</strong> (str) - (Required) 运行负载均衡实例的主机机型。枚举值：如 Normal ，表示普通机型； SSD，表示 SSD 机型。（机型由平台管理员修改和指定，可参考获取主机机型接口）</li>
+<li><strong>VPCID</strong> (str) - (Required) LB实例所在的 VPC ID 。</li>
+<li><strong>Zone</strong> (str) - (Required) 可用区。枚举值：zone-01，表示中国；</li>
+<li><strong>EIPID</strong> (str) - 外网IP的ID，创建外网LB时为必需</li>
+<li><strong>Quantity</strong> (int) - 购买时长。默认值1。小时不生效，月范围【1，11】，年范围【1，5】。</li>
+<li><strong>Remark</strong> (str) - 描述。</li>
+<li><strong>SGID</strong> (str) - 安全组ID，创建外网LB时为必需</li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>LBID</strong> (str) - 返回创建的负载均衡ID</li>
+<li><strong>Message</strong> (str) - 返回信息描述。</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.ucloudstack.client.UCloudStackClient.create_natgw">
+<code class="descname">create_natgw</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/ucloudstack/client.html#UCloudStackClient.create_natgw"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.ucloudstack.client.UCloudStackClient.create_natgw" title="Permalink to this definition">¶</a></dt>
+<dd><p>CreateNATGW - 创建NAT网关</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>Region</strong> (str) - (Config) 地域。枚举值：cn,表示中国；</li>
+<li><strong>ChargeType</strong> (str) - (Required) 计费模式。枚举值：Dynamic，表示小时；Month，表示月；Year，表示年；</li>
+<li><strong>EIPID</strong> (str) - (Required) 外网IP的ID</li>
+<li><strong>Name</strong> (str) - (Required) 名称。</li>
+<li><strong>SGID</strong> (str) - (Required) 安全组ID</li>
+<li><strong>SubnetID</strong> (str) - (Required) NAT网关实例所在的子网 ID</li>
+<li><strong>VMType</strong> (str) - (Required) 运行NAT网关实例的主机机型。枚举值：如 Normal ，表示普通机型； SSD，表示 SSD 机型。（机型由平台管理员修改和指定，可参考获取主机机型接口）</li>
+<li><strong>VPCID</strong> (str) - (Required) NAT网关实例所在的 VPC ID</li>
+<li><strong>Zone</strong> (str) - (Required) 可用区。枚举值：zone-01，表示中国；</li>
+<li><strong>Quantity</strong> (int) - 购买时长。默认值1。小时不生效，月范围【1，11】，年范围【1，5】。</li>
+<li><strong>Remark</strong> (str) - 描述</li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>Message</strong> (str) - 返回信息描述。</li>
+<li><strong>NATGWID</strong> (str) - 返回创建的NAT网关ID</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.ucloudstack.client.UCloudStackClient.create_natgw_rule">
+<code class="descname">create_natgw_rule</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/ucloudstack/client.html#UCloudStackClient.create_natgw_rule"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.ucloudstack.client.UCloudStackClient.create_natgw_rule" title="Permalink to this definition">¶</a></dt>
+<dd><p>CreateNATGWRule - 添加NAT网关白名单</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>Region</strong> (str) - (Config) 地域。枚举值：cn,表示中国；</li>
+<li><strong>BindResourceID</strong> (str) - (Required) 绑定的虚拟机资源ID</li>
+<li><strong>NATGWID</strong> (str) - (Required) NAT网关ID</li>
+<li><strong>NATGWType</strong> (str) - (Required) NAT的类型。枚举值：SNAT，DNAT</li>
+<li><strong>Zone</strong> (str) - (Required) 可用区。枚举值：zone-01，表示中国；</li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>Message</strong> (str) - 返回信息描述。</li>
+<li><strong>RuleID</strong> (str) - 白名单ID</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.ucloudstack.client.UCloudStackClient.create_physical_ip">
+<code class="descname">create_physical_ip</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/ucloudstack/client.html#UCloudStackClient.create_physical_ip"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.ucloudstack.client.UCloudStackClient.create_physical_ip" title="Permalink to this definition">¶</a></dt>
+<dd><p>CreatePhysicalIP - 创建物理 IP ，需确保平台已配置物理 IP 线路相关信息及物理网络联通性。</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>Region</strong> (str) - (Config) 地域。枚举值：cn,表示中国；</li>
+<li><strong>Name</strong> (str) - (Required) 物理IP名称，限制字符长度30</li>
+<li><strong>OperatorName</strong> (str) - (Required) 物理IP线路</li>
+<li><strong>Zone</strong> (str) - (Required) 可用区。枚举值：zone-01，表示中国；</li>
+<li><strong>Remark</strong> (str) - 描述</li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>Message</strong> (str) - 返回信息描述</li>
+<li><strong>PhysicalIPID</strong> (str) - 返回创建的物理IP的ID</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.ucloudstack.client.UCloudStackClient.create_rs">
+<code class="descname">create_rs</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/ucloudstack/client.html#UCloudStackClient.create_rs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.ucloudstack.client.UCloudStackClient.create_rs" title="Permalink to this definition">¶</a></dt>
+<dd><p>CreateRS - 为负载均衡的 VServer 添加后端服务节点。</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>Region</strong> (str) - (Config) 地域。枚举值：cn,表示中国；</li>
+<li><strong>BindResourceID</strong> (str) - (Required) 服务节点的资源 ID ，仅支持添加与 LB 相同 VPC 的虚拟机资源</li>
+<li><strong>LBID</strong> (str) - (Required) 负载均衡ID</li>
+<li><strong>Port</strong> (int) - (Required) 服务节点暴露的服务端口号</li>
+<li><strong>VSID</strong> (str) - (Required) VServer的ID</li>
+<li><strong>Weight</strong> (int) - (Required) 服务节点的权重</li>
+<li><strong>Zone</strong> (str) - (Required) 可用区。枚举值：zone-01，表示中国；</li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>Message</strong> (str) - 返回信息描述。</li>
+<li><strong>RSID</strong> (str) - 返回创建的RSID</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.ucloudstack.client.UCloudStackClient.create_security_group">
+<code class="descname">create_security_group</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/ucloudstack/client.html#UCloudStackClient.create_security_group"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.ucloudstack.client.UCloudStackClient.create_security_group" title="Permalink to this definition">¶</a></dt>
+<dd><p>CreateSecurityGroup - 创建安全组</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>Region</strong> (str) - (Config) 地域。枚举值： cn，表示中国；</li>
+<li><strong>Name</strong> (str) - (Required) 名称;</li>
+<li><strong>Rule</strong> (list) - (Required) 【数组】安全组规则。输入有效的规则，调用方式举例：Rule.0=“TCP|23|0.0.0.0/0|ACCEPT|HIGH|1”、Rule.1=“TCP|55|0.0.0.0/0|ACCEPT|HIGH|1”</li>
+<li><strong>Zone</strong> (str) - (Required) 可用区。枚举值：zone-01，表示中国；</li>
+<li><strong>Remark</strong> (str) - 描述;</li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>Message</strong> (str) - 返回信息描述；</li>
+<li><strong>SGID</strong> (str) - 创建的安全组ID</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.ucloudstack.client.UCloudStackClient.create_security_group_rule">
+<code class="descname">create_security_group_rule</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/ucloudstack/client.html#UCloudStackClient.create_security_group_rule"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.ucloudstack.client.UCloudStackClient.create_security_group_rule" title="Permalink to this definition">¶</a></dt>
+<dd><p>CreateSecurityGroupRule - 创建安全组规则</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>Region</strong> (str) - (Config) 地域。枚举值： cn，表示中国；</li>
+<li><strong>Rules</strong> (list) - (Required) 【数组】安全组规则。输入有效的规则，调用方式举例：Rule.0=“TCP|23|0.0.0.0/0|ACCEPT|HIGH|1”、Rule.1=“TCP|55|0.0.0.0/0|ACCEPT|HIGH|1”</li>
+<li><strong>SGID</strong> (str) - (Required) 安全组ID</li>
+<li><strong>Zone</strong> (str) - (Required) 可用区。枚举值：zone-01，表示中国；</li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>Message</strong> (str) - 返回信息描述；</li>
+<li><strong>SGRuleID</strong> (str) - 创建的安全组规则ID</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.ucloudstack.client.UCloudStackClient.create_snapshot">
+<code class="descname">create_snapshot</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/ucloudstack/client.html#UCloudStackClient.create_snapshot"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.ucloudstack.client.UCloudStackClient.create_snapshot" title="Permalink to this definition">¶</a></dt>
+<dd><p>CreateSnapshot - 创建硬盘快照</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>Region</strong> (str) - (Config) 地域。枚举值：如 cn,表示中国。</li>
+<li><strong>DiskID</strong> (str) - (Required) 硬盘ID，输入“有效”状态的ID</li>
+<li><strong>Name</strong> (str) - (Required) 快照名称，限制字符长度30</li>
+<li><strong>Zone</strong> (str) - (Required) 可用区。枚举值：如 zone-01，表示可用区1。</li>
+<li><strong>Remark</strong> (str) - 描述，限制字符长度100</li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>Message</strong> (str) - 返回信息描述</li>
+<li><strong>SnapshotID</strong> (str) - 创建的快照ID</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.ucloudstack.client.UCloudStackClient.create_subnet">
+<code class="descname">create_subnet</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/ucloudstack/client.html#UCloudStackClient.create_subnet"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.ucloudstack.client.UCloudStackClient.create_subnet" title="Permalink to this definition">¶</a></dt>
+<dd><p>CreateSubnet - 创建子网</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>Region</strong> (str) - (Config) 地域。枚举值： cn，表示中国；</li>
+<li><strong>Name</strong> (str) - (Required) 名称;</li>
+<li><strong>Network</strong> (str) - (Required) 网段。列如：10.0.0.0/16；</li>
+<li><strong>VPCID</strong> (str) - (Required) 所属VPCID</li>
+<li><strong>Zone</strong> (str) - (Required) 可用区。枚举值：zone-01，表示中国；</li>
+<li><strong>Remark</strong> (str) - 描述;</li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>Message</strong> (str) - 返回信息描述；</li>
+<li><strong>SubnetID</strong> (str) - 创建Subnet的ID；</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.ucloudstack.client.UCloudStackClient.create_user">
+<code class="descname">create_user</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/ucloudstack/client.html#UCloudStackClient.create_user"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.ucloudstack.client.UCloudStackClient.create_user" title="Permalink to this definition">¶</a></dt>
+<dd><p>CreateUser - 管理员添加账号</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>PassWord</strong> (str) - (Required) 账号密码。</li>
+<li><strong>UserEmail</strong> (str) - (Required) 账号邮箱。</li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>Message</strong> (str) - 返回信息描述。</li>
+<li><strong>UserID</strong> (int) - 账户ID</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.ucloudstack.client.UCloudStackClient.create_vm_instance">
+<code class="descname">create_vm_instance</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/ucloudstack/client.html#UCloudStackClient.create_vm_instance"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.ucloudstack.client.UCloudStackClient.create_vm_instance" title="Permalink to this definition">¶</a></dt>
+<dd><p>CreateVMInstance - 创建虚拟机</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>Region</strong> (str) - (Config) 地域。枚举值：cn,表示中国；</li>
+<li><strong>BootDiskSetType</strong> (str) - (Required) 系统盘类型。枚举值：Normal，表示普通；SSD，表示SSD；</li>
+<li><strong>CPU</strong> (int) - (Required) CPU个数，如1，2，4，8，16，32，64等。</li>
+<li><strong>ChargeType</strong> (str) - (Required) 计费模式。枚举值：Dynamic，表示小时；Month，表示月；Year，表示年；</li>
+<li><strong>DataDiskSetType</strong> (str) - (Required) 数据盘类型。枚举值：Normal，表示普通；SSD，表示SSD；</li>
+<li><strong>ImageID</strong> (str) - (Required) 镜像 ID。基础镜像 ID 或者自制镜像 ID。如：cn-image-centos-74。</li>
+<li><strong>Memory</strong> (int) - (Required) 内存容量，如1024，2048，4096，8192，16384，32768，65535等。</li>
+<li><strong>Name</strong> (str) - (Required) 虚拟机名称。可输入如：myVM。名称只能包含中英文、数字以及- _ .且1-30个字符。</li>
+<li><strong>Password</strong> (str) - (Required) 密码。可输入如：ucloud.cn。密码长度限6-30个字符；需要同时包含两项或以上（大写字母/小写字母/数字/特殊符号)；windows不能包含用户名（administrator）中超过2个连续字符的部分。</li>
+<li><strong>SubnetID</strong> (str) - (Required) 子网 ID。</li>
+<li><strong>VMType</strong> (str) - (Required) 机型。枚举值：Normal，表示普通；SSD，表示SSD；</li>
+<li><strong>VPCID</strong> (str) - (Required) VPC ID。</li>
+<li><strong>WANSGID</strong> (str) - (Required) 外网安全组 ID。输入“有效”状态的安全组的ID。</li>
+<li><strong>Zone</strong> (str) - (Required) 可用区。枚举值：zone-01，表示中国；</li>
+<li><strong>Bandwidth</strong> (str) - 带宽</li>
+<li><strong>DataDiskSpace</strong> (int) - 数据盘大小，单位 GB。默认值为0。范围：【0，8000】，步长10。</li>
+<li><strong>GPU</strong> (int) - GPU 卡核心的占用个数。枚举值：【1,2,4】。GPU与CPU、内存大小关系：CPU个数&gt;=4*GPU个数，同时内存与CPU规格匹配.</li>
+<li><strong>IPVersion</strong> (str) - 外网IP版本，默认IPv4</li>
+<li><strong>InternalIP</strong> (str) - 指定内网IP。输入有效的指定内网 IP。默认为系统自动分配内网 IP。</li>
+<li><strong>InternetIP</strong> (str) - 指定外网IP</li>
+<li><strong>LANSGID</strong> (str) - 内网安全组 ID。输入“有效”状态的安全组的ID。</li>
+<li><strong>OperatorName</strong> (str) - 线路</li>
+<li><strong>Quantity</strong> (int) - 购买时长。默认值1。小时不生效，月范围【1，11】，年范围【1，5】。</li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>DiskID</strong> (str) - 返回创建数据盘的 ID</li>
+<li><strong>EIPID</strong> (str) - 返回创建外网IP的 ID</li>
+<li><strong>Message</strong> (str) - 返回信息描述。</li>
+<li><strong>VMID</strong> (str) - 返回创建虚拟机的 ID</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.ucloudstack.client.UCloudStackClient.create_vpc">
+<code class="descname">create_vpc</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/ucloudstack/client.html#UCloudStackClient.create_vpc"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.ucloudstack.client.UCloudStackClient.create_vpc" title="Permalink to this definition">¶</a></dt>
+<dd><p>CreateVPC - 创建VPC</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>Region</strong> (str) - (Config) 地域。枚举值： cn，表示中国；</li>
+<li><strong>Name</strong> (str) - (Required) 名称;</li>
+<li><strong>Network</strong> (str) - (Required) 网段。例如：10.0.0.0/16；</li>
+<li><strong>Zone</strong> (str) - (Required) 可用区。枚举值：zone-01，表示中国；</li>
+<li><strong>Remark</strong> (str) - 描述;</li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>Message</strong> (str) - 返回信息描述；</li>
+<li><strong>VPCID</strong> (str) - 创建的VPCID；</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.ucloudstack.client.UCloudStackClient.create_vs">
+<code class="descname">create_vs</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/ucloudstack/client.html#UCloudStackClient.create_vs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.ucloudstack.client.UCloudStackClient.create_vs" title="Permalink to this definition">¶</a></dt>
+<dd><p>CreateVS - 创建负载均衡VServer</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>Region</strong> (str) - (Config) 地域。枚举值：cn,表示中国；</li>
+<li><strong>HealthcheckType</strong> (str) - (Required) 健康检查类型，枚举值，Port:端口,Path:域名。TCP和UDP协议只支持Port类型。</li>
+<li><strong>LBID</strong> (str) - (Required) 负载均衡ID</li>
+<li><strong>Port</strong> (int) - (Required) VServer 的监听端口。端口范围为 1~65535 ，其中 323、9102、9103、9104、9105、60909、60910 被系统占用。</li>
+<li><strong>Protocol</strong> (str) - (Required) VServer 的监听协议。枚举值：支持 TCP、UDP、HTTP、HTTPS 四种协议转发。</li>
+<li><strong>Scheduler</strong> (str) - (Required) 负载均衡的调度算法。枚举值：wrr:加权轮训；least_conn:最小连接数；hash:原地址,四层lb使用。ip_hash:七层lb使用</li>
+<li><strong>Zone</strong> (str) - (Required) 可用区。枚举值：zone-01，表示中国；</li>
+<li><strong>CACertificateID</strong> (str) - CA证书ID，用于验证客户端证书的签名，仅当VServer监听协议为 HTTPS 且 SSLMode 为双向认证时有效。</li>
+<li><strong>Domain</strong> (str) - HTTP 健康检查时校验请求的 HOST 字段中的域名。当健康检查类型为端口检查时，该值为空。</li>
+<li><strong>KeepaliveTimeout</strong> (int) - 负载均衡的连接空闲超时时间，单位为秒，默认值为 60s 。</li>
+<li><strong>Path</strong> (str) - HTTP 健康检查的路径，健康检查类型为 HTTP 检查时为必填项。当健康检查类型为端口检查时，该值为空。</li>
+<li><strong>PersistenceKey</strong> (str) - 会话保持KEY，会话保持类型为Manual时为必填项，仅当 VServer 协议为 HTTP 时有效。</li>
+<li><strong>PersistenceType</strong> (str) - 会话保持类型。枚举值：None:关闭；Auto:自动生成；Manual:手动生成 。当协议为 TCP 时，该值不生效，会话保持和选择的调度算法相关；当协议为 UDP 时 Auto 表示开启会话保持 。</li>
+<li><strong>SSLMode</strong> (str) - SSL认证模式,HTTPS协议下必传,取值范围[“simplex”,”duplex”]分别表示单向认证和双向认证。</li>
+<li><strong>ServerCertificateID</strong> (str) - 服务器证书ID，用于证明服务器的身份，仅当 VServer监听协议为 HTTPS时有效。</li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>Message</strong> (str) - 返回信息描述。</li>
+<li><strong>VSID</strong> (str) - 返回创建的VSID</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.ucloudstack.client.UCloudStackClient.create_vs_policy">
+<code class="descname">create_vs_policy</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/ucloudstack/client.html#UCloudStackClient.create_vs_policy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.ucloudstack.client.UCloudStackClient.create_vs_policy" title="Permalink to this definition">¶</a></dt>
+<dd><p>CreateVSPolicy - 创建七层负载均衡内容转发规则，仅当 VServer 的监听协议为 HTTP 时有效。</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>Region</strong> (str) - (Config) 地域。枚举值：cn,表示中国；</li>
+<li><strong>LBID</strong> (str) - (Required) 负载均衡ID</li>
+<li><strong>RSIDs</strong> (list) - (Required) 【数组】内容转发规则应用的服务节点的 ID，来源于 VServer 中添加的服务节点。调用方式举例：RSIDs.0=“one-id”、RSIDs.1=“two-id”。</li>
+<li><strong>VSID</strong> (str) - (Required) VServer的ID</li>
+<li><strong>Zone</strong> (str) - (Required) 可用区。枚举值：zone-01，表示中国；</li>
+<li><strong>Domain</strong> (str) - 内容转发规则关联的请求域名，值可为空，即代表仅匹配路径。域名和路径至少需要指定一项，且域名和路径的组合在一个 VServer 中必须唯一。</li>
+<li><strong>Path</strong> (str) - 内容转发规则关联的请求访问路径，如 “/” 。域名和路径至少需要指定一项，且域名和路径的组合在一个 VServer 中必须唯一。</li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>Message</strong> (str) - 返回信息描述。</li>
+<li><strong>PolicyID</strong> (str) - 返回创建的内容转发规则ID</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.ucloudstack.client.UCloudStackClient.delete_certificate">
+<code class="descname">delete_certificate</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/ucloudstack/client.html#UCloudStackClient.delete_certificate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.ucloudstack.client.UCloudStackClient.delete_certificate" title="Permalink to this definition">¶</a></dt>
+<dd><p>DeleteCertificate - 删除证书</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>Region</strong> (str) - (Config) 地域。 参见  <a class="reference external" href="https://docs.ucloud.cn/api/summary/regionlist.html">地域和可用区列表</a></li>
+<li><strong>CertificateID</strong> (str) - (Required) 证书ID</li>
+<li><strong>Zone</strong> (str) - (Required) 可用区。参见  <a class="reference external" href="https://docs.ucloud.cn/api/summary/regionlist.html">可用区列表</a></li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>Message</strong> (str) - 返回信息描述</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.ucloudstack.client.UCloudStackClient.delete_custom_image">
+<code class="descname">delete_custom_image</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/ucloudstack/client.html#UCloudStackClient.delete_custom_image"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.ucloudstack.client.UCloudStackClient.delete_custom_image" title="Permalink to this definition">¶</a></dt>
+<dd><p>DeleteCustomImage - 删除自制镜像</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>Region</strong> (str) - (Config) 地域。枚举值：cn,表示中国；</li>
+<li><strong>ImageID</strong> (str) - (Required) 自制镜像ID</li>
+<li><strong>Zone</strong> (str) - (Required) 可用区。枚举值：zone-01，表示中国；</li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>Message</strong> (str) - 返回信息描述。</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.ucloudstack.client.UCloudStackClient.delete_disk">
+<code class="descname">delete_disk</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/ucloudstack/client.html#UCloudStackClient.delete_disk"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.ucloudstack.client.UCloudStackClient.delete_disk" title="Permalink to this definition">¶</a></dt>
+<dd><p>DeleteDisk - 删除硬盘</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>Region</strong> (str) - (Config) 地域。枚举值：cn,表示中国；</li>
+<li><strong>DiskID</strong> (str) - (Required) 被删除的硬盘ID</li>
+<li><strong>Zone</strong> (str) - (Required) 可用区。枚举值：zone-01，表示中国；</li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>Message</strong> (str) - 返回信息描述。</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.ucloudstack.client.UCloudStackClient.delete_lb">
+<code class="descname">delete_lb</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/ucloudstack/client.html#UCloudStackClient.delete_lb"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.ucloudstack.client.UCloudStackClient.delete_lb" title="Permalink to this definition">¶</a></dt>
+<dd><p>DeleteLB - 删除负载均衡</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>Region</strong> (str) - (Config) 地域。枚举值：cn,表示中国；</li>
+<li><strong>LBID</strong> (str) - (Required) 负载均衡ID</li>
+<li><strong>Zone</strong> (str) - (Required) 可用区。枚举值：zone-01，表示中国；</li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>Message</strong> (str) - 返回信息描述。</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.ucloudstack.client.UCloudStackClient.delete_natgw">
+<code class="descname">delete_natgw</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/ucloudstack/client.html#UCloudStackClient.delete_natgw"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.ucloudstack.client.UCloudStackClient.delete_natgw" title="Permalink to this definition">¶</a></dt>
+<dd><p>DeleteNATGW - 删除NAT网关</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>Region</strong> (str) - (Config) 地域。枚举值：cn,表示中国；</li>
+<li><strong>NATGWID</strong> (str) - (Required) NAT网关ID</li>
+<li><strong>Zone</strong> (str) - (Required) 可用区。枚举值：zone-01，表示中国；</li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>Message</strong> (str) - 返回信息描述。</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.ucloudstack.client.UCloudStackClient.delete_natgw_rule">
+<code class="descname">delete_natgw_rule</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/ucloudstack/client.html#UCloudStackClient.delete_natgw_rule"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.ucloudstack.client.UCloudStackClient.delete_natgw_rule" title="Permalink to this definition">¶</a></dt>
+<dd><p>DeleteNATGWRule - 删除NAT网关白名单</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>Region</strong> (str) - (Config) 地域。枚举值：cn,表示中国；</li>
+<li><strong>NATGWID</strong> (str) - (Required) nat网关ID</li>
+<li><strong>RuleID</strong> (str) - (Required) 白名单ID</li>
+<li><strong>Zone</strong> (str) - (Required) 可用区。枚举值：zone-01，表示中国；</li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>Message</strong> (str) - 返回信息描述。</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.ucloudstack.client.UCloudStackClient.delete_physical_ip">
+<code class="descname">delete_physical_ip</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/ucloudstack/client.html#UCloudStackClient.delete_physical_ip"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.ucloudstack.client.UCloudStackClient.delete_physical_ip" title="Permalink to this definition">¶</a></dt>
+<dd><p>DeletePhysicalIP - 删除物理IP</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>Region</strong> (str) - (Config) 地域。</li>
+<li><strong>PhysicalIPID</strong> (str) - (Required) 物理IP的ID</li>
+<li><strong>Zone</strong> (str) - (Required) 可用区。</li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>Message</strong> (str) - 返回状态描述</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.ucloudstack.client.UCloudStackClient.delete_rs">
+<code class="descname">delete_rs</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/ucloudstack/client.html#UCloudStackClient.delete_rs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.ucloudstack.client.UCloudStackClient.delete_rs" title="Permalink to this definition">¶</a></dt>
+<dd><p>DeleteRS - 移除负载均衡的单个服务节点</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>Region</strong> (str) - (Config) 地域。枚举值：cn,表示中国；</li>
+<li><strong>LBID</strong> (str) - (Required) 负载均衡ID</li>
+<li><strong>RSID</strong> (str) - (Required) RServer的ID</li>
+<li><strong>VSID</strong> (str) - (Required) VServer的ID</li>
+<li><strong>Zone</strong> (str) - (Required) 可用区。枚举值：zone-01，表示中国；</li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>Message</strong> (str) - 返回信息描述。</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.ucloudstack.client.UCloudStackClient.delete_security_group">
+<code class="descname">delete_security_group</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/ucloudstack/client.html#UCloudStackClient.delete_security_group"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.ucloudstack.client.UCloudStackClient.delete_security_group" title="Permalink to this definition">¶</a></dt>
+<dd><p>DeleteSecurityGroup - 删除安全组</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>Region</strong> (str) - (Config) 地域。枚举值： cn，表示中国；</li>
+<li><strong>SGID</strong> (str) - (Required) 安全组ID</li>
+<li><strong>Zone</strong> (str) - (Required) 可用区。枚举值：zone-01，表示中国；</li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>Message</strong> (str) - 返回信息描述；</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.ucloudstack.client.UCloudStackClient.delete_security_group_rule">
+<code class="descname">delete_security_group_rule</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/ucloudstack/client.html#UCloudStackClient.delete_security_group_rule"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.ucloudstack.client.UCloudStackClient.delete_security_group_rule" title="Permalink to this definition">¶</a></dt>
+<dd><p>DeleteSecurityGroupRule - 删除安全组规则</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>Region</strong> (str) - (Config) 地域。</li>
+<li><strong>SGID</strong> (str) - (Required) 安全组ID</li>
+<li><strong>SGRuleID</strong> (str) - (Required) 安全组规则ID</li>
+<li><strong>Zone</strong> (str) - (Required) 可用区。</li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>Message</strong> (str) - 返回信息描述；</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.ucloudstack.client.UCloudStackClient.delete_snapshot">
+<code class="descname">delete_snapshot</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/ucloudstack/client.html#UCloudStackClient.delete_snapshot"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.ucloudstack.client.UCloudStackClient.delete_snapshot" title="Permalink to this definition">¶</a></dt>
+<dd><p>DeleteSnapshot - 删除快照，仅支持状态为正常的快照进行删除操作。</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>Region</strong> (str) - (Config) 地域。枚举值：如 cn,表示中国。</li>
+<li><strong>SnapshotID</strong> (str) - (Required) 快照ID</li>
+<li><strong>Zone</strong> (str) - (Required) 可用区。枚举值：如 zone-01，表示可用区1。</li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>Message</strong> (str) - 返回信息描述</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.ucloudstack.client.UCloudStackClient.delete_subnet">
+<code class="descname">delete_subnet</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/ucloudstack/client.html#UCloudStackClient.delete_subnet"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.ucloudstack.client.UCloudStackClient.delete_subnet" title="Permalink to this definition">¶</a></dt>
+<dd><p>DeleteSubnet - 删除子网</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>Region</strong> (str) - (Config) 地域。</li>
+<li><strong>SubnetID</strong> (str) - (Required) SubnetID</li>
+<li><strong>Zone</strong> (str) - (Required) 可用区。</li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>Message</strong> (str) - 返回信息描述；</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.ucloudstack.client.UCloudStackClient.delete_vm_instance">
+<code class="descname">delete_vm_instance</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/ucloudstack/client.html#UCloudStackClient.delete_vm_instance"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.ucloudstack.client.UCloudStackClient.delete_vm_instance" title="Permalink to this definition">¶</a></dt>
+<dd><p>DeleteVMInstance - 删除虚拟机</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>Region</strong> (str) - (Config) 地域。 枚举值：cn，表示中国；</li>
+<li><strong>VMID</strong> (str) - (Required) 虚拟机 ID。输入有效的虚拟机 ID。</li>
+<li><strong>Zone</strong> (str) - (Required) 可用区。枚举值：zone-01，表示中国；</li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>Message</strong> (str) - 返回信息描述。</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.ucloudstack.client.UCloudStackClient.delete_vpc">
+<code class="descname">delete_vpc</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/ucloudstack/client.html#UCloudStackClient.delete_vpc"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.ucloudstack.client.UCloudStackClient.delete_vpc" title="Permalink to this definition">¶</a></dt>
+<dd><p>DeleteVPC - 删除VPC</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>Region</strong> (str) - (Config) 地域。</li>
+<li><strong>VPCID</strong> (str) - (Required) ID</li>
+<li><strong>Zone</strong> (str) - (Required) 可用区。</li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>Message</strong> (str) - 返回信息描述；</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.ucloudstack.client.UCloudStackClient.delete_vs">
+<code class="descname">delete_vs</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/ucloudstack/client.html#UCloudStackClient.delete_vs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.ucloudstack.client.UCloudStackClient.delete_vs" title="Permalink to this definition">¶</a></dt>
+<dd><p>DeleteVS - 删除VServer</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>Region</strong> (str) - (Config) 地域。枚举值：cn,表示中国；</li>
+<li><strong>LBID</strong> (str) - (Required) VServer 监听器所属的负载均衡 ID</li>
+<li><strong>VSID</strong> (str) - (Required) 负载均衡VServer监听器ID</li>
+<li><strong>Zone</strong> (str) - (Required) 可用区。枚举值：zone-01，表示中国；</li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>Message</strong> (str) - 返回信息描述。</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.ucloudstack.client.UCloudStackClient.delete_vs_policy">
+<code class="descname">delete_vs_policy</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/ucloudstack/client.html#UCloudStackClient.delete_vs_policy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.ucloudstack.client.UCloudStackClient.delete_vs_policy" title="Permalink to this definition">¶</a></dt>
+<dd><p>DeleteVSPolicy - 删除七层负载均衡内容转发规则，仅当 VServer 的监听协议为 HTTP 时有效。</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>Region</strong> (str) - (Config) 地域。枚举值：cn,表示中国；</li>
+<li><strong>LBID</strong> (str) - (Required) 负载均衡ID</li>
+<li><strong>PolicyID</strong> (str) - (Required) 内容转发规则ID</li>
+<li><strong>VSID</strong> (str) - (Required) VServer的ID</li>
+<li><strong>Zone</strong> (str) - (Required) 可用区。枚举值：zone-01，表示中国；</li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>Message</strong> (str) - 返回信息描述。</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.ucloudstack.client.UCloudStackClient.describe_certificate">
+<code class="descname">describe_certificate</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/ucloudstack/client.html#UCloudStackClient.describe_certificate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.ucloudstack.client.UCloudStackClient.describe_certificate" title="Permalink to this definition">¶</a></dt>
+<dd><p>DescribeCertificate - 查询证书</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>Region</strong> (str) - (Config) 地域。 参见  <a class="reference external" href="https://docs.ucloud.cn/api/summary/regionlist.html">地域和可用区列表</a></li>
+<li><strong>Zone</strong> (str) - (Required) 可用区。参见  <a class="reference external" href="https://docs.ucloud.cn/api/summary/regionlist.html">可用区列表</a></li>
+<li><strong>CertificateIDs</strong> (list) - 证书ID列表</li>
+<li><strong>CertificateType</strong> (str) - 证书类型，枚举值[“ServerCrt”,”CACrt”]。分别表示服务器证书和CA证书。</li>
+<li><strong>Limit</strong> (int) - 返回数据长度，默认为20，最大100</li>
+<li><strong>Offset</strong> (int) - 列表起始位置偏移量，默认为0</li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>Infos</strong> (list) - 见 <strong>CertificateInfo</strong> 模型定义</li>
+<li><strong>Message</strong> (str) - 返回信息描述</li>
+<li><strong>TotalCount</strong> (int) - 证书总个数</li>
+</ul>
+<p><strong>Response Model</strong></p>
+<p><strong>BindVSInfo</strong></p>
+<ul class="simple">
+<li><strong>LBID</strong> (str) - LB ID</li>
+<li><strong>LBName</strong> (str) - LB名称</li>
+<li><strong>Port</strong> (int) - VS的端口</li>
+<li><strong>Protocol</strong> (str) - VS的协议</li>
+<li><strong>VSID</strong> (str) - VS ID</li>
+</ul>
+<p><strong>CertificateInfo</strong></p>
+<ul class="simple">
+<li><strong>CertificateContent</strong> (str) - 证书内容</li>
+<li><strong>CertificateID</strong> (str) - 证书ID</li>
+<li><strong>CertificateType</strong> (str) - 证书类型，枚举值[“ServerCrt”,”CACrt”]</li>
+<li><strong>CommonName</strong> (str) - 主域名</li>
+<li><strong>CreateTime</strong> (int) - 创建时间（平台创建时间）</li>
+<li><strong>ExpireTime</strong> (int) - 证书内容的过期时间</li>
+<li><strong>Fingerprint</strong> (str) - 证书指纹</li>
+<li><strong>Name</strong> (str) - 证书名</li>
+<li><strong>Privatekey</strong> (str) - 私钥内容</li>
+<li><strong>Region</strong> (str) - 地域</li>
+<li><strong>Remark</strong> (str) - 证书描述</li>
+<li><strong>SubjectAlternativeNames</strong> (list) - 备域名</li>
+<li><strong>VSInfos</strong> (list) - 见 <strong>BindVSInfo</strong> 模型定义</li>
+<li><strong>Zone</strong> (str) - 可用区</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.ucloudstack.client.UCloudStackClient.describe_disk">
+<code class="descname">describe_disk</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/ucloudstack/client.html#UCloudStackClient.describe_disk"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.ucloudstack.client.UCloudStackClient.describe_disk" title="Permalink to this definition">¶</a></dt>
+<dd><p>DescribeDisk - 获取硬盘信息</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>Region</strong> (str) - (Config) 地域。枚举值： cn，表示中国；</li>
+<li><strong>Zone</strong> (str) - (Required) 可用区。枚举值：zone-01，表示中国；</li>
+<li><strong>DiskIDs</strong> (list) - 【数组】磁盘的 ID。输入有效的 ID。调用方式举例：DiskIDs.0=“one-id”、DiskIDs.1=“two-id”。</li>
+<li><strong>Limit</strong> (int) - 返回数据长度，默认为20，最大100。</li>
+<li><strong>Offset</strong> (int) - 列表起始位置偏移量，默认为0。</li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>Infos</strong> (list) - 见 <strong>DiskInfo</strong> 模型定义</li>
+<li><strong>Message</strong> (str) - 返回信息描述。</li>
+<li><strong>TotalCount</strong> (int) - 返回磁盘总个数。</li>
+</ul>
+<p><strong>Response Model</strong></p>
+<p><strong>DiskInfo</strong></p>
+<ul class="simple">
+<li><strong>AttachResourceID</strong> (str) - 绑定资源ID</li>
+<li><strong>ChargeType</strong> (str) - 硬盘计费模式。枚举值：Dynamic，表示小时；Month，表示月；Year，表示年；</li>
+<li><strong>CreateTime</strong> (int) - 创建时间。时间戳</li>
+<li><strong>DiskID</strong> (str) - 硬盘ID</li>
+<li><strong>DiskStatus</strong> (str) - 硬盘状态。Creating：创建中,BeingCloned：正在被克隆中,Unbound：已解绑,Unbounding：解绑中,Bounding：绑定中,Bound：已绑定,Upgrading：升级中,Deleting：删除中,Deleted：已删除,Releasing：销毁中,Released：已销毁</li>
+<li><strong>ExpireTime</strong> (int) - 过期时间。时间戳</li>
+<li><strong>Name</strong> (str) - 名称</li>
+<li><strong>Region</strong> (str) - 地域</li>
+<li><strong>Remark</strong> (str) - 备注</li>
+<li><strong>SetType</strong> (str) - 磁盘类型。例如：Normal,SSD</li>
+<li><strong>Size</strong> (int) - 大小。单位GB</li>
+<li><strong>Zone</strong> (str) - 可用区</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.ucloudstack.client.UCloudStackClient.describe_eip">
+<code class="descname">describe_eip</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/ucloudstack/client.html#UCloudStackClient.describe_eip"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.ucloudstack.client.UCloudStackClient.describe_eip" title="Permalink to this definition">¶</a></dt>
+<dd><p>DescribeEIP - 获取外网IP的信息</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>Region</strong> (str) - (Config) 地域。枚举值：cn,表示中国；</li>
+<li><strong>Zone</strong> (str) - (Required) 可用区。枚举值：zone-01，表示中国；</li>
+<li><strong>EIPIDs</strong> (list) - 【数组】外网的 ID。输入有效的 ID。调用方式举例：EIPIDs.0=“one-id”、EIPIDs.1=“two-id”</li>
+<li><strong>Limit</strong> (str) - 返回数据长度，默认为20，最大100。</li>
+<li><strong>Offset</strong> (str) - 列表起始位置偏移量，默认为0。</li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>Infos</strong> (list) - 见 <strong>EIPInfo</strong> 模型定义</li>
+<li><strong>Message</strong> (str) - 返回信息描述</li>
+<li><strong>Totalcount</strong> (int) - 返回现有外网IP总数</li>
+</ul>
+<p><strong>Response Model</strong></p>
+<p><strong>EIPInfo</strong></p>
+<ul class="simple">
+<li><strong>Bandwidth</strong> (int) - 带宽大小</li>
+<li><strong>BindResourceID</strong> (str) - 绑定资源ID</li>
+<li><strong>BindResourceType</strong> (str) - 绑定资源类型</li>
+<li><strong>ChargeType</strong> (str) - 计费模式。枚举值：Dynamic，表示小时；Month，表示月；Year，表示年；</li>
+<li><strong>CreateTime</strong> (int) - 创建时间。时间戳</li>
+<li><strong>EIPID</strong> (str) - ID</li>
+<li><strong>ExpireTime</strong> (int) - 过期时间。时间戳</li>
+<li><strong>IP</strong> (str) - 外网IP</li>
+<li><strong>Name</strong> (str) - 名称</li>
+<li><strong>OperatorName</strong> (str) - 线路</li>
+<li><strong>Region</strong> (str) - 地域</li>
+<li><strong>Remark</strong> (str) - 备注</li>
+<li><strong>Status</strong> (str) - 状态。Allocating：申请中,Free：未绑定,Bounding：绑定中,Bound：已绑定,Unbounding：解绑中,Deleted：已删除,Releasing：销毁中,Released：已销毁,BandwidthChanging：带宽修改中</li>
+<li><strong>Zone</strong> (str) - 可用区</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.ucloudstack.client.UCloudStackClient.describe_image">
+<code class="descname">describe_image</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/ucloudstack/client.html#UCloudStackClient.describe_image"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.ucloudstack.client.UCloudStackClient.describe_image" title="Permalink to this definition">¶</a></dt>
+<dd><p>DescribeImage - 获取镜像信息，包括默认镜像和自制镜像。</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>Region</strong> (str) - (Config) 地域。枚举值： cn，表示中国；</li>
+<li><strong>Zone</strong> (str) - (Required) 可用区。枚举值：zone-01，表示中国；</li>
+<li><strong>ImageIDs</strong> (list) - 【数组】镜像的 ID。输入有效的 ID。调用方式举例：ImageIDs.0=“one-id”、ImageIDs.1=“two-id”。</li>
+<li><strong>ImageType</strong> (str) - 镜像类型。枚举值：Base(基础镜像，平台默认提供的镜像)，Custom(自制镜像，通过虚拟机导出的镜像) 。若该值为空，默认查询所有镜像。</li>
+<li><strong>Limit</strong> (int) - 返回数据长度，默认为20，最大100。</li>
+<li><strong>Offset</strong> (int) - 列表起始位置偏移量，默认为0。</li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>Action</strong> (str) - 操作名称</li>
+<li><strong>Infos</strong> (list) - 见 <strong>ImageInfo</strong> 模型定义</li>
+<li><strong>Message</strong> (str) - 返回信息描述。</li>
+<li><strong>RetCode</strong> (int) - 返回码</li>
+<li><strong>TotalCount</strong> (int) - 返回镜像的总个数。</li>
+</ul>
+<p><strong>Response Model</strong></p>
+<p><strong>ImageInfo</strong></p>
+<ul class="simple">
+<li><strong>CreateTime</strong> (int) - 创建时间。时间戳。</li>
+<li><strong>ImageID</strong> (str) - 镜像ID</li>
+<li><strong>ImageStatus</strong> (str) - 镜像状态。枚举类型：Making（创建中）,Available（可用）,Unavailable（不可用）,Terminating（销毁中）,Used（被使用中）,Deleting（删除中）,Deleted（已删除）, Uploading（导入中）</li>
+<li><strong>ImageType</strong> (str) - 镜像类型。枚举类型：Base(基础镜像),Custom（自制镜像）。</li>
+<li><strong>Name</strong> (str) - 镜像名称</li>
+<li><strong>OSDistribution</strong> (str) - 镜像系统发行版本。例如：Centos, Ubuntu, Windows等</li>
+<li><strong>OSName</strong> (str) - 系统名称。例如：CentOS 7.4 x86_64</li>
+<li><strong>OSType</strong> (str) - 系统类型。例如：Linux, Windows，Kylin</li>
+<li><strong>Region</strong> (str) - 地域</li>
+<li><strong>SetArch</strong> (str) - 架构名称。例如：x86_64</li>
+<li><strong>Zone</strong> (str) - 可用区</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.ucloudstack.client.UCloudStackClient.describe_lb">
+<code class="descname">describe_lb</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/ucloudstack/client.html#UCloudStackClient.describe_lb"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.ucloudstack.client.UCloudStackClient.describe_lb" title="Permalink to this definition">¶</a></dt>
+<dd><p>DescribeLB - 获取负载均衡信息</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>Region</strong> (str) - (Config) 地域。枚举值： cn，表示中国；</li>
+<li><strong>Zone</strong> (str) - (Required) 可用区。枚举值：zone-01，表示中国；</li>
+<li><strong>LBIDs</strong> (list) - 【数组】负载均衡的 ID。调用方式举例：LBIDs.0=“one-id”、LBIDs.1=“two-id”。</li>
+<li><strong>Limit</strong> (int) - 返回数据长度，默认为20，最大100。</li>
+<li><strong>Offset</strong> (int) - 列表起始位置偏移量，默认为0。</li>
+<li><strong>SubnetID</strong> (str) - 子网ID</li>
+<li><strong>VPCID</strong> (str) - VPCID</li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>Infos</strong> (list) - 见 <strong>LBInfo</strong> 模型定义</li>
+<li><strong>Message</strong> (str) - 返回信息描述。</li>
+<li><strong>TotalCount</strong> (int) - 返回负载均衡总个数。</li>
+</ul>
+<p><strong>Response Model</strong></p>
+<p><strong>LBInfo</strong></p>
+<ul class="simple">
+<li><strong>AlarmTemplateID</strong> (str) - 告警模板ID</li>
+<li><strong>ChargeType</strong> (str) - 虚拟机计费模式。枚举值：Dynamic，表示小时；Month，表示月；Year，表示年；</li>
+<li><strong>CreateTime</strong> (int) - 创建时间，时间戳</li>
+<li><strong>ExpireTime</strong> (int) - 过期时间，时间戳</li>
+<li><strong>LBID</strong> (str) - 负载均衡ID</li>
+<li><strong>LBStatus</strong> (str) - 状态。Creating:创建中,Running:运行中,Deleting:删除中,Deleted:已删除</li>
+<li><strong>LBType</strong> (str) - 负载均衡类型，枚举值，WAN:外网负载均衡，LAN:内网负载均衡。</li>
+<li><strong>Name</strong> (str) - 名称</li>
+<li><strong>PrivateIP</strong> (str) - 负载均衡的内网 IP 地址，当LB为外网类型时，该值为空。</li>
+<li><strong>PublicIP</strong> (str) - 负载均衡的外网 IP 地址，当LB为内网类型时，该值为空。</li>
+<li><strong>Region</strong> (str) - 地域</li>
+<li><strong>Remark</strong> (str) - 描述</li>
+<li><strong>SGID</strong> (str) - 安全组 ID ，当LB为内网类型时，该值为空。</li>
+<li><strong>SubnetID</strong> (str) - 子网ID</li>
+<li><strong>VPCID</strong> (str) - VPCID</li>
+<li><strong>VSCount</strong> (int) - VServer的数量</li>
+<li><strong>Zone</strong> (str) - 可用区</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.ucloudstack.client.UCloudStackClient.describe_metric">
+<code class="descname">describe_metric</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/ucloudstack/client.html#UCloudStackClient.describe_metric"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.ucloudstack.client.UCloudStackClient.describe_metric" title="Permalink to this definition">¶</a></dt>
+<dd><p>DescribeMetric - 获取资源监控信息</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>Region</strong> (str) - (Config) 地域。枚举值：cn，表示中国；</li>
+<li><strong>BeginTime</strong> (str) - (Required) 开始时间。使用unix时间戳</li>
+<li><strong>EndTime</strong> (str) - (Required) 结束时间。使用Unix时间戳</li>
+<li><strong>MetricName</strong> (list) - (Required) 监控指标。1. 获取虚拟机监控信息调用举例，MetricName.0=”CPUUtilization”、MetricName.0=”MemUsage”。虚拟机监控指标枚举值：BlockProcessCount，表示阻塞进程数；CPUUtilization，表示CPU使用率；DiskReadOps，表示磁盘读次数；DiskWriteOps，表示磁盘写次数；IORead，表示磁盘读吞吐；IOWrite，表示磁盘写吞吐；LoadAvg，表示平均负载1分钟；MemUsage，表示内存使用率；NetPacketIn，表示网卡入包量；NetPacketOut，表示网卡出包量；NICIn，表示网卡入带宽；NICOut，表示网卡出带宽；SpaceUsage，表示空间使用率；TCPConnectCount，表示TCP连接数；2. EIP监控指标：NetPacketIn：入包量；NetPacketOut：出包量；NICIn：入带宽；NICOut：出带宽；NICOutUsage：出带宽使用率；</li>
+<li><strong>ResourceID</strong> (str) - (Required) 资源ID</li>
+<li><strong>ResourceType</strong> (str) - (Required) 资源类型。VM：虚拟机；EIP：弹性IP</li>
+<li><strong>Zone</strong> (str) - (Required) 可用区。枚举值：zone-01，中国；</li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>Infos</strong> (list) - 见 <strong>MetricInfo</strong> 模型定义</li>
+<li><strong>Message</strong> (str) - 返回信息描述</li>
+<li><strong>TotalCount</strong> (int) - 返回监控信息条数</li>
+</ul>
+<p><strong>Response Model</strong></p>
+<p><strong>MetricSet</strong></p>
+<ul class="simple">
+<li><strong>Timestamp</strong> (int) - 监控时间</li>
+<li><strong>Value</strong> (float) - 监控值</li>
+</ul>
+<p><strong>MetricInfo</strong></p>
+<ul class="simple">
+<li><strong>Infos</strong> (list) - 见 <strong>MetricSet</strong> 模型定义</li>
+<li><strong>MetricName</strong> (str) - 监控指标。虚拟机的监控指标枚举值为：BlockProcessCount，表示阻塞进程数；CPUUtilization，表示CPU使用率；DiskReadOps，表示磁盘读次数；DiskWriteOps，表示磁盘写次数；IORead，表示磁盘读吞吐；IOWrite，表示磁盘写吞吐；LoadAvg，表示平均负载1分钟；MemUsage，表示内存使用率；NetPacketIn，表示网卡入包量；NetPacketOut，表示网卡出包量；NICIn，表示网卡入带宽；NICOut，表示网卡出带宽；SpaceUsage，表示空间使用率；TCPConnectCount，表示TCP连接数；</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.ucloudstack.client.UCloudStackClient.describe_natgw">
+<code class="descname">describe_natgw</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/ucloudstack/client.html#UCloudStackClient.describe_natgw"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.ucloudstack.client.UCloudStackClient.describe_natgw" title="Permalink to this definition">¶</a></dt>
+<dd><p>DescribeNATGW - 获取NAT网关信息</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>Region</strong> (str) - (Config) 地域。枚举值： cn，表示中国；</li>
+<li><strong>Zone</strong> (str) - (Required) 可用区。枚举值：zone-01，表示中国；</li>
+<li><strong>Limit</strong> (int) - 返回数据长度，默认为20，最大100。</li>
+<li><strong>NATGWIDs</strong> (list) - 【数组】NAT网关的 ID。调用方式举例：NATGWIDs.0=“one-id”、NATGWIDs.1=“two-id”。</li>
+<li><strong>Offset</strong> (int) - 列表起始位置偏移量，默认为0。</li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>Infos</strong> (list) - 见 <strong>NATGWInfo</strong> 模型定义</li>
+<li><strong>Message</strong> (str) - 返回信息描述。</li>
+<li><strong>TotalCount</strong> (int) - 返回NAT网关总个数</li>
+</ul>
+<p><strong>Response Model</strong></p>
+<p><strong>NATGWInfo</strong></p>
+<ul class="simple">
+<li><strong>AlarmTemplateID</strong> (str) - 告警模板ID</li>
+<li><strong>ChargeType</strong> (str) - 计费模式。枚举值：Dynamic，表示小时；Month，表示月；Year，表示年；</li>
+<li><strong>CreateTime</strong> (int) - 创建时间，时间戳</li>
+<li><strong>EIP</strong> (str) - 虚拟IP</li>
+<li><strong>ExpireTime</strong> (int) - 过期时间，时间戳</li>
+<li><strong>NATGWID</strong> (str) - NAT网关ID</li>
+<li><strong>NATGWStatus</strong> (str) - 状态。Creating:创建中, Running:运行中, Deleting:删除中, Deleted:已删除</li>
+<li><strong>Name</strong> (str) - 名称</li>
+<li><strong>Region</strong> (str) - 地域</li>
+<li><strong>Remark</strong> (str) - 备注</li>
+<li><strong>SGID</strong> (str) - NAT网关绑定的安全组ID</li>
+<li><strong>SubnetID</strong> (str) - NAT网关实例所在的子网 ID</li>
+<li><strong>VPCID</strong> (str) - NAT网关实例所在的 VPC ID</li>
+<li><strong>Zone</strong> (str) - 可用区</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.ucloudstack.client.UCloudStackClient.describe_natgw_rule">
+<code class="descname">describe_natgw_rule</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/ucloudstack/client.html#UCloudStackClient.describe_natgw_rule"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.ucloudstack.client.UCloudStackClient.describe_natgw_rule" title="Permalink to this definition">¶</a></dt>
+<dd><p>DescribeNATGWRule - 获取NAT网关白名单信息</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>Region</strong> (str) - (Config) 地域。枚举值： cn，表示中国；</li>
+<li><strong>NATGWID</strong> (str) - (Required) NAT网关ID</li>
+<li><strong>NATGWType</strong> (str) - (Required) NAT类型。枚举值：SNAT，DNAT</li>
+<li><strong>Zone</strong> (str) - (Required) 可用区。枚举值：zone-01，表示中国；</li>
+<li><strong>BindResourceIDs</strong> (list) - 【数组】NAT网关白名单资源ID。调用方式举例：NATGWRules.0=“one-id”、NATGWRules.1=“two-id”。</li>
+<li><strong>Limit</strong> (int) - 返回数据长度，默认为20，最大100。</li>
+<li><strong>Offset</strong> (int) - 列表起始位置偏移量，默认为0。</li>
+<li><strong>RuleIDs</strong> (list) - 【数组】NAT网关白名单ID。调用方式举例：NATGWRules.0=“one-id”、NATGWRules.1=“two-id”。</li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>Infos</strong> (list) - 见 <strong>NATGWRuleInfo</strong> 模型定义</li>
+<li><strong>Message</strong> (str) - 返回信息描述。</li>
+<li><strong>TotalCount</strong> (int) - 返回NAT网关白名单资源总个数。</li>
+</ul>
+<p><strong>Response Model</strong></p>
+<p><strong>NATGWRuleInfo</strong></p>
+<ul class="simple">
+<li><strong>BindResourceID</strong> (str) - 绑定的资源ID</li>
+<li><strong>BindResourceType</strong> (str) - 绑定资源的类型</li>
+<li><strong>CreateTime</strong> (int) - 创建时间，时间戳。</li>
+<li><strong>IP</strong> (str) - 白名单资源的内网IP地址</li>
+<li><strong>NATGWID</strong> (str) - NAT网关ID</li>
+<li><strong>NATGWType</strong> (str) - nat网关类型</li>
+<li><strong>Name</strong> (str) - 添加的白名单资源名称</li>
+<li><strong>RuleID</strong> (str) - 白名单ID</li>
+<li><strong>RuleStatus</strong> (str) - 状态。Bounding:绑定中,Bound:已绑定,Unbounding:解绑中,Unbound：已解绑</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.ucloudstack.client.UCloudStackClient.describe_op_logs">
+<code class="descname">describe_op_logs</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/ucloudstack/client.html#UCloudStackClient.describe_op_logs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.ucloudstack.client.UCloudStackClient.describe_op_logs" title="Permalink to this definition">¶</a></dt>
+<dd><p>DescribeOPLogs - 查询操作日志</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>Region</strong> (str) - (Config) 地域。 参见  <a class="reference external" href="https://docs.ucloud.cn/api/summary/regionlist.html">地域和可用区列表</a></li>
+<li><strong>BeginTime</strong> (int) - (Required) 开始时间</li>
+<li><strong>EndTime</strong> (int) - (Required) 结束时间</li>
+<li><strong>Zone</strong> (str) - (Required) 可用区。参见  <a class="reference external" href="https://docs.ucloud.cn/api/summary/regionlist.html">可用区列表</a></li>
+<li><strong>IsSuccess</strong> (str) - 是否操作成功</li>
+<li><strong>Limit</strong> (int) -</li>
+<li><strong>Offset</strong> (int) -</li>
+<li><strong>ResourceID</strong> (str) - 资源ID</li>
+<li><strong>ResourceType</strong> (str) - 资源类型</li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>Infos</strong> (list) - 见 <strong>OPLogInfo</strong> 模型定义</li>
+<li><strong>Message</strong> (str) - 错误信息</li>
+<li><strong>TotalCount</strong> (int) - 总数</li>
+</ul>
+<p><strong>Response Model</strong></p>
+<p><strong>OPLogInfo</strong></p>
+<ul class="simple">
+<li><strong>CreateTime</strong> (int) - 创建时间</li>
+<li><strong>IsSuccess</strong> (str) - 是否操作成功， Yes, No</li>
+<li><strong>OPLogsID</strong> (str) - 日志ID</li>
+<li><strong>OPName</strong> (str) - API</li>
+<li><strong>OPTime</strong> (int) - 操作时间</li>
+<li><strong>OpMessage</strong> (str) - 错误信息</li>
+<li><strong>Region</strong> (str) -</li>
+<li><strong>ResourceID</strong> (str) - 资源ID</li>
+<li><strong>ResourceType</strong> (int) - 资源类型</li>
+<li><strong>RetCode</strong> (int) - 状态码</li>
+<li><strong>UserEmail</strong> (str) - 账号邮箱</li>
+<li><strong>Zone</strong> (str) -</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.ucloudstack.client.UCloudStackClient.describe_physical_ip">
+<code class="descname">describe_physical_ip</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/ucloudstack/client.html#UCloudStackClient.describe_physical_ip"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.ucloudstack.client.UCloudStackClient.describe_physical_ip" title="Permalink to this definition">¶</a></dt>
+<dd><p>DescribePhysicalIP - 获取物理IP信息</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>Region</strong> (str) - (Config) 地域。枚举值：cn,表示中国；</li>
+<li><strong>Zone</strong> (str) - (Required) 可用区。枚举值：zone-01，表示中国；</li>
+<li><strong>Limit</strong> (str) - 返回数据长度，默认为20，最大100。</li>
+<li><strong>Offset</strong> (str) - 列表起始位置偏移量，默认为0。</li>
+<li><strong>PhysicalIPIDs</strong> (list) - 【数组】物理IP的 ID。输入有效的 ID。调用方式举例：PhysicalIPIDs.0=“one-id”、PhysicalIPIDs.1=“two-id”</li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>Infos</strong> (list) - 见 <strong>PhysicalIPInfo</strong> 模型定义</li>
+<li><strong>Message</strong> (str) - 返回信息描述</li>
+<li><strong>TotalCount</strong> (int) - 返回现有物理IP总数</li>
+</ul>
+<p><strong>Response Model</strong></p>
+<p><strong>PhysicalIPInfo</strong></p>
+<ul class="simple">
+<li><strong>BindResourceID</strong> (str) - 绑定资源ID</li>
+<li><strong>BindResourceType</strong> (str) - 绑定资源类型</li>
+<li><strong>CreateTime</strong> (int) - 创建时间。时间戳</li>
+<li><strong>IP</strong> (str) - 物理IP</li>
+<li><strong>Name</strong> (str) - 名称</li>
+<li><strong>OperatorName</strong> (str) - 线路</li>
+<li><strong>PhysicalIPID</strong> (str) - 物理IP的ID</li>
+<li><strong>Region</strong> (str) - 地域</li>
+<li><strong>Remark</strong> (str) - 备注</li>
+<li><strong>Status</strong> (str) - 状态。Allocating：申请中,Free：未绑定,Bounding：绑定中,Bound：已绑定,Unbounding：解绑中,Deleted：已删除,Releasing：销毁中,Released：已销毁</li>
+<li><strong>UpdateTime</strong> (int) - 过期时间。时间戳</li>
+<li><strong>Zone</strong> (str) - 可用区</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.ucloudstack.client.UCloudStackClient.describe_recycled_resource">
+<code class="descname">describe_recycled_resource</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/ucloudstack/client.html#UCloudStackClient.describe_recycled_resource"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.ucloudstack.client.UCloudStackClient.describe_recycled_resource" title="Permalink to this definition">¶</a></dt>
+<dd><p>DescribeRecycledResource - 查询回收站资源</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>Region</strong> (str) - (Config) 地域。枚举值：如 cn,表示中国。</li>
+<li><strong>Zone</strong> (str) - (Required) 可用区。枚举值：如 zone-01，表示可用区1。</li>
+<li><strong>Limit</strong> (int) - 返回数据长度，默认为20，最大100。</li>
+<li><strong>Offset</strong> (int) - 列表起始位置偏移量，默认为0。</li>
+<li><strong>ResourceIDs</strong> (list) - 【数组】资源ID，输入“有效”的ID。调用方式举例：ResourceIDs.0=“one-id”、ResourceIDs.1=“two-id”。</li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>Infos</strong> (list) - 见 <strong>RecycledResourceInfo</strong> 模型定义</li>
+<li><strong>TotalCount</strong> (int) - 返回回收站资源的总个数</li>
+</ul>
+<p><strong>Response Model</strong></p>
+<p><strong>RecycledResourceInfo</strong></p>
+<ul class="simple">
+<li><strong>CreateTime</strong> (int) - 创建时间</li>
+<li><strong>DeleteTime</strong> (int) - 删除时间</li>
+<li><strong>Description</strong> (str) - 描述</li>
+<li><strong>ExpireTime</strong> (int) - 过期时间</li>
+<li><strong>IsAutoTerminated</strong> (bool) - 是否自动销户</li>
+<li><strong>Name</strong> (str) - 名称</li>
+<li><strong>Region</strong> (str) - 地域</li>
+<li><strong>ResourceID</strong> (str) - 资源ID</li>
+<li><strong>ResourceType</strong> (str) - 资源类型：VM:虚拟机，Disk:硬盘，EIP:外网IP，PIP:物理IP，MySQL:数据库，Redis:缓存</li>
+<li><strong>Status</strong> (str) - 资源状态</li>
+<li><strong>WillTerminateTime</strong> (int) - 销毁时间</li>
+<li><strong>Zone</strong> (str) - 可用区</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.ucloudstack.client.UCloudStackClient.describe_rs">
+<code class="descname">describe_rs</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/ucloudstack/client.html#UCloudStackClient.describe_rs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.ucloudstack.client.UCloudStackClient.describe_rs" title="Permalink to this definition">¶</a></dt>
+<dd><p>DescribeRS - 获取负载均衡服务的服务节点信息</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>Region</strong> (str) - (Config) 地域。枚举值： cn，表示中国；</li>
+<li><strong>LBID</strong> (str) - (Required) 负载均衡ID</li>
+<li><strong>Zone</strong> (str) - (Required) 可用区。枚举值：zone-01，表示中国；</li>
+<li><strong>Limit</strong> (int) - 返回数据长度，默认为20，最大100。</li>
+<li><strong>Offset</strong> (int) - 列表起始位置偏移量，默认为0。</li>
+<li><strong>RSIDs</strong> (list) - 【数组】RServer的 ID。调用方式举例：RSIDs.0=“one-id”、RSIDs.1=“two-id”。</li>
+<li><strong>VSID</strong> (str) - VServer的ID</li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>Infos</strong> (list) - 见 <strong>RSInfo</strong> 模型定义</li>
+<li><strong>Message</strong> (str) - 返回信息描述。</li>
+<li><strong>TotalCount</strong> (int) - 返回该负载均衡下VServer的总个数。</li>
+</ul>
+<p><strong>Response Model</strong></p>
+<p><strong>RSInfo</strong></p>
+<ul class="simple">
+<li><strong>BindResourceID</strong> (str) - 绑定的资源ID</li>
+<li><strong>CreateTime</strong> (int) - 创建时间，时间戳</li>
+<li><strong>IP</strong> (str) - 服务节点的内网 IP 地址</li>
+<li><strong>LBID</strong> (str) - 服务节点所属的负载均衡 ID</li>
+<li><strong>Name</strong> (str) - 服务节点的资源名称</li>
+<li><strong>Port</strong> (int) - 服务节点暴露的服务端口号</li>
+<li><strong>RSID</strong> (str) - 服务节点的 ID</li>
+<li><strong>RSMode</strong> (str) - 节点模式。枚举值，Enabling:开启中,Enable:已启用,Disabling:禁用中,Disable:已禁用</li>
+<li><strong>RSStatus</strong> (str) - RSStatus 的描述修改为：状态，枚举值，Creating:创建中,Inactive:无效,Active:有效,Updating:更新中,Deleting:删除中,Deleted:已删除。其中有效代表节点服务健康，无效代表节点服务异常。</li>
+<li><strong>UpdateTime</strong> (int) - 更新时间，时间戳</li>
+<li><strong>VSID</strong> (str) - 服务节点所属的 VServer ID</li>
+<li><strong>Weight</strong> (int) - 服务节点的权重</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.ucloudstack.client.UCloudStackClient.describe_security_group">
+<code class="descname">describe_security_group</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/ucloudstack/client.html#UCloudStackClient.describe_security_group"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.ucloudstack.client.UCloudStackClient.describe_security_group" title="Permalink to this definition">¶</a></dt>
+<dd><p>DescribeSecurityGroup - 查询安全组信息</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>Region</strong> (str) - (Config) 地域。</li>
+<li><strong>Zone</strong> (str) - (Required) 可用区。</li>
+<li><strong>Limit</strong> (int) - 返回数据长度，默认为20，最大100。</li>
+<li><strong>Offset</strong> (int) - 列表起始位置偏移量，默认为0。</li>
+<li><strong>SGIDs</strong> (list) - 【数组】安全组的 ID。输入有效的 ID。调用方式举例：SGIDs.0=“one-id”、SGIDs.1=“two-id”</li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>Infos</strong> (list) - 见 <strong>SGInfo</strong> 模型定义</li>
+<li><strong>Message</strong> (str) - 返回信息描述；</li>
+<li><strong>TotalCount</strong> (int) - 安全组的总数</li>
+</ul>
+<p><strong>Response Model</strong></p>
+<p><strong>SGRuleInfo</strong></p>
+<ul class="simple">
+<li><strong>DstPort</strong> (str) - 端口号</li>
+<li><strong>IsIn</strong> (str) - 方向。1：入，0：出</li>
+<li><strong>Priority</strong> (str) - 优先级。HIGH:高，MEDIUM:中，LOW:低</li>
+<li><strong>ProtocolType</strong> (str) - 协议</li>
+<li><strong>RuleAction</strong> (str) - 动作。ACCEPT：接受，DROP：拒绝</li>
+<li><strong>RuleID</strong> (str) - 规则ID</li>
+<li><strong>SrcIP</strong> (str) - IP或者掩码/段形式。10.0.0.2,10.0.10.10/16</li>
+</ul>
+<p><strong>SGInfo</strong></p>
+<ul class="simple">
+<li><strong>CreateTime</strong> (int) - 创建时间，时间戳</li>
+<li><strong>Name</strong> (str) - 名称</li>
+<li><strong>Region</strong> (str) - 地域</li>
+<li><strong>Remark</strong> (str) - 描述</li>
+<li><strong>ResourceCount</strong> (int) - 资源绑定数量</li>
+<li><strong>Rule</strong> (list) - 见 <strong>SGRuleInfo</strong> 模型定义</li>
+<li><strong>RuleCount</strong> (int) - 规则数量</li>
+<li><strong>SGID</strong> (str) - 安全组ID</li>
+<li><strong>Status</strong> (str) - 状态。Creating：创建中,Updating：更新中,Available：有效,Deleted：已删除,Terminating：销毁中,Terminated：已销毁</li>
+<li><strong>UpdateTime</strong> (int) - 更新时间，时间戳</li>
+<li><strong>Zone</strong> (str) - 可用区</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.ucloudstack.client.UCloudStackClient.describe_storage_type">
+<code class="descname">describe_storage_type</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/ucloudstack/client.html#UCloudStackClient.describe_storage_type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.ucloudstack.client.UCloudStackClient.describe_storage_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>DescribeStorageType - 查询存储类型</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>Region</strong> (str) - (Config) 地域。</li>
+<li><strong>Zone</strong> (str) - (Required) 可用区。</li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>Infos</strong> (list) - 见 <strong>StorageTypeInfo</strong> 模型定义</li>
+<li><strong>Message</strong> (str) - 返回信息描述；</li>
+<li><strong>TotalCount</strong> (int) - 存储类型的总数</li>
+</ul>
+<p><strong>Response Model</strong></p>
+<p><strong>StorageTypeInfo</strong></p>
+<ul class="simple">
+<li><strong>Region</strong> (str) - 地域</li>
+<li><strong>SetArch</strong> (str) - 架构</li>
+<li><strong>StorageType</strong> (str) - 存储类型</li>
+<li><strong>StorageTypeAlias</strong> (str) - 存储类型别名</li>
+<li><strong>Zone</strong> (str) - 可用区</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.ucloudstack.client.UCloudStackClient.describe_subnet">
+<code class="descname">describe_subnet</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/ucloudstack/client.html#UCloudStackClient.describe_subnet"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.ucloudstack.client.UCloudStackClient.describe_subnet" title="Permalink to this definition">¶</a></dt>
+<dd><p>DescribeSubnet - 查询子网信息</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>Region</strong> (str) - (Config) 地域。</li>
+<li><strong>Zone</strong> (str) - (Required) 可用区。</li>
+<li><strong>Limit</strong> (int) - 返回数据长度，默认为20，最大100。</li>
+<li><strong>Offset</strong> (int) - 列表起始位置偏移量，默认为0。</li>
+<li><strong>SubnetIDs</strong> (list) - 【数组】子网 ID。调用方式举例：SubnetIDs.0=“one-id”、SubnetIDs.1=“two-id”</li>
+<li><strong>VPCID</strong> (str) - VPCID</li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>Infos</strong> (list) - 见 <strong>SubnetInfo</strong> 模型定义</li>
+<li><strong>Message</strong> (str) - 返回信息描述；</li>
+<li><strong>TotalCount</strong> (int) - 子网的总数</li>
+</ul>
+<p><strong>Response Model</strong></p>
+<p><strong>SubnetInfo</strong></p>
+<ul class="simple">
+<li><strong>CreateTime</strong> (int) - 创建时间，时间戳</li>
+<li><strong>Name</strong> (str) - 名称</li>
+<li><strong>Network</strong> (str) - 网段</li>
+<li><strong>Region</strong> (str) - 地域</li>
+<li><strong>Remark</strong> (str) - 描述</li>
+<li><strong>State</strong> (str) - 状态；Allocating：申请中,Available：有效,Deleting：删除中,Deleted：已删除</li>
+<li><strong>SubnetID</strong> (str) - ID</li>
+<li><strong>UpdateTime</strong> (int) - 更新时间，时间戳</li>
+<li><strong>Zone</strong> (str) - 可用区</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.ucloudstack.client.UCloudStackClient.describe_user">
+<code class="descname">describe_user</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/ucloudstack/client.html#UCloudStackClient.describe_user"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.ucloudstack.client.UCloudStackClient.describe_user" title="Permalink to this definition">¶</a></dt>
+<dd><p>DescribeUser - 查询租户信息</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>Limit</strong> (int) - 返回数据长度，默认为20，最大100。</li>
+<li><strong>Offset</strong> (int) - 列表起始位置偏移量，默认为0。</li>
+<li><strong>UserIDs</strong> (list) - 【数组】租户的 ID。输入有效的 ID。调用方式举例：UserIDs.0=123”、UserIDs.1=456</li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>Infos</strong> (list) - 见 <strong>UserInfo</strong> 模型定义</li>
+<li><strong>Message</strong> (str) - 返回信息描述</li>
+<li><strong>TotalCount</strong> (int) - 返回现有租户总数</li>
+</ul>
+<p><strong>Response Model</strong></p>
+<p><strong>UserInfo</strong></p>
+<ul class="simple">
+<li><strong>Amount</strong> (float) - 账户余额</li>
+<li><strong>CreateTime</strong> (int) - 账户创建时间。时间戳</li>
+<li><strong>Email</strong> (str) - 租户名称</li>
+<li><strong>PrivateKey</strong> (str) - 私钥</li>
+<li><strong>PublicKey</strong> (str) - 公钥</li>
+<li><strong>Status</strong> (str) - 用户状态。USER_STATUS_AVAILABLE：正常，USER_STATUS_FREEZE：冻结</li>
+<li><strong>UpdateTime</strong> (int) - 更新时间。时间戳</li>
+<li><strong>UserID</strong> (int) - 租户ID.</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.ucloudstack.client.UCloudStackClient.describe_vm_instance">
+<code class="descname">describe_vm_instance</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/ucloudstack/client.html#UCloudStackClient.describe_vm_instance"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.ucloudstack.client.UCloudStackClient.describe_vm_instance" title="Permalink to this definition">¶</a></dt>
+<dd><p>DescribeVMInstance - 查询虚拟机</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>Region</strong> (str) - (Config) 地域。枚举值： cn，表示中国；</li>
+<li><strong>Zone</strong> (str) - (Required) 可用区。枚举值：zone-01，表示中国；</li>
+<li><strong>Limit</strong> (int) - 返回数据长度，默认为20，最大100。</li>
+<li><strong>Offset</strong> (str) - 列表起始位置偏移量，默认为0。</li>
+<li><strong>SubnetID</strong> (str) - 子网 ID。输入“有效”状态的子网 ID。</li>
+<li><strong>VMIDs</strong> (list) - 【数组】虚拟机的 ID。输入有效的 ID。调用方式举例：PrivateIp.0=“one-id”、PrivateIp.1=“two-id”。</li>
+<li><strong>VPCID</strong> (str) - VPC ID。输入“有效”状态的VPC ID。</li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>Infos</strong> (list) - 见 <strong>VMInstanceInfo</strong> 模型定义</li>
+<li><strong>Message</strong> (str) - 返回信息描述</li>
+<li><strong>TotalCount</strong> (int) - 返回虚拟机总个数</li>
+</ul>
+<p><strong>Response Model</strong></p>
+<p><strong>VMIPInfo</strong></p>
+<ul class="simple">
+<li><strong>IP</strong> (str) - IP 值</li>
+<li><strong>IPVersion</strong> (str) - IP版本,支持值：IPv4IPv6</li>
+<li><strong>InterfaceID</strong> (str) - 网卡 ID</li>
+<li><strong>IsElastic</strong> (str) - 是否是弹性网卡。枚举值：Y，表示是；N，表示否；</li>
+<li><strong>MAC</strong> (str) - MAC 地址值</li>
+<li><strong>SGID</strong> (str) - 安全组 ID</li>
+<li><strong>SGName</strong> (str) - 安全组名称</li>
+<li><strong>SubnetID</strong> (str) - 子网 ID</li>
+<li><strong>SubnetName</strong> (str) - 子网名称</li>
+<li><strong>Type</strong> (str) - IP 类型。枚举值：Private，表示内网；Public，表示外网；Physical，表示物理网；</li>
+<li><strong>VPCID</strong> (str) - VPC ID</li>
+<li><strong>VPCName</strong> (str) - VPC 名称</li>
+</ul>
+<p><strong>VMDiskInfo</strong></p>
+<ul class="simple">
+<li><strong>DiskID</strong> (str) - 磁盘 ID</li>
+<li><strong>Drive</strong> (str) - 磁盘盘符</li>
+<li><strong>IsElastic</strong> (str) - 是否是弹性磁盘。枚举值为：Y，表示是；N，表示否；</li>
+<li><strong>Name</strong> (str) - 磁盘名称</li>
+<li><strong>Size</strong> (int) - 磁盘大小，单位 GB</li>
+<li><strong>Type</strong> (str) - 磁盘类型。枚举值：Boot，表示系统盘；Data，表示数据盘；</li>
+</ul>
+<p><strong>VMInstanceInfo</strong></p>
+<ul class="simple">
+<li><strong>CPU</strong> (int) - CPU 个数</li>
+<li><strong>ChargeType</strong> (str) - 虚拟机计费模式。枚举值：Dynamic，表示小时；Month，表示月；Year，表示年；</li>
+<li><strong>CreateTime</strong> (int) - 虚拟机创建时间</li>
+<li><strong>DiskInfos</strong> (list) - 见 <strong>VMDiskInfo</strong> 模型定义</li>
+<li><strong>ExpireTime</strong> (int) - 虚拟机过期时间</li>
+<li><strong>IPInfos</strong> (list) - 见 <strong>VMIPInfo</strong> 模型定义</li>
+<li><strong>ImageID</strong> (str) - 镜像 ID</li>
+<li><strong>Memory</strong> (int) - 内存大小，单位 M</li>
+<li><strong>Name</strong> (str) - 虚拟机名称</li>
+<li><strong>OSName</strong> (str) - 操作系统名称</li>
+<li><strong>OSType</strong> (str) - 操作系统类型</li>
+<li><strong>Region</strong> (str) - Region</li>
+<li><strong>RegionAlias</strong> (str) - Region 别名</li>
+<li><strong>Remark</strong> (str) - 备注</li>
+<li><strong>State</strong> (str) - 虚拟机状态。枚举值：Initializing，表示初始化；Starting，表示启动中；Restarting，表示重启中；Running，表示运行；Stopping，表示关机中；Stopped，表示关机；Deleted，表示已删除；Resizing，表示修改配置中；Terminating，表示销毁中；Terminated，表示已销毁；Migrating，表示迁移中；WaitReinstall，表示等待重装系统；Reinstalling，表示重装中；Poweroffing，表示断电中；ChangeSGing，表示修改防火墙中；</li>
+<li><strong>SubnetID</strong> (str) - 子网 ID</li>
+<li><strong>SubnetName</strong> (str) - 子网 名称</li>
+<li><strong>VMID</strong> (str) - 虚拟机 ID</li>
+<li><strong>VMType</strong> (str) - 虚拟机类型</li>
+<li><strong>VMTypeAlias</strong> (str) - 虚拟机类型别名</li>
+<li><strong>VPCID</strong> (str) - VPC ID</li>
+<li><strong>VPCName</strong> (str) - VPC 名称</li>
+<li><strong>Zone</strong> (str) - Zone</li>
+<li><strong>ZoneAlias</strong> (str) - Zone 别名</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.ucloudstack.client.UCloudStackClient.describe_vm_type">
+<code class="descname">describe_vm_type</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/ucloudstack/client.html#UCloudStackClient.describe_vm_type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.ucloudstack.client.UCloudStackClient.describe_vm_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>DescribeVMType - 查询主机机型</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>Region</strong> (str) - (Config) 地域。</li>
+<li><strong>Zone</strong> (str) - (Required) 可用区。</li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>Infos</strong> (list) - 见 <strong>VMTypeInfo</strong> 模型定义</li>
+<li><strong>Message</strong> (str) - 返回信息描述；</li>
+<li><strong>TotalCount</strong> (int) - 主机机型的总数</li>
+</ul>
+<p><strong>Response Model</strong></p>
+<p><strong>VMTypeInfo</strong></p>
+<ul class="simple">
+<li><strong>Region</strong> (str) - 地域</li>
+<li><strong>SetArch</strong> (str) - 架构</li>
+<li><strong>VMType</strong> (str) - 机型</li>
+<li><strong>VMTypeAlias</strong> (str) - 机型别名</li>
+<li><strong>Zone</strong> (str) - 可用区</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.ucloudstack.client.UCloudStackClient.describe_vpc">
+<code class="descname">describe_vpc</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/ucloudstack/client.html#UCloudStackClient.describe_vpc"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.ucloudstack.client.UCloudStackClient.describe_vpc" title="Permalink to this definition">¶</a></dt>
+<dd><p>DescribeVPC - 查询VPC信息</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>Region</strong> (str) - (Config) 地域。</li>
+<li><strong>Zone</strong> (str) - (Required) 可用区。</li>
+<li><strong>Limit</strong> (int) - 返回数据长度，默认为20，最大100。</li>
+<li><strong>Offset</strong> (int) - 列表起始位置偏移量，默认为0。</li>
+<li><strong>VPCIDs</strong> (list) - 【数组】VPC的 ID。调用方式举例：VPCIDs.0=“one-id”、VPCIDs.1=“two-id”</li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>Infos</strong> (list) - 见 <strong>VPCInfo</strong> 模型定义</li>
+<li><strong>Message</strong> (str) - 返回信息描述；</li>
+<li><strong>TotalCount</strong> (int) - VPC的总数</li>
+</ul>
+<p><strong>Response Model</strong></p>
+<p><strong>SubnetInfo</strong></p>
+<ul class="simple">
+<li><strong>CreateTime</strong> (int) - 创建时间，时间戳</li>
+<li><strong>Name</strong> (str) - 名称</li>
+<li><strong>Network</strong> (str) - 网段</li>
+<li><strong>Region</strong> (str) - 地域</li>
+<li><strong>Remark</strong> (str) - 描述</li>
+<li><strong>State</strong> (str) - 状态；Allocating：申请中,Available：有效,Deleting：删除中,Deleted：已删除</li>
+<li><strong>SubnetID</strong> (str) - ID</li>
+<li><strong>UpdateTime</strong> (int) - 更新时间，时间戳</li>
+<li><strong>Zone</strong> (str) - 可用区</li>
+</ul>
+<p><strong>VPCInfo</strong></p>
+<ul class="simple">
+<li><strong>CreateTime</strong> (int) - 创建时间，时间戳</li>
+<li><strong>Name</strong> (str) - 名称</li>
+<li><strong>Network</strong> (str) - 网段，比如10.0.0.0/16</li>
+<li><strong>Region</strong> (str) - 地域。</li>
+<li><strong>Remark</strong> (str) - 描述</li>
+<li><strong>State</strong> (str) - 状态；Allocating：申请中,Available：有效,Terminating：销毁中,Terminated：已销毁</li>
+<li><strong>SubnetCount</strong> (int) - 该VPC下拥有的子网数目</li>
+<li><strong>SubnetInfos</strong> (list) - 见 <strong>SubnetInfo</strong> 模型定义</li>
+<li><strong>UpdateTime</strong> (int) - 修改时间，时间戳</li>
+<li><strong>VPCID</strong> (str) - VPC的ID</li>
+<li><strong>Zone</strong> (str) - 可用区</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.ucloudstack.client.UCloudStackClient.describe_vs">
+<code class="descname">describe_vs</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/ucloudstack/client.html#UCloudStackClient.describe_vs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.ucloudstack.client.UCloudStackClient.describe_vs" title="Permalink to this definition">¶</a></dt>
+<dd><p>DescribeVS - 获取负载均衡 VServer 信息</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>Region</strong> (str) - (Config) 地域。枚举值： cn，表示中国；</li>
+<li><strong>LBID</strong> (str) - (Required) 负载均衡ID</li>
+<li><strong>Zone</strong> (str) - (Required) 可用区。枚举值：zone-01，表示中国；</li>
+<li><strong>Limit</strong> (int) - 返回数据长度，默认为20，最大100。</li>
+<li><strong>Offset</strong> (int) - 列表起始位置偏移量，默认为0。</li>
+<li><strong>VSIDs</strong> (list) - 【数组】VServer的 ID。调用方式举例：VSIDs.0=“one-id”、VSIDs.1=“two-id”。</li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>Infos</strong> (list) - 见 <strong>VSInfo</strong> 模型定义</li>
+<li><strong>Message</strong> (str) - 返回信息描述。</li>
+<li><strong>TotalCount</strong> (int) - 返回当前负载均衡 VServer 总个数。</li>
+</ul>
+<p><strong>Response Model</strong></p>
+<p><strong>VSPolicyInfo</strong></p>
+<ul class="simple">
+<li><strong>CreateTime</strong> (int) - 创建时间，时间戳</li>
+<li><strong>Domain</strong> (str) - 内容转发规则关联的请求域名，值可为空，即代表仅匹配路径。</li>
+<li><strong>LBID</strong> (str) - 负载均衡ID</li>
+<li><strong>Path</strong> (str) - 内容转发规则关联的请求访问路径，如 “/” 。</li>
+<li><strong>PolicyID</strong> (str) - 内容转发规则ID</li>
+<li><strong>PolicyStatus</strong> (str) - 状态，枚举值，Available:有效,Deleted:已删除</li>
+<li><strong>RSInfos</strong> (list) - 见 <strong>RSInfo</strong> 模型定义</li>
+<li><strong>UpdateTime</strong> (int) - 更新时间，时间戳</li>
+<li><strong>VSID</strong> (str) - VServerID</li>
+</ul>
+<p><strong>RSInfo</strong></p>
+<ul class="simple">
+<li><strong>BindResourceID</strong> (str) - 绑定的资源ID</li>
+<li><strong>CreateTime</strong> (int) - 创建时间，时间戳</li>
+<li><strong>IP</strong> (str) - 服务节点的内网 IP 地址</li>
+<li><strong>LBID</strong> (str) - 服务节点所属的负载均衡 ID</li>
+<li><strong>Name</strong> (str) - 服务节点的资源名称</li>
+<li><strong>Port</strong> (int) - 服务节点暴露的服务端口号</li>
+<li><strong>RSID</strong> (str) - 服务节点的 ID</li>
+<li><strong>RSMode</strong> (str) - 节点模式。枚举值，Enabling:开启中,Enable:已启用,Disabling:禁用中,Disable:已禁用</li>
+<li><strong>RSStatus</strong> (str) - RSStatus 的描述修改为：状态，枚举值，Creating:创建中,Inactive:无效,Active:有效,Updating:更新中,Deleting:删除中,Deleted:已删除。其中有效代表节点服务健康，无效代表节点服务异常。</li>
+<li><strong>UpdateTime</strong> (int) - 更新时间，时间戳</li>
+<li><strong>VSID</strong> (str) - 服务节点所属的 VServer ID</li>
+<li><strong>Weight</strong> (int) - 服务节点的权重</li>
+</ul>
+<p><strong>VSInfo</strong></p>
+<ul class="simple">
+<li><strong>AlarmTemplateID</strong> (str) - 告警模板ID</li>
+<li><strong>CreateTime</strong> (int) - 创建时间，时间戳</li>
+<li><strong>Domain</strong> (str) - HTTP 健康检查时校验请求的 HOST 字段中的域名。当健康检查类型为端口检查时，该值为空。</li>
+<li><strong>HealthcheckType</strong> (str) - 负载均衡的健康检查类型。枚举值：Port:端口检查；Path: HTTP检查 。</li>
+<li><strong>KeepaliveTimeout</strong> (int) - 负载均衡的连接空闲超时时间，单位为秒，默认值为 60s 。当 VServer 协议为 UDP 时，该值为空。</li>
+<li><strong>LBID</strong> (str) - VServer 所属的负载均衡 ID</li>
+<li><strong>Path</strong> (str) - HTTP 健康检查的路径。当健康检查类型为端口检查时，该值为空。</li>
+<li><strong>PersistenceKey</strong> (str) - 会话保持KEY，仅当 VServer 协议为 HTTP 且会话保持为手动时有效。</li>
+<li><strong>PersistenceType</strong> (str) - 会话保持类型。枚举值：None:关闭；Auto:自动生成；Manual:手动生成 。当协议为 TCP 时，该值为空；当协议为 UDP 时 Auto 表示开启会话保持 。</li>
+<li><strong>Port</strong> (int) - 端口</li>
+<li><strong>Protocol</strong> (str) - 协议</li>
+<li><strong>RSHealthStatus</strong> (str) - 健康检查状态，枚举值，Empty:全部异常,Parts:部分异常,All:正常</li>
+<li><strong>RSInfos</strong> (list) - 见 <strong>RSInfo</strong> 模型定义</li>
+<li><strong>UpdateTime</strong> (int) - 更新时间，时间戳</li>
+<li><strong>VSID</strong> (str) - VServer的ID</li>
+<li><strong>VSPolicyInfos</strong> (list) - 见 <strong>VSPolicyInfo</strong> 模型定义</li>
+<li><strong>VSStatus</strong> (str) - VServer 的资源状态。枚举值，Available:可用,Updating:更新中,Deleted:已删除 。</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.ucloudstack.client.UCloudStackClient.describe_vs_policy">
+<code class="descname">describe_vs_policy</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/ucloudstack/client.html#UCloudStackClient.describe_vs_policy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.ucloudstack.client.UCloudStackClient.describe_vs_policy" title="Permalink to this definition">¶</a></dt>
+<dd><p>DescribeVSPolicy - 获取七层负载均衡内容转发规则信息，仅当 VServer 的监听协议为 HTTP 时有效。</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>Region</strong> (str) - (Config) 地域。枚举值： cn，表示中国；</li>
+<li><strong>LBID</strong> (str) - (Required) 负载均衡ID</li>
+<li><strong>Zone</strong> (str) - (Required) 可用区。枚举值：zone-01，表示中国；</li>
+<li><strong>Limit</strong> (int) - 返回数据长度，默认为20，最大100。</li>
+<li><strong>Offset</strong> (int) - 列表起始位置偏移量，默认为0。</li>
+<li><strong>PolicyIDs</strong> (list) - 【数组】七层负载均衡内容转发规则的 ID。调用方式举例：PolicyIDs.0=“one-id”、PolicyIDs.1=“two-id”</li>
+<li><strong>VSID</strong> (str) - VServerID</li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>Infos</strong> (list) - 见 <strong>VSPolicyInfo</strong> 模型定义</li>
+<li><strong>Message</strong> (str) - 返回信息描述。</li>
+<li><strong>TotalCount</strong> (int) - 返回内容转发规则的总个数。</li>
+</ul>
+<p><strong>Response Model</strong></p>
+<p><strong>RSInfo</strong></p>
+<ul class="simple">
+<li><strong>BindResourceID</strong> (str) - 绑定的资源ID</li>
+<li><strong>CreateTime</strong> (int) - 创建时间，时间戳</li>
+<li><strong>IP</strong> (str) - 服务节点的内网 IP 地址</li>
+<li><strong>LBID</strong> (str) - 服务节点所属的负载均衡 ID</li>
+<li><strong>Name</strong> (str) - 服务节点的资源名称</li>
+<li><strong>Port</strong> (int) - 服务节点暴露的服务端口号</li>
+<li><strong>RSID</strong> (str) - 服务节点的 ID</li>
+<li><strong>RSMode</strong> (str) - 节点模式。枚举值，Enabling:开启中,Enable:已启用,Disabling:禁用中,Disable:已禁用</li>
+<li><strong>RSStatus</strong> (str) - RSStatus 的描述修改为：状态，枚举值，Creating:创建中,Inactive:无效,Active:有效,Updating:更新中,Deleting:删除中,Deleted:已删除。其中有效代表节点服务健康，无效代表节点服务异常。</li>
+<li><strong>UpdateTime</strong> (int) - 更新时间，时间戳</li>
+<li><strong>VSID</strong> (str) - 服务节点所属的 VServer ID</li>
+<li><strong>Weight</strong> (int) - 服务节点的权重</li>
+</ul>
+<p><strong>VSPolicyInfo</strong></p>
+<ul class="simple">
+<li><strong>CreateTime</strong> (int) - 创建时间，时间戳</li>
+<li><strong>Domain</strong> (str) - 内容转发规则关联的请求域名，值可为空，即代表仅匹配路径。</li>
+<li><strong>LBID</strong> (str) - 负载均衡ID</li>
+<li><strong>Path</strong> (str) - 内容转发规则关联的请求访问路径，如 “/” 。</li>
+<li><strong>PolicyID</strong> (str) - 内容转发规则ID</li>
+<li><strong>PolicyStatus</strong> (str) - 状态，枚举值，Available:有效,Deleted:已删除</li>
+<li><strong>RSInfos</strong> (list) - 见 <strong>RSInfo</strong> 模型定义</li>
+<li><strong>UpdateTime</strong> (int) - 更新时间，时间戳</li>
+<li><strong>VSID</strong> (str) - VServerID</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.ucloudstack.client.UCloudStackClient.detach_disk">
+<code class="descname">detach_disk</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/ucloudstack/client.html#UCloudStackClient.detach_disk"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.ucloudstack.client.UCloudStackClient.detach_disk" title="Permalink to this definition">¶</a></dt>
+<dd><p>DetachDisk - 解绑UClouStack硬盘</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>Region</strong> (str) - (Config) 地域。枚举值：cn,表示中国；</li>
+<li><strong>DiskID</strong> (str) - (Required) 硬盘ID</li>
+<li><strong>ResourceID</strong> (str) - (Required) 绑定的资源ID</li>
+<li><strong>Zone</strong> (str) - (Required) 可用区。枚举值：zone-01，表示中国；</li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>Message</strong> (str) - 返回信息描述。</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.ucloudstack.client.UCloudStackClient.disable_rs">
+<code class="descname">disable_rs</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/ucloudstack/client.html#UCloudStackClient.disable_rs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.ucloudstack.client.UCloudStackClient.disable_rs" title="Permalink to this definition">¶</a></dt>
+<dd><p>DisableRS - 禁用负载均衡的单个服务节点</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>Region</strong> (str) - (Config) 地域。枚举值：cn,表示中国；</li>
+<li><strong>LBID</strong> (str) - (Required) 负载均衡ID</li>
+<li><strong>RSID</strong> (str) - (Required) RServer的ID</li>
+<li><strong>VSID</strong> (str) - (Required) VServer的ID</li>
+<li><strong>Zone</strong> (str) - (Required) 可用区。枚举值：zone-01，表示中国；</li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>Message</strong> (str) - 返回信息描述。</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.ucloudstack.client.UCloudStackClient.enable_rs">
+<code class="descname">enable_rs</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/ucloudstack/client.html#UCloudStackClient.enable_rs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.ucloudstack.client.UCloudStackClient.enable_rs" title="Permalink to this definition">¶</a></dt>
+<dd><p>EnableRS - 启用负载均衡的单个服务节点</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>Region</strong> (str) - (Config) 地域。枚举值：cn,表示中国；</li>
+<li><strong>LBID</strong> (str) - (Required) 负载均衡ID</li>
+<li><strong>RSID</strong> (str) - (Required) RServer的ID</li>
+<li><strong>VSID</strong> (str) - (Required) VServer的ID</li>
+<li><strong>Zone</strong> (str) - (Required) 可用区。枚举值：zone-01，表示中国；</li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>Message</strong> (str) - 返回信息描述。</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.ucloudstack.client.UCloudStackClient.get_disk_price">
+<code class="descname">get_disk_price</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/ucloudstack/client.html#UCloudStackClient.get_disk_price"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.ucloudstack.client.UCloudStackClient.get_disk_price" title="Permalink to this definition">¶</a></dt>
+<dd><p>GetDiskPrice - 获取硬盘价格</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>Region</strong> (str) - (Config) 地域。枚举值：cn,表示中国；</li>
+<li><strong>ChargeType</strong> (str) - (Required) 计费模式。枚举值：Dynamic，表示小时；Month，表示月；Year，表示年；</li>
+<li><strong>DiskSpace</strong> (int) - (Required) 磁盘大小</li>
+<li><strong>SetType</strong> (str) - (Required) 磁盘类型</li>
+<li><strong>Zone</strong> (str) - (Required) 可用区。枚举值：zone-01，表示中国；</li>
+<li><strong>Quantity</strong> (int) - 购买时长。默认值1。小时不生效，月范围【1，11】，年范围【1，5】。</li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>Infos</strong> (list) - 见 <strong>PriceInfo</strong> 模型定义</li>
+<li><strong>Message</strong> (str) - 返回信息描述。</li>
+</ul>
+<p><strong>Response Model</strong></p>
+<p><strong>PriceInfo</strong></p>
+<ul class="simple">
+<li><strong>ChargeType</strong> (str) - 计费模式。枚举值：Dynamic，表示小时；Month，表示月；Year，表示年；</li>
+<li><strong>Price</strong> (float) - 价格</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.ucloudstack.client.UCloudStackClient.get_eip_price">
+<code class="descname">get_eip_price</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/ucloudstack/client.html#UCloudStackClient.get_eip_price"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.ucloudstack.client.UCloudStackClient.get_eip_price" title="Permalink to this definition">¶</a></dt>
+<dd><p>GetEIPPrice - 获取外网IP价格</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>Region</strong> (str) - (Config) 地域。枚举值：cn,表示中国；</li>
+<li><strong>Bandwidth</strong> (int) - (Required) 带宽，默认值1，默认范围1~100</li>
+<li><strong>ChargeType</strong> (str) - (Required) 计费模式。枚举值：Dynamic，表示小时；Month，表示月；Year，表示年；</li>
+<li><strong>OpertatorName</strong> (str) - (Required) 线路。目前支持Bgp</li>
+<li><strong>Zone</strong> (str) - (Required) 可用区。枚举值：zone-01，表示中国；</li>
+<li><strong>Quantity</strong> (int) - 购买时长。默认值1。小时不生效，月范围【1，11】，年范围【1，5】。</li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>Infos</strong> (list) - 见 <strong>PriceInfo</strong> 模型定义</li>
+<li><strong>Message</strong> (str) - 返回信息描述</li>
+</ul>
+<p><strong>Response Model</strong></p>
+<p><strong>PriceInfo</strong></p>
+<ul class="simple">
+<li><strong>ChargeType</strong> (str) - 计费模式。枚举值：Dynamic，表示小时；Month，表示月；Year，表示年；</li>
+<li><strong>Price</strong> (float) - 价格</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.ucloudstack.client.UCloudStackClient.get_vm_instance_price">
+<code class="descname">get_vm_instance_price</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/ucloudstack/client.html#UCloudStackClient.get_vm_instance_price"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.ucloudstack.client.UCloudStackClient.get_vm_instance_price" title="Permalink to this definition">¶</a></dt>
+<dd><p>GetVMInstancePrice - 获取虚拟机价格</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>Region</strong> (str) - (Config) 地域。枚举值：cn,表示中国；</li>
+<li><strong>BootDiskSetType</strong> (str) - (Required) 系统盘类型。枚举值：Normal，表示普通；SSD，表示SSD；</li>
+<li><strong>CPU</strong> (int) - (Required) CPU 个数，目前只能输入数据库配置指定规格参数，如：1核2048M、2核4096M、4核8192M、8核16384M、16核32768M。</li>
+<li><strong>ChargeType</strong> (str) - (Required) 计费模式。枚举值：Dynamic，表示小时；Month，表示月；Year，表示年；</li>
+<li><strong>DataDiskSetType</strong> (str) - (Required) 数据盘类型。枚举值：Normal，表示普通；SSD，表示SSD；</li>
+<li><strong>DataDiskSpace</strong> (int) - (Required) 数据盘大小，单位 GB。默认值为0。范围：【0，8000】，步长10。</li>
+<li><strong>ImageID</strong> (str) - (Required) 镜像 ID。基础镜像 ID 或者自制镜像 ID。如：cn-image-centos-74。</li>
+<li><strong>Memory</strong> (int) - (Required) 内存大小，单位 M。目前只能输入数据库配置指定规格参数，如：1核2048M、2核4096M、4核8192M、8核16384M、16核32768M。</li>
+<li><strong>OSType</strong> (str) - (Required) 系统类型。</li>
+<li><strong>VMType</strong> (str) - (Required) 机型。枚举值：Normal，表示普通；SSD，表示SSD；</li>
+<li><strong>Zone</strong> (str) - (Required) 可用区。枚举值：zone-01，表示中国；</li>
+<li><strong>GPU</strong> (int) - GPU 卡核心的占用个数。枚举值：【1,2,4】。GPU与CPU、内存大小关系：CPU个数&gt;=4*GPU个数，同时内存与CPU规格匹配.</li>
+<li><strong>Quantity</strong> (int) - 购买时长。默认值1。小时不生效，月范围【1，11】，年范围【1，5】。</li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>Infos</strong> (list) - 见 <strong>PriceInfo</strong> 模型定义</li>
+<li><strong>Message</strong> (str) - 返回信息描述。</li>
+</ul>
+<p><strong>Response Model</strong></p>
+<p><strong>PriceInfo</strong></p>
+<ul class="simple">
+<li><strong>ChargeType</strong> (str) - 计费模式。枚举值：Dynamic，表示小时；Month，表示月；Year，表示年；</li>
+<li><strong>Price</strong> (float) - 价格</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.ucloudstack.client.UCloudStackClient.modify_eip_bandwidth">
+<code class="descname">modify_eip_bandwidth</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/ucloudstack/client.html#UCloudStackClient.modify_eip_bandwidth"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.ucloudstack.client.UCloudStackClient.modify_eip_bandwidth" title="Permalink to this definition">¶</a></dt>
+<dd><p>ModifyEIPBandwidth - 调整外网IP带宽</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>Region</strong> (str) - (Config) 地域。</li>
+<li><strong>Bandwidth</strong> (int) - (Required) 调整后的带宽</li>
+<li><strong>EIPID</strong> (str) - (Required) 外网IP的ID</li>
+<li><strong>Zone</strong> (str) - (Required) 可用区。</li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>Message</strong> (str) - 返回信息描述；</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.ucloudstack.client.UCloudStackClient.modify_name_and_remark">
+<code class="descname">modify_name_and_remark</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/ucloudstack/client.html#UCloudStackClient.modify_name_and_remark"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.ucloudstack.client.UCloudStackClient.modify_name_and_remark" title="Permalink to this definition">¶</a></dt>
+<dd><p>ModifyNameAndRemark - 修改资源名称和备注</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>Region</strong> (str) - (Config) 地域。枚举值： cn，表示中国；</li>
+<li><strong>Name</strong> (str) - (Required) 名称;</li>
+<li><strong>ResourceID</strong> (str) - (Required) 资源ID;</li>
+<li><strong>Zone</strong> (str) - (Required) 可用区。枚举值：zone-01，表示中国；</li>
+<li><strong>Remark</strong> (str) - 描述;</li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>Message</strong> (str) - 返回信息描述</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.ucloudstack.client.UCloudStackClient.poweroff_vm_instance">
+<code class="descname">poweroff_vm_instance</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/ucloudstack/client.html#UCloudStackClient.poweroff_vm_instance"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.ucloudstack.client.UCloudStackClient.poweroff_vm_instance" title="Permalink to this definition">¶</a></dt>
+<dd><p>PoweroffVMInstance - 断电虚拟机，可能导致丢失数据甚至损坏操作系统，仅适用于虚拟机死机及级端测试场景。</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>Region</strong> (str) - (Config) 地域。枚举值：如 cn,表示中国。</li>
+<li><strong>VMID</strong> (str) - (Required) 虚拟机ID</li>
+<li><strong>Zone</strong> (str) - (Required) 可用区。枚举值：如 zone-01，表示可用区1。</li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>Message</strong> (str) - 返回信息描述</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.ucloudstack.client.UCloudStackClient.recharge">
+<code class="descname">recharge</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/ucloudstack/client.html#UCloudStackClient.recharge"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.ucloudstack.client.UCloudStackClient.recharge" title="Permalink to this definition">¶</a></dt>
+<dd><p>Recharge - 管理员给租户充值</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>Amount</strong> (int) - (Required) 充值金额。最少100,最大500000</li>
+<li><strong>FromType</strong> (str) - (Required) 充值来源。INPOUR_FROM_ALIPAY：支付宝，INPOUR_FROM_OFFLINE：银行转账，INPOUR_FROM_SINPAY：新浪支付，INPOUR_FROM_WECHAT_PAY：微信转账。</li>
+<li><strong>SerialNo</strong> (str) - (Required) 充值单号。充值方式为“账户余额”时为必要参数。</li>
+<li><strong>UserID</strong> (int) - (Required) 租户的账户ID。</li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>Message</strong> (str) - 返回信息描述。</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.ucloudstack.client.UCloudStackClient.reinstall_vm_instance">
+<code class="descname">reinstall_vm_instance</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/ucloudstack/client.html#UCloudStackClient.reinstall_vm_instance"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.ucloudstack.client.UCloudStackClient.reinstall_vm_instance" title="Permalink to this definition">¶</a></dt>
+<dd><p>ReinstallVMInstance - 重装系统，关机的虚拟机才可以重装系统</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>Region</strong> (str) - (Config) 地域。枚举值： cn，表示中国；</li>
+<li><strong>ImageID</strong> (str) - (Required) 镜像ID</li>
+<li><strong>VMID</strong> (str) - (Required) 虚拟机ID</li>
+<li><strong>Zone</strong> (str) - (Required) 可用区。枚举值：zone-01，表示中国；</li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>Message</strong> (str) - 返回信息描述</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.ucloudstack.client.UCloudStackClient.release_eip">
+<code class="descname">release_eip</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/ucloudstack/client.html#UCloudStackClient.release_eip"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.ucloudstack.client.UCloudStackClient.release_eip" title="Permalink to this definition">¶</a></dt>
+<dd><p>ReleaseEIP - 删除外网IP</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>Region</strong> (str) - (Config) 地域。枚举值：cn,表示中国；中国</li>
+<li><strong>EIPID</strong> (str) - (Required) 外网IP的ID</li>
+<li><strong>Zone</strong> (str) - (Required) 可用区。枚举值：zone-01，表示中国</li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>Message</strong> (str) - 返回状态描述</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.ucloudstack.client.UCloudStackClient.renew_resource">
+<code class="descname">renew_resource</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/ucloudstack/client.html#UCloudStackClient.renew_resource"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.ucloudstack.client.UCloudStackClient.renew_resource" title="Permalink to this definition">¶</a></dt>
+<dd><p>RenewResource - 续费回收站资源</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>Region</strong> (str) - (Config) 地域。枚举值：如 cn,表示中国。</li>
+<li><strong>ResourceID</strong> (str) - (Required) 待续续的资源ID</li>
+<li><strong>Zone</strong> (str) - (Required) 可用区。枚举值：如 zone-01，表示可用区1。</li>
+<li><strong>Quantity</strong> (int) - 购买时长，默认为 1。按小时(Dynamic)付费的资源无需此参数，按月付费的资源传 0 时，代表购买至月末。</li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>Message</strong> (str) - 返回描述信息</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.ucloudstack.client.UCloudStackClient.reset_vm_instance_password">
+<code class="descname">reset_vm_instance_password</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/ucloudstack/client.html#UCloudStackClient.reset_vm_instance_password"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.ucloudstack.client.UCloudStackClient.reset_vm_instance_password" title="Permalink to this definition">¶</a></dt>
+<dd><p>ResetVMInstancePassword - 重置虚拟机密码，主机必须开机才可以重置密码</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>Region</strong> (str) - (Config) 地域。枚举值： cn，表示中国；</li>
+<li><strong>Password</strong> (str) - (Required) 密码</li>
+<li><strong>VMID</strong> (str) - (Required) 虚拟机ID</li>
+<li><strong>Zone</strong> (str) - (Required) 可用区。枚举值：zone-01，表示中国；</li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>Message</strong> (str) - 返回信息描述</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.ucloudstack.client.UCloudStackClient.resize_vm_config">
+<code class="descname">resize_vm_config</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/ucloudstack/client.html#UCloudStackClient.resize_vm_config"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.ucloudstack.client.UCloudStackClient.resize_vm_config" title="Permalink to this definition">¶</a></dt>
+<dd><p>ResizeVMConfig - 修改虚拟机配置</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>Region</strong> (str) - (Config) 地域。枚举值： cn，表示中国；</li>
+<li><strong>CPU</strong> (int) - (Required) CPU 个数，如 1、2、4、8、16、32、64。</li>
+<li><strong>Memory</strong> (int) - (Required) 内存容量，如 2048、4096、8192、16384、32768、65536、131072。</li>
+<li><strong>VMID</strong> (str) - (Required) 虚拟机ID</li>
+<li><strong>Zone</strong> (str) - (Required) 可用区。枚举值：zone-01，表示中国；</li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>Message</strong> (str) - 返回信息描述</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.ucloudstack.client.UCloudStackClient.restart_vm_instance">
+<code class="descname">restart_vm_instance</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/ucloudstack/client.html#UCloudStackClient.restart_vm_instance"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.ucloudstack.client.UCloudStackClient.restart_vm_instance" title="Permalink to this definition">¶</a></dt>
+<dd><p>RestartVMInstance - 重启虚拟机</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>Region</strong> (str) - (Config) 地域。枚举值：cn,表示中国；</li>
+<li><strong>VMID</strong> (str) - (Required) 虚拟机ID;</li>
+<li><strong>Zone</strong> (str) - (Required) 可用区。枚举值：zone-01，表示中国；</li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>Message</strong> (str) - 返回信息描述</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.ucloudstack.client.UCloudStackClient.rollback_resource">
+<code class="descname">rollback_resource</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/ucloudstack/client.html#UCloudStackClient.rollback_resource"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.ucloudstack.client.UCloudStackClient.rollback_resource" title="Permalink to this definition">¶</a></dt>
+<dd><p>RollbackResource - 恢复回收站资源</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>Region</strong> (str) - (Config) 地域。枚举值：如 cn,表示中国。</li>
+<li><strong>ResourceID</strong> (str) - (Required) 待恢复的资源ID</li>
+<li><strong>Zone</strong> (str) - (Required) 可用区。枚举值：如 zone-01，表示可用区1。</li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>Message</strong> (str) - 返回描述信息</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.ucloudstack.client.UCloudStackClient.rollback_snapshot">
+<code class="descname">rollback_snapshot</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/ucloudstack/client.html#UCloudStackClient.rollback_snapshot"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.ucloudstack.client.UCloudStackClient.rollback_snapshot" title="Permalink to this definition">¶</a></dt>
+<dd><p>RollbackSnapshot - 将某个快照内的数据回滚到原云硬盘，仅支持正常状态的快照进行回滚操作，回滚时硬盘必须处于未绑定或其挂载的主机为关机状态。</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>Region</strong> (str) - (Config) 地域。枚举值：如 cn,表示中国。</li>
+<li><strong>DiskID</strong> (str) - (Required) 对应的云硬盘 ID；</li>
+<li><strong>SnapshotID</strong> (str) - (Required) 快照ID</li>
+<li><strong>Zone</strong> (str) - (Required) 可用区。枚举值：如 zone-01，表示可用区1。</li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>Message</strong> (str) - 返回信息描述</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.ucloudstack.client.UCloudStackClient.start_vm_instance">
+<code class="descname">start_vm_instance</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/ucloudstack/client.html#UCloudStackClient.start_vm_instance"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.ucloudstack.client.UCloudStackClient.start_vm_instance" title="Permalink to this definition">¶</a></dt>
+<dd><p>StartVMInstance - 开启虚拟机</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>Region</strong> (str) - (Config) 地域。枚举值：cn，表示中国；</li>
+<li><strong>VMID</strong> (str) - (Required) 虚拟机 ID</li>
+<li><strong>Zone</strong> (str) - (Required) 可用区。枚举值：zone-01，表示中国；</li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>Message</strong> (str) - 返回信息描述</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.ucloudstack.client.UCloudStackClient.stop_vm_instance">
+<code class="descname">stop_vm_instance</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/ucloudstack/client.html#UCloudStackClient.stop_vm_instance"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.ucloudstack.client.UCloudStackClient.stop_vm_instance" title="Permalink to this definition">¶</a></dt>
+<dd><p>StopVMInstance - 关闭虚拟机</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>Region</strong> (str) - (Config) 地域。枚举值：cn，表示中国；</li>
+<li><strong>VMID</strong> (str) - (Required) 虚拟机 ID</li>
+<li><strong>Zone</strong> (str) - (Required) 可用区。枚举值：zone-01，表示中国；</li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>Message</strong> (str) - 返回信息描述</li>
+<li><strong>VMID</strong> (str) - 虚拟机 ID</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.ucloudstack.client.UCloudStackClient.terminate_resource">
+<code class="descname">terminate_resource</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/ucloudstack/client.html#UCloudStackClient.terminate_resource"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.ucloudstack.client.UCloudStackClient.terminate_resource" title="Permalink to this definition">¶</a></dt>
+<dd><p>TerminateResource - 销毁资源</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>Region</strong> (str) - (Config) 地域。</li>
+<li><strong>ResourceID</strong> (str) - (Required) 资源id</li>
+<li><strong>Zone</strong> (str) - (Required) 可用区。</li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>Message</strong> (str) - 返回描述信息</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.ucloudstack.client.UCloudStackClient.un_bind_eip">
+<code class="descname">un_bind_eip</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/ucloudstack/client.html#UCloudStackClient.un_bind_eip"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.ucloudstack.client.UCloudStackClient.un_bind_eip" title="Permalink to this definition">¶</a></dt>
+<dd><p>UnBindEIP - 解绑外网IP</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>Region</strong> (str) - (Config) 地域。枚举值：cn,表示中国；中国</li>
+<li><strong>EIPID</strong> (str) - (Required) 外网IP的ID</li>
+<li><strong>ResourceID</strong> (str) - (Required) 资源ID</li>
+<li><strong>ResourceType</strong> (str) - (Required) 资源类型。VM：虚拟机, LB:负载均衡, NATGW：nat网关</li>
+<li><strong>Zone</strong> (str) - (Required) 可用区。枚举值：zone-01，表示中国；</li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>Message</strong> (str) - 返回信息描述。</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.ucloudstack.client.UCloudStackClient.un_bind_security_group">
+<code class="descname">un_bind_security_group</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/ucloudstack/client.html#UCloudStackClient.un_bind_security_group"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.ucloudstack.client.UCloudStackClient.un_bind_security_group" title="Permalink to this definition">¶</a></dt>
+<dd><p>UnBindSecurityGroup - 解绑安全组</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>Region</strong> (str) - (Config) 地域。枚举值： cn，表示中国；</li>
+<li><strong>ResourceID</strong> (str) - (Required) 解绑的资源ID。调用方式举例：ResourceID=“one-id”。</li>
+<li><strong>SGID</strong> (str) - (Required) 安全组ID</li>
+<li><strong>Zone</strong> (str) - (Required) 可用区。枚举值：zone-01，表示中国；</li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>Message</strong> (str) - 返回信息描述</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.ucloudstack.client.UCloudStackClient.unbind_alarm_template">
+<code class="descname">unbind_alarm_template</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/ucloudstack/client.html#UCloudStackClient.unbind_alarm_template"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.ucloudstack.client.UCloudStackClient.unbind_alarm_template" title="Permalink to this definition">¶</a></dt>
+<dd><p>UnbindAlarmTemplate - 解绑告警模板</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>Region</strong> (str) - (Config) 地域。枚举值： cn，表示中国；</li>
+<li><strong>AlarmTemplateID</strong> (str) - (Required) 告警模板ID</li>
+<li><strong>ResourceIDs</strong> (list) - (Required) 【数组】资源的 ID。调用方式举例：ResourceIDs.0=“one-id”、ResourceIDs.1=“two-id”。</li>
+<li><strong>ResourceType</strong> (str) - (Required) 资源类型。VM：虚拟机, LB:负载均衡, NATGW：nat网关;EIP:弹性网卡</li>
+<li><strong>Zone</strong> (str) - (Required) 可用区。枚举值：zone-01，表示中国；</li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>Message</strong> (str) - 返回信息描述</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.ucloudstack.client.UCloudStackClient.unbind_physical_ip">
+<code class="descname">unbind_physical_ip</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/ucloudstack/client.html#UCloudStackClient.unbind_physical_ip"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.ucloudstack.client.UCloudStackClient.unbind_physical_ip" title="Permalink to this definition">¶</a></dt>
+<dd><p>UnbindPhysicalIP - 解绑物理IP</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>Region</strong> (str) - (Config) 地域。</li>
+<li><strong>PhysicalIPID</strong> (str) - (Required) 物理IP的ID</li>
+<li><strong>ResourceID</strong> (str) - (Required) 资源ID</li>
+<li><strong>ResourceType</strong> (str) - (Required) 资源类型。VM：虚拟机</li>
+<li><strong>Zone</strong> (str) - (Required) 可用区。</li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>Message</strong> (str) - 返回信息描述。</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.ucloudstack.client.UCloudStackClient.update_alarm_template_rule">
+<code class="descname">update_alarm_template_rule</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/ucloudstack/client.html#UCloudStackClient.update_alarm_template_rule"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.ucloudstack.client.UCloudStackClient.update_alarm_template_rule" title="Permalink to this definition">¶</a></dt>
+<dd><p>UpdateAlarmTemplateRule - 更新告警模板规则</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>Region</strong> (str) - (Config) 地域</li>
+<li><strong>AlarmStrategy</strong> (str) - (Required) 瘦脸策略</li>
+<li><strong>AlarmTemplateID</strong> (str) - (Required) 告警模板ID</li>
+<li><strong>AlarmTemplateRuleID</strong> (str) - (Required) 告警规则ID</li>
+<li><strong>Compare</strong> (str) - (Required) 对比方式</li>
+<li><strong>ContactGroupID</strong> (str) - (Required) 通知组ID</li>
+<li><strong>MetricName</strong> (str) - (Required) 监控指标名称</li>
+<li><strong>ResourceType</strong> (str) - (Required) 资源类型</li>
+<li><strong>Threshold</strong> (str) - (Required) 告警阈值</li>
+<li><strong>TriggerCount</strong> (str) - (Required) 连续触发次数</li>
+<li><strong>Zone</strong> (str) - (Required) 可用区</li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>Message</strong> (str) - 返回描述信息</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.ucloudstack.client.UCloudStackClient.update_rs">
+<code class="descname">update_rs</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/ucloudstack/client.html#UCloudStackClient.update_rs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.ucloudstack.client.UCloudStackClient.update_rs" title="Permalink to this definition">¶</a></dt>
+<dd><p>UpdateRS - 修改负载均衡的服务节点</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>Region</strong> (str) - (Config) 地域。枚举值：cn,表示中国；</li>
+<li><strong>LBID</strong> (str) - (Required) VServer 监听器所属的负载均衡 ID</li>
+<li><strong>RSID</strong> (str) - (Required) RServer的ID</li>
+<li><strong>VSID</strong> (str) - (Required) RServer所属的VServer的ID</li>
+<li><strong>Zone</strong> (str) - (Required) 可用区。枚举值：zone-01，表示中国；</li>
+<li><strong>Port</strong> (int) - 端口号</li>
+<li><strong>Weight</strong> (int) - 权重</li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>Message</strong> (str) - 返回信息描述。</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.ucloudstack.client.UCloudStackClient.update_security_group_rule">
+<code class="descname">update_security_group_rule</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/ucloudstack/client.html#UCloudStackClient.update_security_group_rule"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.ucloudstack.client.UCloudStackClient.update_security_group_rule" title="Permalink to this definition">¶</a></dt>
+<dd><p>UpdateSecurityGroupRule - 修改安全组规则</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>Region</strong> (str) - (Config) 地域。枚举值： cn，表示中国；</li>
+<li><strong>Rules</strong> (list) - (Required) 【数组】规则。输入有效的 规则。调用方式举例：Rules.0=“TCP|23|0.0.0.0/0|ACCEPT|HIGH|1”、Rules.1=“TCP|55|0.0.0.0/0|ACCEPT|HIGH|1”</li>
+<li><strong>SGID</strong> (str) - (Required) 安全组ID</li>
+<li><strong>Zone</strong> (str) - (Required) 可用区。枚举值：zone-01，表示中国；</li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>Message</strong> (str) - 返回信息描述；</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.ucloudstack.client.UCloudStackClient.update_vs">
+<code class="descname">update_vs</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/ucloudstack/client.html#UCloudStackClient.update_vs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.ucloudstack.client.UCloudStackClient.update_vs" title="Permalink to this definition">¶</a></dt>
+<dd><p>UpdateVS - 修改负载均衡VServer</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>Region</strong> (str) - (Config) 地域。枚举值：cn,表示中国；</li>
+<li><strong>LBID</strong> (str) - (Required) VServer 监听器所属的负载均衡 ID</li>
+<li><strong>VSID</strong> (str) - (Required) 需要更新的VSID</li>
+<li><strong>Zone</strong> (str) - (Required) 可用区。枚举值：zone-01，表示中国；</li>
+<li><strong>CACertificateID</strong> (str) - CA证书ID，用于验证客户端证书的签名，仅当VServer监听协议为 HTTPS 且 SSLMode 为双向认证时有效。</li>
+<li><strong>Domain</strong> (str) - HTTP 健康检查时校验请求的 HOST 字段中的域名。当健康检查类型为端口检查时，该值为空。</li>
+<li><strong>HealthcheckType</strong> (str) - 负载均衡的健康检查类型。枚举值：Port:端口检查；Path: HTTP检查 。仅当 VServer 协议类型为 HTTP 时，才可进行 HTTP 检查。</li>
+<li><strong>KeepaliveTimeout</strong> (int) - 负载均衡的连接空闲超时时间，单位为秒，默认值为 60s 。当 VServer 协议为 UDP 时，该值为空。</li>
+<li><strong>Path</strong> (str) - HTTP 健康检查的路径，健康检查类型为 HTTP 检查时为必填项。当健康检查类型为端口检查时，该值为空。</li>
+<li><strong>PersistenceKey</strong> (str) - 会话保持KEY，会话保持类型为Manual时为必填项，仅当 VServer 协议为 HTTP 时有效。</li>
+<li><strong>PersistenceType</strong> (str) - 会话保持类型。枚举值：None:关闭；Auto:自动生成；Manual:手动生成 。当协议为 TCP 时，该值不生效，会话保持和选择的调度算法相关；当协议为 UDP 时 Auto 表示开启会话保持 。</li>
+<li><strong>Port</strong> (int) - VServer 监听端口</li>
+<li><strong>SSLMode</strong> (str) - SSL认证模式,HTTPS协议下必传,取值范围[“simplex”,”duplex”]分别表示单向认证和双向认证。</li>
+<li><strong>Scheduler</strong> (str) - 负载均衡的调度算法。枚举值：wrr:加权轮训；least_conn:最小连接数；hash:原地址,四层lb使用。ip_hash:七层lb使用</li>
+<li><strong>ServerCertificateID</strong> (str) - 服务器证书ID，用于证明服务器的身份，仅当 VServer监听协议为 HTTPS 时有效。</li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>Message</strong> (str) - 返回信息描述。</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.ucloudstack.client.UCloudStackClient.update_vs_policy">
+<code class="descname">update_vs_policy</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/ucloudstack/client.html#UCloudStackClient.update_vs_policy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.ucloudstack.client.UCloudStackClient.update_vs_policy" title="Permalink to this definition">¶</a></dt>
+<dd><p>UpdateVSPolicy - 更新七层负载均衡内容转发规则，仅当 VServer 的监听协议为 HTTP 时有效。</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>Region</strong> (str) - (Config) 地域。枚举值：cn,表示中国；</li>
+<li><strong>LBID</strong> (str) - (Required) 负载均衡ID</li>
+<li><strong>PolicyID</strong> (str) - (Required) 内容转发规则ID</li>
+<li><strong>VSID</strong> (str) - (Required) VServer的ID</li>
+<li><strong>Zone</strong> (str) - (Required) 可用区。枚举值：zone-01，表示中国；</li>
+<li><strong>Domain</strong> (str) - 内容转发规则关联的请求域名，值可为空，即代表仅匹配路径。</li>
+<li><strong>Path</strong> (str) - 内容转发规则关联的请求访问路径，如 “/” 。</li>
+<li><strong>RSIDs</strong> (list) - 【数组】RServer的 ID。调用方式举例：RSIDs.0=“one-id”、RSIDs.1=“two-id”。</li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>Message</strong> (str) - 返回信息描述。</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.ucloudstack.client.UCloudStackClient.upgrade_disk">
+<code class="descname">upgrade_disk</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/ucloudstack/client.html#UCloudStackClient.upgrade_disk"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.ucloudstack.client.UCloudStackClient.upgrade_disk" title="Permalink to this definition">¶</a></dt>
+<dd><p>UpgradeDisk - 升级硬盘</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>Region</strong> (str) - (Config) 地域。枚举值：cn,表示中国；</li>
+<li><strong>DiskID</strong> (str) - (Required) 硬盘ID</li>
+<li><strong>DiskSpace</strong> (int) - (Required) 硬盘升级后的容量， 不能小于原硬盘容量，单位为 GB 。</li>
+<li><strong>Zone</strong> (str) - (Required) 可用区。枚举值：zone-01，表示中国；</li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>Message</strong> (str) - 返回信息描述。</li>
+</ul>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="ufs">
+<h2>UFS<a class="headerlink" href="#ufs" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="ucloud.services.ufs.client.UFSClient">
+<em class="property">class </em><code class="descclassname">ucloud.services.ufs.client.</code><code class="descname">UFSClient</code><span class="sig-paren">(</span><em>config</em>, <em>transport=None</em>, <em>middleware=None</em>, <em>logger=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/ufs/client.html#UFSClient"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.ufs.client.UFSClient" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="ucloud.services.ufs.client.UFSClient.create_ufs_volume">
+<code class="descname">create_ufs_volume</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/ufs/client.html#UFSClient.create_ufs_volume"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.ufs.client.UFSClient.create_ufs_volume" title="Permalink to this definition">¶</a></dt>
+<dd><p>CreateUFSVolume - 创建文件系统</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>ProjectId</strong> (str) - (Config) 项目ID。不填写为默认项目，子帐号必须填写。 请参考 <a class="reference external" href="https://docs.ucloud.cn/api/summary/get_project_list.html">GetProjectList接口</a></li>
+<li><strong>Region</strong> (str) - (Config) 地域。 参见  <a class="reference external" href="https://docs.ucloud.cn/api/summary/regionlist.html">地域和可用区列表</a></li>
+<li><strong>ProtocolType</strong> (str) - (Required) 文件系统协议，枚举值，NFSv3表示NFS V3协议，NFSv4表示NFS V4协议</li>
+<li><strong>Size</strong> (int) - (Required) 文件系统大小，单位为GB，最大不超过20T，香港容量型必须为100的整数倍，Size最小为500GB，北京，上海，广州的容量型必须为1024的整数倍，Size最小为1024GB。性能型文件系统Size最小为100GB</li>
+<li><strong>StorageType</strong> (str) - (Required) 文件系统存储类型，枚举值，Basic表示容量型，Advanced表示性能型</li>
+<li><strong>ChargeType</strong> (str) - 计费模式，枚举值为： Year，按年付费； Month，按月付费； Dynamic，按需付费（需开启权限）； Trial，试用（需开启权限） 默认为Dynamic</li>
+<li><strong>CouponId</strong> (str) - 使用的代金券id</li>
+<li><strong>Quantity</strong> (int) - 购买时长 默认: 1</li>
+<li><strong>Remark</strong> (str) - 备注</li>
+<li><strong>Tag</strong> (str) - 文件系统所属业务组</li>
+<li><strong>VolumeName</strong> (str) - 文件系统名称</li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>VolumeId</strong> (str) - 文件系统ID</li>
+<li><strong>VolumeName</strong> (str) - 文件系统名称</li>
+<li><strong>VolumeStatus</strong> (str) - 文件系统挂载点状态</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.ufs.client.UFSClient.describe_ufs_volume_2">
+<code class="descname">describe_ufs_volume_2</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/ufs/client.html#UFSClient.describe_ufs_volume_2"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.ufs.client.UFSClient.describe_ufs_volume_2" title="Permalink to this definition">¶</a></dt>
+<dd><p>DescribeUFSVolume2 - 获取文件系统列表</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>ProjectId</strong> (str) - (Config) 项目ID。不填写为默认项目，子帐号必须填写。 请参考 <a class="reference external" href="https://docs.ucloud.cn/api/summary/get_project_list.html">GetProjectList接口</a></li>
+<li><strong>Region</strong> (str) - (Config) 地域。 参见  <a class="reference external" href="https://docs.ucloud.cn/api/summary/regionlist.html">地域和可用区列表</a></li>
+<li><strong>Limit</strong> (int) - 文件列表长度</li>
+<li><strong>Offset</strong> (int) - 文件列表起始</li>
+<li><strong>VolumeId</strong> (str) - 文件系统ID</li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>DataSet</strong> (list) - 见 <strong>UFSVolumeInfo2</strong> 模型定义</li>
+<li><strong>TotalCount</strong> (int) - 文件系统总数</li>
+</ul>
+<p><strong>Response Model</strong></p>
+<p><strong>UFSVolumeInfo2</strong></p>
+<ul class="simple">
+<li><strong>CreateTime</strong> (int) - 文件系统创建时间（unix时间戳）</li>
+<li><strong>ExpiredTime</strong> (int) - 文件系统过期时间（unix时间戳）</li>
+<li><strong>IsExpired</strong> (str) - 是否过期</li>
+<li><strong>MaxMountPointNum</strong> (int) - 文件系统允许创建的最大挂载点数目</li>
+<li><strong>ProtocolType</strong> (str) - 文件系统协议，枚举值，NFSv3表示NFS V3协议，NFSv4表示NFS V4协议</li>
+<li><strong>Remark</strong> (str) - 文件系统备注信息</li>
+<li><strong>Size</strong> (int) - 文件系统大小，单位GB</li>
+<li><strong>StorageType</strong> (str) - 文件系统存储类型，枚举值，Basic表示容量型，Advanced表示性能型</li>
+<li><strong>Tag</strong> (str) - 文件系统所属业务组</li>
+<li><strong>TotalMountPointNum</strong> (int) - 当前文件系统已创建的挂载点数目</li>
+<li><strong>UsedSize</strong> (int) - 文件系统当前使用容量，单位GB</li>
+<li><strong>VolumeId</strong> (str) - 文件系统ID</li>
+<li><strong>VolumeName</strong> (str) - 文件系统名称</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.ufs.client.UFSClient.extend_ufs_volume">
+<code class="descname">extend_ufs_volume</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/ufs/client.html#UFSClient.extend_ufs_volume"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.ufs.client.UFSClient.extend_ufs_volume" title="Permalink to this definition">¶</a></dt>
+<dd><p>ExtendUFSVolume - 文件系统扩容</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>ProjectId</strong> (str) - (Config) 项目ID。不填写为默认项目，子帐号必须填写。 请参考 <a class="reference external" href="https://docs.ucloud.cn/api/summary/get_project_list.html">GetProjectList接口</a></li>
+<li><strong>Region</strong> (str) - (Config) 地域。 参见  <a class="reference external" href="https://docs.ucloud.cn/api/summary/regionlist.html">地域和可用区列表</a></li>
+<li><strong>Size</strong> (int) - (Required) 文件系统大小，单位为GB，最大不超过20T，香港容量型必须为100的整数倍，Size最小为500GB，北京，上海，广州的容量型必须为1024的整数倍，Size最小为1024GB。性能型文件系统Size最小为100GB</li>
+<li><strong>VolumeId</strong> (str) - (Required) 文件系统ID</li>
+</ul>
+<p><strong>Response</strong></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.ufs.client.UFSClient.remove_ufs_volume">
+<code class="descname">remove_ufs_volume</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/ufs/client.html#UFSClient.remove_ufs_volume"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.ufs.client.UFSClient.remove_ufs_volume" title="Permalink to this definition">¶</a></dt>
+<dd><p>RemoveUFSVolume - 删除UFS文件系统</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>ProjectId</strong> (str) - (Config) 项目ID。不填写为默认项目，子帐号必须填写。 请参考 <a class="reference external" href="https://docs.ucloud.cn/api/summary/get_project_list.html">GetProjectList接口</a></li>
+<li><strong>Region</strong> (str) - (Config) 地域。 参见  <a class="reference external" href="https://docs.ucloud.cn/api/summary/regionlist.html">地域和可用区列表</a></li>
+<li><strong>VolumeId</strong> (str) - (Required) 文件系统ID</li>
+</ul>
+<p><strong>Response</strong></p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="uhub">
+<h2>UHub<a class="headerlink" href="#uhub" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="ucloud.services.uhub.client.UHubClient">
+<em class="property">class </em><code class="descclassname">ucloud.services.uhub.client.</code><code class="descname">UHubClient</code><span class="sig-paren">(</span><em>config</em>, <em>transport=None</em>, <em>middleware=None</em>, <em>logger=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/uhub/client.html#UHubClient"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.uhub.client.UHubClient" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="ucloud.services.uhub.client.UHubClient.create_repo">
+<code class="descname">create_repo</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/uhub/client.html#UHubClient.create_repo"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.uhub.client.UHubClient.create_repo" title="Permalink to this definition">¶</a></dt>
+<dd><p>CreateRepo - 创建镜像仓库</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>ProjectId</strong> (str) - (Config) 项目ID。不填写为默认项目，子帐号必须填写。 请参考 <a class="reference external" href="https://docs.ucloud.cn/api/summary/get_project_list.html">GetProjectList接口</a></li>
+<li><strong>RepoName</strong> (str) - (Required) 仓库名称，不可修改</li>
+<li><strong>Description</strong> (str) - 仓库备注</li>
+<li><strong>IsShared</strong> (bool) - 镜像仓库是否公开，公开为true、不公开为false;默认为false</li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>Message</strong> (str) - 有错误时返回内容</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.uhub.client.UHubClient.delete_repo">
+<code class="descname">delete_repo</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/uhub/client.html#UHubClient.delete_repo"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.uhub.client.UHubClient.delete_repo" title="Permalink to this definition">¶</a></dt>
+<dd><p>DeleteRepo - 删除镜像仓库</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>ProjectId</strong> (str) - (Config) 项目ID。不填写为默认项目，子帐号必须填写。 请参考 <a class="reference external" href="https://docs.ucloud.cn/api/summary/get_project_list.html">GetProjectList接口</a></li>
+<li><strong>RepoName</strong> (str) - (Required) 镜像仓库名称</li>
+</ul>
+<p><strong>Response</strong></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.uhub.client.UHubClient.delete_repo_image">
+<code class="descname">delete_repo_image</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/uhub/client.html#UHubClient.delete_repo_image"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.uhub.client.UHubClient.delete_repo_image" title="Permalink to this definition">¶</a></dt>
+<dd><p>DeleteRepoImage - 删除镜像</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>ProjectId</strong> (str) - (Config) 项目ID。不填写为默认项目，子帐号必须填写。 请参考 <a class="reference external" href="https://docs.ucloud.cn/api/summary/get_project_list.html">GetProjectList接口</a></li>
+<li><strong>ImageName</strong> (str) - (Required) 镜像名称</li>
+<li><strong>RepoName</strong> (str) - (Required) 镜像仓库名称</li>
+<li><strong>TagName</strong> (str) - 不指定tag则删除全部tag</li>
+</ul>
+<p><strong>Response</strong></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.uhub.client.UHubClient.get_image_tag">
+<code class="descname">get_image_tag</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/uhub/client.html#UHubClient.get_image_tag"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.uhub.client.UHubClient.get_image_tag" title="Permalink to this definition">¶</a></dt>
+<dd><p>GetImageTag - 获取镜像tag</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>ProjectId</strong> (str) - (Config) 项目ID。不填写为默认项目，子帐号必须填写。 请参考 <a class="reference external" href="https://docs.ucloud.cn/api/summary/get_project_list.html">GetProjectList接口</a></li>
+<li><strong>ImageName</strong> (str) - (Required) 镜像名称</li>
+<li><strong>RepoName</strong> (str) - (Required) 镜像仓库名称</li>
+<li><strong>Limit</strong> (int) - 每次获取数量，默认为20</li>
+<li><strong>Offset</strong> (int) - 偏移量，默认0</li>
+<li><strong>TagName</strong> (str) - 默认不写，如果填写，代表查询该tag，否则查全部tag</li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>TagSet</strong> (list) - 见 <strong>TagSet</strong> 模型定义</li>
+<li><strong>TotalCount</strong> (int) - tag总数</li>
+</ul>
+<p><strong>Response Model</strong></p>
+<p><strong>TagSet</strong></p>
+<ul class="simple">
+<li><strong>TagName</strong> (str) - Tag名称</li>
+<li><strong>UpdateTime</strong> (str) - 镜像更新时间</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.uhub.client.UHubClient.get_repo">
+<code class="descname">get_repo</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/uhub/client.html#UHubClient.get_repo"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.uhub.client.UHubClient.get_repo" title="Permalink to this definition">¶</a></dt>
+<dd><p>GetRepo - 获取镜像仓库</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>ProjectId</strong> (str) - (Config) 项目ID。不填写为默认项目，子帐号必须填写。 请参考 <a class="reference external" href="https://docs.ucloud.cn/api/summary/get_project_list.html">GetProjectList接口</a></li>
+<li><strong>Limit</strong> (int) - 数量，默认20</li>
+<li><strong>Offset</strong> (int) - 偏移量，默认0</li>
+<li><strong>Type</strong> (str) - private私有仓库，public公共仓库，默认public</li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>RepoSet</strong> (list) - 见 <strong>RepoSet</strong> 模型定义</li>
+<li><strong>TotalCount</strong> (int) - 总的仓库数量</li>
+</ul>
+<p><strong>Response Model</strong></p>
+<p><strong>RepoSet</strong></p>
+<ul class="simple">
+<li><strong>CreateTime</strong> (str) - 仓库创建时间</li>
+<li><strong>Description</strong> (str) - 镜像仓库描述</li>
+<li><strong>IsOutSide</strong> (str) - 镜像仓库是否外网可以访问，可以为ture,不可以为false</li>
+<li><strong>IsShared</strong> (str) - 镜像仓库类型,false为私有；true为公有</li>
+<li><strong>RepoName</strong> (str) - 镜像仓库名称</li>
+<li><strong>UpdateTime</strong> (str) - 仓库更新时间</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.uhub.client.UHubClient.get_repo_image">
+<code class="descname">get_repo_image</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/uhub/client.html#UHubClient.get_repo_image"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.uhub.client.UHubClient.get_repo_image" title="Permalink to this definition">¶</a></dt>
+<dd><p>GetRepoImage - 获取镜像仓库下的镜像</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>ProjectId</strong> (str) - (Config) 项目ID。不填写为默认项目，子帐号必须填写。 请参考 <a class="reference external" href="https://docs.ucloud.cn/api/summary/get_project_list.html">GetProjectList接口</a></li>
+<li><strong>RepoName</strong> (str) - (Required) 镜像仓库名称</li>
+<li><strong>Limit</strong> (int) - 显示数量，默认为20</li>
+<li><strong>Offset</strong> (int) - 偏移量，默认0</li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>ImageSet</strong> (list) - 见 <strong>ImageSet</strong> 模型定义</li>
+<li><strong>TotalCount</strong> (int) -</li>
+</ul>
+<p><strong>Response Model</strong></p>
+<p><strong>ImageSet</strong></p>
+<ul class="simple">
+<li><strong>CreateTime</strong> (str) - 创建时间</li>
+<li><strong>ImageName</strong> (str) - 镜像名称</li>
+<li><strong>LatestTag</strong> (str) - 最新push的Tag</li>
+<li><strong>PullCount</strong> (int) - 镜像被下载次数</li>
+<li><strong>RepoName</strong> (str) - 镜像仓库名称</li>
+<li><strong>UpdateTime</strong> (str) - 修改时间</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ucloud.services.uhub.client.UHubClient.update_repo">
+<code class="descname">update_repo</code><span class="sig-paren">(</span><em>req=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ucloud/services/uhub/client.html#UHubClient.update_repo"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ucloud.services.uhub.client.UHubClient.update_repo" title="Permalink to this definition">¶</a></dt>
+<dd><p>UpdateRepo - 更新镜像仓库</p>
+<p><strong>Request</strong></p>
+<ul class="simple">
+<li><strong>ProjectId</strong> (str) - (Config) 项目ID。不填写为默认项目，子帐号必须填写。 请参考 <a class="reference external" href="https://docs.ucloud.cn/api/summary/get_project_list.html">GetProjectList接口</a></li>
+<li><strong>RepoName</strong> (str) - (Required) 镜像仓库名称，不可修改</li>
+<li><strong>Description</strong> (str) - 备注</li>
+<li><strong>IsShared</strong> (str) - false设置为私有；true设置为公有。默认false</li>
+</ul>
+<p><strong>Response</strong></p>
+<ul class="simple">
+<li><strong>Message</strong> (str) - 错误的时候返回</li>
 </ul>
 </dd></dl>
 
